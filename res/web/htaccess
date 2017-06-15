@@ -1,0 +1,13 @@
+
+#AddType application/application/manifest+json manifest.json
+AddType application/font-woff .woff
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-opentype .otf
+AddType application/x-font-ttf .ttf
+AddType font/ttf .ttf
+AddType image/svg+xml .svg
+
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*)/?$ index.php?$1 [L]

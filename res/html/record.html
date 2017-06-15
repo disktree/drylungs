@@ -1,0 +1,57 @@
+<div class="record">
+
+    <div class="id">::id::</div>
+
+    <div class="info">
+
+        <div class="title">::title::</div>
+        ::if artists::<ul class="artists">::foreach artists::<li class="artist">::__current__::</li>::end::</ul>::end::
+
+        ::if description::<div class="description">::description::</div>::end::
+
+        ::if notes::<div class="notes">::notes::</div>::end::
+
+    </div>
+
+    <div class="cover">
+        <img class="cover" src="/image/::id::.jpg"/>
+    </div>
+
+    <!--
+        <div class="format">::format::"</div>
+        ::if notes::<div class="notes">::notes::</div>::end::
+
+    <img class="cover" src="/image/::id::.jpg"/>
+-->
+
+        <!--
+        ::if tracks::
+        <ol>::foreach tracks::<li class="track">::title::</li>::end::</ol>
+        ::end::
+        -->
+
+
+    <!--
+    <div class="info">
+
+        <div class="title">::title::</div>
+        <time datetime="::date::">::date::</time>
+        <div class="format">::format::</div>
+        ::if description::<div class="description">::description::</div>::end::
+        ::if notes::<div class="notes">::notes::</div>::end::
+
+        ::if tracks::
+        <ol class="tracks">
+            ::foreach tracks::<li class="track">
+                <div class="title">::title::</div>
+                <div class="duration">::duration::</div>
+            </li>::end::
+        </ol>
+        ::end::
+
+        <img class="cover" src="/image/::id::.jpg"/>
+
+    </div>
+    -->
+
+</div>

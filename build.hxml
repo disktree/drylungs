@@ -1,0 +1,18 @@
+-lib om.core
+-cp src
+-debug
+#--no-traces
+--each
+
+--next
+-php bin/
+-main drylungs.Web
+-lib om.io
+-lib om.format
+-lib markdown
+-lib record-macros
+--macro Build.website()
+
+--next
+-js bin/drylungs.js
+-main drylungs.App

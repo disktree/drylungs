@@ -1,0 +1,340 @@
+
+@background-color: #141414;//#101010;
+@text-color: #909090;
+@text-color-highlight: #e0e0e0;
+
+@font-family-ascii: 'MicroKnight';
+@font-family-ascii-plus: 'P0T';
+@font-size-ascii: 16px;
+
+//------------------------------------------------------------------------------
+
+@font-face {
+    font-family: Helvetica;
+    src: url('font/Helvetica Neue 55 Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Anonymous;
+    src: url('font/Anonymous Pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: MicroKnight;
+    src: url('font/MicroKnight_v1.0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: P0T;
+    src: url('font/P0T-NOoDLE_v1.0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url("font/MaterialIcons-Regular.ttf") format('truetype');
+  /*
+  src: url("font/MaterialIcons-Regular.eot");
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url("font/MaterialIcons-Regular.woff2") format('woff2'),
+       url("font/MaterialIcons-Regular.woff") format('woff'),
+       url("font/MaterialIcons-Regular.ttf") format('truetype');
+       */
+}
+
+.material-icons {
+
+    position: relative;
+    top: 2px;
+
+    display: inline-block;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    -webkit-font-smoothing: antialiased; // WebKit
+    text-rendering: optimizeLegibility; // Safari,Chrome
+    -moz-osx-font-smoothing: grayscale; // Firefox
+    font-feature-settings: 'liga'; // IE
+}
+
+//------------------------------------------------------------------------------
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+html, body, input, textarea, buttons {
+    //-webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
+    //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+body {
+
+    padding: 0;
+    min-width: 300px;
+    overflow-x: hidden;
+
+    //font-family: 'DIN';
+    font-family: 'Anonymous';
+    font-size: 13px;
+
+    background-color: @background-color;
+    color: @text-color;
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a {
+
+    text-decoration: none;
+
+    background-color: transparent;
+    color: @text-color;
+
+    &:active,
+    &:hover {
+    	outline: 0;
+    }
+}
+
+ol, ul {
+    list-style: none;
+    list-style-type: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+	//overflow: auto;
+}
+
+::selection {
+    background: #141414;
+    color: #f0f0f0;
+    //color: @background-color;
+}
+
+//------------------------------------------------------------------------------
+
+@scrollbar-thick: 10px;
+
+::-webkit-scrollbar {
+	border: none;
+    &:vertical {
+		width: @scrollbar-thick;
+	}
+    &:horizontal {
+		height: @scrollbar-thick;
+	}
+}
+::-webkit-scrollbar-track-piece {}
+::-webkit-scrollbar-button {}
+::-webkit-scrollbar-corner {}
+::-webkit-scrollbar-thumb {
+	background: @text-color;
+	border-radius: @scrollbar-thick/2;
+    &:hover {
+        background: @text-color-highlight;
+    }
+}
+::-webkit-scrollbar-corner {
+	display: none;
+}
+
+//------------------------------------------------------------------------------
+
+nav {
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    padding: 5px 4px 5px 5px;
+
+    text-transform: uppercase;
+    cursor: default;
+
+    //background: #00ff00;
+    background: @background-color;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    z-index: 1000;
+
+    //box-shadow: 6px 6px 20px rgba(0,0,0,0.2);
+
+    div {
+        display: inline-block;
+        color: @text-color-highlight;
+    }
+}
+
+main {
+
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    p {
+        padding: 0px 0 10px 0;
+    }
+}
+
+
+main.start {
+
+    padding-top: 100px;
+
+    pre.ascii {
+
+        display: table;
+        margin: 0 auto 0 auto;
+
+        font-family: @font-family-ascii;
+        font-size: 16px;
+
+        p {
+            display: inline;
+            font-family: @font-family-ascii-plus;
+        }
+    }
+}
+
+main ol.records {
+
+    @media screen and (max-width: 3900px) { li { width: calc(100% / 13); } }
+    @media screen and (max-width: 3600px) { li { width: calc(100% / 12); } }
+    @media screen and (max-width: 3300px) { li { width: calc(100% / 11); } }
+    @media screen and (max-width: 3000px) { li { width: calc(100% / 10); } }
+    @media screen and (max-width: 2700px) { li { width: calc(100% / 9); } }
+    @media screen and (max-width: 2400px) { li { width: calc(100% / 8); } }
+    @media screen and (max-width: 2100px) { li { width: calc(100% / 7); } }
+    @media screen and (max-width: 1800px) { li { width: calc(100% / 6); } }
+    @media screen and (max-width: 1500px) { li { width: calc(100% / 5); } }
+    @media screen and (max-width: 1200px) { li { width: calc(100% / 4); } }
+    @media screen and (max-width: 900px) { li { width: calc(100% / 3); } }
+    @media screen and (max-width: 600px) { li { width: calc(100% / 2); } }
+    @media screen and (max-width: 300px)  { li { width: 100%; } }
+
+    li.record {
+
+        position: relative;
+        float: left;
+
+        img.cover {
+
+            width: 100%;
+            height: 100%;
+
+            filter:
+                brightness(50%)
+                grayscale(90%)
+                sepia(20%);
+            transition: filter 0.032s;
+            &:hover {
+                filter: none; //grayscale(0%) opacity(100%);
+            }
+        }
+    }
+}
+
+main.record div.record {
+
+    margin: 0px 0px 0px 0px;
+
+    .id {
+
+        margin-left: -4px;
+        height: 60px;
+
+        font-family: Helvetica;
+        font-size: 60px;
+        letter-spacing: -4px;
+
+        cursor: default;
+    }
+
+    .info {
+
+        margin: 0px 0px 14px 0px;
+
+        .title {
+            display: inline-block;
+        }
+
+        ul.artists {
+
+            display: inline-block;
+
+            &:before {
+                content: "-";
+                padding: 0px 4px 0px 0px;
+            }
+
+            li.artist {
+                display: inline-block;
+                &:not(:last-child)::after {
+                    content: "+";
+                    padding: 0px 2px 0px 2px;
+                }
+            }
+        }
+
+        .notes {
+            margin: 10px 0px 0px 0px;
+            //opacity: 0.7;
+        }
+    }
+
+    div.cover {
+
+        img.cover {
+
+            border: 1px solid @text-color;
+
+            width: 100%;
+            max-width: 800px;
+
+            pointer-events: none;
+            -webkit-user-select: none;
+        }
+    }
+}
+
+footer {
+    display: none;
+}
