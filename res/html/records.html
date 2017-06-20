@@ -1,7 +1,13 @@
 <ol class="records">
     ::foreach records::<li class="record">
         <a href="records/::id::" title="::id::">
-            <img class="cover" src="/image/::id::.jpg" alt="::id:: cover"/>
+            <!--
+            <img class="cover" src="/image/::id::.jpg" alt="::id:: cover"></img>
+            -->
+            <div class="id">::id::</div>
+            ::if artists::<ul class="artists">::foreach artists::<li class="artist">::__current__::</li>::end::</ul>::end::
+            <div class="title">::title::</div>
+
         </a>
     </li>::end::
 </ol>
