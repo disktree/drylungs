@@ -1,5 +1,5 @@
 
-@background-color: rgba(20,20,20,1.0); //#141414;
+@background-color: rgba(20,20,20,1.0);
 @text-color: #909090;
 @text-color-highlight: #e0e0e0;
 
@@ -74,6 +74,14 @@
 
 //------------------------------------------------------------------------------
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+//------------------------------------------------------------------------------
+
+
 *, *:before, *:after {
     margin: 0;
     padding: 0;
@@ -98,11 +106,9 @@ body {
     min-width: 300px;
     overflow-x: hidden;
 
-    //font-family: 'DIN';
-    font-family: 'Anon';
+    font-family: Anon;
     font-size: 11px;
 
-    //font-smooth: never;
     -webkit-font-smoothing : none;
 
     background-color: @background-color;
@@ -113,11 +119,9 @@ body {
 
 a {
 
-    //padding: 0;
-    //margin: 0;
-    border: none;
-
     text-decoration: none;
+
+    border: none;
 
     background-color: transparent;
     color: @text-color;
@@ -129,8 +133,8 @@ a {
 }
 
 ol, ul {
-    list-style: none;
-    list-style-type: none;
+    //list-style: none;
+    //list-style-type: none;
 }
 
 li {
@@ -150,9 +154,8 @@ pre {
 }
 
 ::selection {
-    background: #141414;
-    color: #f0f0f0;
-    //color: @background-color;
+    background: @text-color;
+    color: #000;
 }
 
 //------------------------------------------------------------------------------
@@ -195,7 +198,6 @@ nav {
     text-transform: uppercase;
     cursor: default;
 
-    //background: #00ff00;
     background: @background-color;
 
     user-select: none;
@@ -203,7 +205,7 @@ nav {
 
     z-index: 1000;
 
-    box-shadow: 10px 10px 20px rgba(20,20,20,0.9);
+    box-shadow: 8px 6px 24px rgba(20,20,20,0.9);
 
     a, div {
 
@@ -211,7 +213,7 @@ nav {
 
         &:not(:first-child)::before {
             content: "|";
-            padding: 0px 4px 0px 0px;
+            padding: 0px 5px 0px 0px;
         }
     }
 
@@ -227,37 +229,98 @@ nav {
 
 main {
 
-    display: table;
-    width: 100%;
-    height: 100%;
-
-    padding-top: 60px;
-    padding-left: 30px;
-    padding-right: 100px;
-    //padding-bottom: 10px;
+    padding: 60px 0 0 40px;
 
     p {
         padding: 0px 0 10px 0;
     }
+}
 
-    &.start {
+main.start {
 
-        padding-top: 100px;
+    padding-top: 100px;
 
-        pre.ascii {
+    animation: fadeIn 0.1s forwards;
+
+    pre.ascii {
+
+        display: table;
+        margin: 0 auto 0 auto;
+
+        font-family: @font-family-ascii;
+        font-size: 16px;
+
+        p {
+            display: inline;
+            font-family: @font-family-ascii-plus;
+        }
+    }
+}
+
+main.records {
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    ol.records {
+
+        list-style: none;
+
+        li.record {
 
             display: table;
-            margin: 0 auto 0 auto;
+            padding: 0px 0px 24px 0px;
+            //line-height: 0;
 
-            font-family: @font-family-ascii;
-            font-size: 16px;
+            a:hover {
+                color: @text-color-highlight;
+                transition: 0.04s;
+            }
 
-            p {
-                display: inline;
-                font-family: @font-family-ascii-plus;
+            img.cover {
+                width: 60px;
+                float: left;
+            }
+
+            .id {
+
+                margin-left: -5px;
+                height: 48px;
+
+                font-family: Helvetica;
+                font-size: 60px;
+                letter-spacing: -4px;
+            }
+
+            .title, ul.artists,  {
+                transition: 0.5s;
+            }
+
+            .title {
+                display: inline-block;
+                transition: 1.5s;
+            }
+            ul.artists {
+                display: inline-block;
+
+                &:after {
+                    content: "|";
+                    margin: 0;
+                    padding: 0px 0px 0px 5px;
+                }
+
+                li.artist {
+                    display: inline-block;
+                    &:not(:last-child)::after {
+                        content: "+";
+                        padding: 0px 2px 0px 2px;
+                    }
+                }
             }
         }
     }
+}
+
 
     /*
     &.records {
@@ -311,138 +374,91 @@ main {
     }
     */
 
-    &.records {
+main.record {
 
-        ol.records {
+    div.record {
 
-            li.record {
+        margin: 0px 0px 40px 0px;
 
-                //line-height: 0;
-                padding: 0px 0px 24px 0px;
+        .id {
 
-                a:hover {
-                    color: #f0f0f0;
+            margin-left: -4px;
+            height: 60px;
+
+            font-family: Helvetica;
+            font-size: 60px;
+            letter-spacing: -4px;
+
+            cursor: default;
+        }
+
+        .info {
+
+            margin: 0px 0px 14px 0px;
+
+            .title {
+                display: inline-block;
+            }
+
+            ul.artists {
+
+                display: inline-block;
+
+                &:after {
+                    content: "-";
+                    padding: 0px 0px 0px 5px;
                 }
 
-                img.cover {
-                    width: 60px;
-                    float: left;
-                    //border: 1px solid
-                    //width: 100%;
-                    //height: 100%;
-                }
-
-                .id {
-
-                    ///display: inline-block;
-                    //float: left;
-
-                    margin-left: -5px;
-                    height: 48px;
-
-                    font-family: Helvetica;
-                    font-size: 60px;
-                    letter-spacing: -4px;
-                }
-
-                .title {
+                li.artist {
                     display: inline-block;
-                    //float: left;
-                }
-
-                ul.artists {
-
-                    display: inline-block;
-
-                    &:after {
-                        content: "|";
-                        padding: 0px 0px 0px 6px;
-                    }
-
-                    li.artist {
-                        display: inline-block;
-                        &:not(:last-child)::after {
-                            content: "+";
-                            padding: 0px 2px 0px 2px;
-                        }
+                    &:not(:last-child)::after {
+                        content: "+";
+                        padding: 0px 2px 0px 2px;
                     }
                 }
+            }
 
+            .format {
+                display: inline-block;
+                &::before {
+                    content: '-';
+                    padding: 0px 6px 0px 0px;
+                }
+            }
+
+            .description {
+            }
+
+            .notes {
+                margin: 10px 0px 0px 0px;
+            }
+        }
+
+        div.cover {
+
+            img.cover {
+
+                border: 1px solid @text-color;
+
+                width: 100%;
+                max-width: 800px;
+
+                pointer-events: none;
+                -webkit-user-select: none;
             }
         }
     }
+}
 
-    &.record {
+main.about, main.mailorder {
 
-        div.record {
+    margin-right: 100px;
 
-            //margin: 20px 10px 50px 50px;
-            margin: 0px 0px 40px 0px;
-
-            .id {
-
-                margin-left: -4px;
-                height: 60px;
-
-                font-family: Helvetica;
-                font-size: 60px;
-                letter-spacing: -4px;
-
-                cursor: default;
-            }
-
-            .info {
-
-                margin: 0px 0px 14px 0px;
-
-                .title {
-                    display: inline-block;
-                }
-
-                ul.artists {
-
-                    display: inline-block;
-
-                    &:before {
-                        content: "-";
-                        padding: 0px 4px 0px 0px;
-                    }
-
-                    li.artist {
-                        display: inline-block;
-                        &:not(:last-child)::after {
-                            content: "+";
-                            padding: 0px 2px 0px 2px;
-                        }
-                    }
-                }
-
-                .notes {
-                    margin: 10px 0px 0px 0px;
-                    //opacity: 0.7;
-                }
-            }
-
-            div.cover {
-
-                img.cover {
-
-                    border: 1px solid @text-color;
-
-                    width: 100%;
-                    max-width: 800px;
-
-                    pointer-events: none;
-                    -webkit-user-select: none;
-                }
-            }
-        }
+    ol, ul {
+        margin-top: 5px;
+        margin-left: 20px;
+        margin-bottom: 20px;
     }
-
-    &.about, &.mailorder {
-        //padding-right: 100px;
-    }
-
 }
 
 footer {
