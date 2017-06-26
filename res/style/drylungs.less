@@ -205,7 +205,7 @@ nav {
 
     z-index: 1000;
 
-    box-shadow: 8px 6px 24px rgba(20,20,20,0.9);
+    box-shadow: 8px 6px 28px rgba(20,20,20,1);
 
     a, div {
 
@@ -228,12 +228,6 @@ nav {
 }
 
 main {
-
-    padding: 60px 0 0 40px;
-
-    p {
-        padding: 0px 0 10px 0;
-    }
 }
 
 main.start {
@@ -292,14 +286,23 @@ main.records {
                 letter-spacing: -4px;
             }
 
-            .title, ul.artists,  {
+            ul.artists, .title, .format  {
                 transition: 0.5s;
             }
 
             .title {
                 display: inline-block;
                 transition: 1.5s;
+                &:after {
+                    content: "|";
+                    padding: 0px 0px 0px 8px;
+                }
             }
+
+            .format {
+                display: inline-block;
+            }
+
             ul.artists {
                 display: inline-block;
 
@@ -383,7 +386,7 @@ main.record {
         .id {
 
             margin-left: -4px;
-            height: 60px;
+            height: 48px;
 
             font-family: Helvetica;
             font-size: 60px;
@@ -405,7 +408,7 @@ main.record {
                 display: inline-block;
 
                 &:after {
-                    content: "-";
+                    content: "|";
                     padding: 0px 0px 0px 5px;
                 }
 
@@ -421,7 +424,7 @@ main.record {
             .format {
                 display: inline-block;
                 &::before {
-                    content: '-';
+                    content: '|';
                     padding: 0px 6px 0px 0px;
                 }
             }
@@ -435,6 +438,8 @@ main.record {
         }
 
         div.cover {
+
+            padding-top: 8px;
 
             img.cover {
 
@@ -452,7 +457,7 @@ main.record {
 
 main.about, main.mailorder {
 
-    margin-right: 100px;
+    margin-right: 20px;
 
     ol, ul {
         margin-top: 5px;

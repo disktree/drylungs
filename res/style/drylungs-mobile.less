@@ -1,0 +1,30 @@
+
+@import 'drylungs';
+
+body {
+    -webkit-tap-highlight-color: @text-color-highlight;
+}
+
+nav {
+
+    right: 0px;
+
+    a, div {
+
+        //padding: 4px;
+
+        &:not(:first-child)::before {
+            content: "|";
+            padding: 0px 5px 0px 0px;
+        }
+    }
+}
+
+main {
+
+    padding: 40px 16px 20px 16px;
+
+    p {
+        padding: 0px 0 10px 0;
+    }
+}
