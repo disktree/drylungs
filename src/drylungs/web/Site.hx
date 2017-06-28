@@ -16,7 +16,7 @@ class Site {
 
         if( id.length == 0 ) id = 'start';
 
-        var dir = 'content/site';
+        var dir = Web.CONTENT + '/site';
         var path = '$dir/$id';
         var extension : String = null;
         for( ext in ['md','html'] ) {
@@ -43,8 +43,24 @@ class Site {
         Web.context.content = content;
         Web.context.site = id;
 
-        var html = new Template( Resource.getString( 'site' ) ).execute( Web.context );
-        Sys.print( html );
+        print( Web.context );
+    }
+
+    public static inline function getTemplate( file : String ) : Template {
+        return new Template( File.getContent( 'tpl/' + file ) );
+    }
+
+    public static inline function executeTemplate( file : String, ?context : Dynamic ) : String {
+        if( context == null ) context = Web.context;
+        return getTemplate( file ).execute( context );
+    }
+
+    public static inline function printTemplate( file : String, ?context : Dynamic ) {
+        Sys.print( executeTemplate( file, context ) );
+    }
+
+    public static inline function print( ?context : Dynamic ) {
+        Sys.print( executeTemplate( 'site.html', context ) );
     }
 
     /*

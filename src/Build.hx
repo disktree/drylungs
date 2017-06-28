@@ -19,6 +19,7 @@ class Build {
 
 	static function website() {
 
+		/*
 		for( f in readDirectory( 'res/html' ) ) {
 			if( f.startsWith( '_' ) )
 				continue;
@@ -28,6 +29,7 @@ class Build {
 
 		addResource( 'atom', File.getBytes( 'res/web/atom.xml' ) );
 		//addResource( 'rss', File.getBytes( 'res/web/rss.xml' ) );
+		*/
 
 		Context.onAfterGenerate( function() {
 

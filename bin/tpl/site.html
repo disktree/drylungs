@@ -47,11 +47,13 @@
 			<!--
 			::if (site=="news")::<div>news</div>::else::<a href="/news">news</a>::end::
 			<a href="/feed" target="_blank" title="atom.xml"><i class="material-icons">rss_feed</i></a>
+			<a href="/twitter"><i class="material-icons">twitter</i></a>
 			-->
 			::if (site=="start")::<div>drylungs</div>::else::<a href="/">drylungs</a>::end::
 			::if (site=="records")::<div>records</div>::else::<a href="/records">records</a>::end::
 			::if (site=="about")::<div>about</div>::else::<a href="/about">about</a>::end::
 			::if (site=="mailorder")::<div>mailorder</div>::else::<a href="/mailorder">mailorder</a>::end::
+			<a href="/twitter">twitter</a>
 		</nav>
 
 		<main class="::site::">	::content::</main>
