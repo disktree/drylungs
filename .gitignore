@@ -1,4 +1,5 @@
 _*
 *.zip
 bin/*
-!bin/content/*
+!bin/content/
+!bin/tpl/
