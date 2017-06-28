@@ -1,0 +1,13 @@
+{
+    "index": 7,
+    "title": "Snell b/w Weather",
+    "date": "2015-06-01",
+    "artists": ["Sissy Spacek"],
+    "format": "7",
+    "description": "",
+    "notes": "Recorded December 31st 2014 in Hill Street, Los Angeles.<br>Limited to 300 black plates with a big center hole (1c printed labels).",
+    "tracks": [
+        { "title": "Snell", "duration": "03:58" },
+        { "title": "Weather", "duration": "03:58" }
+    ]
+}

@@ -1,0 +1,157 @@
+<div class="start">
+    <pre class="ascii">                    ._:                               :_.
+                     \|                               |/
+                   - -|---  -                   -  ---|- -
+       ______ ________|\      <p>DRY LUNGS RECORDS</p>      /|________ ______
+    _._\     \\       :.__                         .  :       //     /_ _
+  __ | \ _ ____/\ _ ___|_ \ _  _ /\_. __ __ .__ _ __ ._/\ _ ______ _ ____/\
+_/  \|  \_/   __ \_/    /  \   _/   |  _/  \|  \_/  \|   \_/  .   \_/  _   \
+\__ _\   \_  _|/  \__ _/    \_ \__  |__\_   \   \_   \    \__ |____\_  |____\
+_/  \|  __/  \    __/ \|   __/ _/   | __/  _/  __/  \    __/  \_  __/____   \_
+\_   \   \_   \    \____    \_ \_   :  \_  \|   \_   \    \_  |/   \_  |/    /
+ /________//__|\  __/ /______/  /_______//_____  //__|\____//_____  //____  /
+      \/    :    \/                                   :    .__    \/      \/
+  _ _____/\ _ ________:_ ____/\ _ _______ _ _____/\ _ :___ |  \ _ _____/\ _
+  _/   __  \_/   __   \_/   _  \_/   __  \_/   __  \_/    \|   \_/   _   \
+  \_  _|/   \__  |/    \_   |___\_   |/   \_  _|/   \___  _\    \_   |____\
+_ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
+\\\_   \     \_        \_   :   \_        \_   \     \_    \    \_   |/    ///
+   /___|\  ___//______  //_______//________//__|\  ___//_________//_____  /
+    _ _ _\/   _       \/                                   \/ _      _ _\/
+        /_____\\______:_. <p>AUSTRiAN DiY RECORD LABEL</p> ._:______//______\
+                      |/                             \|
+                   - -|---        <p>EST. 2010</p>        ---|- -
+                     /|                               |\
+                    . :                               : .</pre>
+</div>
+
+<!--
+<a class="twitter-timeline" href="https://twitter.com/DryLungsRecords ">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
+
+<!--
+
+<canvas class="intro"></canvas>
+
+<style media="screen">
+    header {
+        position: fixed;
+        z-index: 1;
+    }
+    canvas {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        pointer-events: none;
+        z-index: -2;
+    }
+</style>
+
+<script src="script/three.min.js" async></script>
+<script>
+
+    var canvas, renderer, scene, camera, mesh;
+
+    function update(time) {
+
+        window.requestAnimationFrame( update );
+
+        //mesh.rotation.x += 0.01;
+	//	mesh.rotation.y += 0.02;
+	//	mesh.rotation.z += 0.03;
+
+		renderer.render( scene, camera );
+    }
+
+    function fitWindow() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        renderer.setSize( canvas.width, canvas.height );
+        camera.aspect = canvas.width / canvas.height;
+        camera.updateProjectionMatrix();
+    }
+
+    window.onload = function(){
+
+        canvas = document.querySelector( 'canvas.intro' );
+
+        renderer = new THREE.WebGLRenderer( {
+            canvas: canvas,
+            antialias : false,
+            alpha: true
+        } );
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setClearColor( 0x000000, 0 );
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.01, 100 );
+        camera.position.set( 0, 3, 5 );
+        camera.lookAt( scene.position );
+        scene.add( camera );
+
+        var lights = [];
+		lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+		lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+		lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+
+		lights[ 0 ].position.set( 0, 200, 0 );
+		lights[ 1 ].position.set( 100, 200, 100 );
+		lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+		scene.add( lights[ 0 ] );
+		scene.add( lights[ 1 ] );
+		scene.add( lights[ 2 ] );
+
+        var loader = new THREE.BufferGeometryLoader();
+    	loader.load( 'model/lungs.json', function(geometry,material){
+
+            console.log(geometry);
+            console.log(material);
+
+            var material = new THREE.MeshPhongMaterial( {
+    					color: 0x1414144,
+    					emissive: 0x101010,
+    					side: THREE.DoubleSide,
+    					shading: THREE.FlatShading } );
+
+            mesh = new THREE.Mesh( geometry, material );
+            mesh.rotation.y = 1;
+            scene.add( mesh );
+
+            fitWindow();
+
+            window.onresize = fitWindow;
+            window.requestAnimationFrame( update );
+        });
+
+        /*
+        var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+        for( var i=0; i<geometry.vertices.length; i++ ) {
+            var vert = geometry.vertices[i];
+            vert.x = Math.random() * vert.x * 3;
+            vert.y = Math.random() * vert.y * 3;
+            vert.z = Math.random() * vert.z * 3;
+        }
+
+        var material = new THREE.MeshPhongMaterial( {
+					color: 0x1414144,
+					emissive: 0x101010,
+					side: THREE.DoubleSide,
+					shading: THREE.FlatShading } );
+
+        mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+
+        fitWindow();
+
+        window.onresize = fitWindow;
+        window.requestAnimationFrame( update );
+        */
+    }
+
+</script>
+-->

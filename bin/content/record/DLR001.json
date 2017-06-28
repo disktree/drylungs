@@ -1,0 +1,12 @@
+{
+    "index": 1,
+    "title": "Live At Fluc Wanne, 2010/05/18",
+    "date": "2010-01-01",
+    "artists": ["Merzbow","Balázs Pándi"],
+    "format": "7",
+    "description": "",
+    "tracks": [
+        { "title": "Untitled", "duration": "23:02" },
+        { "title": "Untitled", "duration": "24:06" }
+    ]
+}

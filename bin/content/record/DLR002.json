@@ -1,0 +1,16 @@
+{
+    "index": 3,
+    "title": "Untitled",
+    "date": "2012-04-01",
+    "artists": ["Justice Yeldham"],
+    "format": "12",
+    "description": "",
+    "notes": "Limited to 300 copies housed in a thick PVC sleeve.",
+    "credits": "Mastered by Rashad Becker",
+    "tracks": [
+        { "title": "180211", "duration": "9:56" },
+        { "title": "Buzzies", "duration": "3:35" },
+        { "title": "Black Knight Cleans Bright", "duration": "8:06" },
+        { "title": "March Of The Bodypumpers", "duration": "4:54" }
+    ]
+}
