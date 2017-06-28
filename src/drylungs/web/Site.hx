@@ -25,14 +25,12 @@ class Site {
             }
         }
 
-        var file = '$id.$extension';
-        var filepath = '$dir/$file';
-        if( !FileSystem.exists( filepath ) ) {
-            Sys.print( "404 - Not Found");
+        if( extension == null ) {
+            Site.printTemplate( '404.html' );
             return;
         }
 
-        var content = File.getContent( filepath );
+        var content = File.getContent( '$dir/$id.$extension' );
         content = new Template( content ).execute( Web.context );
 
         switch extension {

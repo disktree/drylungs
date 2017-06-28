@@ -1,1 +1,43 @@
-<div class="error">404 - Not Found</div>
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+		::if author::<meta name="author" content="::author::">::end::
+		::if color::<meta name="theme-color" content="::color::">::end::
+		::if copyright::<meta name="copyright" content="::copyright::">::end::
+		::if description::<meta name="description" content="::description::">::end::
+		::if keywords::<meta name="keywords" content="::foreach keywords::::__current__::,::end::">::end::
+		::if language::<meta http-equiv="content-language" content="::language::">::end::
+		::if mobile::
+        <meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		::end::
+
+		<title>::title::::if site:: | ::site::::end::</title>
+
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="stylesheet" href="/drylungs-::if mobile::mobile::else::desktop::end::.css">
+		<link type="text/plain" rel="author" href="/humans.txt" />
+
+        <style media="screen">
+            body {
+                background: #d50000;
+                color: #e0e0e0;
+            }
+            h1 {
+                padding: 20px;
+                font-size: 44px;
+            }
+        </style>
+
+	</head>
+
+	<body id="drylungs">
+        <h1>404 - Not Found</h1>
+	</body>
+
+</html>

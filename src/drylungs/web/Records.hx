@@ -27,8 +27,7 @@ typedef Record = {
 
 class Records {
 
-    public function new() {
-    }
+    public function new() {}
 
     public function doDefault( ?id : String ) {
 
@@ -36,25 +35,21 @@ class Records {
 
             var records = getAll();
 
-            var content = new Template( Resource.getString( 'records' ) ).execute( { records: records } );
-
-            Web.context.content = content;
+            Web.context.content = Site.executeTemplate( 'records.html', { records: records } );
             Web.context.site = 'records';
 
-            var html = new Template( Resource.getString( 'site' ) ).execute( Web.context );
-            Sys.print( html );
+            Site.print();
 
         } else {
 
             var record = get( id );
 
-            var content = new Template( Resource.getString( 'record' ) ).execute( record );
+            //if( record == null ) //TODO
 
-            Web.context.content = content;
             Web.context.site = 'record';
+            Web.context.content = Site.executeTemplate( 'record.html', record );
 
-            var html = new Template( Resource.getString( 'site' ) ).execute( Web.context );
-            Sys.print( html );
+            Site.print();
         }
     }
 

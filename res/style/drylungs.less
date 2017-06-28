@@ -195,6 +195,8 @@ nav {
 
     padding: 7px 5px 7px 8px;
 
+    white-space: nowrap;
+
     text-transform: uppercase;
     cursor: default;
 
@@ -205,7 +207,7 @@ nav {
 
     z-index: 1000;
 
-    box-shadow: 8px 6px 28px rgba(20,20,20,1);
+    box-shadow: 8px 6px 28px rgba(20,20,20,0.9);
 
     a, div {
 
@@ -234,7 +236,7 @@ main.start {
 
     padding-top: 100px;
 
-    animation: fadeIn 0.1s forwards;
+    animation: fadeIn 0.2s forwards;
 
     pre.ascii {
 
@@ -242,7 +244,7 @@ main.start {
         margin: 0 auto 0 auto;
 
         font-family: @font-family-ascii;
-        font-size: 16px;
+        font-size: @font-size-ascii;
 
         p {
             display: inline;
