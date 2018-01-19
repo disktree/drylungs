@@ -20,9 +20,10 @@
 -lib hx3compat
 -lib om.io
 #-resource res/html/site.html@site
--resource res/html/error.html@error
 #-resource res/html/main.html@main
 -resource res/html/index.html@index
+-resource res/html/error.html@error
+-resource res/html/start.html@start
 -resource res/web/atom.xml@atom
 -resource res/web/manifest.json@manifest
 -resource res/web/rss.xml@rss
