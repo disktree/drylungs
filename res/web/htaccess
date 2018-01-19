@@ -7,7 +7,9 @@ AddType application/x-font-ttf .ttf
 AddType font/ttf .ttf
 AddType image/svg+xml .svg
 
-RewriteEngine On
+RewriteEngine on
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^(.*)$ index.php [NC,L,QSA]
 RewriteRule ^(.*)/?$ index.php?$1 [L]

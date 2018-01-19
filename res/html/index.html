@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+        <meta name="theme-color" content="::theme::">
+
+        <title>::title::</title>
+
+        <style media="screen">body { display: none; }</style>
+
+        <link rel="stylesheet" href="drylungs-::device::.css">
+
+        <script src="app.js" defer></script>
+
+    </head>
+
+    <body id="drylungs">
+
+        <header>
+
+            <div class="ascii"><span>                    ._:                               :_.
+                     \|                               |/
+                   - -|---  -                   -  ---|- -
+       ______ ________|\      </span><span class="plus">DRY LUNGS RECORDS</span><span>      /|________ ______
+    _._\     \\       :.__                         .  :       //     /_ _
+  __ | \ _ ____/\ _ ___|_ \ _  _ /\_. __ __ .__ _ __ ._/\ _ ______ _ ____/\
+_/  \|  \_/   __ \_/    /  \   _/   |  _/  \|  \_/  \|   \_/  .   \_/  _   \
+\__ _\   \_  _|/  \__ _/    \_ \__  |__\_   \   \_   \    \__ |____\_  |____\
+_/  \|  __/  \    __/ \|   __/ _/   | __/  _/  __/  \    __/  \_  __/____   \_
+\_   \   \_   \    \____    \_ \_   :  \_  \|   \_   \    \_  |/   \_  |/    /
+ /________//__|\  __/ /______/  /_______//_____  //__|\____//_____  //____  /
+      \/    :    \/                                   :    .__    \/      \/
+  _ _____/\ _ ________:_ ____/\ _ _______ _ _____/\ _ :___ |  \ _ _____/\ _
+  _/   __  \_/   __   \_/   _  \_/   __  \_/   __  \_/    \|   \_/   _   \
+  \_  _|/   \__  |/    \_   |___\_   |/   \_  _|/   \___  _\    \_   |____\
+_ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
+\\\_   \     \_        \_   :   \_        \_   \     \_    \    \_   |/    ///
+   /___|\  ___//______  //_______//________//__|\  ___//_________//_____  /
+    _ _ _\/   _       \/                                   \/ _      _ _\/
+        /_____\\______:_. </span><span class="plus">AUSTRiAN DiY RECORD LABEL</span><span> ._:______//______\
+                      |/                             \|
+                   - -|---        </span><span class="plus">EST. 2010</span><span>        ---|- -
+                     /|                               |\
+                    . :                               : .</span></div>
+            <nav>
+                <a href="about">ABOUT</a>
+                <a href="mailorder">MAILORDER</a>
+            </nav>
+        </header>
+
+        <ol class="releases">
+
+            ::foreach releases::
+            <a href="#">
+            <li class="release" data-id="::id::">
+                <div class="meta">
+                    <div class="id">::id::</div>
+                    <div class="name">::name::</div>
+                    <ul class="artists">
+                        ::foreach artists::
+                        <li class="artist">::__current__::</li>
+                        ::end::
+                    </ul>
+                </div>
+                <img class="cover" src="image/::id::.jpg" draggable="false"></img>
+                <!--
+                <div class="format">7"</div>
+                <div class="date">20??</div>
+                <div class="description">::description::</div>
+                <div class="notes"></div>
+                ::if tracklist::
+                <ol class="tracklist">
+                ::foreach tracklist::
+                    <li class="track">::name::</li>
+                ::end::
+                </ol>
+                ::end::
+                -->
+            </li>
+            </a>
+            ::end::
+        </ol>
+            <!--
+
+            <section class="about">	<p>Noisecore, Grindcore and Vinyl are 3 of the most beloved things in my life.<br>
+        So it only came natural to start a diy vinyl only noise/grind label to try and support the (local) scene!</p>
+        <p>Started out with the idea to do only "live in vienna" lps on 180g wax with highest possible quality!<br>
+        After releasing Merzbow &amp; Balazs Pandi LP the austrian post office changed prices so that shipping any 12" is 14€ inside .eu and up to 20€ (shipping alone!) for the rest of the world.<br>
+        Thats why i had to switch into releasing 7" only now... which is at least a good thing since one can afford way more ep releases and can help underground artists to be heard!</p>
+        <p>I decided to start a small mailorder so one can chose from a handful of things to "save on postage" and not just dry lungs releases, which also helped expanding my private collection immensly.<br>
+        All the stuff is sold at basic costs, i do not overcharge shipping or add any fees whatsoever, all the money is used exclusively for label activities!
+        The non-7" stuff usually is made up from doubles of my collection and unwanted 2nd hand stuff!</p>
+        <p>Decided the best way to start a nice stock to choose from is to ask friends from other labels for their new grind/noise 7inchers on release, thus far i aim to offer new releases from:
+        Bones Brigade (.fr), Fourth Dimension Records / Lumberton Trading Company (.pl), Freak Animal Records (.fi), Hirntrust Grind Media (.at) &amp; Quasi Pop Records (.ua)</p>
+        <p>Will try to also keep some of my favourite artists hard to get / fastly outselling eps in here by ordering multiple copies along when ordering for my private collection.<br>
+        If the prices are high like for that agoraphobic nosebleed flexi, i was prolly fucked by the customs and had to pay a lot of import taxes.</p>
+        <p>Trade offers are also always welcome but usually the postage costs make trading really exhausting... :(</p>
+        <p>Open for submissions of underground noise, co-releases with other labels only tho, please dont expect me to release a 7" with you on my own unless i contacted you!</p>
+        <p>(C)    2017 Dry Lungs Records, Vienna AT</p></section>
+
+            <section class="mailorder">	<p>Please check out my Discogs Sales List and contact me at christoph@drylungs.at if you are interested in something (or order directly via discogs of course).</p>
+        <p>For shipping a 7" parcel (up to 0,5kg/~2eps with bubblewrap or 3eps without, no insurance / tracking code):</p><ul><li>Austria: 3€</li><li>Europe: 4€</li><li>World: 7€</li></ul>
+        <p>If you want it priority, insured or with a tracking code add 1€ each.
+        With a more than sad heart i present to you the insane prices for shipping a 12" parcel (up to 2kg/3LPs, or 4LPs without bubblerwap, incl. "free" tracking code:</p><ul><li>Austria: 5€</li><li>Australia / Oceania: 20€</li><li>Europe: 10€ (special way of shipping i can do only inside the EU without insurance or tracking code, if you want it delivered as a parcel that would be 14€)</li><li>South America / South Africa / Asia: 18€</li><li>USA / North Africa: 16€</li></ul>
+        <p>If you only order tapes, cds or shirts please ask for exact shipping beforehand.<br>
+        Feel free to use this form to complain about their prices/service.</p>
+        <p>Abholung in Wien gerne möglich!</p></section>
+    -->
+
+        <footer>
+            <section class="info">
+                <span><i class="material-icon">copyright</i> 2018 Dry Lungs Records, Vienna/AT</span>
+                <a href="mailto:christoph&#64;drylungs.at" target="_top">christoph@drylungs.at</a>
+            </section>
+
+        </footer>
+
+    </body>
+
+</html>

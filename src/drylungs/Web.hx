@@ -3,43 +3,96 @@ package drylungs;
 import haxe.Resource;
 import haxe.Template;
 import haxe.web.Dispatch;
-import om.Json;
 import sys.FileSystem;
 import sys.io.File;
 
 class Web {
 
-    public static inline var CONTENT = 'content';
+    static inline var ROOT = '/project/drylungs.at/bin/';
 
-    public static var context(default,null) : Dynamic;
+    function new() {}
+
+    function doDefault( ?path : String ) {
+
+        printHTML();
+        
+        /*
+        if( path == null || path.length == 0 || path == 'index.php' ) {
+            printHTML();
+        } else {
+            handleError( 404, 'not found' );
+        }
+        */
+    }
+
+    //function doStyle() {
+
+    function doAtom() {
+        php.Web.setHeader( 'Content-Type', 'application/atom+xml' );
+        //printTemplate( Resource.getString( 'atom' ) );
+    }
+
+    function doRss() {
+        php.Web.setHeader( 'Content-Type', 'application/rss+xml' );
+        //printTemplate( Resource.getString( 'rss' ) );
+    }
+
+    function doManifest() {
+        php.Web.setHeader( 'Content-Type', 'application/application/manifest+json' );
+        //printTemplate( Resource.getString( 'manifest' ) );
+    }
+
+    static function printHTML( id = 'index', ?ctx : Dynamic ) {
+        Sys.print( executeTemplate( Resource.getString( id ), ctx ) );
+    }
+
+    static function executeTemplate( str : String, ?ctx : Dynamic ) {
+        if( ctx == null ) ctx = {};
+        return new Template( str ).execute( ctx );
+    }
+
+    static function handleError( code : Int, message = '') {
+        printHTML( 'error', { code: code, message: message } );
+    }
 
     static function main() {
 
         //Session.start();
 
-        var uri = om.Web.getURI();
-        var params = om.Web.getParams();
+        var uri = php.Web.getURI();
+        var path = php.Web.getURI().substr( ROOT.length );
+        var params = php.Web.getParams();
+        var mobile = om.Runtime.isMobile();
 
-        context = Json.parse( File.getContent( '$CONTENT/site.json' ) );
-        context.content = '';
-        context.mobile = om.Web.isMobile();
+        var releases = Json.parse( File.getContent( 'content/releases.json' ) );
+        releases.reverse();
 
-        var dispatcher = new Dispatch( uri, params );
+        Template.globals = Json.parse( File.getContent( 'content/site.json' ) );
+        Template.globals.mobile = mobile;
+        Template.globals.device = mobile ? 'mobile' : 'desktop';
+        Template.globals.releases = releases;
 
+        var dispatcher = new Dispatch( path, params );
+    	dispatcher.onMeta = function(meta,value) {
+            trace(meta,value);
+        }
         try {
-            dispatcher.dispatch( new drylungs.web.Router() );
-            //var html = new Template( Resource.getString( 'site' ) ).execute( context );
-            //Sys.print( html );
+            dispatcher.dispatch( new Web() );
+        } catch(e:Dynamic) {
+            Sys.print(e);
+        }
+        /*
         } catch( e : om.error.NotFound ) {
             Sys.print( "NotFound: "+e );
             return;
         } catch( e : DispatchError ) {
-            Sys.print( 'DispatchError '+e );
+            Sys.print( 'DispatchError: '+e );
             return;
         } catch( e : Dynamic ) {
             Sys.print( "ERROR:"+e );
             return;
         }
+        */
     }
 
 }

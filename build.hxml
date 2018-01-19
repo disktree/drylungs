@@ -1,18 +1,35 @@
--lib om.core
 -cp src
+-lib om.core
 -debug
-#--no-traces
 --each
 
 --next
--php bin/
--main drylungs.Web
--lib om.io
--lib om.format
--lib markdown
--lib record-macros
---macro Build.website()
+-js bin/app.js
+-main drylungs.App
+-lib om.dom
+-lib om.style
+-lib om.tween
+-cmd cp -u -r res/font bin
+-cmd cp -u -r res/image bin
+-cmd lessc res/style/drylungs-desktop.less bin/drylungs-desktop.css --no-color
+-cmd lessc res/style/drylungs-mobile.less bin/drylungs-mobile.css --no-color
 
 --next
--js bin/drylungs.js
--main drylungs.App
+-php bin
+-main drylungs.Web
+-lib hx3compat
+-lib om.io
+#-resource res/html/site.html@site
+-resource res/html/error.html@error
+#-resource res/html/main.html@main
+-resource res/html/index.html@index
+-resource res/web/atom.xml@atom
+-resource res/web/manifest.json@manifest
+-resource res/web/rss.xml@rss
+
+-cmd cp -u res/web/htaccess bin/.htaccess
+
+#-cmd mkdir -p bin/content/
+#-cmd cp -u content/releases.json bin/content/
+#-cmd cp -u content/site.json bin/content/
+-cmd cp -u -r content bin

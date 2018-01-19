@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>::title::</title>
+	<subtitle>Records & Mailorder</subtitle>
+	<link href="::url::/feed/" rel="self" />
+	<link href="::url::" />
+	::foreach releases::
+	<entry>
+		<title>::title::</title>
+		<link href="http://drylungs.at/records/::id::" />
+		::if description::<summary>::description::</summary>::end::
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>This is the entry content.</p>
+			</div>
+		</content>
+		<author>
+			<name>Christoph</name>
+			<email>christoph@drylungs.at</email>
+		</author>
+	</entry>
+	::end::
+</feed>
