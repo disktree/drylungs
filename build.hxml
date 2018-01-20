@@ -6,9 +6,11 @@
 --next
 -js bin/app.js
 -main drylungs.App
+-lib om.audio
 -lib om.dom
 -lib om.style
 -lib om.tween
+-resource res/text/drylungs-ascii.txt@ascii
 -cmd cp -u -r res/font bin
 -cmd cp -u -r res/image bin
 -cmd lessc res/style/drylungs-desktop.less bin/drylungs-desktop.css --no-color

@@ -2,12 +2,12 @@
 @import "normalize";
 
 @color-bg: #0c0c0c;
-@color-text: #a0a0a0;
+@color-text: rgb(160, 160, 160); //#a0a0a0;
 
 @font-family-ascii: 'MicroKnight';
 @font-family-ascii-plus: 'P0T';
 
-@font-size: 13px;
+@font-size: 11px;
 @font-size-ascii: 16px;
 
 @scollbar-width: 10px;
@@ -109,8 +109,8 @@ ol, ul, li {
 }
 
 ::selection {
-  background: #909090;
-  color: #000;
+    background: #909090;
+    color: #000;
 }
 
 ::-webkit-scrollbar {
@@ -159,6 +159,8 @@ ol, ul, li {
     margin: 0 auto;
     font-family: @font-family-ascii;
     font-size: @font-size-ascii;
+
+
     .plus {
         display: inline;
         font-family: @font-family-ascii-plus;
@@ -188,10 +190,12 @@ ol, ul, li {
 ////////////////////////////////////////////////////////////////////////////////
 
 header {
+    color: #2f2f2f;
     margin: 8vh auto 10vh auto;
     .ascii {
         font-size: 1.5vw;
     }
+    //filter: drop-shadow(4px 4px 8px #000);
 }
 
 //@media (-webkit-min-device-pixel-ratio: 2) { }
@@ -235,24 +239,41 @@ ol.releases {
 
     li.release {
 
+        position: relative;
+
         min-width: 100px;
         min-height: 100px;
 
-        margin: 2vh 2vw;
-        padding: 5px;
-//
-        transition: opacity 0.134s;
+        max-width: : 1000px;
+        max-height: 1000px;
 
-        //background:#141414;
-        //border-top: 3px solid @color-text;
+        margin: 2vh 2vw;
+        padding: 4px;
+
+        color: @color-bg;
+        //background: #030303;
+        background: #2f2f2f;
+        //border-top: 2px solid  rgba(160,160,160,0.9);
+        //border-top: 2px solid #2f2f2f;
         box-shadow: 8px 8px 20px rgba(0,0,0,0.3);
 
-        //opacity: 0.4;
-        //transform: scale(0.95,0.95);
-        &:hover {
-            opacity: 1.0;
-            //transform: scale(1,1);
+        opacity: 0.9;
 
+        transition: background-color 0.1s, color 0.1s, opacity 0.1s, transform 0.1s;
+
+        transform: scale(0.99,0.99);
+
+        &:hover {
+            background: @color-text;
+            opacity: 1.0;
+            transform: scale(1,1);
+            //border: 2px solid #2f2f2f;
+            //transform: scale(1.01,1.01);
+            .meta {
+                .id, .name, .artists {
+                    //color: #000;
+                }
+            }
         }
 
         /*
@@ -261,46 +282,39 @@ ol.releases {
         }
         */
 
-        //background-clip: border-box;
-
         .meta {
 
-            position: absolute;
-            z-index: 99999;
+            position: relative;
 
-            //white-space: nowrap;
-            //overflow: hidden;
-            //text-overflow: ellipsis;
-            //border: 1px solid #000000;
-
-            background: rgba(0,0,0,0.7);
-            //display: table;
+            white-space: nowrap;
+            overflow: hidden;
 
             .id {
+
+                display: inline-block;
+                float: left;
+                margin-bottom: -4px;
                 font-family: 'FontTitle';
-                font-size: 3vw;
-                //margin-top: 4px;
-                //margin-left: -0.15vw;
-                //padding-bottom: -8px;
-                //margin-bottom: -10px;
-                //display: inline-block;
-                //float: left;
-                //background: rgba(0,0,0,1);
+                //font-size: 2.5vw;
+                font-size: 40px;
+                color: @color-bg;
+                //transition: color 0.2s;
+            }
+
+            .name, .artists {
+                position: relative;
+                left: 8px;
+                padding-right: 10px;
+                text-overflow: ellipsis;
+                color: @color-bg;
             }
 
             .name {
-                position: absolute;
-                display: table;
-                //position: relative;
-                //display: table;
-                //background: #00ff00;
-                //font-weight: bold;
-                //white-space: nowrap;
-                 //width: 100%;
-                 //overflow: hidden;
-                 //text-overflow: clip;
-                 //background: rgba(0,0,0,1);
-
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                left: 8px;
+                text-overflow: ellipsis;
                  /*
                  &::after {
                      display: inline-block;
@@ -311,11 +325,10 @@ ol.releases {
             }
 
             ul.artists {
-                display: none;
-                //background: rgba(0,0,0,1);
+                //display: inline-block;
                 //font-weight: bold;
                 li {
-                    //display: inline-block;
+                    display: inline-block;
                     &:not(:last-child)::after {
                         content: " +";
                     }
@@ -326,32 +339,72 @@ ol.releases {
 
         img.cover {
 
-            position: relative;
-            width: 100%;
 
-            ////position: absolute;
-            //width: 100%;
+            width: 100%;
             //height: 100%;
 
             max-width: 1000px;
             max-height: 1000px;
 
-            width: 100%;
-            //height: 100%;
-            //transition: filter 0.04s;
+            //transition: filter 0.06s;
+            //clip-path: inset(10px 10px 10px 10px);
+
+            -webkit-user-select: none;
+
+            transition: filter 0.2s;
+
             filter: brightness(8%) contrast(91%) grayscale(90%) sepia(16%);
+            //filter: drop-shadow(16px 16px 20px red) invert(75%);
 
             &:hover {
-                filter: brightness(80%) contrast(96%) grayscale(20%) sepia(2%);
+                filter: brightness(60%) contrast(95%) grayscale(40%) sepia(2%);
             }
         }
 
+        .details {
+            position: absolute;
+        }
+
         /*
-        transition: transform 0.1s;
-        &:hover {
-            transform: scale(1.05,1.05);
+        .overlay {
+            position: absolute;
+            display: inline;
+            background: blue;
         }
         */
+
+        &.selected {
+
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: 0 auto;
+
+            width: 100%;
+
+            z-index: 999999;
+
+            //width: 100%;
+            //height: 100%;
+            //color: @color-text;
+            //background: @color-bg;
+
+            .id {
+                font-size: 160px;
+                letter-spacing: -10px;
+            }
+
+            img.cover {
+                filter:  none;
+            }
+
+            max-width: 1000px;
+            max-height: 1000px;
+
+            box-shadow: 16px 16px 48px rgba(0,0,0,0.5), -16px -16px 48px rgba(0,0,0,0.5);
+        }
     }
 }
 
@@ -379,7 +432,7 @@ footer {
     }
 }
 
-/*
+
 .vignette ( @offsetX, @offsetY, @blur, @color:rgba(0,0,0,0.5) ) {
     box-shadow:
         @offsetX @offsetY @blur @color inset,
@@ -393,10 +446,9 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 3;
+    z-index: 99999999;
 
     pointer-events: none;
 
-	.vignette( 100px, 100px, 200px, rgba(0,0,0,0.9) );
+	.vignette( 100px, 100px, 200px, rgba(0,0,0,0.3) );
 }
-*/

@@ -36,36 +36,37 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         <ol class="releases">
 
             ::foreach releases::
-            <a href="#">
             <li class="release" data-id="::id::">
-                <div class="meta">
-                    <div class="id">::id::</div>
-                    <div class="name">::name::</div>
-                    <ul class="artists">
-                        ::foreach artists::
-                        <li class="artist">::__current__::</li>
+                <a href="::id::">
+                    <div class="meta">
+                        <div class="id">::id::</div>
+                        <div class="name">::name::</div>
+                        <ul class="artists">
+                            ::foreach artists::
+                            <li class="artist">::__current__::</li>
+                            ::end::
+                        </ul>
+                    </div>
+                    <img class="cover" src="image/::id::.jpg" draggable="false"></img>
+                    <div class="details">
+                        <div class="format">7"</div>
+                        <div class="date">20??</div>
+                        <div class="description">::description::</div>
+                        <div class="notes"></div>
+                        ::if tracklist::
+                        <ol class="tracklist">
+                        ::foreach tracklist::
+                            <li class="track">::name::</li>
                         ::end::
-                    </ul>
-                </div>
-                <img class="cover" src="image/::id::.jpg" draggable="false"></img>
-                <!--
-                <div class="format">7"</div>
-                <div class="date">20??</div>
-                <div class="description">::description::</div>
-                <div class="notes"></div>
-                ::if tracklist::
-                <ol class="tracklist">
-                ::foreach tracklist::
-                    <li class="track">::name::</li>
-                ::end::
-                </ol>
-                ::end::
-                -->
+                        </ol>
+                        ::end::
+                    </div>
+                </a>
             </li>
-            </a>
             ::end::
+
         </ol>
-            <!--
+
 
             <section class="about">     <p>Noisecore, Grindcore and Vinyl are 3 of the most beloved things in my life.<br>
         So it only came natural to start a diy vinyl only noise/grind label to try and support the (local) scene!</p>
@@ -90,7 +91,7 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         <p>If you only order tapes, cds or shirts please ask for exact shipping beforehand.<br>
         Feel free to use this form to complain about their prices/service.</p>
         <p>Abholung in Wien gerne möglich!</p></section>
-    -->
+    
         <footer>
             <section class="info">
                 <span><i class="material-icon">copyright</i> 2018 Dry Lungs Records, Vienna/AT</span>

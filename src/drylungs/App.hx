@@ -108,15 +108,19 @@ class App {
         //e.preventDefault();
     }
 
+    static function getPath() : String {
+        return window.location.pathname.substr( ROOT.length );
+    }
+
     static function main() {
+
+        console.info( 'DRYLUNGS' );
 
         window.onload = function() {
 
             document.body.style.display = 'block';
 
-            var path = window.location.pathname.substr( ROOT.length );
-            //trace( window.innerWidth );
-            //trace( window.devicePixelRatio );
+            var path = getPath();
 
             switch path {
             case '':
@@ -135,34 +139,37 @@ class App {
             }
 
             /*
-            for( a in document.querySelectorAll( 'a' ) ) {
-                a.addEventListener( 'click', function(e){
-                    e.preventDefault();
-                } );
-            }
-            */
-
-            /*
-            for( e in document.querySelector( '.releases' ).children ) {
-                //trace(e);
-                e.onclick = function(){
-                    var id = e.getAttribute( 'data-id' );
-                    trace(id);
-                    focusRelease( id );
-                }
-            }
-            */
-
-            /*
             om.FetchTools.fetchJson( 'releases.json' ).then( function(releases){
                 trace( releases );
             });
             */
 
+            var selectedElement : Element = null;
+            for( e in document.querySelector( 'ol.releases' ).children ) {
+                var id = e.getAttribute( 'data-id' );
+                e.addEventListener( 'click', function(e){
+                    e.preventDefault();
+                    var el = document.querySelector( 'li.release[data-id=$id]' );
+                    if( el == selectedElement ) {
+                        el.classList.remove( 'selected' );
+                        selectedElement = null;
+                        return;
+                    }
+                    if( selectedElement != null ) {
+                        selectedElement.classList.remove( 'selected' );
+                    }
+                    selectedElement = el;
+                    //selectedElement.scrollIntoView();
+                    selectedElement.classList.add( 'selected' );
+                } );
+            }
+
             window.addEventListener( 'resize', handleWindowResize, false );
             window.addEventListener( 'scroll', handleWindowScroll, false );
             //window.addEventListener( 'popstate', handlePopState, false );
-            window.onpopstate = handlePopState;
+            //window.onpopstate = handlePopState;
+
+            window.ondragstart = function() { return false; }
 
             //history.pushState({page: 1}, "title 1", "?page=1");
 

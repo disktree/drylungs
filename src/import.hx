@@ -1,4 +1,5 @@
 
+import haxe.Resource;
 import om.Json;
 
 using om.StringTools;
