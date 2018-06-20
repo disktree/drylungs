@@ -1,0 +1,39 @@
+<div class="record" data-id="::record.id::">
+
+	<div class="id">::record.id::</div>
+	<div class="name">::record.name::</div>
+
+	::if record.date::<time class="date" datetime="::record.date::">::record.date::</time>::end::
+	::if record.format::<div class="format">::record.format::</div>::end::
+	::if record.description::<summary class="description">::record.description::</summary>::end::
+	::if record.notes::<div class="notes">::record.notes::</div>::end::
+
+	::if record.artists::
+	<ol class="artists">
+		::foreach record.artists::
+		<li class="artist">::__current__::</li>
+		::end::
+	</ol>::end::
+
+	::if record.tracks::
+	<ol class="tracks">
+		::foreach record.tracks::
+		<li class="track">
+			<div>::position::</div>
+			<div>::name::</div>
+			::if duration::<div>::duration::</div>::end::
+		</li>
+		::end::
+	</ol>
+	::end::
+
+	<!--
+	::if record.discogs::<a class="discogs">::record.discogs::</a>::end::
+	-->
+
+	<div class="cover">
+		<img class="cover" src="/image/record/::record.id::.jpg">
+		<img class="cover" src="/image/record/::record.id::_back.jpg">
+	</div>
+
+</div>

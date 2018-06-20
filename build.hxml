@@ -1,38 +1,42 @@
 -cp src
--lib om.core
+-dce full
 -debug
 --each
-
---next
--js bin/app.js
--main drylungs.App
--lib om.audio
--lib om.dom
--lib om.style
--lib om.tween
--resource res/text/drylungs-ascii.txt@ascii
--cmd cp -u -r res/font bin
--cmd cp -u -r res/image bin
--cmd lessc res/style/drylungs-desktop.less bin/drylungs-desktop.css --no-color
--cmd lessc res/style/drylungs-mobile.less bin/drylungs-mobile.css --no-color
 
 --next
 -php bin
 -main drylungs.Web
 -lib hx3compat
+-lib om.core
 -lib om.io
-#-resource res/html/site.html@site
-#-resource res/html/main.html@main
--resource res/html/index.html@index
+-resource res/html/about.html@about
 -resource res/html/error.html@error
+#-resource res/html/fatal.html@fatal
+-resource res/html/index.html@index
+-resource res/html/mailorder.html@mailorder
+-resource res/html/record.html@record
+-resource res/html/records.html@records
+#-resource res/html/releases.html@releases
 -resource res/html/start.html@start
+-resource res/html/twitter.html@twitter
 -resource res/web/atom.xml@atom
--resource res/web/manifest.json@manifest
--resource res/web/rss.xml@rss
-
+#-resource res/web/manifest.json@manifest
+#-cmd mkdir -p bin/image
+-cmd cp -ru res/image/ bin/
+#-cmd cp -u res/image/drylungs.png bin/
 -cmd cp -u res/web/htaccess bin/.htaccess
-
+-cmd cp -u res/web/humans.txt bin/
+-cmd cp -u res/web/robots.txt bin/
 #-cmd mkdir -p bin/content/
 #-cmd cp -u content/releases.json bin/content/
-#-cmd cp -u content/site.json bin/content/
--cmd cp -u -r content bin
+#-cmd cp -u content/site.json bin/c
+
+--next
+-js bin/app.js
+-main drylungs.App
+#-cmd cp -ru res/image bin/
+-cmd cp -ru res/font bin/
+-cmd cp -ru res/icon bin/
+-cmd cp -u res/icon/favicon.png bin/
+-cmd lessc res/style/app.less bin/app.css --no-color
+#-cmd lessc res/style/drylungs-mobile.less bin/drylungs-mobile.css --no-color

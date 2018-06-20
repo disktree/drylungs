@@ -1,0 +1,32 @@
+<ol class="records">
+	::foreach records::
+	<li class="record" data-id="::id::">
+		<div class="info">
+			<a href="record/::id::" class="id">::id::</a>
+			<div class="name">::name::</div>
+			::if date::<time class="date" datetime="::date::">::date::</time>::end::
+			::if format::<div class="format">::format::</div>::end::
+			::if description::<summary class="description">::description::</summary>::end::
+			::if notes::<div class="notes">::notes::</div>::end::
+			::if artists::
+			<ol class="artists">
+				::foreach artists::
+				<li class="artist">::__current__::</li>
+				::end::
+			</ol>::end::
+			::if tracks::
+			<ol class="tracks">
+				::foreach tracks::
+				<li class="track">
+					<div>::position::</div>
+					<div>::name::</div>
+					::if duration::<div>::duration::</div>::end::
+				</li>
+				::end::
+			</ol>
+			::end::
+		</div>
+		<img class="cover" src="image/record/::id::.jpg" alt="">
+	</li>
+	::end::
+</ol>

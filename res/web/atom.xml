@@ -4,10 +4,10 @@
 	<subtitle>Records & Mailorder</subtitle>
 	<link href="::url::/feed/" rel="self" />
 	<link href="::url::" />
-	::foreach releases::
+	::foreach records::
 	<entry>
 		<title>::title::</title>
-		<link href="http://drylungs.at/records/::id::" />
+		<link href="http://drylungs.at/record/::id::" />
 		::if description::<summary>::description::</summary>::end::
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">

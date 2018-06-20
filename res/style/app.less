@@ -1,0 +1,395 @@
+
+@color-bg: #0c0c0c;
+@color-text: #2f2f2f;
+@color-highlight: rgb(160, 160, 160);
+
+@font-family-ascii: 'MicroKnight';
+@font-family-ascii-plus: 'P0T';
+
+@font-size: 14px;
+@font-size-ascii: 16px;
+
+@scollbar-width: 10px;
+
+////////////////////////////////////////////////////////////////////////////////
+
+@import "animations";
+@import "fonts";
+@import "reset";
+
+////////////////////////////////////////////////////////////////////////////////
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    //line-height: @font-size;
+
+    //font-family: monospace;
+    font-family: 'FontRegular';
+    font-size: @font-size;
+
+    //-webkit-font-smoothing : none;
+    //-webkit-font-smoothing: antialiased;
+
+    background-color: @color-bg;
+    color: @color-text;
+
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    border: none;
+    color: @color-text;
+    background-color: transparent;
+    &:active, &:hover {
+        outline: 0;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+::selection {
+    background: @color-bg;
+    color: @color-text;
+}
+
+::-webkit-scrollbar {
+    border: none;
+}
+::-webkit-scrollbar:vertical {
+    width: @scollbar-width;
+}
+::-webkit-scrollbar:horizontal {
+    height: @scollbar-width;
+}
+::-webkit-scrollbar-thumb {
+    background: @color-text;
+    border-radius: @scollbar-width / 2;
+}
+::-webkit-scrollbar-thumb:hover {
+    //background: #fff;
+}
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+@records-gap: 4vw;
+@record-img-size: 900px;
+//@column-width: 800px;
+
+#drylungs {
+
+    .ascii {
+        //display: table;
+        //margin: 0 auto;
+        white-space: pre;
+        font-family: @font-family-ascii;
+        font-size: @font-size-ascii;
+        i {
+            &::selection {
+                background: @color-bg;
+                color: @color-text;
+            }
+        }
+        b {
+            font-family: @font-family-ascii-plus;
+            &::selection {
+                color: @color-highlight;
+            }
+        }
+    }
+
+    header {
+        //padding: 10vmin 1rem;
+        //display: table;
+        display: none;
+        margin: 10vh auto 12vh auto;
+        h1 {
+            display: none;
+        }
+        .ascii {
+            //font-size: 1.5vw;
+        }
+    }
+
+    nav {
+        z-index: 1000;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        padding: 3px 4px 2px 4px;
+        text-transform: uppercase;
+        background: @color-text;
+        a {
+            color: @color-bg;
+        }
+    }
+
+    main {
+        //margin: 100px 0px 0px 0px;
+        //width: 50%;
+        background: #0000ff;
+        /*
+        &.about {
+            margin: 0 auto;
+            max-width: 1000px;
+            margin: 100px;
+        }
+        */
+    }
+
+    footer {
+        z-index: 1000;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        display: table;
+        padding: 3px 4px 2px 4px;
+        text-transform: uppercase;
+        background: @color-text;
+        color: @color-bg;
+        a {
+            color: @color-bg;
+        }
+        &.hidden {
+            //display: none;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    &.about {
+        /*
+        main {
+            margin: 0 auto;
+            max-width: 1000px;
+            margin: 100px;
+        }
+        */
+    }
+
+    /*
+    &.error {
+    }
+    */
+
+    &.record {
+        div.record {
+            position: relative;
+            top: 100px;
+            .id {
+                font-family: 'Helvetica';
+                font-size: 10vw;
+                letter-spacing: -10px;
+            }
+            .name {
+                //font-family: 'Helvetica';
+                //font-size: 10vw;
+                //letter-spacing: -10px;
+            }
+            .cover {
+                img {
+                    //filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
+                }
+            }
+            .tracks {
+                display: table;
+                position: relative;
+                left: 2vw;
+                //background: red;
+                li.track {
+                    * {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    img.cover {
+        max-width: @record-img-size;
+        max-height: @record-img-size;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    ol.records {
+
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        //grid-gap: @grid-gap;
+        //margin: @grid-gap;
+        grid-gap: @records-gap; //2vw;
+        margin: @records-gap; //2vw;
+
+        @media screen and (max-width: calc(@record-img-size*8) ) {
+            grid-template-columns: repeat(8,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*7) ) {
+            grid-template-columns: repeat(7,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*6) ) {
+            grid-template-columns: repeat(6,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*5) ) {
+            grid-template-columns: repeat(5,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*4) ) {
+            grid-template-columns: repeat(4,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*3)) {
+            grid-template-columns: repeat(3,1fr);
+        }
+        @media screen and (max-width: calc(@record-img-size*2) ) {
+            grid-template-columns: repeat(2,1fr);
+        }
+        @media screen and (max-width: @record-img-size) {
+            grid-template-columns: repeat(1,1fr);
+        }
+
+        li.record {
+
+            &.selected {
+                opacity: 0.1;
+            }
+            &:active {
+                opacity: 0.1;
+
+            }
+
+            position: relative;
+
+            display: block;
+            width: 100%;
+            height: 100%;
+            //padding: 2px;
+
+            //opacity: 0.8;
+            //transition: filter 0.2 transform 0.2s;
+
+            &:hover {
+                //opacity: 1.0;
+                //transform: scale(1.1);
+                img {
+            //        filter: none;
+                    //transform: scale(1.01);
+                }
+                .info {
+                //    opacity: 0.97;
+                    color: @color-highlight;
+                }
+            }
+
+            img {
+
+                position: relative;
+                display: block;
+                width: 100%;
+                max-width: @record-img-size;
+                max-height: @record-img-size;
+
+            //    transition: filter 0.4s, transform 0.4s;
+                //filter: grayscale(94%);
+                filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
+
+                pointer-events: none;
+            }
+
+            .id {
+                position: relative;
+                left: -4px;
+                font-family: 'Helvetica';
+                font-size: 32pt;
+                //font-size: 3.5vw;
+                //font-size: calc(0.5vw + 0.5vh + 3vmax);
+                //font-size: 2vw;
+                //letter-spacing: -0.3vw;
+                //background: red; // @color-bg;
+                //color: @color-text;
+            //    width: 100vw;
+            }
+
+            .info {
+
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                left: 0px;
+
+                margin: 0px;
+                padding: 8px 10px 10px 10px;
+
+                background: @color-bg;
+                color: @color-text;
+                //opacity: 0.9;
+
+                z-index: 100;
+                //word-break: break-all;
+
+                /*
+                @media screen and (max-width: @img-size) {
+                    display: none;
+                }
+                */
+
+                .name {
+                }
+                .date {
+                    display: none;
+                }
+                .format {
+                    display: none;
+                }
+                .notes {
+                    display: none;
+                }
+                .artists {
+                    display: none;
+                }
+                .tracks {
+                    display: none;
+                    position: relative;
+                    left: 2vw;
+                    //background: red;
+                    li.track {
+                        * {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+}

@@ -1,0 +1,102 @@
+
+/// Text Fonts
+
+@font-face {
+    font-family: 'FontRegular';
+    src: url('font/Anonymous Pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontTitle';
+  src: url('font/Helvetica Neue 55 Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/// ASCII Fonts
+
+@font-face {
+    font-family: 'MicroKnight';
+    src: url('font/MicroKnight_v1.0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'P0T';
+    src: url('font/P0T-NOoDLE_v1.0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/// Icon Fonts
+
+@font-face {
+  font-family: 'MaterialIcons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(font/MaterialIcons-Regular.eot); // For IE6-8
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(font/MaterialIcons-Regular.woff2) format('woff2'),
+       url(font/MaterialIcons-Regular.woff) format('woff'),
+       url(font/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.material-icon {
+
+    font-family: 'MaterialIcons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: @font-size * 0.9;  // Preferred icon size
+
+    position: relative;
+    top: 2px;
+
+    display: inline-block;
+    line-height: 0.9;
+
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    font-feature-settings: 'liga';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Rules for sizing the icon.
+.material-icon.md-18 { font-size: 18px; }
+.material-icon.md-24 { font-size: 24px; }
+.material-icon.md-36 { font-size: 36px; }
+.material-icon.md-48 { font-size: 48px; }
+
+// Rules for using icons as black on a light background.
+.material-icon.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icon.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.material-icon.md-light { color: rgba(255, 255, 255, 1); }
+.material-icon.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/*
+i.icon {
+    .material-icon;
+}
+*/
+
+/*
+icon-copyright {
+    &:after {
+        .material-icon;
+        content: "&#xE87C;";
+    }
+}
+*/
