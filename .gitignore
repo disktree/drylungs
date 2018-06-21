@@ -1,5 +1,6 @@
 _*
 *.zip
-bin/*
+bin/
+dat/
 #!bin/content/
 #!bin/tpl/

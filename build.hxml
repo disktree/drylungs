@@ -20,8 +20,8 @@
 #-resource res/html/releases.html@releases
 -resource res/html/start.html@start
 -resource res/html/twitter.html@twitter
--resource res/html/tpl/header.html@tpl_header
--resource res/html/tpl/footer.html@tpl_footer
+#-resource res/html/tpl/header.html@tpl_header
+#-resource res/html/tpl/footer.html@tpl_footer
 
 -resource res/web/atom.xml@atom
 #-resource res/web/manifest.json@manifest
@@ -43,5 +43,6 @@
 -cmd cp -ru res/font bin/
 -cmd cp -ru res/icon bin/
 -cmd cp -u res/icon/favicon.png bin/
--cmd lessc res/style/app.less bin/app.css --no-color
+-cmd lessc res/style/app-desktop.less bin/app-desktop.css --no-color
+-cmd lessc res/style/app-mobile.less bin/app-mobile.css --no-color
 #-cmd lessc res/style/drylungs-mobile.less bin/drylungs-mobile.css --no-color

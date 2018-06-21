@@ -1,6 +1,6 @@
 /* TEAM */
 Your title: Disktree
-Site: http://disktree.net
+Site: https://disktree.net
 Location: Universe
 
 /* SITE */

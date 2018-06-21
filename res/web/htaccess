@@ -10,6 +10,4 @@ AddType image/svg+xml .svg
 RewriteEngine on
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^(.*)$ index.php [NC,L,QSA]
 RewriteRule ^(.*)/?$ index.php?$1 [L]

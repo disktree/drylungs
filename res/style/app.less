@@ -5,6 +5,13 @@
 
 @font-family: 'FontRegular';
 @font-size: 14px;
+/*
+@font-size-h1: 14px;
+@font-size-h2: 14px;
+@font-size-h3: 14px;
+@font-size-h4: 14px;
+@font-size-h4: 14px;
+*/
 
 @font-family-ascii: 'MicroKnight';
 @font-family-ascii-plus: 'P0T';
@@ -24,6 +31,8 @@
 
 body {
 
+    overflow-x: hidden;
+
     //font-family: monospace;
     //font-family: @font-family;
     font-family: 'FontRegular', monospace;
@@ -38,6 +47,8 @@ body {
     color: @color-text;
 
     cursor: default;
+
+    animation: fade_in 0.1s;
 }
 
 a {
@@ -46,7 +57,7 @@ a {
     color: @color-text;
     background-color: transparent;
     &:focus {
-        color: red; //@color-highlight;
+        color: @color-highlight;
     }
     &:active, &:hover {
         //outline: 0;
@@ -56,10 +67,25 @@ a {
     }
 }
 
-
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
     font-family: 'Helvetica';
+    margin: 0;
+    padding: 0;
 }
+h1 {
+    font-size: 140px;
+    //letter-spacing: -8px;
+}
+h2 {
+    font-size: 48px;
+}
+h3 {
+    font-size: 32px;
+}
+h4 {
+    font-size: 24px;
+}
+
 
 p {
     display: block;
@@ -69,17 +95,21 @@ p {
     -webkit-margin-end: 0px;
 }
 
-/*
+
+ol, ul {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
 li {
+    //margin-left: 4em;
     display: list-item;
-    text-align: -webkit-match-parent;
+    //text-align: -webkit-match-parent;
     list-style: none;
 }
-*/
 
 ::selection {
     background: @color-bg;
-    //color: @color-text;
     color: #fff;
 }
 
@@ -97,6 +127,7 @@ li {
     }
     b, h1, h2, h3, h4, h5 {
         font-family: @font-family-ascii-plus;
+        font-size: @font-size-ascii;
         &::selection {
             color: #a0a0a0;
         }
@@ -109,8 +140,8 @@ img {
     -webkit-user-drag: none;
 }
 img.cover {
-    //max-width: @cover-img-size;
-    //max-height: @cover-img-size;
+    max-width: @cover-img-size;
+    max-height: @cover-img-size;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -138,14 +169,18 @@ header {
     h2 {}
     h3 {}
     .ascii {
-        //font-size: 1vmax; // 1.5vw;
+        font-size: 1vmax; // 1.5vw;
+        * {
+            font-size: 1vmax; // 1.5vw;
+        }
     }
+    //animation: fade_in 1.2s;
 }
 
 nav {
     position: fixed;
     top: 0px;
-    left: 4px;
+    left: 0px;
     z-index: 1000;
     padding: 3px 4px 2px 4px;
     text-transform: uppercase;
@@ -159,6 +194,8 @@ nav {
 
 main {
     //margin-top: 2vh !important;
+    //list-style:georgian;
+    animation: fade_in 0.2s;
 }
 
 main.about,
@@ -166,18 +203,26 @@ main.mailorder
 {
     padding: 5vh 4vw 4vh 4vw;
     display: table;
+    li {
+        list-style: circle;
+        margin-left: 4em;
+    }
 }
 
 main.records {
 
-    @grid-cell-width: 400px;
+    @grid-cell-width: 600px;
 
     padding: 10vh 4vw 5vh 4vw;
 
     ol.records {
+
+        //animation: fade_in 1.2s;
+
         display: grid;
         grid-template-columns: repeat(1,1fr);
-        grid-gap: 1.5vh 2vw;
+        //grid-gap: 1.5vh 2vw;
+        grid-gap: 0.5vw;
         @media screen and (max-width: calc(@grid-cell-width*9)) { grid-template-columns: repeat(9,1fr); }
         @media screen and (max-width: calc(@grid-cell-width*8)) { grid-template-columns: repeat(8,1fr); }
         @media screen and (max-width: calc(@grid-cell-width*7)) { grid-template-columns: repeat(7,1fr); }
@@ -242,19 +287,22 @@ main.records {
 }
 
 main.record {
-    //margin-bottom: 100px;
-    padding: 5vh 4vw 4vh 4vw;
+
     display: block;
-    //position: relative;
-    h2.id {
+    padding: 5vh 4vw 4vh 4vw;
+
+    .id {
         position: relative;
-        left: -10px;
-        font-size: 140px;
+        left: -12px;
+        //font-size: 140px;
         letter-spacing: -8px;
     }
-    h3.name {
+    .name {
+        position: relative;
+        left: -1px;
         margin-top: -2px;
-        font-size: 32px;
+        //margin-bottom: 10px;
+        //font-size: 32px;
     }
     ol.artists {
         margin-top: 8px;
@@ -278,9 +326,12 @@ main.record {
     .tracks {
         display: none;
     }
+
     .covers {
         margin: 1vh 0px 0px 0px;
+        padding: 0 0px 10vh 0px;
         filter: @cover-filter;
+        animation: fade_in 0.5s;
         &:hover {
             //filter: none;
         }
@@ -295,17 +346,24 @@ main.record {
 }
 
 footer {
+
     position: fixed;
     right: 2px;
     bottom: 0;
-    z-index: 1000;
-    //display: table;
-    display: none;
+
     padding: 0px 1px 0px 1px;
+
+    z-index: 100000;
+
+    display: none;
+
     text-transform: uppercase;
+
     background: @color-bg;
     color: @color-text;
+
     //user-select: none;
+
     a {
         color: @color-text;
     }
