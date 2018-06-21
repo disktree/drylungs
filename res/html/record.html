@@ -1,39 +1,45 @@
-<div class="record" data-id="::record.id::">
 
-	<div class="id">::record.id::</div>
-	<div class="name">::record.name::</div>
+<h2 class="id">::record.id::</h2>
+<h3 class="name">::record.name::</h3>
+<ol class="artists">
+	<label>Artists:</label>
+	::if record.artists::::foreach record.artists::<li class="artist">::__current__::</li>::end::::end::
+</ol>
+<div class="format">::if record.format::::record.format::::end::</div>
+<div class="date">::if record.date::::record.date::::end::</div>
+<div class="description">::if record.description::::record.description::::end::</div>
+<div class="notes">::if record.notes::::record.notes::::end::</div>
 
-	::if record.date::<time class="date" datetime="::record.date::">::record.date::</time>::end::
-	::if record.format::<div class="format">::record.format::</div>::end::
-	::if record.description::<summary class="description">::record.description::</summary>::end::
-	::if record.notes::<div class="notes">::record.notes::</div>::end::
 
-	::if record.artists::
-	<ol class="artists">
-		::foreach record.artists::
-		<li class="artist">::__current__::</li>
-		::end::
-	</ol>::end::
+<!--
+::if record.discogs::<a class="discogs">::record.discogs::</a>::end::
+-->
 
+<ol class="tracks">
 	::if record.tracks::
-	<ol class="tracks">
-		::foreach record.tracks::
-		<li class="track">
-			<div>::position::</div>
-			<div>::name::</div>
-			::if duration::<div>::duration::</div>::end::
-		</li>
-		::end::
-	</ol>
+	::foreach record.tracks::
+	<li class="track">
+		<div>::position::</div>
+		<div>::name::</div>
+		::if duration::<div>::duration::</div>::end::
+	</li>
 	::end::
+	::end::
+</ol>
 
-	<!--
-	::if record.discogs::<a class="discogs">::record.discogs::</a>::end::
-	-->
-
-	<div class="cover">
-		<img class="cover" src="/image/record/::record.id::.jpg">
-		<img class="cover" src="/image/record/::record.id::_back.jpg">
-	</div>
-
+<div class="covers">
+	<img src="/image/record/::record.id::.jpg">
+	<img src="/image/record/::record.id::_back.jpg">
 </div>
+
+<!--
+<script>
+/*
+window.addEventListener( "load", function(e){
+	var covers = document.querySelector("div.covers");
+	console.debug(covers);
+	covers.children[1].style.display = 'none';
+}, false );
+*/
+</script>
+-->

@@ -9,15 +9,19 @@ import sys.io.File;
 
 class Root {
 
-    public function new() {}
+    //var context = {};
+    var macros : TemplateContext;
+
+    public function new() {
+        macros = new TemplateContext();
+    }
 
     function doDefault( ?path : String ) {
 		switch path {
 		case null,'','/','index.php':
-			doStart();
+			doRecords();
 		default:
             printSite( path );
-			//Sys.print("404");
 		}
     }
 
@@ -25,12 +29,40 @@ class Root {
         printSite( 'start' );
     }
 
-    function doRecords() {
-		printSite( 'records', {
-			records : Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) )
-		} );
+    function doRecords( ?id : String ) {
+
+        var records : Array<Dynamic> = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
+
+        if( id == null ) {
+
+            //for( r in records ) r.notes = r.notes.replace( '\n', '<br>' );
+            records.reverse();
+            printSite( 'records', {
+                records: records
+            } );
+
+        } else {
+
+            var record = null;
+            /*
+            if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
+                records = records[Std.parseInt(id)];
+            } else {
+                for( item in records ) if( item.id == id ) { record = item; break; }
+            }
+            */
+            for( item in records ) if( item.id == id ) { record = item; break; }
+
+            if( record == null ) {
+                printSite( 'error', { code : 404, message : 'not found' } );
+            } else {
+                printSite( 'record', { record: record }  );
+                //printSite( 'record', { record: ctx, title: 'DLR·'+ctx.id } );
+            }
+        }
 	}
 
+    /*
 	function doRecord( ?id : String ) {
 
 		if( id == null ) {
@@ -46,7 +78,7 @@ class Root {
         } else {
             for( item in records ) if( item.id == id ) { record = item; break; }
         }
-        */
+        * /
         for( item in records ) if( item.id == id ) { record = item; break; }
 
 		if( record == null ) {
@@ -56,10 +88,14 @@ class Root {
 			//printSite( 'record', { record: ctx, title: 'DLR·'+ctx.id } );
 		}
 	}
+    */
 
 	function doAtom() {
-		//php.Web.setHeader( 'Content-Type', 'application/atom+xml' );
-		//Sys.print( executeTemplate( Resource.getString( 'atom' ) ) );
+		php.Web.setHeader( 'Content-Type', 'application/atom+xml' );
+        var xml = new Template( Resource.getString( 'atom' ) ).execute( {
+			records : Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) )
+		} );
+        Sys.print( xml );
 	}
 
     /*
@@ -97,8 +133,25 @@ class Root {
         } else {
             ctx.content = '404';
         }
-		var html = new Template( Resource.getString( 'index' ) ).execute( ctx );
+		var html = new Template( Resource.getString( 'index' ) ).execute( ctx, macros );
 		return html;
 	}
 
+    /*
+    function executeTemplate( src : String, ?ctx : Dynamic ) : String {
+        var tpl = new Template( src );
+        var r = tpl.execute( ctx, new TemplateContext() );
+        return r;
+    }
+    */
+}
+
+@:keep
+private class TemplateContext {
+
+    public function new() {}
+
+    public function html( resolve : String->Dynamic, id : String ) {
+        return Resource.getString( 'tpl_$id' );
+    }
 }

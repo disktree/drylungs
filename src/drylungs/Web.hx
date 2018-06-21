@@ -1,7 +1,6 @@
 package drylungs;
 
 import haxe.Json;
-import haxe.Resource;
 import haxe.Template;
 import haxe.web.Dispatch;
 import sys.FileSystem;
@@ -13,8 +12,6 @@ class Web {
     public static inline var HOST = '192.168.0.10';
     public static inline var PATH = '';
     public static inline var SITE = 'site';
-
-    //public static var site(default,null) : Dynamic;
 
     static function main() {
 

@@ -9,6 +9,7 @@
 -lib hx3compat
 -lib om.core
 -lib om.io
+
 -resource res/html/about.html@about
 -resource res/html/error.html@error
 #-resource res/html/fatal.html@fatal
@@ -19,8 +20,12 @@
 #-resource res/html/releases.html@releases
 -resource res/html/start.html@start
 -resource res/html/twitter.html@twitter
+-resource res/html/tpl/header.html@tpl_header
+-resource res/html/tpl/footer.html@tpl_footer
+
 -resource res/web/atom.xml@atom
 #-resource res/web/manifest.json@manifest
+
 #-cmd mkdir -p bin/image
 -cmd cp -ru res/image/ bin/
 #-cmd cp -u res/image/drylungs.png bin/

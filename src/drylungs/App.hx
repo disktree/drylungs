@@ -11,17 +11,22 @@ class App {
 
 		window.onload = function() {
 
-			var l = navigator;
+			console.info( 'DLR ['+untyped __PAGE__+']' );
 
+			/*
 			document.body.onclick = function(e){
 				//trace(e);
 				//e.preventDefault();
 			}
+
+			*/
+			/*
 			var links = document.querySelectorAll('a');
 			for( link in links ) {
 				//console.debug( link );
 			}
 			//trace(links);
+			*/
 
 			/*
 			var records = document.querySelectorAll('drylungs-record');
@@ -36,6 +41,7 @@ class App {
 
 			//window.onpopstate = function(e){
 
+			/*
 			window.onscroll = function(e){
 				var scrollPos = window.innerHeight+window.scrollY;
 				if( scrollPos >= document.body.scrollHeight ) {
@@ -45,6 +51,7 @@ class App {
 				}
 				//trace(window.innerHeight+window.scrollY, document.body.scrollHeight);
 			}
+			*/
 
 		}
 	}
