@@ -2,5 +2,4 @@ _*
 *.zip
 bin/
 dat/
-#!bin/content/
-#!bin/tpl/
+NOTES

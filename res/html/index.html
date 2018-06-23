@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html><!-- ::version:: -->
 
     <head>
 
@@ -9,9 +9,9 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
-        ::if description::<meta name="description" content="::description::">::end::
-        ::if keywords::<meta name="keywords" content="::foreach keywords::::__current__::,::end::">::end::
-        ::if color.bg::<meta name="theme-color" content="::color.bg::">::end::
+        ::if site.description::<meta name="description" content="::site.description::">::end::
+        ::if site.keywords::<meta name="keywords" content="::foreach site.keywords::::__current__::,::end::">::end::
+        ::if site.color.bg::<meta name="theme-color" content="::site.color.bg::">::end::
 
         <meta property="twitter:site" content="@DryLungsRecords">
         <meta name="twitter:card" content="summary"/>
@@ -21,18 +21,16 @@
         <meta name="twitter:site" content="@DryLungsRecords"/>
     	<meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
 
-        <title>::title::</title>
+        <title>::site.title::</title>
 
-        <style media="screen">body{background:::theme::;}</style>
-
-        <link rel="alternate" type="application/atom+xml" href="/atom" title="Dry Lungs Records"/>
-        <link rel="author" href="/humans.txt" type="text/plain"/>
-        <link rel="icon" href="/icon/icon-48.png" sizes="48x48"/>
-		<link rel="icon" href="/icon/icon-96.png" sizes="96x96"/>
-		<link rel="icon" href="/icon/icon-192.png" sizes="192x192"/>
-		<link rel="icon" href="/icon/icon-512.png" sizes="512x512"/>
-        <link rel="manifest" href="/manifest.json">
-        <link rel="shortcut icon" href="/favicon.png">
+        <link rel="alternate" type="application/atom+xml" href="atom" title="Dry Lungs Records"/>
+        <link rel="author" href="humans.txt" type="text/plain"/>
+        <link rel="icon" href="icon/icon-48.png" sizes="48x48"/>
+		<link rel="icon" href="icon/icon-96.png" sizes="96x96"/>
+		<link rel="icon" href="icon/icon-192.png" sizes="192x192"/>
+		<link rel="icon" href="icon/icon-512.png" sizes="512x512"/>
+        <link rel="manifest" href="manifest.json">
+        <link rel="shortcut icon" href="favicon.png">
 
         <link rel="stylesheet" href="/app-::device::.css">
 
@@ -71,11 +69,11 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </pre></header>
 
         <nav>
-            ::if (page!="records")::<a href="/records">records</a>::end::
-            ::if (page!="about")::<a href="/about">about</a>::end::
-            ::if (page!="mailorder")::<a href="/mailorder">mailorder</a>::end::
+            ::if (page!="records")::<a href="/">records</a>::end::
+            ::if (page!="about")::<a href="about">about</a>::end::
+            ::if (page!="mailorder")::<a href="mailorder">mailorder</a>::end::
+            <a class="icon" href="/xml" target="_top" title="atom.xml">rss_feed</a>
             <!--
-            <a class="icon" href="/atom" target="_top" title="atom.xml">rss_feed</a>
             -->
         </nav>
 

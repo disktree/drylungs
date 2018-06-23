@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>::title::</title>
+	<title>Drylungs</title>
 	<subtitle>Records & Mailorder</subtitle>
-	<link href="::url::/feed/" rel="self" />
-	<link href="::url::" />
+	<link href="http://drylungs.at/feed" rel="self"/>
+	<link href="http://drylungs.at" />
 	::foreach records::
 	<entry>
-		<title>::title::</title>
-		<link href="http://drylungs.at/record/::id::" />
+		<title>::id::</title>
+		<link href="http://drylungs.at/records/::id::" />
 		::if description::<summary>::description::</summary>::end::
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-				<p>This is the entry content.</p>
+				<h1>::id::</h1>
+				<h2>::name::</h2>
 			</div>
 		</content>
 		<author>

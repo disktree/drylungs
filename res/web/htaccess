@@ -1,11 +1,12 @@
 
 #AddType application/application/manifest+json manifest.json
-AddType application/font-woff .woff
-AddType application/vnd.ms-fontobject .eot
-AddType application/x-font-opentype .otf
-AddType application/x-font-ttf .ttf
-AddType font/ttf .ttf
-AddType image/svg+xml .svg
+
+#AddType application/font-woff .woff
+#AddType application/vnd.ms-fontobject .eot
+#AddType application/x-font-opentype .otf
+#AddType application/x-font-ttf .ttf
+#AddType font/ttf .ttf
+#AddType image/svg+xml .svg
 
 RewriteEngine on
 RewriteCond %{SCRIPT_FILENAME} !-d

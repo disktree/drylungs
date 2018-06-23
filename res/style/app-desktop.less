@@ -1,1 +1,54 @@
+
+@color-bg: #0c0c0c; // rgb(12,12,12)
+@color-text: #3f3f3f; // rgb(47, 47, 47)
+@color-highlight: rgb(160, 160, 160);
+
+@font-family: 'LiberationMono';
+@font-size: 14px;
+
+@font-family-ascii: 'MicroKnight';
+@font-family-ascii-plus: 'P0T';
+@font-size-ascii: 16px;
+
+@cover-img-size: 1000px;
+@cover-filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
+
+@media screen and (max-width: 200px) {
+
+}
+
 @import "app";
+
+header {
+	.ascii {
+		font-size: 16px !important;
+		* {
+			font-size: 16px !important;
+        }
+	}
+
+}
+
+main.records {
+	ol.records {
+		li.record {
+			&:hover {
+                transform: scale(1);
+                z-index: 100000000;
+                img {
+                    transition: filter 0.5s;
+                    filter: brightness(80%) contrast(90%) grayscale(60%) sepia(2%);
+                }
+            }
+			.info {
+				.id {
+					font-size: 48px;
+					//font-size: 4vw;
+				}
+			}
+		}
+	}
+}
+
+main.record {
+}

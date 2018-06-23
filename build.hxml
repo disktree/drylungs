@@ -1,48 +1,40 @@
+-lib om.core
+-lib hx3compat
 -cp src
 -dce full
 -debug
+-D version=0.1.0
 --each
 
 --next
 -php bin
 -main drylungs.Web
--lib hx3compat
--lib om.core
 -lib om.io
-
+-lib om.net
 -resource res/html/about.html@about
 -resource res/html/error.html@error
-#-resource res/html/fatal.html@fatal
 -resource res/html/index.html@index
 -resource res/html/mailorder.html@mailorder
 -resource res/html/record.html@record
 -resource res/html/records.html@records
-#-resource res/html/releases.html@releases
 -resource res/html/start.html@start
 -resource res/html/twitter.html@twitter
-#-resource res/html/tpl/header.html@tpl_header
-#-resource res/html/tpl/footer.html@tpl_footer
-
 -resource res/web/atom.xml@atom
-#-resource res/web/manifest.json@manifest
-
-#-cmd mkdir -p bin/image
 -cmd cp -ru res/image/ bin/
-#-cmd cp -u res/image/drylungs.png bin/
 -cmd cp -u res/web/htaccess bin/.htaccess
 -cmd cp -u res/web/humans.txt bin/
 -cmd cp -u res/web/robots.txt bin/
-#-cmd mkdir -p bin/content/
-#-cmd cp -u content/releases.json bin/content/
 #-cmd cp -u content/site.json bin/c
 
 --next
 -js bin/app.js
 -main drylungs.App
-#-cmd cp -ru res/image bin/
+-cmd cp -ru res/dev bin/
 -cmd cp -ru res/font bin/
 -cmd cp -ru res/icon bin/
+-cmd cp -ru res/site bin/
 -cmd cp -u res/icon/favicon.png bin/
 -cmd lessc res/style/app-desktop.less bin/app-desktop.css --no-color
 -cmd lessc res/style/app-mobile.less bin/app-mobile.css --no-color
-#-cmd lessc res/style/drylungs-mobile.less bin/drylungs-mobile.css --no-color
+#-cmd mkdir -p bin/.update && chmod -R 777 bin/.update
+#-cmd mkdir -m 0777 -p bin/.update
