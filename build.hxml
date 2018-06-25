@@ -3,7 +3,7 @@
 -cp src
 -dce full
 -debug
--D version=0.1.0
+-D version=0.0.1
 --each
 
 --next
