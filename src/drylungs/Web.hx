@@ -1,11 +1,8 @@
 package drylungs;
 
-import drylungs.Style;
-
 #if !macro @:build(drylungs.macro.BuildApp.build()) #end
 class Web {
 
-    public static inline var HOST = '192.168.0.10';
     public static inline var PATH = '';
     public static inline var SITE = 'site';
 
@@ -18,6 +15,10 @@ class Web {
         isMobile = om.System.isMobile();
         context = Json.parse( File.getContent( '$SITE/site.json' ) );
 
+        var uri = php.Web.getURI();
+        var path = php.Web.getURI().substr( PATH.length );
+        var params = php.Web.getParams();
+
         Template.globals = {
             mobile: isMobile,
             device : isMobile ? 'mobile' : 'desktop',
@@ -25,17 +26,22 @@ class Web {
             platform: 'php',
         };
 
-        var uri = php.Web.getURI();
-        var path = php.Web.getURI().substr( PATH.length );
-        var params = php.Web.getParams();
-
         dispatcher = new Dispatch( path, params );
         dispatcher.onMeta = function(meta,value) {
             //trace(meta,value);
         }
         try dispatcher.dispatch( new drylungs.web.Root() ) catch(e:Dynamic) {
-            trace(e);
-            return;
+            //php.Web.setReturnCode( 404 );
+            switch e {
+            case DENotFound(part):
+            case DEInvalidValue:
+            case DEMissing:
+            case DEMissingParam(p):
+            case DETooManyValues:
+                //dispatcher.redirect( '/' );
+                //dispatcher.dispatch( root );
+            }
+            Sys.print( e );
         }
     }
 

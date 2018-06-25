@@ -19,6 +19,7 @@
 -resource res/html/records.html@records
 -resource res/html/start.html@start
 -resource res/html/twitter.html@twitter
+-resource res/html/404.html@404
 -resource res/web/atom.xml@atom
 -cmd cp -ru res/image/ bin/
 -cmd cp -u res/web/htaccess bin/.htaccess

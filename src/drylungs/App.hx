@@ -1,10 +1,6 @@
 package drylungs;
 
-import js.Browser.console;
-import js.Browser.document;
-import js.Browser.navigator;
-import js.Browser.window;
-
+#if !macro @:build(drylungs.macro.BuildApp.build()) #end
 class App {
 
 	static function main() {
@@ -12,6 +8,12 @@ class App {
 		window.onload = function() {
 
 			console.info( 'DLR ['+untyped __PAGE__+']' );
+
+			document.fonts.ready.then( function(_){
+				//trace("FONTS READY");
+			});
+
+			//console.debug( Time.now() );
 
 			/*
 			document.body.onclick = function(e){

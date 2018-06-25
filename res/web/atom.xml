@@ -13,6 +13,8 @@
 			<div xmlns="http://www.w3.org/1999/xhtml">
 				<h1>::id::</h1>
 				<h2>::name::</h2>
+				::if artists::::foreach artists::<li class="artist">::__current__::</li>::end::::end::
+				<img class="cover" src="http://drylungs.at/image/record/::id::.jpg">
 			</div>
 		</content>
 		<author>
