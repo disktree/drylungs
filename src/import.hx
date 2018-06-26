@@ -1,13 +1,13 @@
 
-import haxe.web.Dispatch;
-import haxe.Resource;
-import haxe.Template;
 import om.Json;
+import om.Resource;
 import om.Time;
 
-#if sys
+#if php
 import sys.FileSystem;
 import sys.io.File;
+import haxe.Template;
+import haxe.web.Dispatch;
 #end
 
 #if js

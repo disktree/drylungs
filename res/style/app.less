@@ -1,5 +1,6 @@
 
 /// VARS...
+@font-size-icons: 12px;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -15,6 +16,7 @@
 @import "fonts";
 @import "reset";
 @import "scrollbar";
+@import "icons";
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -28,10 +30,11 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
 
-    animation: fade_in 0.1s;
-
     //tap-highlight-color: @color-text;
     //-webkit-tap-highlight-color: @color-text;
+
+    display: none;
+    //animation: fade_in 0.1s;
 }
 
 a {
@@ -336,22 +339,15 @@ main.record {
 footer {
 
     position: fixed;
-    right: 2px;
-    bottom: 0;
-
-    padding: 0px 1px 0px 1px;
-
-    z-index: 100000;
-
-    display: none;
-
+    right: 0px;
+    bottom: 0px;
+    padding: 0px 1px 8px 2px;
+    z-index: 1000000000000;
+    .fa-lg;
     text-transform: uppercase;
-
-    background: @color-bg;
-    color: @color-text;
-
+    //background: @color-bg;
+    //color: @color-text;
     //user-select: none;
-
     a {
         color: @color-text;
     }

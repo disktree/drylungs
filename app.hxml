@@ -1,0 +1,9 @@
+-js bin/app.js
+-main drylungs.App
+-lib om.core
+-cp src
+-dce full
+-debug
+-D version=0.0.1
+#-cmd mkdir -p bin/.update && chmod -R 777 bin/.update
+#-cmd mkdir -m 0777 -p bin/.update

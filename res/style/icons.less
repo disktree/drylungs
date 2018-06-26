@@ -1,0 +1,30 @@
+
+@import "fa/fontawesome";
+//@import "./fa/fa-regular";
+@import "fa/fa-brands";
+@import "fa/fa-solid";
+
+.fa-icon {
+    vertical-align: middle;
+}
+
+.ic-copyright {
+    .fa-icon;
+    .fas;
+    &:before { content: @fa-var-copyright; }
+}
+.ic-atom {
+    .fa-icon;
+    .fas;
+    &:before { content: @fa-var-rss; }
+}
+.ic-email {
+    .fa-icon;
+    .fas;
+    &:before { content: @fa-var-envelope; }
+}
+.ic-twitter {
+    .fa-icon;
+    .fab;
+    &:before { content: @fa-var-twitter; }
+}

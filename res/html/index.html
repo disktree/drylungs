@@ -32,10 +32,9 @@
         <link rel="manifest" href="manifest.json">
         <link rel="shortcut icon" href="favicon.png">
 
-        <link rel="stylesheet" href="/app-::device::.css">
+        <link rel="stylesheet" href="app-::device::.css">
 
-        <script>var __PAGE__="::page::";</script>
-        <script defer src="/app.js"></script>
+        <script defer src="app.js"></script>
 
     </head>
 
@@ -69,12 +68,10 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </pre></header>
 
         <nav>
-            ::if (page!="records")::<a href="/">records</a>::end::
+            ::if (page!="records")::<a href="">records</a>::end::
             ::if (page!="about")::<a href="about">about</a>::end::
             ::if (page!="mailorder")::<a href="mailorder">mailorder</a>::end::
-            <a class="icon" href="/xml" target="_top" title="atom.xml">rss_feed</a>
-            <!--
-            -->
+            <a class="ic-atom fa-xs" href="xml" target="_top" title="atom.xml"></a>
         </nav>
 
         <main class="::page::">
@@ -82,11 +79,9 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </main>
 
         <footer>
-        	<span><i class="icon">copyright</i> 2017 Dry Lungs Records, Vienna AT</span>
-        	<a class="icon" href="mailto:christoph&#64;drylungs.at" target="_top" title="christoph&#64;drylungs.at">email</a>
-        	<!--
-        	<a href="/twitter">twitter</a>
-        	-->
+            <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>
+            <a href="mailto:mailto:christoph&#64;drylungs.at" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
+            <a href="https://twitter.com/DryLungsRecords" class="ic-twitter"></a>
         </footer>
 
     </body>

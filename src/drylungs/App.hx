@@ -7,21 +7,13 @@ class App {
 
 		window.onload = function() {
 
-			console.info( 'DLR ['+untyped __PAGE__+']' );
+			console.info( 'DRYLUNGS.AT' );
 
 			document.fonts.ready.then( function(_){
-				//trace("FONTS READY");
+				trace("Fonts loaded");
+				document.body.style.display = 'block';
 			});
 
-			//console.debug( Time.now() );
-
-			/*
-			document.body.onclick = function(e){
-				//trace(e);
-				//e.preventDefault();
-			}
-
-			*/
 			/*
 			var links = document.querySelectorAll('a');
 			for( link in links ) {
