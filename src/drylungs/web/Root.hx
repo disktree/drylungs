@@ -13,9 +13,11 @@ class Root {
         }
     }
 
+    /*
     function doAdmin__( d : Dispatch ) {
         d.dispatch( new drylungs.web.Admin() );
     }
+    */
 
     function doFeed( d : Dispatch ) {
         d.dispatch( new drylungs.web.Feed() );

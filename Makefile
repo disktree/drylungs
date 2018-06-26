@@ -1,8 +1,9 @@
 
 release:
-	haxe build.hxml --no-traces
+	haxe app.hxml --no-traces
+	haxe web.hxml --no-traces
 	mv bin drylungs_at
-	zip -r drylungs_at.zip drylungs_at
+	zip -r drylungs_at.zip drylungs_at -x drylungs_at/dev/**\*
 	mv drylungs_at bin
 
 deploy:

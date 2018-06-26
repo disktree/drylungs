@@ -6,7 +6,7 @@
 -cp src
 -dce full
 -debug
--D version=0.0.1
+-D version=0.0.2
 
 -resource res/html/about.html@about
 -resource res/html/error.html@error
