@@ -1,100 +1,30 @@
 
-/// Text Fonts
-
 @font-face {
-    font-family: 'LiberationMono';
-    src: url('font/LiberationMono-Regular.ttf') format('truetype');
+    font-family: 'DLRRegular';
+    src: url('font/liberation_mono-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DLRTitle';
+    src: url('font/helvetica-55.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('font/helvetica-55.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/// ASCII Fonts
-
-@font-face {
-    font-family: 'MicroKnight';
+    font-family: 'DLRAscii';
     src: url('font/MicroKnight_v1.0.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
-
 @font-face {
-    font-family: 'P0T';
+    font-family: 'DLRAsciiPlus';
     src: url('font/P0T-NOoDLE_v1.0.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
-
-/// Icon Fonts
-
-@font-face {
-  font-family: 'MaterialIcons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(font/MaterialIcons-Regular.eot); // For IE6-8
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(font/MaterialIcons-Regular.woff2) format('woff2'),
-       url(font/MaterialIcons-Regular.woff) format('woff'),
-       url(font/MaterialIcons-Regular.ttf) format('truetype');
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-.material-icon {
-
-    font-family: 'MaterialIcons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: @font-size * 0.9;  // Preferred icon size
-
-    position: relative;
-    top: 2px;
-
-    display: inline-block;
-    line-height: 0.9;
-
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    font-feature-settings: 'liga';
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-// Rules for sizing the icon.
-.icon.18 { font-size: 18px; }
-.icon.24 { font-size: 24px; }
-.icon.36 { font-size: 36px; }
-.icon.48 { font-size: 48px; }
-
-// Rules for using icons as black on a light background.
-.icon.dark { color: rgba(0, 0, 0, 0.54); }
-.icon.dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-// Rules for using icons as white on a dark background.
-.icon.light { color: rgba(255, 255, 255, 1); }
-.icon.light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-a.icon, i.icon {
-    .material-icon;
-}
-
-/*
-icon-copyright {
-    &:after {
-        .material-icon;
-        content: "&#xE87C;";
-    }
-}
-*/

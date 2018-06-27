@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><!-- ::version:: -->
+<html>
+
+    <!-- ::version:: -->
 
     <head>
 
@@ -7,7 +9,6 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
-        <meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
         ::if site.description::<meta name="description" content="::site.description::">::end::
         ::if site.keywords::<meta name="keywords" content="::foreach site.keywords::::__current__::,::end::">::end::
@@ -23,18 +24,17 @@
 
         <title>::site.title::</title>
 
-        <link rel="alternate" type="application/atom+xml" href="atom" title="Dry Lungs Records"/>
-        <link rel="author" href="humans.txt" type="text/plain"/>
-        <link rel="icon" href="icon/icon-48.png" sizes="48x48"/>
-		<link rel="icon" href="icon/icon-96.png" sizes="96x96"/>
-		<link rel="icon" href="icon/icon-192.png" sizes="192x192"/>
-		<link rel="icon" href="icon/icon-512.png" sizes="512x512"/>
-        <link rel="manifest" href="manifest.json">
-        <link rel="shortcut icon" href="favicon.png">
+        <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
+        <link rel="author" href="/humans.txt" type="text/plain"/>
+        <link rel="icon" href="/icon/icon-48.png" sizes="48x48"/>
+		<link rel="icon" href="/icon/icon-96.png" sizes="96x96"/>
+		<link rel="icon" href="/icon/icon-192.png" sizes="192x192"/>
+		<link rel="icon" href="/icon/icon-512.png" sizes="512x512"/>
+        <link rel="manifest" href="/manifest.json">
+        <link rel="shortcut icon" href="/favicon.png">
+        <link rel="stylesheet" href="/app-::device::.css">
 
-        <link rel="stylesheet" href="app-::device::.css">
-
-        <script defer src="app.js"></script>
+        <script defer src="/app.js"></script>
 
     </head>
 
@@ -68,10 +68,9 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </pre></header>
 
         <nav>
-            ::if (page!="records")::<a href="">records</a>::end::
-            ::if (page!="about")::<a href="about">about</a>::end::
-            ::if (page!="mailorder")::<a href="mailorder">mailorder</a>::end::
-            <a class="ic-atom fa-xs" href="xml" target="_top" title="atom.xml"></a>
+            ::if (page!="records")::<a href="/">records</a>::end::
+            ::if (page!="about")::<a href="/about">about</a>::end::
+            ::if (page!="mailorder")::<a href="/mailorder">mailorder</a>::end::
         </nav>
 
         <main class="::page::">
@@ -82,6 +81,7 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
             <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>
             <a href="mailto:mailto:christoph&#64;drylungs.at" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
             <a href="https://twitter.com/DryLungsRecords" class="ic-twitter"></a>
+            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
         </footer>
 
     </body>

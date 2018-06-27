@@ -12,6 +12,8 @@ class Web {
 
     static function main() {
 
+        drylungs.Build.icons();
+
         isMobile = om.System.isMobile();
         context = Json.parse( File.getContent( '$SITE/site.json' ) );
 

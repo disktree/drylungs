@@ -1,33 +1,51 @@
+-D version=0.0.3
+
 -php bin
 -main drylungs.Web
--lib om.io
--lib om.net
+-lib om.core
 -lib hx3compat
 -cp src
 -dce full
 -debug
--D version=0.0.2
 
--resource res/html/about.html@about
--resource res/html/error.html@error
--resource res/html/index.html@index
--resource res/html/mailorder.html@mailorder
--resource res/html/record.html@record
--resource res/html/records.html@records
--resource res/html/start.html@start
--resource res/html/twitter.html@twitter
--resource res/html/404.html@404
--resource res/web/atom.xml@atom
+-r res/html/about.html@about
+-r res/html/error.html@error
+-r res/html/index.html@index
+-r res/html/mailorder.html@mailorder
+-r res/html/record.html@record
+-r res/html/records.html@records
+-r res/html/start.html@start
+-r res/html/twitter.html@twitter
+-r res/html/404.html@404
+-r res/web/atom.xml@atom
 
 -cmd lessc res/style/app-desktop.less bin/app-desktop.css --no-color
 -cmd lessc res/style/app-mobile.less bin/app-mobile.css --no-color
--cmd cp -ru res/dev bin/
--cmd cp -ru res/font bin/
--cmd cp -ru res/icon bin/
--cmd cp -ru res/image/ bin/
--cmd cp -ru res/site bin/
--cmd cp -u res/icon/favicon.png bin/
--cmd cp -u res/web/htaccess bin/.htaccess
--cmd cp -u res/web/humans.txt bin/
--cmd cp -u res/web/robots.txt bin/
+-cmd cp -ru res/dev res/font res/icon res/image res/site bin/
+-cmd cp -u res/icon/favicon.png res/web/htaccess res/web/humans.txt res/web/robots.txt bin/
+
+#-cmd cp -ru res/font bin/
+#-cmd cp -ru res/icon bin/
+#-cmd cp -ru res/image/ bin/
+#-cmd cp -ru res/site bin/
+#-cmd cp -u res/icon/favicon.png bin/
+#-cmd cp -u res/web/htaccess bin/.htaccess
+#-cmd cp -u res/web/humans.txt bin/
+#-cmd cp -u res/web/robots.txt bin/
 #-cmd cp -u content/site.json bin/c
+
+#-cmd haxe -p src --macro 'drylungs.Build.icons()'
+
+#--next
+#--macro drylungs.Build.icons()
+
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-16.png --export-id=icon-16 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-32.png --export-id=icon-32 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-32.png --export-id=icon-32 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-48.png --export-id=icon-48 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-72.png --export-id=icon-72 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-96.png --export-id=icon-96 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-144.png --export-id=icon-144 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-192.png --export-id=icon-192 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-512.png --export-id=icon-512 > /dev/null
+#-cmd inkscape --without-gui res/icon/drylungs-icons.svg --export-png icon-1024.png --export-id=icon-1024 > /dev/null

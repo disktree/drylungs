@@ -8,11 +8,18 @@ class App {
 		window.onload = function() {
 
 			console.info( 'DRYLUNGS.AT' );
+			console.info( om.System.isMobile() );
 
+			if( om.System.isMobile() ) {
+				window.alert( 'Mobile stylesheet is gay' );
+			}
+
+			/*
 			document.fonts.ready.then( function(_){
 				trace("Fonts loaded");
 				document.body.style.display = 'block';
 			});
+			*/
 
 			/*
 			var links = document.querySelectorAll('a');
