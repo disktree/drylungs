@@ -18,5 +18,7 @@ import js.Browser.console;
 import js.Browser.document;
 import js.Browser.navigator;
 import js.Browser.window;
+import js.html.AnchorElement;
 import js.html.DivElement;
+import js.html.Element;
 #end

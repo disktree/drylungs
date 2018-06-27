@@ -159,7 +159,7 @@ nav {
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 1000000;
+    z-index: 10;
     padding: 3px 4px 2px 4px;
     text-transform: uppercase;
     background: @color-text;
@@ -328,7 +328,7 @@ footer {
     right: 8px;
     bottom: 2px;
     padding: 0px 2px 10px 2px;
-    z-index: 1000000000000;
+    z-index: 10;
     .fa-lg;
     text-transform: uppercase;
     //background: @color-bg;
@@ -347,5 +347,22 @@ footer {
     }
     &.hidden {
         //display: none;
+    }
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #0000ff;
+    z-index: 1000;
+    display: none;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
 }
