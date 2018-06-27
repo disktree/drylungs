@@ -130,29 +130,20 @@ img.cover {
 ////////////////////////////////////////////////////////////////////////////////
 
 header {
-    //position: relative;
-    //left: 50%;
-    //transform: translate(-50%,0);
+    //display: table;
     display: none;
     margin: 10vh auto 0 auto;
     white-space: pre;
-
+    visibility: hidden;
     h1 {
         &::selection {
             color: #fff !important;
         }
     }
-    h2 {}
-    h3 {}
-    .ascii {
-        //font-size: @font-size-ascii;
-        //font-size: 1vmax; // 1.5vw;
-        * {
-            //font-size: @font-size-ascii;
-            //font-size: 1vmax; // 1.5vw;
-        }
+    h2::selection {
+        //color: #ff0000 !important;
     }
-    //animation: fade_in 1.2s;
+    //animation: fade_in 0.5s;
 }
 
 nav {

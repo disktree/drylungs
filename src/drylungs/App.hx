@@ -7,19 +7,22 @@ class App {
 
 	static function init() {
 
+		document.fonts.ready.then( function(_){
+			//trace("Fonts loaded");
+			//document.querySelector('header').style.visibility = 'visible';
+		});
+
 		if( isMobile) {
 			window.alert( 'Mobile stylesheet is gay' );
 		}
 
-		var body = document.body;
 		/*
+		var body = document.body;
 		var links = document.querySelectorAll('a');
 		var overlay = document.getElementById('overlay');
 		for( a in links ) {
 			a.addEventListener( 'click', function(e){
-
 				e.preventDefault();
-
 				overlay.style.display = 'block';
 				overlay.animate( [
 					{ opacity: '1' },
@@ -34,14 +37,16 @@ class App {
 	}
 
 	static function main() {
+
+		console.info( 'DRYLUNGS.AT' );
+
+		isMobile = om.System.isMobile();
+
 		document.addEventListener( 'readystatechange', function(e){
 			switch document.readyState {
 			case 'interactive':
 				//
 			case 'complete':
-				console.info( 'DRYLUNGS.AT' );
-				isMobile = om.System.isMobile();
-
 				init();
 			}
 		});
@@ -82,7 +87,6 @@ class App {
 				}
 				//trace(window.innerHeight+window.scrollY, document.body.scrollHeight);
 			}
-
 		}
 		*/
 	}
