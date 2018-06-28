@@ -1,8 +1,8 @@
 
 @import "fa/fontawesome";
-//@import "./fa/fa-regular";
 @import "fa/fa-brands";
 @import "fa/fa-solid";
+@import "fa/fa-regular";
 
 .fa-icon {
     vertical-align: middle;
@@ -10,7 +10,7 @@
 
 .ic-copyright {
     .fa-icon;
-    .fas;
+    .far;
     &:before { content: @fa-var-copyright; }
 }
 .ic-atom {
@@ -27,4 +27,19 @@
     .fa-icon;
     .fab;
     &:before { content: @fa-var-twitter; }
+}
+.ic-instagram {
+    .fa-icon;
+    .fab;
+    &:before { content: @fa-var-instagram; }
+}
+.ic-bandcamp {
+    .fa-icon;
+    .fab;
+    &:before { content: @fa-var-bandcamp; }
+}
+.ic-phone {
+    .fa-icon;
+    .fas;
+    &:before { content: @fa-var-phone; }
 }

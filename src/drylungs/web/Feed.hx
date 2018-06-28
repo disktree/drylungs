@@ -1,20 +1,28 @@
 package drylungs.web;
 
-import haxe.web.Dispatch;
-
 class Feed {
 
-	public function new() {}
+	var data : Dynamic;
+
+	public function new( ?data : Dynamic ) {
+		this.data = data;
+	}
 
 	function doDefault( ?id : String ) {
+		switch id {
+		case null, '': doRecords();
+		}
+	}
 
-		var records = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
+	function doRecords() {
+		if( data == null ) data = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
+		print( { records: data } );
+	}
 
-		var xml = new Template( Resource.getString( 'atom' ) ).execute( {
-			records :  records
-		} );
-		php.Web.setHeader( 'Content-Type', 'application/atom+xml' );
-        Sys.print( xml );
+	function print( data : Dynamic, type = 'atom' ) {
+		var xml = new Template( Resource.getString( type ) ).execute( data );
+		php.Web.setHeader( 'Content-Type', 'application/$type+xml' );
+		Sys.print( xml );
 	}
 
 }

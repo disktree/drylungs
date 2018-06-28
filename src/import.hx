@@ -1,7 +1,9 @@
 
+#if !macro
 import om.Json;
 import om.Resource;
 import om.Time;
+#end
 
 #if sys
 import sys.FileSystem;
@@ -9,8 +11,8 @@ import sys.io.File;
 #end
 
 #if php
-import haxe.Template;
-import haxe.web.Dispatch;
+import om.Template;
+import om.web.Dispatch;
 #end
 
 #if js

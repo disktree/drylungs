@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="::lang::">
 
     <!-- ::version:: -->
 
@@ -9,20 +9,22 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
-		<meta name="mobile-web-app-capable" content="yes">
-        ::if site.description::<meta name="description" content="::site.description::">::end::
-        ::if site.keywords::<meta name="keywords" content="::foreach site.keywords::::__current__::,::end::">::end::
-        ::if site.color.bg::<meta name="theme-color" content="::site.color.bg::">::end::
+        ::if mobile::<meta name="mobile-web-app-capable" content="yes">::end::
+        ::if description::<meta name="description" content="::description::">::end::
+        ::if keywords::<meta name="keywords" content="::foreach keywords::::__current__::,::end::">::end::
+        ::if color::<meta name="theme-color" content="::color::">::end::
+
+        <meta name="google-site-verification" content="btMQPqnHIshsheX-njuIUKtyLqv81aeN0yEeo2c65eU" />
 
         <meta property="twitter:site" content="@DryLungsRecords">
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:title" content="::title::"/>
         <meta name="twitter:description" value="::description::"/>
-    	<meta name="twitter:creator" content="@DryLungsRecords"/>
+        <meta name="twitter:creator" content="@DryLungsRecords"/>
         <meta name="twitter:site" content="@DryLungsRecords"/>
-    	<meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
+        <meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
 
-        <title>::site.title::</title>
+        <title>::title::</title>
 
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
         <link rel="author" href="/humans.txt" type="text/plain"/>
@@ -38,9 +40,10 @@
 
     </head>
 
-    <body id="drylungs" class="::page::" data-page="::page::">
+    <body id="drylungs" class="::id::">
 
-        <header><pre class="ascii">
+        <header>
+            <pre class="ascii">
 <i>                    ._:                               :_.
                      \|                               |/
                    - -|---  -                   -  ---|- -
@@ -65,31 +68,31 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
                    - -|---        </i><h3>EST. 2010</h3><i>        ---|- -
                      /|                               |\
                     . :                               : .</i>
-        </pre></header>
+            </pre>
+        </header>
 
         <nav>
-            ::if (page!="records")::<a href="/">records</a>::end::
-            ::if (page!="about")::<a href="/about">about</a>::end::
-            ::if (page!="mailorder")::<a href="/mailorder">mailorder</a>::end::
+            <!--
+            ::if (id!="records")::<a href="/">records</a>::end::
+            ::if (id!="about")::<a href="/about">about</a>::end::
+            ::if (id!="mailorder")::<a href="/mailorder">mailorder</a>::end::
+        -->
+            <a href="/" ::if (id=="records")::class="active"::end::>records</a>
+            <a href="/about" ::if (id=="about")::class="active"::end::>about</a>
+            <a href="/mailorder" ::if (id=="mailorder")::class="active"::end::>mailorder</a>
+            <a href="https://twitter.com/DryLungsRecords" rel="external" class="ic-twitter"></a>
+            <a href="https://www.instagram.com/drylungsrecords/" class="ic-instagram"></a>
+            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
         </nav>
 
-        <main class="::page::">
+        <main class="::id::">
             ::if content::::content::::end::
         </main>
 
         <footer>
+            <a href="mailto:christoph&#64;drylungs.at" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
             <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>
-            <a href="mailto:mailto:christoph&#64;drylungs.at" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
-            <a href="https://twitter.com/DryLungsRecords" class="ic-twitter"></a>
-            <a href="/twitter" class="ic-twitter"></a>
-            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
         </footer>
-
-        <!--
-        <div id="overlay">
-            <img src="image/disktree.png">
-        </div>
-        -->
 
     </body>
 

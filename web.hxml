@@ -1,31 +1,46 @@
--D version=0.0.3
+inc.hxml
 
 -php bin
 -main drylungs.Web
 -lib om.core
--lib hx3compat
+-lib om.http
+#-lib hx3compat
 -cp src
 -dce full
 -debug
 
--r res/html/about.html@about
--r res/html/error.html@error
+#-r res/html/about.html@about
+#-r res/html/error.html@error
 -r res/html/index.html@index
--r res/html/listen.html@listen
--r res/html/mailorder.html@mailorder
--r res/html/record.html@record
--r res/html/records.html@records
--r res/html/start.html@start
--r res/html/twitter.html@twitter
--r res/html/404.html@404
+#-r res/html/listen.html@listen
+#-r res/html/mailorder.html@mailorder
+#-r res/html/record.html@record
+#-r res/html/records.html@records
+#-r res/html/start.html@start
+#-r res/html/twitter.html@twitter
+#-r res/html/404.html@404
+#-r res/web/sitemap.xml@sitemap
+-r res/text/ascii.txt@ascii
 -r res/web/atom.xml@atom
 
 -cmd lessc res/style/app-desktop.less bin/app-desktop.css --no-color
 -cmd lessc res/style/app-mobile.less bin/app-mobile.css --no-color
--cmd cp -ru res/dev res/font res/icon res/image res/site bin/
+#-cmd cp -ru res/dev res/font res/icon res/image res/site bin/
+
+-cmd cp -ru res/html bin/
+-cmd cp -ru res/dev bin/
+-cmd cp -ru res/font bin/
+-cmd cp -ru res/icon bin/
+-cmd cp -ru res/image bin/
+-cmd cp -ru res/site bin/
 -cmd cp -ru res/sound bin/
+
 -cmd cp -u res/icon/favicon.png res/web/manifest.json res/web/humans.txt res/web/robots.txt bin/
 -cmd cp -u res/web/htaccess bin/.htaccess
+
+#--next
+#-cp src
+#--macro drylungs.Build.icons()
 
 #-cmd cp -ru res/font bin/
 #-cmd cp -ru res/icon bin/

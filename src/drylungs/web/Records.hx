@@ -1,24 +1,30 @@
 package drylungs.web;
 
-class Records {
+class Records extends Site {
 
     var records : Array<Dynamic>;
 
     public function new() {
+        super();
 		records = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
     }
 
-    function doList() {
-		Sys.print( HTML.build( 'records', { records: records } ) );
-	}
-
-	inline function doAll() doList();
-
-    function doFeed( d : Dispatch ) {
-		d.dispatch( new drylungs.web.Feed() );
-	}
-
     function doDefault( ?id : String ) {
+        switch id {
+        case null, '', '/':
+            doAll();
+            //print( { records: records } );
+        default:
+            var record = getRecordById( id );
+            if( record == null )
+                throw DispatchError.DENotFound(  id );
+            this.id = 'record';
+            site.title = 'DLR.$id';
+            //site.keywords.push( id );
+            print( record );
+        }
+
+        /*
 		switch id {
 		case null, '', '/','all','list','any':
 			doList();
@@ -32,6 +38,22 @@ class Records {
 				Sys.print( HTML.build( 'record', { record: record }, { title: 'DLR.'+record.id } ) );
 			}
 		}
+        */
 	}
+
+    function doFeed( d : Dispatch ) {
+    	d.dispatch( new drylungs.web.Feed( records ) );
+    }
+
+    function doAll() {
+        print( { records: records } );
+    }
+
+    inline function doList() doAll();
+
+    function getRecordById( id : String ) {
+        for( r in records ) if( r.id == id ) return r;
+        return null;
+    }
 
 }

@@ -13,7 +13,7 @@ class App {
 		});
 
 		if( isMobile) {
-			window.alert( 'Mobile stylesheet is gay' );
+			//window.alert( 'Mobile stylesheet is gay' );
 		}
 
 		/*

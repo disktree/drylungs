@@ -1,0 +1,39 @@
+<h1 class="id">::id::</h1>
+<h2 class="name">::name::</h2>
+<ol class="artists">
+	<label>Artists:</label>
+	::if artists::::foreach artists::<li class="artist">::__current__::</li>::end::::end::
+</ol>
+<div class="format">::if format::::format::::end::</div>
+<div class="date">::if date::::date::::end::</div>
+<div class="description">::if description::::description::::end::</div>
+<div class="notes">::if notes::::notes::::end::</div>
+<!--
+::if discogs::<a class="discogs">::record.discogs::</a>::end::
+-->
+<ol class="tracks">
+	::if tracks::
+	::foreach tracks::
+	<li class="track">
+		<div>::position::</div>
+		<div>::name::</div>
+		::if duration::<div>::duration::</div>::end::
+	</li>
+	::end::
+	::end::
+</ol>
+<div class="covers">
+	<img class="cover" src="/image/record/::id::.jpg">
+	<img class="cover" src="/image/record/::id::_1.jpg">
+</div>
+<!--
+<script>
+/*
+window.addEventListener( "load", function(e){
+	var covers = document.querySelector("div.covers");
+	console.debug(covers);
+	covers.children[1].style.display = 'none';
+}, false );
+*/
+</script>
+-->

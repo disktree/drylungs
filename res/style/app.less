@@ -15,12 +15,20 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
 
     overflow-x: hidden;
 
     font-family: @font-regular-family;
     font-size: @font-regular-size;
+    line-height: 1.2;
 
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -30,6 +38,7 @@ body {
 
     //display: none;
     //animation: fade_in 0.1s;
+    //filter: invert(100%);
 }
 
 a {
@@ -37,6 +46,7 @@ a {
     border: none;
     color: @color-text;
     background-color: transparent;
+    -webkit-text-decoration-skip: objects;
     &:focus {
         color: var(--color-highlight);
     }
@@ -44,6 +54,7 @@ a {
         //outline: 0;
     }
     &:hover {
+        //text-decoration: underline;
         color: var(--color-highlight);
     }
 }
@@ -69,9 +80,19 @@ h4 {
     font-size: 24px;
     font-size: 2vw;
 }
+h5 {
+    font-size: 18px;
+    //TODO font-size: 2vw;
+}
+h6 {
+    font-size: 18px;
+    //TODO font-size: 2vw;
+}
 
 p {
     display: block;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
     //-webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
@@ -130,11 +151,13 @@ img.cover {
 ////////////////////////////////////////////////////////////////////////////////
 
 header {
-    //display: table;
-    display: none;
+    display: table;
+    //display: none;
+    //visibility: hidden;
     margin: 10vh auto 0 auto;
     white-space: pre;
-    visibility: hidden;
+    animation: fade_in 0.3s;
+    cursor: default;
     h1 {
         &::selection {
             color: #fff !important;
@@ -143,35 +166,76 @@ header {
     h2::selection {
         //color: #ff0000 !important;
     }
-    //animation: fade_in 0.5s;
 }
 
 nav {
     position: fixed;
     top: 0px;
+//    top: -100px;
+
     left: 0px;
-    z-index: 10;
+    z-index: 10000;
     padding: 3px 4px 2px 4px;
     text-transform: uppercase;
-    background: @color-text;
+    //background: @color-text;
     //color: @color-bg;
+    //font-size: 2em;
     user-select: none;
     a {
-        color: @color-bg;
+        padding: 3px 4px 2px 4px;
+        &.active {
+            background: @color-text;
+            color: @color-bg;
+
+        }
     }
+    //font-size:
+    //animation: fade_in 0.8s;
 }
 
 main {
+/*
     //margin-top: 2vh !important;
     //list-style:georgian;
+    width: 100%;
+    height: 100%;
+    background: red;
+    */
     animation: fade_in 0.2s;
+}
+
+main.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    color: #ff0000;
+
+/*
+    background: #ff0000;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    .code {
+        font-size: 100px;
+    }
+    .message {
+        font-size: 100px;
+    }
+    */
 }
 
 main.about,
 main.mailorder
 {
-    padding: 5vh 4vw 4vh 4vw;
+    //display: flex;
+    //flex-wrap: wrap;
     display: table;
+    align-content: center;
+
+    min-width: 400px;
+    max-width: 80vw;
+    padding: 5vh 4vw 4vh 4vw;
     li {
         list-style: circle;
         margin-left: 4em;
@@ -211,40 +275,68 @@ main.records {
             background: @color-bg;
 
             transform: scale(0.995);
-            //transition: transform 0.3s, filter 0.3s;
-            transition: transform 0.3s;
+            transition: transform 0.2s, filter 0.2s;
+            //transition: transform 0.3s;
 
-        //    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
 
-            /*
             &:hover {
                 //transform: scale(1.005);
                 transform: scale(1);
                 z-index: 100000000;
-                //filter: drop-shadow( 10px 10px 20px rgba(0,0,0,0.7) );
+                filter: drop-shadow( 6px 6px 12px rgba(0,0,0,0.6) );
                 img {
                     transition: filter 0.5s;
-                    filter: brightness(80%) contrast(90%) grayscale(60%) sepia(2%);
+                    filter: brightness(80%) contrast(90%) grayscale(30%) sepia(2%);
                 }
             }
-            */
 
             .info {
-                background: @color-bg;
-                //opacity: 0.9;
+                position: absolute;
+                //position: absolute;
+                top: 1px;
+                //right: 1px;
+                left: 1px;
+                z-index: 10000;
+                //display: table;
+                margin: 0px 0px 0px 0px;
+                padding: 3px 0px 0px 3px;
+
+                //background: @color-bg;
+                margin: 0;
+
+                //background: rgba(0,0,0,0.8);
+
+                opacity: 0.9;
                 * {
-                    white-space: nowrap;
+                    //white-space: nowrap;
                     //background: @color-bg;
                 }
                 .id {
-                    display: table;
-
+                    //display: table;
+                    //display: inline;
+                    padding: 2px 2px 2px 2px;
+                    background: @color-bg;
                 }
                 .name {
                     display: none;
-                    white-space: nowrap;
+                    //white-space: nowrap;
                 }
-                .artists, .date, .format, .description, .notes {
+                .artists {
+                    position: relative;
+                    top: -10px;
+                    text-indent: 3px;
+                    //left: 2px;
+                    display: table;
+                    padding: 2px 4px 2px 3px;
+                    margin: 0;
+                    background: @color-bg;
+                    * {
+                        //display: inline-block;
+                    }
+                }
+
+                .date, .format, .description, .notes {
                     display: none;
                 }
             }
@@ -253,12 +345,13 @@ main.records {
                 width: 100%;
                 height: 100%;
                 filter: @cover-filter;
-                transition: filter 0.1s;
+                transition: filter 0.3s transform 0.3s;
             }
         }
     }
 }
 
+/*
 main.record {
     padding: 10vh 5vw 10vh 5vw;
     .id {
@@ -294,7 +387,7 @@ main.record {
         margin-top: 8px;
     }
     .tracks {
-        display: none;
+        //display: none;
     }
     .covers {
         margin: 1vh 0px 0px 0px;
@@ -313,12 +406,13 @@ main.record {
         }
     }
 }
+*/
 
 footer {
     position: fixed;
-    right: 8px;
-    bottom: 2px;
-    padding: 0px 2px 10px 2px;
+    right: 14px;
+    bottom: 12px;
+    //padding: 0px 2px 10px 2px;
     z-index: 10;
     .fa-lg;
     text-transform: uppercase;
