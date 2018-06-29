@@ -1,6 +1,8 @@
 *.zip
 dat/
+res/dev/
 res/icon/icon-*.png
+res/sound/
 NOTES
 bin/*
 !bin/site/
