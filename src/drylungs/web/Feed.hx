@@ -10,7 +10,7 @@ class Feed {
 
 	function doDefault( ?id : String ) {
 		switch id {
-		case null, '': doRecords();
+		case null,'' : doRecords();
 		}
 	}
 

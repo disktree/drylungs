@@ -1,5 +1,6 @@
 *.zip
-bin/
 dat/
 res/icon/icon-*.png
 NOTES
+bin/*
+!bin/site/

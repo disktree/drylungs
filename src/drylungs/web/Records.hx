@@ -19,26 +19,10 @@ class Records extends Site {
             if( record == null )
                 throw DispatchError.DENotFound(  id );
             this.id = 'record';
-            site.title = 'DLR.$id';
+            site.title = 'Drylungs.$id';
             //site.keywords.push( id );
             print( record );
         }
-
-        /*
-		switch id {
-		case null, '', '/','all','list','any':
-			doList();
-		default:
-			var record = null;
-			for( item in records ) if( item.id == id ) { record = item; break; }
-			if( record == null ) {
-				Sys.print('record not found ('+id+')');
-				//printSite( 'error', { code : 404, message : 'not found' } );
-			} else {
-				Sys.print( HTML.build( 'record', { record: record }, { title: 'DLR.'+record.id } ) );
-			}
-		}
-        */
 	}
 
     function doFeed( d : Dispatch ) {

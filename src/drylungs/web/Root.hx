@@ -5,8 +5,6 @@ class Root {
     @:allow(drylungs.Web) function new() {}
 
 	function doDefault( d : Dispatch ) {
-
-        //d.redirect( records' );
         switch d.url {
         case '':
             doRecords( d );
@@ -17,7 +15,7 @@ class Root {
                 var content = new Template( File.getContent( tpl ) ).execute( {} );
                 var ctx = {
                     id: id,
-                    title: 'DLR.$id',
+                    title: 'Drylungs.$id',
                     //keywords: [],
                     //description: '',
                     content: content,
@@ -39,25 +37,15 @@ class Root {
     function doXml( d : Dispatch ) d.dispatch( new drylungs.web.Feed() );
 	inline function doFeed( d : Dispatch ) doXml(d);
 	inline function doAtom( d : Dispatch ) doXml(d);
+	inline function doSyndicate( d : Dispatch ) doXml(d);
 	inline function doSyndication( d : Dispatch ) doXml(d);
-
-
-	function doBlog( d : Dispatch ) {
-        d.dispatch( new drylungs.web.Blog() );
-	}
-
-	inline function doNews( d : Dispatch ) doBlog(d);
 
 	function doAscii() {
 		Sys.print( '<pre>${Resource.get("ascii")}</pre>' );
 	}
 
 	function doVersion() {
-		Sys.print( drylungs.Web.VERSION );
-	}
-
-	@admin function doAdmin( d : Dispatch ) {
-		d.dispatch( new drylungs.web.Admin() );
+		Sys.print( Drylungs.VERSION + ' - ' + Drylungs.BUILDTIME );
 	}
 
 }

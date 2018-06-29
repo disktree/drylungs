@@ -2,14 +2,15 @@ package drylungs;
 
 import om.http.StatusCode;
 
-#if !macro @:build(drylungs.macro.BuildApp.build()) #end
+typedef Site = Dynamic;
+
 class Web {
 
     public static inline var PATH = '';
     public static inline var SITE = 'site';
 
     public static var isMobile(default,null) : Bool;
-    //public static var site(default,null) : Site;
+    public static var site(default,null) : Site;
 
     /*
     function printErrorPage( code : Int, ?message : String ) {
@@ -27,33 +28,38 @@ class Web {
 
     static function main() {
 
-        var isMobile = om.System.isMobile();
+        site = Json.parse( File.getContent( '$SITE/site.json' ) );
+
         var uri = php.Web.getURI();
         var path = uri.substr( PATH.length );
         var params = php.Web.getParams();
+        var isMobile = om.System.isMobile();
 
         Template.globals = {
 
             mobile: isMobile,
             device : isMobile ? 'mobile' : 'desktop',
-            version: VERSION,
             lang: 'en',
             platform: 'php',
 
-            title: 'DLR',
-            description: 'Dry Lungs Records &amp; Mailorder',
+            version: Drylungs.VERSION,
+            buildtime: Drylungs.BUILDTIME,
+
+            uri: site.uri,
+            title: site.title,
+            description: site.description,
+            keywords: site.keywords,
+            color: site.color.theme
+            //description: 'Dry Lungs Records &amp; Mailorder',
             //keywords: ['drylungs','mailorder'],
-            keywords: ["wtf"],
-            color: '#0c0c0c',
+            //keywords: ["wtf"],
+            //color: '#0c0c0c',
         };
 
         var dispatcher = new Dispatch( path, params );
         dispatcher.onMeta = function(meta,value) {
-            //TODO
-            trace(meta,value);
             switch meta {
-            case 'admin':
-                throw 'not allowed';
+            case 'admin': throw 'not allowed';
             }
         }
         try {
@@ -67,8 +73,6 @@ class Web {
             case DEMissing:
             case DEMissingParam(p):
             case DETooManyValues:
-                //dispatcher.redirect( '/' );
-                //dispatcher.dispatch( root );
             }
         } catch( e : Dynamic ) {
             Sys.print( "FATAL ERROR: " + e );

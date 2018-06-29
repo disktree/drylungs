@@ -1,22 +1,24 @@
-package drylungs.macro;
 
 #if macro
-
 import haxe.macro.Compiler;
 import haxe.macro.Context;
 import haxe.macro.Type;
 import haxe.macro.Expr;
+#end
 
-using om.Path;
+#if !macro @:build(Drylungs.build()) #end
+class Drylungs {
 
-class BuildApp {
+	#if macro
 
-    public static function build() : Array<Field> {
+	static function build() : Array<Field> {
 
         var fields = Context.getBuildFields();
 		var pos = Context.currentPos();
 
+		var time = Date.now().toString();
 		var version = Compiler.getDefine( 'version' );
+
 		if( version != null ) {
 			fields.push({
 				name: 'VERSION',
@@ -26,7 +28,6 @@ class BuildApp {
 			});
 		}
 
-		var time = Date.now().toString();
 		fields.push({
 			name: 'BUILDTIME',
 			access: [AStatic,APublic,AInline],
@@ -34,23 +35,9 @@ class BuildApp {
 			pos: pos
 		});
 
-        /*
-        var path = 'res/html';
-        var pages = FileSystem.readDirectory( path );
-        for( page in pages ) {
-            if( page.extension() != 'html' ) {
-                Context.warning( 'html files expected', pos );
-                continue;
-            }
-            var name = page.withoutExtension();
-            trace(name);
-            Context.addResource( 'page_'+name, File.getBytes( '$path/$page' ) );
-        }
-        */
-
         return fields;
     }
 
-}
+	#end
 
-#end
+}

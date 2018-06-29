@@ -14,11 +14,11 @@ class Site {
 
 		this.id = id;
 		this.site = {
-			title: 'DLR',
+			//title: 'DLR',
 			//keywords: [],
 			//description: '',
-			content: null,
-			color: '#0c0c0c',
+			content: '',
+			//color: '#0c0c0c',
 		};
 	}
 

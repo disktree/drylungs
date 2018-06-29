@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="::lang::">
 
-    <!-- ::version:: -->
+    <!-- ::version:: – ::buildtime:: - ::device:: -->
 
     <head>
 
@@ -18,8 +18,8 @@
 
         <meta property="twitter:site" content="@DryLungsRecords">
         <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:title" content="::title::"/>
-        <meta name="twitter:description" value="::description::"/>
+        <meta name="twitter:title" content="Dry Lungs Records"/>
+        <meta name="twitter:description" value="Dry Lungs Records &amp; Mailorder"/>
         <meta name="twitter:creator" content="@DryLungsRecords"/>
         <meta name="twitter:site" content="@DryLungsRecords"/>
         <meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
@@ -72,18 +72,16 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </header>
 
         <nav>
-            <!--
-            ::if (id!="records")::<a href="/">records</a>::end::
-            ::if (id!="about")::<a href="/about">about</a>::end::
-            ::if (id!="mailorder")::<a href="/mailorder">mailorder</a>::end::
-        -->
             <a href="/" ::if (id=="records")::class="active"::end::>records</a>
             <a href="/about" ::if (id=="about")::class="active"::end::>about</a>
             <a href="/mailorder" ::if (id=="mailorder")::class="active"::end::>mailorder</a>
-            <a href="https://twitter.com/DryLungsRecords" rel="external" class="ic-twitter"></a>
-            <a href="https://www.instagram.com/drylungsrecords/" class="ic-instagram"></a>
-            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
         </nav>
+
+        <section class="social">
+            <a href="https://twitter.com/DryLungsRecords" rel="external" class="ic-twitter" title="Twitter"></a>
+            <a href="https://www.instagram.com/drylungsrecords/" rel="external" class="ic-instagram" title="Instagram"></a>
+            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
+        </section>
 
         <main class="::id::">
             ::if content::::content::::end::

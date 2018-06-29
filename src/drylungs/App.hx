@@ -1,19 +1,20 @@
 package drylungs;
 
-#if !macro @:build(drylungs.macro.BuildApp.build()) #end
 class App {
 
 	static var isMobile : Bool;
 
 	static function init() {
 
+		/*
 		document.fonts.ready.then( function(_){
 			//trace("Fonts loaded");
 			//document.querySelector('header').style.visibility = 'visible';
 		});
+		*/
 
 		if( isMobile) {
-			//window.alert( 'Mobile stylesheet is gay' );
+			window.alert( 'Mobile stylesheet is gay' );
 		}
 
 		/*
@@ -38,7 +39,7 @@ class App {
 
 	static function main() {
 
-		console.info( 'DRYLUNGS.AT' );
+		console.info( 'DRYLUNGS.AT - ${Drylungs.VERSION} - ${Drylungs.BUILDTIME}' );
 
 		isMobile = om.System.isMobile();
 
