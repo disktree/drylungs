@@ -45,7 +45,7 @@ class Root {
 	}
 
 	function doVersion() {
-		Sys.print( Drylungs.VERSION + ' - ' + Drylungs.BUILDTIME );
+		Sys.print( Drylungs.REVISION + ' - ' + Drylungs.VERSION );
 	}
 
 }

@@ -6,7 +6,7 @@ class Records extends Site {
 
     public function new() {
         super();
-		records = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
+		records = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
     }
 
     function doDefault( ?id : String ) {

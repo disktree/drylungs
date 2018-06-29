@@ -12,5 +12,4 @@ deploy:
 	scp -r bin/. weownt@weownthenite.org:public_html/disktree.net/_/drylungs
 
 clean:
-	rm -rf bin
 	rm -f drylungs_at-*.zip

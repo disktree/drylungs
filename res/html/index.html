@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="::lang::">
+<html lang="::language::">
 
-    <!-- ::version:: – ::buildtime:: - ::device:: -->
+    <!--
+        R::REVISION::-::VERSION::
+        ::if BUILDTIME::::BUILDTIME::::end::
+        ::if GIT_COMMIT::::GIT_COMMIT::::end::
+        debug: ::DEBUG::
+    -->
 
     <head>
 
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="generator" content="haxe" />
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
         ::if mobile::<meta name="mobile-web-app-capable" content="yes">::end::
+        ::if site.author::<meta name="author" content="::site.author::">::end::
+        ::if site.publisher::<meta name="publisher" content="::site.publisher::">::end::
         ::if description::<meta name="description" content="::description::">::end::
         ::if keywords::<meta name="keywords" content="::foreach keywords::::__current__::,::end::">::end::
-        ::if color::<meta name="theme-color" content="::color::">::end::
+        ::if theme::<meta name="theme-color" content="::theme::">::end::
+
+        <title>::title::</title>
 
         <meta name="google-site-verification" content="btMQPqnHIshsheX-njuIUKtyLqv81aeN0yEeo2c65eU" />
 
@@ -23,8 +33,6 @@
         <meta name="twitter:creator" content="@DryLungsRecords"/>
         <meta name="twitter:site" content="@DryLungsRecords"/>
         <meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
-
-        <title>::title::</title>
 
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
         <link rel="author" href="/humans.txt" type="text/plain"/>
@@ -43,8 +51,7 @@
     <body id="drylungs" class="::id::">
 
         <header>
-            <pre class="ascii">
-<i>                    ._:                               :_.
+            <pre class="ascii"><i>                    ._:                               :_.
                      \|                               |/
                    - -|---  -                   -  ---|- -
        ______ ________|\      </i><h1>DRY LUNGS RECORDS</h1><i>      /|________ ______
@@ -72,24 +79,28 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </header>
 
         <nav>
+            <i>::name::</i>
             <a href="/" ::if (id=="records")::class="active"::end::>records</a>
             <a href="/about" ::if (id=="about")::class="active"::end::>about</a>
             <a href="/mailorder" ::if (id=="mailorder")::class="active"::end::>mailorder</a>
         </nav>
 
-        <section class="social">
-            <a href="https://twitter.com/DryLungsRecords" rel="external" class="ic-twitter" title="Twitter"></a>
-            <a href="https://www.instagram.com/drylungsrecords/" rel="external" class="ic-instagram" title="Instagram"></a>
-            <a href="/xml" class="ic-atom" target="_top" title="atom.xml"></a>
-        </section>
-
         <main class="::id::">
             ::if content::::content::::end::
         </main>
 
+        <section class="social">
+            <a href="::social.instagram.uri::" rel="external" class="ic-instagram" title="::social.twitter.user::"></a>
+            <a href="::social.twitter.uri::" rel="external" class="ic-twitter" title="::social.twitter.user::"></a>
+            <a href="mailto:::email::" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
+            <!--
+            <a href="/feed" class="ic-atom" target="_top" title="atom.xml"></a>
+            -->
+        </section>
+
         <footer>
-            <a href="mailto:christoph&#64;drylungs.at" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
             <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>
+            <i>2018 Dry Lungs Records, Vienna AT</i>
         </footer>
 
     </body>

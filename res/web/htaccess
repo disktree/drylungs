@@ -1,4 +1,11 @@
 
+### PHP
+#FcgidWrapper "/home/httpd/cgi-bin/php71-fcgi-starter.fcgi" .php
+#Action application/x-httpd-php71 /cgi-sys/php71-fcgi-starter.fcgi
+#AddType application/x-httpd-php71 .php
+
+###
+
 #AddType application/application/manifest+json manifest.json
 
 #AddType application/font-woff .woff

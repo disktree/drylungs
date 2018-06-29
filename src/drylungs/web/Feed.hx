@@ -15,7 +15,7 @@ class Feed {
 	}
 
 	function doRecords() {
-		if( data == null ) data = Json.parse( File.getContent( drylungs.Web.SITE+'/records.json' ) );
+		if( data == null ) data = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
 		print( { records: data } );
 	}
 

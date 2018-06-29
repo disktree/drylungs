@@ -2,9 +2,55 @@ package drylungs;
 
 class App {
 
-	static var isMobile : Bool;
+	public static var isMobile(default,null) = om.System.isMobile();
+
+	static var header : Element;
+	static var social : Element;
+	static var content : Element;
+	static var footer : Element;
+
+	static inline function updateMetaElements() {
+		updateFooterElement();
+		updateSocialElement();
+	}
+
+	static function updateSocialElement() {
+		if( window.innerHeight >= document.documentElement.scrollHeight ) {
+			social.classList.remove( 'hidden' );
+		} else {
+			var v = header.offsetTop + header.clientHeight - 100;
+			if( window.scrollY > v ) {
+				social.classList.add( 'hidden' );
+			} else {
+				social.classList.remove( 'hidden' );
+			}
+		}
+	}
+
+	static function updateFooterElement() {
+		if( window.innerHeight >= document.documentElement.scrollHeight ) {
+			footer.classList.remove( 'hidden' );
+		} else {
+			if( document.documentElement.scrollTop + footer.clientHeight >= document.documentElement.scrollHeight - window.innerHeight  ) {
+				footer.classList.remove( 'hidden' );
+			} else {
+				footer.classList.add( 'hidden' );
+			}
+		}
+	}
 
 	static function init() {
+
+		if( isMobile) {
+			window.alert( 'Mobile stylesheet is gay' );
+		}
+
+		header = document.querySelector( 'header' );
+		content = document.querySelector( 'main' );
+		social = document.querySelector( 'section.social' );
+		footer = document.querySelector( 'footer' );
+
+		updateMetaElements();
 
 		/*
 		document.fonts.ready.then( function(_){
@@ -13,12 +59,23 @@ class App {
 		});
 		*/
 
-		if( isMobile) {
-			window.alert( 'Mobile stylesheet is gay' );
+		window.onscroll = function(e){
+			updateMetaElements();
+		}
+
+		window.onresize = function(e){
+			updateMetaElements();
 		}
 
 		/*
-		var body = document.body;
+		window.onbeforeunload = function(e){
+			document.body.style.background = '#000';
+			//	document.body.style.display = 'none';
+			return null;
+		}
+		*/
+
+		/*
 		var links = document.querySelectorAll('a');
 		var overlay = document.getElementById('overlay');
 		for( a in links ) {
@@ -39,9 +96,8 @@ class App {
 
 	static function main() {
 
-		console.info( 'DRYLUNGS.AT - ${Drylungs.VERSION} - ${Drylungs.BUILDTIME}' );
-
-		isMobile = om.System.isMobile();
+		console.info( '%c' + 'DRYLUNGS.AT - R${Drylungs.REVISION} - ${Drylungs.VERSION}', 'color:#5e6461' );
+		console.debug( '%c' + Drylungs, 'color:#5e6461' );
 
 		document.addEventListener( 'readystatechange', function(e){
 			switch document.readyState {
@@ -51,45 +107,6 @@ class App {
 				init();
 			}
 		});
-
-		/*
-		window.onload = function() {
-
-			trace("LOADED");
-
-			console.info( 'DRYLUNGS.AT' );
-			console.info( om.System.isMobile() );
-
-			if( om.System.isMobile() ) {
-				window.alert( 'Mobile stylesheet is gay' );
-			}
-
-			window.onbeforeunload = function(e){
-				document.body.style.background = '#000';
-			//	document.body.style.display = 'none';
-				return null;
-			}
-			*/
-
-			/*
-			document.fonts.ready.then( function(_){
-				trace("Fonts loaded");
-				document.body.style.display = 'block';
-			});
-			*/
-
-			/*
-			window.onscroll = function(e){
-				var scrollPos = window.innerHeight+window.scrollY;
-				if( scrollPos >= document.body.scrollHeight ) {
-					document.querySelector( 'footer' ).classList.remove('hidden');
-				} else {
-					document.querySelector( 'footer' ).classList.add('hidden');
-				}
-				//trace(window.innerHeight+window.scrollY, document.body.scrollHeight);
-			}
-		}
-		*/
 	}
 
 }

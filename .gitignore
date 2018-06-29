@@ -5,4 +5,4 @@ res/icon/icon-*.png
 res/sound/
 NOTES
 bin/*
-!bin/site/
+!bin/data/*.json
