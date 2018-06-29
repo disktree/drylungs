@@ -1,0 +1,27 @@
+{
+    "name": "drylungs",
+    "uri": "http://drylungs.at",
+    "title": "Dry Lungs Records &amp; Mailorder",
+    "description": "Dry Lungs Records &amp; Mailorder",
+    "language": "en",
+    "keywords": ["drylungs","records","label","noise","music","vinyl","vienna","666"],
+    "author": "christoph@drylungs.at",
+    "publisher": "christoph@drylungs.at",
+    "email": "christoph@drylungs.at",
+    "social": {
+        "twitter": {
+            "user": "@DryLungsRecords",
+            "uri": "https://twitter.com/DryLungsRecords"
+        },
+        "instagram": {
+            "user": "drylungsrecords",
+            "uri": "https://www.instagram.com/drylungsrecords/"
+        }
+    },
+    "color": {
+        "theme": "#0c0c0c",
+        "background": "#0c0c0c",
+        "text": "#2f2f2f",
+        "highlight": "#a0a0a0"
+    }
+}
