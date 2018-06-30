@@ -97,7 +97,7 @@
     {
         "id": "MDMA003",
         "name": "Super Single",
-        "artists": ["Otomo YoshihideLasse","Marhaug"],
+        "artists": ["Otomo Yoshihide","Lasse Marhaug"],
         "date": "2013-12-01",
         "format": "7",
         "notes": "Recorded on the 6th February 2011 at Tokyo Superdeluxe.<br>Limited to 300 plates with a big center hole (black labels) housed in an all black cover with gold pantone 876c printed letters.",
@@ -173,9 +173,9 @@
     {
         "id": "MDMA007",
         "name": "Machine In The Ghost",
-        "artists": ["Merzbow","Balázs Pándi"],
-        "date": "2016-05-23",
-        "format": "12",
+        "artists": ["KK Null"],
+        "date": "2016-03-30",
+        "format": "7",
         "notes": "All music composed & produced by Kazuyuki Kishimo @ prima natura studio 2015.<br>Limited to 300 black plates with a big center hole (1c printed labels).",
         "tracks": [
             {
