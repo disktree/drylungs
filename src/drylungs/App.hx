@@ -5,6 +5,7 @@ class App {
 	public static var isMobile(default,null) = om.System.isMobile();
 
 	static var header : Element;
+	static var nav : Element;
 	static var social : Element;
 	static var content : Element;
 	static var footer : Element;
@@ -16,12 +17,15 @@ class App {
 
 	static function updateSocialElement() {
 		if( window.innerHeight >= document.documentElement.scrollHeight ) {
+			//nav.classList.remove( 'hidden' );
 			social.classList.remove( 'hidden' );
 		} else {
 			var v = header.offsetTop + header.clientHeight - 100;
 			if( window.scrollY > v ) {
+				//nav.classList.add( 'hidden' );
 				social.classList.add( 'hidden' );
 			} else {
+				//nav.classList.remove( 'hidden' );
 				social.classList.remove( 'hidden' );
 			}
 		}
@@ -31,7 +35,8 @@ class App {
 		if( window.innerHeight >= document.documentElement.scrollHeight ) {
 			footer.classList.remove( 'hidden' );
 		} else {
-			if( document.documentElement.scrollTop + footer.clientHeight >= document.documentElement.scrollHeight - window.innerHeight  ) {
+
+			if( document.documentElement.scrollTop + footer.clientHeight >= document.documentElement.scrollHeight - window.innerHeight - 50  ) {
 				footer.classList.remove( 'hidden' );
 			} else {
 				footer.classList.add( 'hidden' );
@@ -42,10 +47,13 @@ class App {
 	static function init() {
 
 		if( isMobile) {
-			window.alert( 'Mobile stylesheet is gay' );
+			//window.alert( 'Mobile stylesheet is gay' );
 		}
 
+		//trace(document.baseURI);
+
 		header = document.querySelector( 'header' );
+		nav = document.querySelector( 'nav' );
 		content = document.querySelector( 'main' );
 		social = document.querySelector( 'section.social' );
 		footer = document.querySelector( 'footer' );

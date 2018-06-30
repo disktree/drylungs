@@ -4,10 +4,12 @@
 #Action application/x-httpd-php71 /cgi-sys/php71-fcgi-starter.fcgi
 #AddType application/x-httpd-php71 .php
 
-###
+### Server redirect
+#RewriteEngine on
+#Redirect 301 / http://disktree.net
 
+## Mime Types
 #AddType application/application/manifest+json manifest.json
-
 #AddType application/font-woff .woff
 #AddType application/vnd.ms-fontobject .eot
 #AddType application/x-font-opentype .otf
@@ -15,6 +17,7 @@
 #AddType font/ttf .ttf
 #AddType image/svg+xml .svg
 
+## URL rewrite
 RewriteEngine on
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f

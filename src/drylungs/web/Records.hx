@@ -20,6 +20,13 @@ class Records extends Site {
                 throw DispatchError.DENotFound(  id );
             this.id = 'record';
             site.title = 'Drylungs.$id';
+
+            site.twitter = {
+                title: site.title,
+                description: record.description,
+                image: 'image/record/$id.jpg',
+
+            };
             //site.keywords.push( id );
             print( record );
         }

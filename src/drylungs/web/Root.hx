@@ -5,9 +5,11 @@ class Root {
     @:allow(drylungs.Web) function new() {}
 
 	function doDefault( d : Dispatch ) {
+
         switch d.url {
-        case '':
+        case '','index','start':
             doRecords( d );
+
         default:
             var id = d.parts[0];
             var tpl = 'html/site/$id.html';
@@ -33,6 +35,8 @@ class Root {
 	function doRecords( d : Dispatch ) {
 		d.dispatch( new drylungs.web.Records() );
 	}
+
+    inline function doReleases( d : Dispatch ) doRecords(d);
 
     function doXml( d : Dispatch ) d.dispatch( new drylungs.web.Feed() );
 	inline function doFeed( d : Dispatch ) doXml(d);

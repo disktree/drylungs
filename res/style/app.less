@@ -11,6 +11,9 @@
     --color-bg: @color-bg;
     --color-text: @color-text;
     --color-highlight: @color-highlight;
+    --color-error: @color-error;
+    --color-text-select: @color-text-select;
+    --color-text-select-background: @color-text-select-background;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +28,8 @@ body {
 
     background-color: var(--color-bg);
     color: var(--color-text);
+
+    -webkit-font-smoothing: antialiased;
     //tap-highlight-color: @color-text;
     //-webkit-tap-highlight-color: @color-text;
 }
@@ -44,6 +49,13 @@ a {
         //text-decoration: underline;
         color: var(--color-highlight);
     }
+}
+
+hr  {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px dotted var(--color-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -149,7 +161,7 @@ header {
         }
     }
     h2::selection {
-        //color: #ff0000 !important;
+        color: rgba(255,255,255,0.8) !important;
     }
 }
 
@@ -169,6 +181,10 @@ nav {
     //margin-bottom: 0;
     list-style: none;
     //animation: fade_in 0.8s;
+    transition: transform 0.3s;
+    &.hidden {
+        transform: translateY(-50px);
+    }
     a, i {
         padding: 5px 6px 4px 7px !important;
         background: @color-bg;
@@ -183,21 +199,22 @@ nav {
 }
 
 section.social {
-    right: 2px;
-    padding: 10px 12px 2px 2px;
+    right: 0px;
+    margin: 12px 16px 0px 0px;
     font-size: 1.2rem;
     transition: transform 0.3s;
     &.hidden {
         transform: translateY(-50px);
     }
     a {
+        padding: 2px 2px 0px 2px;
         color: @color-text;
         opacity: 0.9;
         transition: color 0.2s, opacity 0.2s, transform 0.2s;
         &:hover {
             color: @color-highlight;
             opacity: 1;
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
     }
 }
@@ -206,12 +223,14 @@ main {
 //    animation: fade_in 0.2s;
 }
 
-main.error {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    color: #ff0000;
+body.error {
+    background: var(--color-error);
+    color: #000;
+    main.error {
+        position: relative;
+        top: 4vh;
+        text-align: center;
+    }
 }
 
 main.about,
@@ -223,18 +242,22 @@ main.mailorder
     align-content: center;
     min-width: 400px;
     max-width: 80vw;
-    padding: 5vh 4vw 4vh 4vw;
+    padding: 8vh 4vw 4vh 6vw;
     li {
         list-style: circle;
         margin-left: 4em;
     }
 }
 
+main.contact {
+    text-align: center;
+}
+
 main.records {
 
     @grid-cell-width: 600px;
 
-    padding: 10vh 4vw 5vh 4vw;
+    padding: 8vh 4vw 5vh 4vw;
 
     ol.records {
 
@@ -262,14 +285,14 @@ main.records {
             display: block;
             background: @color-bg;
 
-        //    transform: scale(0.995);
-        //    transition: transform 0.2s, filter 0.2s;
-        //    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
+            transform: scale(0.995);
+            transition: transform 0.2s, filter 0.2s;
+            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
 
             &:hover {
-        //        transform: scale(1);
+                transform: scale(1);
                 z-index: 100;
-        //        filter: drop-shadow( 6px 6px 12px rgba(0,0,0,0.6) );
+                //filter: drop-shadow( 6px 6px 12px rgba(0,0,0,0.6) );
                 img {
         //            transition: filter 0.5s;
                     filter: brightness(80%) contrast(90%) grayscale(30%) sepia(2%);
@@ -288,27 +311,35 @@ main.records {
                 opacity: 0.9;
                 * {
                     //white-space: nowrap;
-                    //background: @color-bg;
+                    background: @color-bg;
                 }
                 .id {
                     //display: table;
+                    //display: inline-block;
+                    //float: left;
                     padding: 2px 2px 2px 2px;
-                    background: @color-bg;
+                    text-indent: -1px;
+                    //background: @color-bg;
                 }
                 .name {
+                    font-size: @font-regular-size;
                     display: none;
                     //white-space: nowrap;
                 }
                 .artists {
                     position: relative;
-                    top: -10px;
-                    text-indent: 3px;
+                    top: -8px;
+                    //text-indent: 3px;
                     display: table;
                     padding: 2px 4px 2px 3px;
                     margin: 0;
-                    background: @color-bg;
-                    * {
-                        //display: inline-block;
+                    //background: @color-bg;
+                    li {
+                        display: inline-block;
+                        &:not(:last-child)::after {
+                            content: "+";
+                            margin: 0 4px;
+                        }
                     }
                 }
 
@@ -332,9 +363,15 @@ main.records {
 
 
 main.record {
+    //background: red;
+    margin: 0 auto;
+    display: table;
     padding: 10vh 5vw 10vh 5vw;
     .id {
         position: relative;
+        font-size: 5rem;
+        text-indent: -4px;
+        cursor: default;
     }
     .name {
         position: relative;
@@ -361,6 +398,7 @@ main.record {
     }
     .tracks {
         //display: none;
+
     }
     .covers {
         margin: 1vh 0px 0px 0px;
@@ -380,13 +418,12 @@ main.record {
     }
 }
 
-
 footer {
     position: fixed;
     right: 0;
     bottom: 0;
     z-index: 1000000;
-    padding: 0px 12px 8px 0px;
+    padding: 0px 12px 6px 0px;
     font-size: @font-regular-size;
     text-transform: uppercase;
     user-select: none;

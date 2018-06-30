@@ -11,6 +11,7 @@ inc.hxml
 -debug
 
 -r res/html/index.html@index
+-r res/html/error.html@error
 -r res/text/ascii.txt@ascii
 -r res/web/atom.xml@atom
 
@@ -24,3 +25,5 @@ inc.hxml
 #-cmd cp -ru res/sound bin/
 -cmd cp -u res/icon/favicon.png res/web/manifest.json res/web/humans.txt res/web/robots.txt bin/
 -cmd cp -u res/web/htaccess bin/.htaccess
+
+#-cmd java -jar ~/sdk/closure-compiler.jar --js bin/app.js --js_output_file app.min.js

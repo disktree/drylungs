@@ -26,16 +26,21 @@
 
         <meta name="google-site-verification" content="btMQPqnHIshsheX-njuIUKtyLqv81aeN0yEeo2c65eU" />
 
-        <meta property="twitter:site" content="@DryLungsRecords">
         <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@DryLungsRecords">
+        <meta name="twitter:creator" content="@DryLungsRecords"/>
         <meta name="twitter:title" content="Dry Lungs Records"/>
         <meta name="twitter:description" value="Dry Lungs Records &amp; Mailorder"/>
-        <meta name="twitter:creator" content="@DryLungsRecords"/>
-        <meta name="twitter:site" content="@DryLungsRecords"/>
-        <meta name="twitter:image" content="http://drylungs.at/image/drylungs.png"/>
+        <meta name="twitter:image" content="/image/drylungs.png"/>
+        ::if twitter::
+            ::if twitter.title::<meta name="twitter:title" content="::twitter.title::"/>::end::
+            ::if twitter.image::<meta name="twitter:image" content="::twitter.image::"/>::end::
+            ::if twitter.description::<meta name="twitter:description" content="::twitter.description::"/>::end::
+        ::end::
 
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
         <link rel="author" href="/humans.txt" type="text/plain"/>
+        <link rel="me" href="https://twitter.com/DryLungsRecords">
         <link rel="icon" href="/icon/icon-48.png" sizes="48x48"/>
 		<link rel="icon" href="/icon/icon-96.png" sizes="96x96"/>
 		<link rel="icon" href="/icon/icon-192.png" sizes="192x192"/>
@@ -79,7 +84,7 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
         </header>
 
         <nav>
-            <i>::name::</i>
+            <i>::name::™</i>
             <a href="/" ::if (id=="records")::class="active"::end::>records</a>
             <a href="/about" ::if (id=="about")::class="active"::end::>about</a>
             <a href="/mailorder" ::if (id=="mailorder")::class="active"::end::>mailorder</a>

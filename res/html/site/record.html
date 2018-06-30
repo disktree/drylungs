@@ -6,18 +6,25 @@
 </ol>
 <div class="format">::if format::::format::::end::</div>
 <div class="date">::if date::::date::::end::</div>
+<!--
 <div class="description">::if description::::description::::end::</div>
+-->
 <div class="notes">::if notes::::notes::::end::</div>
 <!--
 ::if discogs::<a class="discogs">::record.discogs::</a>::end::
 -->
 <ol class="tracks">
 	::if tracks::
+	<label>Tracks:</label>
 	::foreach tracks::
 	<li class="track">
-		<div>::position::</div>
-		<div>::name::</div>
-		::if duration::<div>::duration::</div>::end::
+		<span>::position::</span>
+		<span>::name::</span>
+		::if duration::<span>::duration::</span>::end::
+		<!--
+		<audio src="/_records/DLR001/DLR001_A_Untitled.mp3" autoplay controls>
+		</audio>
+		-->
 	</li>
 	::end::
 	::end::
@@ -26,6 +33,13 @@
 	<img class="cover" src="/image/record/::id::.jpg">
 	<img class="cover" src="/image/record/::id::_1.jpg">
 </div>
+<style media="screen">
+	header {
+		/*
+		display: none;
+		*/
+	}
+</style>
 <!--
 <script>
 /*

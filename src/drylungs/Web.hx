@@ -28,7 +28,6 @@ class Web {
         site = Json.parse( File.getContent( Drylungs.DATA+'/site.json' ) );
 
         var uri = php.Web.getURI();
-        //var path = uri.substr( PATH.length );
         var params = php.Web.getParams();
         var isMobile = om.System.isMobile();
         var now = Date.now();
@@ -55,6 +54,7 @@ class Web {
             Reflect.setField( Template.globals, f, Reflect.field( site, f ) );
 
         //TODO remove
+        /*
         var testfile = 'data/test';
         try {
             var f =  if( FileSystem.exists( testfile )) File.append( testfile ) else File.write( testfile );
@@ -64,6 +64,7 @@ class Web {
             trace(e);
             return;
         }
+        */
 
         var dispatcher = new Dispatch( uri, params );
         dispatcher.onMeta = function(meta,value) {
@@ -74,15 +75,18 @@ class Web {
         try {
             dispatcher.dispatch( new drylungs.web.Root() );
         } catch( e : DispatchError ) {
-            trace(e);
             switch e {
             case DENotFound(part):
-                sendError( StatusCode.NOT_FOUND, 'not found' );
+                php.Web.setReturnCode( 404 );
+                Sys.print( new Template( Resource.get('error') ).execute({ code: 404, message: 'Not Found' }) );
+                return;
+                //sendError( StatusCode.NOT_FOUND, 'not found' );
             case DEInvalidValue:
             case DEMissing:
             case DEMissingParam(p):
             case DETooManyValues:
             }
+            trace(e);
         } catch( e : Dynamic ) {
             Sys.print( "FATAL ERROR: " + e );
         }
