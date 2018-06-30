@@ -13,8 +13,8 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="generator" content="haxe" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+        <meta name="generator" content="haxe">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
         ::if mobile::<meta name="mobile-web-app-capable" content="yes">::end::
         ::if site.author::<meta name="author" content="::site.author::">::end::
         ::if site.publisher::<meta name="publisher" content="::site.publisher::">::end::
@@ -32,11 +32,13 @@
         <meta name="twitter:title" content="Dry Lungs Records"/>
         <meta name="twitter:description" value="Dry Lungs Records &amp; Mailorder"/>
         <meta name="twitter:image" content="/image/drylungs.png"/>
+        <!--
         ::if twitter::
             ::if twitter.title::<meta name="twitter:title" content="::twitter.title::"/>::end::
             ::if twitter.image::<meta name="twitter:image" content="::twitter.image::"/>::end::
             ::if twitter.description::<meta name="twitter:description" content="::twitter.description::"/>::end::
         ::end::
+        -->
 
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
         <link rel="author" href="/humans.txt" type="text/plain"/>
@@ -46,7 +48,7 @@
 		<link rel="icon" href="/icon/icon-192.png" sizes="192x192"/>
 		<link rel="icon" href="/icon/icon-512.png" sizes="512x512"/>
         <link rel="manifest" href="/manifest.json">
-        <link rel="shortcut icon" href="/favicon.png">
+        <link rel="shortcut icon" href="/favicon.ico">
         <link rel="stylesheet" href="/app-::device::.css">
 
         <script defer src="/app.js"></script>
@@ -90,18 +92,16 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
             <a href="/mailorder" ::if (id=="mailorder")::class="active"::end::>mailorder</a>
         </nav>
 
+        <section class="social">
+            <a href="::social.instagram.uri::" rel="external" class="ic-instagram" title="::social.instagram.user::"></a>
+            <a href="::social.twitter.uri::" rel="external" class="ic-twitter" title="::social.twitter.user::"></a>
+            <a href="mailto:::email::" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
+            <a href="/feed" class="ic-atom" target="_top" title="atom.xml" style="display:none"></a>
+        </section>
+
         <main class="::id::">
             ::if content::::content::::end::
         </main>
-
-        <section class="social">
-            <a href="::social.instagram.uri::" rel="external" class="ic-instagram" title="::social.twitter.user::"></a>
-            <a href="::social.twitter.uri::" rel="external" class="ic-twitter" title="::social.twitter.user::"></a>
-            <a href="mailto:::email::" class="ic-email" target="_blank" title="christoph&#64;drylungs.at"></a>
-            <!--
-            <a href="/feed" class="ic-atom" target="_top" title="atom.xml"></a>
-            -->
-        </section>
 
         <footer>
             <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>

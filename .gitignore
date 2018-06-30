@@ -6,5 +6,4 @@ res/icon/icon-*.png
 res/sound/
 NOTES
 bin/*
-!bin/data/records.json
-!bin/data/site.json
+!bin/data/

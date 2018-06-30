@@ -1,8 +1,10 @@
 package drylungs.web;
 
+typedef Record = Dynamic;
+
 class Records extends Site {
 
-    var records : Array<Dynamic>;
+    var records : Array<Record>;
 
     public function new() {
         super();
@@ -13,13 +15,16 @@ class Records extends Site {
         switch id {
         case null, '', '/':
             doAll();
-            //print( { records: records } );
         default:
+
             var record = getRecordById( id );
             if( record == null )
                 throw DispatchError.DENotFound(  id );
+
             this.id = 'record';
             site.title = 'Drylungs.$id';
+
+            //TODO twitter:player card
 
             site.twitter = {
                 title: site.title,
