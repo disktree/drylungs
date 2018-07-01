@@ -65,7 +65,8 @@ class Web {
             switch e {
             case DENotFound(part):
                 var code = StatusCode.NOT_FOUND;
-                sendResponse( new HTML( 'error', null, 'error' ).build( { code: code, message: 'Not Found' } ), code );
+                var message = 'Not Found';
+                sendResponse( new HTML( 'error', { title: 'DLR - $message' } ).build( { code: code, message: message } ), code );
                 return;
             case DEInvalidValue:
             case DEMissing:

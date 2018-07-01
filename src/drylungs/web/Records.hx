@@ -8,6 +8,9 @@ class Records {
 
     public function new() {
         records = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
+        for( rec in records ) {
+            if( rec.description == null ) rec.description = '';
+        }
     }
 
     function doDefault( ?id : String ) {
