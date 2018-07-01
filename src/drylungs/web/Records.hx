@@ -2,6 +2,51 @@ package drylungs.web;
 
 typedef Record = Dynamic;
 
+class Records {
+
+    var records : Array<Record>;
+
+    public function new() {
+        records = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
+    }
+
+    function doDefault( ?id : String ) {
+        switch id {
+        case null, '', '/':
+            doAll();
+        default:
+            var record : Dynamic = null;
+            if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
+                record = records[ Std.parseInt( id )-1 ];
+            } else {
+                record = getRecordById( id );
+            }
+            if( record == null )
+                throw DispatchError.DENotFound( id );
+            Sys.print( new HTML( 'record', { title: 'Drylungs.$id' } ).build( record ) );
+        }
+    }
+
+    function doAll() {
+        Sys.print( new HTML( 'records' ).build( { records: records } ) );
+    }
+
+    inline function doList() doAll();
+
+    function doFeed( d : Dispatch ) {
+    	d.dispatch( new drylungs.web.Feed( records ) );
+    }
+
+    inline function doXml( d : Dispatch ) doFeed(d);
+
+    function getRecordById( id : String ) : Record {
+        for( r in records ) if( r.id == id ) return r;
+        return null;
+    }
+
+}
+
+/*
 class Records extends Site {
 
     var records : Array<Record>;
@@ -37,19 +82,21 @@ class Records extends Site {
         }
 	}
 
-    function doFeed( d : Dispatch ) {
-    	d.dispatch( new drylungs.web.Feed( records ) );
-    }
-
     function doAll() {
         print( { records: records } );
     }
 
     inline function doList() doAll();
 
-    function getRecordById( id : String ) {
+    function doFeed( d : Dispatch ) {
+    	d.dispatch( new drylungs.web.Feed( records ) );
+    }
+
+    function getRecordById( id : String ) : Record {
         for( r in records ) if( r.id == id ) return r;
         return null;
     }
 
 }
+
+*/

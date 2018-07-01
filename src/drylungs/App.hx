@@ -104,8 +104,8 @@ class App {
 
 	static function main() {
 
-		console.info( '%c' + 'DRYLUNGS.AT - R${Drylungs.REVISION} - ${Drylungs.VERSION}', 'color:#5e6461' );
-		console.debug( '%c' + Drylungs, 'color:#5e6461' );
+		console.info( '%c' + 'DRYLUNGS.AT', 'color:#5e6461' );
+		console.info( '%c' + '${Drylungs.BUILDINFO}', 'color:#5e6461' );
 
 		document.addEventListener( 'readystatechange', function(e){
 			switch document.readyState {

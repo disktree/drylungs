@@ -9,7 +9,7 @@ import haxe.macro.Expr;
 #if !macro @:build(Drylungs.build()) #end
 class Drylungs {
 
-	// Path to data files
+	// Path to websites data files
 	public static inline var DATA = 'data';
 
 	#if macro
@@ -19,10 +19,40 @@ class Drylungs {
         var fields = Context.getBuildFields();
 		var pos = Context.currentPos();
 
+		var debug = Context.defined( 'debug' );
+		/*
 		var revision = Compiler.getDefine( 'revision' );
 		var version = Compiler.getDefine( 'version' );
-		var debug = Context.defined( 'debug' );
+		var defines = Context.getDefines();
+		var definesStr = defines.toString();
+		*/
 
+		fields.push({
+			name: 'DEBUG',
+			access: [AStatic,APublic,AInline],
+			kind: FVar( macro : Bool, macro $v{debug} ),
+			meta: [ { name: ':keep', pos: pos } ],
+			pos: pos
+		});
+
+		var info = {
+			revision: Compiler.getDefine( 'revision' ),
+			version: Compiler.getDefine( 'version' ),
+			debug: debug,
+			defines: Context.getDefines().toString(),
+		};
+
+		fields.push({
+			name: 'BUILDINFO',
+			access: [AStatic,APublic],
+			kind: FVar( macro : Dynamic, macro $v{info} ),
+			meta: [ { name: ':keep', pos: pos } ],
+			pos: pos
+		});
+
+
+
+		/*
 		fields.push({
 			name: 'DEBUG',
 			access: [AStatic,APublic,AInline],
@@ -30,7 +60,14 @@ class Drylungs {
 			pos: pos
 		});
 
-		if( debug ) {
+		fields.push({
+			name: 'DEFINES',
+			access: [AStatic,APublic,AInline],
+			kind: FVar( macro : String, macro $v{definesStr} ),
+			pos: pos
+		});
+
+	//	if( debug ) {
 			fields.push({
 				name: 'BUILDTIME',
 				access: [AStatic,APublic,AInline],
@@ -43,7 +80,7 @@ class Drylungs {
 				kind: FVar( macro : String, macro $v{getGitCommitHash()} ),
 				pos: pos
 			});
-		}
+	//	}
 
 		if( revision != null ) {
 			fields.push({
@@ -53,7 +90,6 @@ class Drylungs {
 				pos: pos
 			});
 		}
-
 		if( version != null ) {
 			fields.push({
 				name: 'VERSION',
@@ -62,6 +98,7 @@ class Drylungs {
 				pos: pos
 			});
 		}
+		*/
 
         return fields;
     }

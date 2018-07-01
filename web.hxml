@@ -3,15 +3,15 @@ inc.hxml
 
 -php bin
 -main drylungs.Web
+-cp src
 -lib om.core
 -lib om.http
 -lib om.web
--cp src
 -dce full
 -debug
 
 -r res/html/index.html@index
--r res/html/error.html@error
+#-r res/html/error.html@error
 -r res/text/ascii.txt@ascii
 -r res/web/atom.xml@atom
 
@@ -23,7 +23,6 @@ inc.hxml
 -cmd cp -ru res/icon bin/
 -cmd cp -ru res/image bin/
 -cmd cp -u res/icon/favicon.ico bin/
--cmd cp -u res/icon/favicon.png bin/
 -cmd cp -u res/web/manifest.json bin/
 -cmd cp -u res/web/humans.txt bin/
 -cmd cp -u res/web/robots.txt bin/

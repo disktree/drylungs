@@ -2,10 +2,7 @@
 <html lang="::language::">
 
     <!--
-        R::REVISION::-::VERSION::
-        ::if BUILDTIME::::BUILDTIME::::end::
-        ::if GIT_COMMIT::::GIT_COMMIT::::end::
-        debug: ::DEBUG::
+        ::BUILDINFO::
     -->
 
     <head>
@@ -31,7 +28,7 @@
         <meta name="twitter:creator" content="@DryLungsRecords"/>
         <meta name="twitter:title" content="Dry Lungs Records"/>
         <meta name="twitter:description" value="Dry Lungs Records &amp; Mailorder"/>
-        <meta name="twitter:image" content="/image/drylungs.png"/>
+        <meta name="twitter:image" content="::uri::/image/drylungs.png"/>
         <!--
         ::if twitter::
             ::if twitter.title::<meta name="twitter:title" content="::twitter.title::"/>::end::
@@ -40,15 +37,15 @@
         ::end::
         -->
 
+        <link rel="me" href="https://twitter.com/DryLungsRecords">
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
         <link rel="author" href="/humans.txt" type="text/plain"/>
-        <link rel="me" href="https://twitter.com/DryLungsRecords">
         <link rel="icon" href="/icon/icon-48.png" sizes="48x48"/>
 		<link rel="icon" href="/icon/icon-96.png" sizes="96x96"/>
 		<link rel="icon" href="/icon/icon-192.png" sizes="192x192"/>
 		<link rel="icon" href="/icon/icon-512.png" sizes="512x512"/>
         <link rel="manifest" href="/manifest.json">
-        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="shortcut icon" href="::uri::/favicon.ico">
         <link rel="stylesheet" href="/app-::device::.css">
 
         <script defer src="/app.js"></script>

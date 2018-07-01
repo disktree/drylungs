@@ -1,5 +1,6 @@
 package drylungs;
 
+import drylungs.web.HTML;
 import om.http.StatusCode;
 
 typedef Site = Dynamic;
@@ -9,37 +10,24 @@ class Web {
     public static var isMobile(default,null) : Bool;
     public static var site(default,null) : Site;
 
-    /*
-    function printErrorPage( code : Int, ?message : String ) {
-        php.Web.setReturnCode( code );
-        var html = HTML.build( 'error', { page: 'error', code: code, message: message } );
-        Sys.print( html );
-    }
-    */
-
-    static function sendError( code : Int, ?message : String ) {
-        php.Web.setReturnCode( code );
-        //Sys.print( code );
-        if( message != null ) Sys.print( message );
+    public static function sendResponse( str : String, ?code : Int ) {
+        if( code != null ) php.Web.setReturnCode( code );
+        Sys.print( str );
     }
 
-    static function main() {
+    static function run() {
 
         site = Json.parse( File.getContent( Drylungs.DATA+'/site.json' ) );
 
         var uri = php.Web.getURI();
         var params = php.Web.getParams();
         var isMobile = om.System.isMobile();
-        var now = Date.now();
-        var ip = php.Web.getClientIP();
+        //var ip = php.Web.getClientIP();
+        //var now = Date.now();
 
         Template.globals = {
 
-            REVISION: Drylungs.REVISION,
-            VERSION: Drylungs.VERSION,
-            GIT_COMMIT: Drylungs.GIT_COMMIT,
-            BUILDTIME: Drylungs.BUILDTIME,
-            DEBUG: Drylungs.DEBUG,
+            BUILDINFO: Drylungs.BUILDINFO,
 
             mobile: isMobile,
             device : isMobile ? 'mobile' : 'desktop',
@@ -53,7 +41,6 @@ class Web {
         for( f in Reflect.fields( site ) )
             Reflect.setField( Template.globals, f, Reflect.field( site, f ) );
 
-        //TODO remove
         /*
         var testfile = 'data/test';
         try {
@@ -69,7 +56,7 @@ class Web {
         var dispatcher = new Dispatch( uri, params );
         dispatcher.onMeta = function(meta,value) {
             switch meta {
-            case 'admin': throw 'not allowed';
+            case 'admin': throw StatusCode.UNAUTHORIZED;
             }
         }
         try {
@@ -77,18 +64,31 @@ class Web {
         } catch( e : DispatchError ) {
             switch e {
             case DENotFound(part):
-                php.Web.setReturnCode( 404 );
-                Sys.print( new Template( Resource.get('error') ).execute({ code: 404, message: 'Not Found' }) );
+                var code = StatusCode.NOT_FOUND;
+                sendResponse( new HTML( 'error', null, 'error' ).build( { code: code, message: 'Not Found' } ), code );
                 return;
-                //sendError( StatusCode.NOT_FOUND, 'not found' );
             case DEInvalidValue:
             case DEMissing:
             case DEMissingParam(p):
             case DETooManyValues:
             }
-            trace(e);
-        } catch( e : Dynamic ) {
-            Sys.print( "FATAL ERROR: " + e );
+            trace("TODO "+e );
+        }
+    }
+
+    static function main() {
+        try {
+            run();
+        } catch(code:Int) {
+            php.Web.setReturnCode( code );
+            Sys.print( code );
+        } catch(e:Dynamic) {
+            php.Web.setReturnCode( StatusCode.INTERNAL_SERVER_ERROR );
+            if( Drylungs.DEBUG ) {
+                Sys.print( e );
+            } else {
+                Sys.print( 'FATAL ERROR' );
+            }
         }
     }
 
