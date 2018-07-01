@@ -48,8 +48,8 @@ header {
 nav, section.social {
     position: fixed;
     top: 0px;
-    text-transform: uppercase;
     z-index: 100000;
+    text-transform: uppercase;
     user-select: none;
 }
 
@@ -68,11 +68,15 @@ nav {
     a, i {
         padding: 5px 6px 4px 7px !important;
         background-color: var(--color-bg);
-        color: @color-text;
+        color: var(--color-text);
     }
     a {
         background-color: var(--color-bg);
-        //transition: background-color 1s, color 1s;
+        transition: background-color 0.1s, color 0.1s;
+        &:hover {
+            color: var(--color-highlight);
+            background: var(--color-text);
+        }
         &.active {
             background-color: var(--color-text);
             color: var(--color-bg);
@@ -103,18 +107,6 @@ section.social {
 
 main {
 //    animation: fade_in 0.2s;
-}
-
-body.error {
-    background: var(--color-error);
-    color: #000;
-    main.error {
-        //font-family: @font-ascii-family;
-        //font-size: @font-ascii-size;
-        position: relative;
-        top: 4vh;
-        text-align: center;
-    }
 }
 
 main.about,
@@ -194,20 +186,22 @@ main.records {
                 margin: 0;
                 opacity: 0.9;
                 * {
+                    display: table;
+                    background: var(--color-bg);
                     //white-space: nowrap;
-                    background: @color-bg;
                 }
                 .id {
-                    //display: table;
                     //display: inline-block;
                     //float: left;
                     padding: 2px 2px 2px 2px;
                     text-indent: -1px;
-                    //background: @color-bg;
+                    //background: var(--color-bg);
                 }
                 .name {
-                    font-size: @font-regular-size;
                     display: none;
+                    //padding: 0px 2px 0px 2px;
+                    //text-indent: -1px;
+                    //display: none;
                     //white-space: nowrap;
                 }
                 .artists {
@@ -226,7 +220,6 @@ main.records {
                         }
                     }
                 }
-
                 .date, .format, .description, .notes {
                     display: none;
                 }
