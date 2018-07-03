@@ -6,17 +6,13 @@ class Root {
 
 	function doDefault( d : Dispatch ) {
         switch d.url {
-        case '','index','start':
-            doRecords( d );
+        case '','index','start': doRecords( d );
         default:
             var id = d.parts[0];
-            var tpl = 'html/site/$id.html';
-            if( !FileSystem.exists( tpl ) ) {
+            if( !HTML.siteExists( id ) )
                 throw DENotFound( d.url );
-            }
-            Sys.print( new HTML( id ).build( {
-                content: new Template( File.getContent( tpl ) ).execute( {} ),
-            } ) );
+            else
+                new HTML( id ).print();
         }
     }
 
@@ -36,20 +32,24 @@ class Root {
 		Sys.print( '<pre>${Resource.get("ascii")}</pre>' );
 	}
 
-	function doVersion() {
-		Sys.print( Drylungs.BUILDINFO.version );
+	function doVersion__() {
+		Sys.print( Drylungs.BUILD.version );
 	}
 
-    function doBuildinfo() {
-        Sys.print( Drylungs.BUILDINFO );
+    function doBuild__() {
+        Sys.print( Drylungs.BUILD );
     }
 
     function doRadio( d : Dispatch ) {
         d.dispatch( new drylungs.web.Radio() );
     }
 
-    @admin function doAdmin() {
-        Sys.print( Drylungs.BUILDINFO );
+    function doLogin( d : Dispatch ) {
+        d.dispatch( new drylungs.web.Admin() );
+    }
+
+    function doAdmin( d : Dispatch ) {
+        d.dispatch( new drylungs.web.Admin() );
     }
 
 }

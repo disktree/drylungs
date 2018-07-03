@@ -1,34 +1,38 @@
+
 <h1 class="id">::id::</h1>
 <h2 class="name">::name::</h2>
-<label>Artists:</label>
-<ol class="artists">
-	::foreach artists::<li>::__current__::</li>::end::
-</ol>
-<div class="format">::if format::::format::::end::</div>
-<div class="date">::if date::::date::::end::</div>
-<!--
-<div class="description">::if description::::description::::end::</div>
--->
-<div class="notes">::if notes::::notes::::end::</div>
-<!--
-::if discogs::<a class="discogs">::record.discogs::</a>::end::
--->
-<ol class="tracks">
-	::if tracks::
-	<label>Tracks:</label>
-	::foreach tracks::
-	<li class="track">
-		<span>::position::</span>
-		<span>::name::</span>
-		::if duration::<span>::duration::</span>::end::
-		<!--
-		<audio src="/_records/DLR001/DLR001_A_Untitled.mp3" autoplay controls>
-		</audio>
-		-->
-	</li>
-	::end::
-	::end::
-</ol>
+
+<div class="artists">
+	<span>Artists: </span>
+	<ul>::foreach artists::<li>::__current__::</li>::end::</ul>
+</div>
+
+<div class="details">
+	<span class="format">Format: ::format::"</span>
+	<span>, </span>
+	<span class="date">Released: ::date::</span>
+</div>
+
+::if description::<div class="description">::description::</div>::end::
+
+::if tracks::
+<div class="tracks">
+	<div>Tracks:</div>
+	<ol>
+		::foreach tracks::<li class="track">
+			<span>::position::</span>
+			<span> – </span>
+			<span>::name::</span>
+			::if duration::<span title="Duration">[::duration::]</span>::end::
+			::if  audio::
+			<audio src="/_records/DLR001/DLR001_A_Untitled.mp3" autoplay controls></audio>
+			::end::
+		</li>::end::
+	</ol>
+</div>
+::end::
+
+<div class="notes">::notes::</div>
 
 <div class="covers">
 	<img class="cover" src="/image/record/::id::.jpg">
@@ -39,16 +43,6 @@
 	header {
 		display: none;
 	}
+	h1.id {
+	}
 </style>
-
-<!--
-<script>
-/*
-window.addEventListener( "load", function(e){
-	var covers = document.querySelector("div.covers");
-	console.debug(covers);
-	covers.children[1].style.display = 'none';
-}, false );
-*/
-</script>
--->

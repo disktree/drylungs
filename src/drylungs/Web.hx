@@ -1,5 +1,7 @@
 package drylungs;
 
+import Drylungs;
+import drylungs.Style;
 import drylungs.web.HTML;
 import om.http.StatusCode;
 
@@ -22,20 +24,20 @@ class Web {
         var uri = php.Web.getURI();
         var params = php.Web.getParams();
         var isMobile = om.System.isMobile();
-        //var ip = php.Web.getClientIP();
-        //var now = Date.now();
+        var ip = php.Web.getClientIP();
 
         Template.globals = {
 
-            BUILDINFO: Drylungs.BUILDINFO,
+            BUILD: Drylungs.BUILD,
 
+            desktop: !isMobile,
             mobile: isMobile,
             device : isMobile ? 'mobile' : 'desktop',
             language: site.language,
-            platform: 'php',
+            //platform: 'php',
 
             site: site,
-            theme: site.color.theme
+            theme: site.color.theme,
             //color: site.color.theme,
         };
         for( f in Reflect.fields( site ) )
@@ -56,7 +58,9 @@ class Web {
         var dispatcher = new Dispatch( uri, params );
         dispatcher.onMeta = function(meta,value) {
             switch meta {
-            case 'admin': throw StatusCode.UNAUTHORIZED;
+            case 'admin':
+                //TODO
+                //throw StatusCode.UNAUTHORIZED;
             }
         }
         try {
@@ -85,10 +89,10 @@ class Web {
             Sys.print( code );
         } catch(e:Dynamic) {
             php.Web.setReturnCode( StatusCode.INTERNAL_SERVER_ERROR );
-            if( Drylungs.DEBUG ) {
+            if( Drylungs.BUILD.debug ) {
                 Sys.print( e );
             } else {
-                Sys.print( 'FATAL ERROR' );
+                Sys.print( 'ERROR' );
             }
         }
     }

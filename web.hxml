@@ -5,13 +5,13 @@ inc.hxml
 -main drylungs.Web
 -cp src
 -lib om.core
+-lib om.crypto
 -lib om.http
 -lib om.web
 -dce full
 -debug
 
 -r res/html/index.html@index
-#-r res/html/error.html@error
 -r res/text/ascii.txt@ascii
 -r res/web/atom.xml@atom
 
@@ -27,5 +27,3 @@ inc.hxml
 -cmd cp -u res/web/humans.txt bin/
 -cmd cp -u res/web/robots.txt bin/
 -cmd cp -u res/web/htaccess bin/.htaccess
-
-#-cmd java -jar ~/sdk/closure-compiler.jar --js bin/app.js --js_output_file app.min.js

@@ -1,5 +1,4 @@
 ::if mobile::
-
 <ol class="records">
 	::foreach records::
 	<li class="record" data-id="::id::">
@@ -17,9 +16,29 @@
 	</li>
 	::end::
 </ol>
-
 ::else::
-
+<ol class="records">
+	::foreach records::
+	<li class="record" data-id="::id::">
+		<a href="records/::id::">
+			<div class="details">
+				<div class="id">::id::</div>
+				<ol class="artists">::foreach artists::<li>::__current__::</li>::end::</ol>
+				<div class="name">::name::</div>
+				<div class="date">::date::</div>
+				<div class="format">::format::</div>
+				<div class="description">::description::</div>
+				<div class="notes">::notes::</div>
+			</div>
+			<div class="covers">
+				<img class="cover" src="/image/record/::id::.jpg">
+				<img class="cover back">
+			</div>
+		</a>
+	</li>
+	::end::
+</ol>
+<!--
 <ol class="records">
 	::foreach records::
 	<a href="records/::id::">
@@ -38,6 +57,7 @@
 	</a>
 	::end::
 </ol>
+-->
 <style media="screen">
 	/*
 	header {
@@ -46,5 +66,4 @@
 }
 */
 </style>
-
 ::end::

@@ -1,2 +1,4 @@
 -D revision=1
--D version=0.0.7
+-D version=0.0.8
+-D source-header=
+#-D macro-debug

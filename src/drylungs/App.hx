@@ -46,6 +46,8 @@ class App {
 
 	static function init() {
 
+		var pathname = window.location.pathname;
+
 		if( isMobile) {
 			//window.alert( 'Mobile stylesheet is gay' );
 		}
@@ -60,43 +62,48 @@ class App {
 		social = document.querySelector( 'section.social' );
 		footer = document.querySelector( 'footer' );
 
-		updateMetaElements();
+		//updateMetaElements();
 
 		window.onscroll = function(e){
-			updateMetaElements();
+			//updateMetaElements();
+			//trace(document.documentElement.scrollTop);
+			//header.style.marginTop = (document.documentElement.scrollTop / 100) + 'px';
 		}
 		window.onresize = function(e){
-			updateMetaElements();
+			//updateMetaElements();
 		}
 
-		var pathname = window.location.pathname;
-		switch pathname {
-		case '/','/records':
-			var records = document.querySelectorAll( 'li.record' );
-			var selectedRecord : Element = null;
-			for( rec in records ) {
-				var el = cast( rec, Element );
-				el.onclick = function(e){
-					//var rect = el.getBoundingClientRect();
-					//trace(el.querySelector('.details') );
+		if( isMobile ) {
+			switch pathname {
+				case '/','/records':
+					var records = document.querySelectorAll( 'li.record' );
+					var selectedRecord : Element = null;
+					for( rec in records ) {
+						var el = cast( rec, Element );
+						el.onclick = function(e){
+							//var rect = el.getBoundingClientRect();
+							//trace(el.querySelector('.details') );
 
 
-					//var details = el.querySelector('.details');
-					//details.style.display = 'block';
+							//var details = el.querySelector('.details');
+							//details.style.display = 'block';
 
-					if( selectedRecord != null ) {
-						selectedRecord.classList.remove( 'selected' );
+							if( selectedRecord != null ) {
+								selectedRecord.classList.remove( 'selected' );
+							}
+
+							selectedRecord = el;
+							selectedRecord.classList.add( 'selected' );
+							selectedRecord.scrollIntoView( { behavior: "smooth", block: "start" } );
+
+							//window.scrollTo( 100, 0 );
+						}
+
 					}
-
-					selectedRecord = el;
-					selectedRecord.classList.add( 'selected' );
-					selectedRecord.scrollIntoView( { behavior: "smooth", block: "start" } );
-
-					//window.scrollTo( 100, 0 );
 				}
-
-			}
 		}
+
+
 
 		/*
 		document.fonts.ready.then( function(_){
@@ -135,7 +142,7 @@ class App {
 	static function main() {
 
 		console.info( '%c' + 'DRYLUNGS.AT', 'color:#5e6461' );
-		console.info( '%c' + '${Drylungs.BUILDINFO}', 'color:#5e6461' );
+		console.info( '%c' + '${Drylungs.BUILD}', 'color:#5e6461' );
 
 		document.addEventListener( 'readystatechange', function(e){
 			switch document.readyState {

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="::language::">
 
-    <!--
-        ::BUILDINFO::
-    -->
+    <!-- ::BUILD:: -->
 
     <head>
 
@@ -36,6 +34,8 @@
             ::if twitter.description::<meta name="twitter:description" content="::twitter.description::"/>::end::
         ::end::
         -->
+
+        <style media="screen">body{background:::theme::;}</style>
 
         <link rel="me" href="https://twitter.com/DryLungsRecords">
         <link rel="alternate" href="/xml" type="application/atom+xml" title="Dry Lungs Records"/>
@@ -96,13 +96,12 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
             <a href="/feed" class="ic-atom" target="_top" title="atom.xml" style="display:none"></a>
         </section>
 
-        <main class="::id::">
-            ::if content::::content::::end::
-        </main>
+        <main class="::id::">::if content::::content::::end::</main>
 
         <footer>
-            <i class="ic-copyright" title="(C) 2018 Dry Lungs Records, Vienna AT"></i>
+            <i class="icon ic-copyright"></i>
             <i>2018 Dry Lungs Records, Vienna AT</i>
+            <a href="/login" class="ic-sign-in" title="Login"></a>
         </footer>
 
     </body>

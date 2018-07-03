@@ -2,34 +2,70 @@ package drylungs.web;
 
 class HTML {
 
-	var id : String;
-	var resource : String;
-	var site : Dynamic;
+	public var id(default,null) : String;
+	public var ctx(default,null) : Dynamic;
+	public var macros(default,null) : MacroContext;
 
-	public function new( id : String, ?site : Dynamic, ?resource = 'index' ) {
+	var tpl : Template;
+
+	public function new( id : String, ?ctx : Dynamic, index = 'index' ) {
 		this.id = id;
-		this.site = (site == null) ? {} : site;
-		this.resource = resource;
+		if( ctx == null ) {
+			this.ctx = { id: id };
+		} else {
+			this.ctx = ctx;
+			this.ctx.id = id;
+		}
+		tpl = new Template( Resource.get( index ) );
+		macros = new MacroContext();
 	}
 
-	public function build( ctx : Dynamic ) : String {
+	public inline function print( ?data : Dynamic ) {
+		Sys.print( build( data ) );
+	}
 
-		site.id = id;
-		site.content = new Template( File.getContent( 'html/site/$id.html' ) ).execute( ctx );
-		if( ctx.title != null ) site.title = ctx.title;
+	public function build( ?data : Dynamic ) : String {
+		if( data == null ) data = {};
+		ctx.content = getSiteTemplate( id ).execute( data, macros );
+		return tpl.execute( ctx, macros );
+	}
 
-		return new Template( Resource.get( resource ) ).execute( site );
+	public inline function getSiteTemplate( id : String ) : Template {
+		return new Template( getSiteContent( id ) );
+	}
+
+	public function getSiteContent( id : String, path = "html/site" ) : String {
+		return File.getContent( '$path/$id.html' );
+	}
+
+	public static function siteExists( id : String, path = "html/site" ) : Bool {
+		return FileSystem.exists( '$path/$id.html' );
 	}
 }
 
-/*
 @:keep
-private class TemplateContext {
+private class MacroContext {
 
     public function new() {}
 
-    public function html( resolve : String->Dynamic, id : String ) {
-        return Resource.getString( 'tpl_$id' );
+	//public function constant
+	//public function color
+	//public function style
+	//public function theme
+
+    public function res( resolve : String->Dynamic, id : String ) {
+        return Resource.get( id );
     }
+
+	public function log( resolve : String->Dynamic, msg : Dynamic ) {
+		haxe.Log.trace( msg );
+		return '';
+	}
+
+	/*
+	public function base64( resolve : String->Dynamic, str : String ) {
+		return om.crypto.Base64.encodeString( str );
+	}
+	*/
+
 }
-*/
