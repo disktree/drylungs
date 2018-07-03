@@ -1,8 +1,8 @@
 <h1 class="id">::id::</h1>
 <h2 class="name">::name::</h2>
+<label>Artists:</label>
 <ol class="artists">
-	<label>Artists:</label>
-	::if artists::::foreach artists::<li class="artist">::__current__::</li>::end::::end::
+	::foreach artists::<li>::__current__::</li>::end::
 </ol>
 <div class="format">::if format::::format::::end::</div>
 <div class="date">::if date::::date::::end::</div>
@@ -37,9 +37,7 @@
 
 <style media="screen">
 	header {
-		/*
 		display: none;
-		*/
 	}
 </style>
 

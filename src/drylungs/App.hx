@@ -35,8 +35,8 @@ class App {
 		if( window.innerHeight >= document.documentElement.scrollHeight ) {
 			footer.classList.remove( 'hidden' );
 		} else {
-
-			if( document.documentElement.scrollTop + footer.clientHeight >= document.documentElement.scrollHeight - window.innerHeight - 50  ) {
+			var offset = 4;
+			if( document.documentElement.scrollTop + footer.clientHeight >= document.documentElement.scrollHeight - window.innerHeight - offset ) {
 				footer.classList.remove( 'hidden' );
 			} else {
 				footer.classList.add( 'hidden' );
@@ -51,6 +51,8 @@ class App {
 		}
 
 		//trace(document.baseURI);
+		//trace(document.querySelectorAll('li.record'));
+		//trace(window.innerHeight);
 
 		header = document.querySelector( 'header' );
 		nav = document.querySelector( 'nav' );
@@ -60,20 +62,48 @@ class App {
 
 		updateMetaElements();
 
-		/*
-		document.fonts.ready.then( function(_){
-			//trace("Fonts loaded");
-			//document.querySelector('header').style.visibility = 'visible';
-		});
-		*/
-
 		window.onscroll = function(e){
 			updateMetaElements();
 		}
-
 		window.onresize = function(e){
 			updateMetaElements();
 		}
+
+		var pathname = window.location.pathname;
+		switch pathname {
+		case '/','/records':
+			var records = document.querySelectorAll( 'li.record' );
+			var selectedRecord : Element = null;
+			for( rec in records ) {
+				var el = cast( rec, Element );
+				el.onclick = function(e){
+					//var rect = el.getBoundingClientRect();
+					//trace(el.querySelector('.details') );
+
+
+					//var details = el.querySelector('.details');
+					//details.style.display = 'block';
+
+					if( selectedRecord != null ) {
+						selectedRecord.classList.remove( 'selected' );
+					}
+
+					selectedRecord = el;
+					selectedRecord.classList.add( 'selected' );
+					selectedRecord.scrollIntoView( { behavior: "smooth", block: "start" } );
+
+					//window.scrollTo( 100, 0 );
+				}
+
+			}
+		}
+
+		/*
+		document.fonts.ready.then( function(_){
+		//trace("Fonts loaded");
+		//document.querySelector('header').style.visibility = 'visible';
+	});
+	*/
 
 		/*
 		window.onbeforeunload = function(e){

@@ -10,6 +10,7 @@ class Records {
         records = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
         for( rec in records ) {
             if( rec.description == null ) rec.description = '';
+            if( rec.notes == null ) rec.notes = '';
         }
     }
 

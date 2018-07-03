@@ -8,10 +8,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 :root {
+
     --color-bg: @color-bg;
     --color-text: @color-text;
     --color-highlight: @color-highlight;
     --color-error: @color-error;
+
     --color-text-select: @color-text-select;
     --color-text-select-background: @color-text-select-background;
 }
@@ -20,42 +22,39 @@
 
 body {
 
+    width: auto;
     overflow-x: hidden;
 
     font-family: @font-regular-family;
     font-size: @font-regular-size;
     line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
 
     background-color: var(--color-bg);
     color: var(--color-text);
+    -webkit-tap-highlight-color: none;
+}
 
-    -webkit-font-smoothing: antialiased;
-    //tap-highlight-color: @color-text;
-    //-webkit-tap-highlight-color: @color-text;
+::selection {
+    background: @color-text-select-background;
+    color: @color-text-select;
 }
 
 a {
-    text-decoration: none;
     border: none;
-    color: @color-text;
-    background-color: transparent;
-    &:focus {
-        color: var(--color-highlight);
-    }
-    &:active, &:hover {
-        //outline: 0;
-    }
-    &:hover {
-        //text-decoration: underline;
-        color: var(--color-highlight);
-    }
+    text-decoration: none;
+	background: transparent;
+	color: var(--color-text);
 }
 
-hr  {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px dotted var(--color-text);
+p {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    //-webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,43 +79,131 @@ h6, .h6 {
     font-size: 1rem;
 }
 
-small, .small {
-    font-size: 80%;
-    font-weight: 400;
-}
-
-code {
-    font-size: 87.5%;
-    word-break: break-word;
-}
-
-p {
-    display: block;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    //-webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+hr  {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px dotted var(--color-highlight);
 }
 
 ol, ul {
-    list-style: none;
     margin-bottom: 2em;
 }
-
 li {
-    display: list-item;
+    //list-style-position: inside;
     list-style: none;
-    //margin-left: 4em;
-    //text-align: -webkit-match-parent;
-}
-
-::selection {
-    background: @color-text-select-background;
-    color: @color-text-select;
+    margin-left: 2em;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-@import "content";
+.ascii {
+    font-family: @font-ascii-family;
+    font-size: @font-ascii-size;
+    line-height: 1;
+    white-space: pre;
+    * {
+        display: inline;
+        &::selection {
+            background: #000;
+            color: var(--color-text);
+        }
+    }
+    b, h1, h2, h3, h4, h5, h6 {
+        font-family: @font-ascii-plus-family;
+        font-size: @font-ascii-size;
+        &::selection {
+            color: var(--color-highlight);
+        }
+    }
+}
+
+header {
+	display: table;
+	margin: 8vh auto 0 auto;
+    cursor: default;
+}
+
+nav {
+	position: fixed;
+    top: 0;
+    left: 0;
+	background: var(--color-bg);
+    z-index: 1000;
+    user-select: none;
+    -webkit-user-select: none;
+	* {
+		padding: 5px 6px 2px 7px;
+		background-color: var(--color-bg);
+        color: var(--color-text);
+	}
+    h1 {
+        display: inline-block;
+        font-family: @font-regular-family;
+        font-size: @font-regular-size;
+        //font-weight:  bold;
+    }
+	a {
+        &.active {
+            background-color: var(--color-text);
+            color: var(--color-bg);
+        }
+	}
+}
+
+main {
+    display: table;
+    z-index: 10;
+    animation: fade_in 0.4s;
+}
+
+main.records {
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+	ol.records {
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+        li.record {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            .artists {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            img.cover {
+                display: block;
+                user-select: none;
+                user-drag: none;
+                -webkit-user-drag: none;
+            }
+        }
+    }
+}
+
+main.record {
+    li {
+        //list-style-position: inside;
+        margin-left: 2em;
+    }
+
+}
+
+footer {
+	position: fixed;
+	right: 0;
+    bottom: 0;
+    z-index: 1000;
+    //background: var(--color-bg);
+    transition: transform 0.2s;
+    user-select: none;
+    &.hidden {
+        transform: translateY( 40px );
+    }
+}
