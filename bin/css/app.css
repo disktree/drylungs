@@ -1,0 +1,1095 @@
+/* --- COLOR ---------------------------------------------------------------- */
+/* --- DEBUG ---------------------------------------------------------------- */
+/* --- MEDIA ---------------------------------------------------------------- */
+/*
+@mobile: 	~"screen and (max-width: @{breakpoint-4})";
+//@tablet: 	~"screen and (min-width: @{breakpoint-5}) and (max-width: @{breakpoint-6})";
+@desktop: 	~"screen and (min-width: @{breakpoint-7})";
+
+@portrait: 	~"screen and (orientation:portrait)";
+@landscape: ~"screen and (orientation:landscape)";
+
+//@mobile:	~"screen and (orientation:portrait) and (max-width: @{breakpoint-4}), screen and (orientation:landscape) and (max-height: @{breakpoint-4})";
+
+//@not-small: ~"screen and (min-width: 30em)";
+//@medium: 	~"screen and (min-width: 30em) and (max-width: 60em)";
+//@not-small: ~"screen and (min-width: 30em)";
+*/
+/*
+.phone() {
+	@media only screen and (-webkit-min-device-pixel-ratio:2) {}
+}
+*/
+/* --- SELECTION ------------------------------------------------------------ */
+/* --- TYPOGRAPHY ----------------------------------------------------------- */
+/* --- INTERACTION ---------------------------------------------------------- */
+@font-face {
+  font-family: 'FontRegular', monospace;
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: local('Liberation Mono'), url('../fnt/liberation_mono-regular.woff2') format('woff2'), url('../fnt/liberation_mono-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'FontTitle', 'Helvetica';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fnt/helvetica_neue_65.woff2') format('woff2'), url('../fnt/helvetica_neue_65.woff') format('woff'), url('../fnt/helvetica_neue_65.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'FontIcon';
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url('../fnt/fa.woff') format('woff'), url('../fnt/fa.ttf') format('truetype'), url('../fnt/fa.svg') format('svg');
+}
+.icon {
+  font-family: 'FontIcon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  speak: none;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="ic-"],
+[class*=" ic-"] {
+  font-family: 'FontIcon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  speak: none;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ic-angle-right:before {
+  content: "\f105";
+}
+.ic-arrow_right:before {
+  content: "\f178";
+}
+.ic-arrow-left:before {
+  content: "\f177";
+}
+.ic-bandcamp:before {
+  content: "\f2d5";
+}
+.ic-bigcartel:before {
+  content: "\e900";
+}
+.ic-circle:before {
+  content: "\f192";
+}
+.ic-close:before {
+  content: "\e5cd";
+}
+.ic-copyright:before {
+  content: "\f1f9";
+}
+.ic-diamond:before {
+  content: "\f219";
+}
+.ic-email:before {
+  content: "\f0e0";
+}
+.ic-fiber-new:before {
+  content: "\e05e";
+}
+.ic-file-audio:before {
+  content: "\f1c7";
+}
+.ic-file-sound:before {
+  content: "\f1c7";
+}
+.ic-link:before {
+  content: "\f08e";
+}
+.ic-instagram:before {
+  content: "\f16d";
+}
+.ic-menu:before {
+  content: "\e5d2";
+}
+.ic-music:before {
+  content: "\f001";
+}
+.ic-navicon:before {
+  content: "\f0c9";
+}
+.ic-feed:before {
+  content: "\f09e";
+}
+.ic-tv:before {
+  content: "\f26c";
+}
+.ic-twitter:before {
+  content: "\f099";
+}
+@media only screen and (min-width: 30em) {
+  ::-webkit-scrollbar {
+    border: none;
+    width: 6px;
+  }
+  ::-webkit-scrollbar::horizontal,
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-fl);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-fm);
+  }
+}
+@media only 
+	only screen
+		and (-webkit-min-device-pixel-ratio:2)
+		and (orientation:portrait) and (max-width:30em),
+	only screen
+		and (-webkit-min-device-pixel-ratio:2)
+		and (orientation:landscape) and (max-height:30em) {
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+}
+:root {
+  --color-bg: #101111;
+  --color-fh: #919794;
+  --color-fm: #5e6461;
+  --color-fl: #2d2f2e;
+  --color-fi: #fff;
+  --color-bh: #292b2b;
+  --color-bm: #101111;
+  --color-bl: #000000;
+  --color-bi: #000;
+}
+html {
+  font-family: 'FontRegular', monospace;
+}
+body {
+  font-family: 'FontRegular', monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.01785714em;
+  text-transform: inherit;
+  background: var(--color-bg);
+  color: var(--color-fm);
+  tap-highlight-color: var(--color-fm);
+  -webkit-tap-highlight-color: var(--color-fm);
+}
+::selection {
+  color: var(--color-fi) !important;
+  background: var(--color-bi) !important;
+}
+.h1 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 6rem;
+  text-transform: inherit;
+  letter-spacing: -0.015625em;
+}
+.h2 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 3.75rem;
+  text-transform: inherit;
+  letter-spacing: -0.00833333em;
+}
+.h3 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3.125rem;
+  text-transform: inherit;
+  letter-spacing: normal;
+}
+.h4 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  text-transform: inherit;
+  letter-spacing: 0.00735294em;
+}
+.h5 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-transform: inherit;
+  letter-spacing: normal;
+}
+.h6 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-transform: inherit;
+  letter-spacing: 0.0125em;
+}
+h1 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 6rem;
+  text-transform: inherit;
+  letter-spacing: -0.015625em;
+}
+h2 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 3.75rem;
+  text-transform: inherit;
+  letter-spacing: -0.00833333em;
+}
+h3 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3.125rem;
+  text-transform: inherit;
+  letter-spacing: normal;
+}
+h4 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  text-transform: inherit;
+  letter-spacing: 0.00735294em;
+}
+h5 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-transform: inherit;
+  letter-spacing: normal;
+}
+h6 {
+  font-family: 'FontTitle', 'Helvetica';
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-transform: inherit;
+  letter-spacing: 0.0125em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'FontTitle', 'Helvetica';
+  margin: 0;
+}
+p {
+  margin: 0 0 1rem;
+}
+a {
+  outline: none;
+  color: var(--color-fm);
+}
+a[href] {
+  transition: color 0.05s;
+}
+a[href]:hover {
+  color: var(--color-fh);
+}
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+body {
+  display: grid;
+}
+body > header,
+body > nav,
+body > aside.social,
+body > footer {
+  white-space: nowrap;
+  background: var(--color-bg);
+  user-select: none;
+  -webkit-user-select: none;
+}
+body > header,
+body > nav {
+  text-transform: uppercase !important;
+}
+body > header {
+  grid-area: header;
+  display: flex;
+}
+body > nav {
+  grid-area: nav;
+}
+body > main {
+  grid-area: main;
+}
+body > main article a[href^="http"]:after {
+  font-family: 'FontIcon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  speak: none;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f08e";
+  padding-left: 0.375em;
+  font-size: 0.7em;
+}
+body > main article ul,
+body > main article ol {
+  margin-bottom: 16px;
+  padding-left: 1em;
+}
+body > main article ul.arrow li:before,
+body > main article ol.arrow li:before {
+  content: "\f105";
+}
+body > main article ul.arrow li:before,
+body > main article ol.arrow li:before {
+  font-family: 'FontIcon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  speak: none;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 0.5em;
+}
+body > aside.social {
+  grid-area: social;
+  display: flex;
+}
+body > footer {
+  grid-area: footer;
+}
+@media screen and (max-width: 720px) {
+  body {
+    font-family: 'FontRegular', monospace;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.01785714em;
+    text-transform: inherit;
+    grid-template-rows: 48px auto 1fr auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "main" "social" "footer";
+  }
+  body > header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-self: center;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  body > header > button {
+    font-family: 'FontIcon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    speak: none;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.75rem;
+    font-weight: 700;
+    width: 48px;
+    height: 48px;
+    color: var(--color-fm);
+    line-height: 1;
+  }
+  body > header > button:before {
+    content: "\e5d2";
+  }
+  body > header > button.show:before {
+    content: "\e5cd";
+  }
+  body > header > .title,
+  body > header > .page {
+    position: relative;
+    top: 2px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-transform: inherit;
+    letter-spacing: 0.0125em;
+    font-family: 'FontTitle', 'Helvetica';
+    line-height: 48px;
+  }
+  body > header > .title {
+    display: none;
+  }
+  body > nav {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    padding: 12px 8px 12px 12px;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    background: var(--color-bg);
+    z-index: 10;
+  }
+  body > nav.show {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  body > nav a {
+    display: table;
+    padding: 4px 8px 2px 8px;
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-transform: inherit;
+    letter-spacing: 0.0125em;
+  }
+  body > nav a.active {
+    color: var(--color-fl) !important;
+  }
+  body > main {
+    margin: 1rem 1rem;
+  }
+  body > aside.social,
+  body footer {
+    margin: 0 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-fm);
+  }
+  body > aside.social {
+    display: flex;
+    justify-content: space-between;
+  }
+  body > aside.social * {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  body > footer {
+    font-size: 0.75rem !important;
+  }
+}
+@media screen and (min-width: 720px) {
+  body {
+    grid-template-rows: 56px 1fr auto;
+    grid-template-columns: auto auto auto 1fr;
+    grid-template-areas: "header nav nav nav" "main main main main" "footer footer social social";
+  }
+  body > header,
+  body > nav {
+    font-family: 'FontTitle', 'Helvetica';
+  }
+  body > header {
+    align-self: center;
+    margin: 0 0 0 16px;
+  }
+  body > header > button {
+    display: none;
+  }
+  body > header > .title::after {
+    content: "™";
+  }
+  body > header > .page {
+    display: none;
+  }
+  body > nav {
+    align-self: center;
+    display: flex;
+  }
+  body > nav a.active {
+    color: var(--color-fh);
+  }
+  body > nav a:before {
+    content: "/";
+  }
+  body > main {
+    margin: 0 32px;
+  }
+  body > main article {
+    max-width: 1000px;
+  }
+  body > main article:before {
+    display: block;
+    content: "";
+    background: var(--color-fm);
+    width: 1rem;
+    height: 4px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  body > aside.social,
+  body > footer {
+    align-self: center;
+    padding: 16px 0px 8px 12px;
+    font-size: 0.7rem;
+  }
+  body > aside.social * {
+    padding: 0 0.375rem;
+  }
+  body > aside.social *:hover {
+    transform: scale(1.1);
+  }
+}
+@media screen and (min-width: 1920px) {
+  body {
+    grid-template-rows: 80px 1fr auto;
+    grid-row-gap: 1rem;
+  }
+  body > header {
+    margin-left: 24px;
+  }
+  body > main {
+    margin: 0 48px;
+  }
+}
+body > main.records {
+  /*
+	//display: block;
+	display: grid;
+	//grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+	grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+	//grid-template-rows: repeat(auto-fit,auto);
+	grid-gap: 8px;
+	//margin: 16px;
+	//grid-gap: 1vh 1vw;
+	//margin: 1vh 1vw;
+	*/
+  user-select: none;
+  -webkit-user-select: none;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 16px;
+}
+@media screen and (max-width: calc(400px*9)) {
+  body > main.records {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*8)) {
+  body > main.records {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*7)) {
+  body > main.records {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*6)) {
+  body > main.records {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*5)) {
+  body > main.records {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*4)) {
+  body > main.records {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*3)) {
+  body > main.records {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: calc(400px*2)) {
+  body > main.records {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 400px) {
+  body > main.records {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+body > main.records > a {
+  position: relative;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
+  transition: transform 0s;
+}
+body > main.records > a > .details {
+  padding: 1px 3px 0px 3px;
+  position: absolute;
+  z-index: 100;
+  opacity: 0.8;
+}
+body > main.records > a > .details .id {
+  background: var(--color-bg);
+  display: none;
+}
+body > main.records > a > .details .artists {
+  display: flex;
+  flex-wrap: wrap;
+  display: none;
+  background: var(--color-bg);
+}
+body > main.records > a > .details .artists > *:not(:last-child)::after {
+  content: "+";
+  margin: 0 0.75ch;
+}
+body > main.records > a > img {
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  transition: filter 0.017s;
+}
+body > main.records > a:hover > .details {
+  opacity: 1;
+}
+body > main.records > a:hover > img {
+  transition: filter 0.1s;
+  filter: none;
+}
+body > main.record {
+  display: grid;
+  /*
+	@media screen and (max-width:600px) {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"artists"
+			"title"
+			"details"
+			"notes"
+			"cover"
+			"tracks"
+			"description"
+			"nav";
+		> * {
+			padding: 8px 0 8px 0;
+			border-top: 1px dotted var(--color-fm);
+		}
+		> .title {
+			//border-top: @seperator;
+			//border-bottom: @seperator;
+			padding: 16px 0 4px 0;
+			.h3;
+		}
+		> .details {
+		}
+		> .cover {
+
+		}
+		> .cover {
+			picture img {
+				margin-bottom: 0.5rem;
+			}
+		}
+		> .nav {
+			display: none;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+
+	@media screen and (min-width:600px) {
+		grid-template-rows: auto auto auto auto auto 1fr;
+		grid-template-columns: minmax(300px,1fr) auto 1fr;
+		grid-template-areas:
+			"cover artists details"
+			"cover title title"
+			"cover notes notes"
+			"cover tracks tracks"
+			"cover description description"
+			"cover nav nav";
+		grid-column-gap: 16px;
+		grid-row-gap: 8px;
+		margin: 0 24px;
+		> * {
+		}
+		>.cover {
+			picture:first-child img {
+				margin-bottom: 0.5rem;
+			}
+		}
+		>.artists {
+			white-space: nowrap;
+			justify-self: start;
+			padding-top: 0.5rem;
+			border-top: @seperator;
+		}
+		>.title {
+			.sep;
+			//justify-self: start;
+			//margin-top: 0.25rem;
+			padding: 0.375em 0 0.2em 0;
+			border-top: @seperator;
+			.h2;
+		}
+		>.details {
+			border-top: @seperator;
+			padding: 0.5rem 0;
+			justify-self: start;
+			//	border-bottom: @seperator;
+			>.format::before {
+				//content: "Format:";
+			}
+			>.year::before {
+				//content: "Year:";
+			}
+		}
+		> .cover {
+			picture {
+				img {
+					filter: brightness(40%) contrast(90%) grayscale(90%);
+					transition: filter 0.06s;
+					&:hover {
+						filter: none;
+					}
+				}
+			}
+		}
+		>.notes {
+			padding: 0.5rem 0;
+			border-top: @seperator;
+		}
+		>.tracks {
+			padding: 0.5rem 0;
+			border-top: @seperator;
+		}
+		>.description {
+			padding: 0.5rem 0;
+			border-top: @seperator;
+		}
+		>.nav {
+			align-self: start;
+			justify-self: start;
+			padding: 0.5rem 0 0 0;
+			border-top: @seperator;
+		}
+	}
+	*/
+  /*
+	@media screen and (min-width:60em) {
+		grid-template-rows: auto auto auto auto auto 1fr auto;
+		grid-template-columns: minmax(400px,1fr) auto 1fr;
+		grid-template-areas:
+			"title title title"
+			"cover artists details"
+			"cover notes notes"
+			"cover tracks tracks"
+			"cover description description"
+			"cover nav nav";
+		grid-column-gap: 16px;
+		//grid-row-gap: 24px;
+		> * {
+			//padding: 8px 0 8px 0;
+			//border-top: 1px dotted var(--color-fm);
+		}
+		> .title {
+			.typo-h1;
+			//padding: 32px 0 16px 0;
+			&::after {
+				//content: ".";
+			}
+		}
+		> .details {
+			//align-self: start;
+		}
+		> .artists {
+			//background: red;
+		}
+		> .nav {
+			justify-self: start;
+		}
+	}
+	*/
+  /*
+	@media screen and (min-width:1920px) {
+		//margin: 0 24px;
+		grid-template-rows: auto auto auto auto 1fr auto;
+		grid-template-columns: minmax(600px,1fr)1fr 1fr;
+		grid-template-areas:
+			"cover title title title"
+			"cover details details details"
+			"cover notes notes notes"
+			"cover tracks tracks tracks"
+			"cover description description description"
+			"cover nav nav nav";
+		//grid-column-gap: 24px;
+		> .title {
+			.typo-h1;
+			//background: red;
+		}
+		> .cover {}
+		> .nav {
+			justify-self: end;
+		}
+	}
+	*/
+  /*
+	@media screen and (min-width:2560px) {
+		grid-template-rows: auto auto auto auto auto 1fr;
+		grid-template-columns: minmax(1fr,1fr)1fr 1fr;
+		grid-template-areas:
+			"cover title title title"
+			"cover details details details"
+			"cover notes notes notes"
+			"cover tracks tracks tracks"
+			"cover description description description"
+			"cover nav nav nav";
+		grid-column-gap: 24px;
+		margin: 0 24px;
+		> .title {
+			.typo-h1;
+		}
+		> .cover {
+			//display: flex;
+			//background: red;
+		}
+	}
+	*/
+}
+body > main.record > .title {
+  grid-area: title;
+  font-family: 'FontTitle', 'Helvetica';
+}
+body > main.record > .title::after {
+  content: ".";
+}
+body > main.record > .artists {
+  grid-area: artists;
+}
+body > main.record > .artists *:not(:last-child)::after {
+  content: "+";
+  margin: 0 0.75ch;
+}
+body > main.record > .details {
+  grid-area: details;
+  display: flex;
+}
+body > main.record > .details > *:not(:last-child)::after {
+  content: "/";
+}
+body > main.record > .details > .format::before {
+  padding-right: 1ch;
+}
+body > main.record > .details > .year::before {
+  padding-right: 1ch;
+}
+body > main.record > .cover {
+  grid-area: cover;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
+  user-select: none;
+  -webkit-user-select: none;
+}
+body > main.record > .cover picture {
+  /*
+			&:not(:last-child) {
+				margin-bottom: 8px;
+			}
+			*/
+}
+body > main.record > .cover picture img {
+  display: block;
+  max-width: 100%;
+}
+body > main.record > .notes {
+  grid-area: notes;
+}
+body > main.record > .tracks {
+  grid-area: tracks;
+}
+body > main.record > .tracks .track .position::after {
+  padding-left: 0.5rem;
+  content: "-";
+}
+body > main.record > .description {
+  grid-area: description;
+}
+body > main.record > .nav {
+  grid-area: nav;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@media screen and (max-width: 600px) {
+  body > main.record {
+    grid-template-columns: 1fr;
+    grid-template-areas: "artists" "title" "details" "tracks" "notes" "description" "cover" "nav";
+    grid-row-gap: 1em;
+  }
+  body > main.record > .details,
+  body > main.record > .notes,
+  body > main.record > .description,
+  body > main.record > .tracks {
+    padding-top: 1em;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--color-fm);
+  }
+  body > main.record > .artists {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-transform: inherit;
+    letter-spacing: 0.0125em;
+  }
+  body > main.record > .artists:before {
+    display: block;
+    content: "";
+    background: var(--color-fm);
+    width: 1rem;
+    height: 4px;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+  }
+  body > main.record > .title {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.125rem;
+    text-transform: inherit;
+    letter-spacing: normal;
+  }
+  body > main.record > .details {
+    display: flex;
+  }
+  body > main.record > .details .id {
+    display: none;
+  }
+  body > main.record > .cover picture img {
+    width: 100%;
+  }
+  body > main.record > .cover picture.front img {
+    padding-bottom: 0.5rem;
+  }
+  body > main.record > .nav {
+    justify-self: end;
+  }
+}
+@media screen and (min-width: 600px) {
+  body > main.record {
+    grid-template-rows: repeat(7, auto) 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "artists artists" "title title" "details details" "tracks tracks" "notes notes" "description description" "cover cover" "nav nav";
+    grid-row-gap: 1.25em;
+  }
+  body > main.record > .title {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 3.75rem;
+    text-transform: inherit;
+    letter-spacing: -0.00833333em;
+  }
+  body > main.record > .artists {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-transform: inherit;
+    letter-spacing: 0.0125em;
+  }
+  body > main.record > .artists:before {
+    display: block;
+    content: "";
+    background: var(--color-fm);
+    width: 1rem;
+    height: 4px;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+  }
+  body > main.record > .details,
+  body > main.record > .notes,
+  body > main.record > .description,
+  body > main.record > .tracks {
+    border-left: 1px solid var(--color-fm);
+    padding-left: 0.75rem;
+    max-width: 800px;
+  }
+  body > main.record > .details {
+    display: flex;
+    justify-self: start;
+  }
+  body > main.record > .notes {
+    justify-self: start;
+  }
+  body > main.record > .description {
+    justify-self: start;
+  }
+  body > main.record > .tracks {
+    justify-self: start;
+  }
+  body > main.record > .cover {
+    display: flex;
+  }
+  body > main.record > .cover picture img {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+  body > main.record > .cover picture.front img {
+    padding-right: 0.5rem;
+  }
+  body > main.record > .cover picture.back img {
+    padding-left: 0.5rem;
+  }
+  body > main.record > .nav {
+    justify-self: end;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (min-width: 1920px) {
+  body > main.record > .title {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 6rem;
+    text-transform: inherit;
+    letter-spacing: -0.015625em;
+  }
+  body > main.record > .artists {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-transform: inherit;
+    letter-spacing: normal;
+  }
+}
+@media screen and (min-width: 2560px) {
+  body > main.record > .artists {
+    font-family: 'FontTitle', 'Helvetica';
+    font-size: 2.125rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+    text-transform: inherit;
+    letter-spacing: 0.00735294em;
+  }
+}
