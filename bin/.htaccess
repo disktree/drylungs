@@ -1,28 +1,24 @@
 
-### PHP
-#FcgidWrapper "/home/httpd/cgi-bin/php71-fcgi-starter.fcgi" .php
-#Action application/x-httpd-php71 /cgi-sys/php71-fcgi-starter.fcgi
-#AddType application/x-httpd-php71 .php
-
-### Server redirect
-#RewriteEngine on
-#Redirect 301 / http://disktree.net
-
+##
 #AddDefaultCharset utf-8
-
 #ServerSignature Off
 
+## PHP
+#AddType application/x-httpd-php71 .php
 
-## No file index
+## No directory index
 Options All -Indexes
 
-## Mime
+## Mime Types
 AddType application/manifest+json manifest.json
 
-## URL rewrite
+##
+ErrorDocument 403 "Sorry the link you used is invalid.<br /><h2>Please visit our <a href='/'>Home Page</a></h2>"
 
+## URL rewrite
 RewriteEngine On
 
+#RewriteRule ^sitemap$ sitemap.xml [NC,L]
 #RewriteRule ^/?dat/config\.json$ - [F,L]
 RewriteRule ^/?dat/.+$ - [F,L]
 RewriteRule ^/?htm/.+$ - [F,L]
@@ -30,11 +26,6 @@ RewriteRule ^/?lib/.+$ - [F,L]
 RewriteRule ^/?res/.+$ - [F,L]
 RewriteRule ^/?web/.+$ - [F,L]
 
-ErrorDocument 403 "Sorry the link you used is invalid.<br /><h2>Please visit our <a href='/'>Home Page</a></h2>"
-
-#RewriteRule ^sitemap$ sitemap.xml [NC,L]
-
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)/?$ index.php?$1 [NC,L]
-#RewriteRule ^(.*)/?$ index.php [NC,L]
