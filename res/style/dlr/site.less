@@ -160,8 +160,6 @@ body {
 
 	@media screen and (max-width:720px) {
 
-		.typo-body2;
-
 		@header-height: 48px;
 		grid-template-rows: @header-height auto 1fr auto auto;
 		grid-template-columns: 1fr;
@@ -178,14 +176,17 @@ body {
 			width: 100%;
 			align-self: center;
 			z-index: 100;
+			.h6;
 			box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 			> button {
 				.icon;
 				.ic-menu;
-				font-size: 1.75rem;
+				font-size: 1.375em;
 				font-weight: 700;
 				width: 48px;
 				height: @header-height;
+				position: relative;
+				left: 2px;
 				color: var(--color-fm);
 				line-height: 1;
 				&.show {
@@ -194,14 +195,10 @@ body {
 			}
 			> .title, > .page {
 				position: relative;
-				top: 2px;
+				top: 3px;
+				left: 2px;
 				.h6;
-				font-family: @font-title;
-				//font-size: 1.5rem;
-				//font-weight: 700;
 				line-height: @header-height;
-				//line-height: 1;
-
 			}
 			>.title {
 				display: none;
