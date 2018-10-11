@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+
+		::if baseURI::<base href="::baseURI::"/>::end::
+
+		::if author::<meta name="author" content="::author::">::end::
+		::if description::<meta name="description" content="::description::">::end::
+		::if keywords::<meta name="keywords" content="::foreach keywords::::__current__::,::end::">::end::
+		::if publisher::<meta name="publisher" content="::publisher::">::end::
+		::if theme_color::<meta name="theme-color" content="::theme_color::">::end::
+		::if mobile::<meta name="mobile-web-app-capable" content="yes">::end::
+
+		::if (google_site_verification)::<meta name="google-site-verification" content="::google_site_verification::">::end::
+
+		::if (site.twitter)::
+		::if (site.twitter.card)::<meta name="twitter:card" content="::site.twitter.card::"/>::end::
+		::if (site.twitter.site)::<meta name="twitter:site" content="@::site.twitter.site::">::end::
+		::if (site.twitter.creator)::<meta name="twitter:creator" content="@::site.twitter.creator::"/>::end::
+		::if (site.twitter.title)::<meta name="twitter:title" content="::site.twitter.title::"/>::end::
+		::if (site.twitter.description)::<meta name="twitter:description" content="::site.twitter.description::"/>::end::
+		::if (site.twitter.image)::<meta name="twitter:image" content="img/::site.twitter.image::"/>::end::
+		::end::
+
+		<title>::site.title::</title>
+
+		<link rel="stylesheet" media="screen" href="css/reset.css">
+		<link rel="stylesheet" media="screen" href="css/app.css">
+		<!--
+		<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">
+		::foreach site.stylesheets::
+		<link rel="stylesheet" media="screen" href="::__current__::">
+		::end::
+		-->
+
+		<link rel="alternate" href="feed" type="application/atom+xml" title="Dry Lungs Records"/>
+		<link rel="author" href="humans.txt" type="text/plain">
+		<link rel="manifest" href="manifest.json">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		::foreach icons::
+		<link rel="icon" href="ico/icon-::__current__::.png" sizes="::__current__::x::__current__::">
+		::end::
+
+		<script defer src="scr/app.js"></script>
+
+    </head>
+
+    <body class="site-layout" data-id="::site.id::">
+
+		<header>
+			<button></button>
+			<a class="title" href="">::site.name::</a>
+			::if site.page::
+			<div class="page">::site.page::</div>
+			::end::
+			<!--
+			-->
+		</header>
+
+		<nav>
+			<a ::if (site.id=="records")::class="active"::else::href="records"::end:: tabindex="1">records</a>
+			<a ::if (site.id=="about")::class="active"::else::href="about"::end:: tabindex="2">about</a>
+			<a ::if (site.id=="mailorder")::class="active"::else::href="mailorder"::end:: tabindex="3">mailorder</a>
+		</nav>
+
+		<main class="::site.id::">::content::</main>
+
+		<aside class="social">
+			<a href="mailto:::site.email::" class="ic-email" target="_blank" title="::site.email::" tabindex="-1"></a>
+			<a href="::site.social.bigcartel.uri::" rel="external" class="ic-bigcartel" title="bigcartel" tabindex="-1"></a>
+			<a href="::site.social.twitter.uri::" rel="external" class="ic-twitter" title="::site.social.twitter.user::" tabindex="-1"></a>
+			<a href="::site.social.instagram.uri::" rel="external" class="ic-instagram" title="::site.social.instagram.user::" tabindex="-1"></a>
+			<a href="feed" class="ic-feed" target="_top" tabindex="-1"></a>
+		</aside>
+
+		<footer>
+			<div class="copyright">
+				<i class="ic-copyright"></i>
+				<span>::date.year:: Dry Lungs Records, Vienna AT</span>
+			</div>
+
+		</footer>
+
+	</body>
+
+</html>

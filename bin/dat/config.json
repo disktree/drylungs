@@ -1,0 +1,26 @@
+{
+	"basepath": "",
+	"home": "start",
+	"remap": [
+		{
+			"src": ["","home","index"],
+			"dst": "start"
+		}
+	],
+	"theme": "default",
+	"pages": [
+		{
+			"id": "start",
+			"nav": false
+		},
+		{
+			"id": "records"
+		},
+		{
+			"id": "about"
+		},
+		{
+			"id": "mailorder"
+		}
+	]
+}

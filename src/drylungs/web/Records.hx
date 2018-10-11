@@ -1,58 +1,151 @@
 package drylungs.web;
 
-typedef Record = {
+private typedef Link = {
+	name: String,
+	uri: String
+}
+
+private typedef Track = {
+	position: String,
+	name: String,
+	duration: String
+}
+
+private typedef Record = {
     id: String,
     name: String,
-    ?date: String,
-    ?format: String,
-    ?description: String,
-    ?notes: String,
+    artists: Array<String>,
+    date: String,
+    year: Int,
+    format: String,
+    description: String,
+    notes: String,
+	tracks: Array<Track>,
+	color: String,
+	links: Array<Link>,
+	credits: String,
+	// added →
+	i: Int,
+	prev: String,
+	next: String,
 };
 
 class Records {
 
-    public var list(default,null) : Array<Record>;
+	public static inline var DATAFILE = 'dat/records.json';
 
-    public function new() {
-        list = Json.parse( File.getContent( Drylungs.DATA+'/records.json' ) );
-        for( rec in list ) {
+	public static function loadData() : Array<Record> {
+		var list : Array<Record> = Json.parse( File.getContent( DATAFILE ) );
+		for( i in 0...list.length ) {
+			var rec = list[i];
+			rec.i = (i+1);
+			rec.prev = list[ (i==0) ? list.length-1 : i-1].id;
+			rec.next = list[ (i==list.length-1) ? 0 : i+1].id;
+			//if( rec.description == null || rec.description.length == 0 ) rec.description =
+			//rec.description = rec.description.split( '\n' ).map( l -> return '<p>$l</p>' ).join('');
+			//rec.description = formatText( rec.description );
+			//rec.description = rec.description.split('\n').join('<br>');
+			//rec.notes = rec.notes.split('\n').join('<br>');
+			//rec.notes = formatText( rec.notes );
+			rec.year = Date.fromString( rec.date ).getFullYear();
+			/*
             if( rec.date == null ) rec.date = '';
             if( rec.format == null ) rec.format = '';
             if( rec.description == null ) rec.description = '';
             if( rec.notes == null ) rec.notes = '';
+			*/
         }
-    }
+		list.reverse();
+		return list;
+	}
 
-    function doDefault( ?id : String ) {
-        switch id {
-        case null, '', '/':
-            doAll();
-        default:
-            var record : Dynamic = null;
-            if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
-                record = list[ Std.parseInt( id )-1 ];
-            } else {
-                record = getRecordById( id );
-            }
-            if( record == null )
-                throw DispatchError.DENotFound( id );
-            Sys.print( new HTML( 'record', { title: 'Drylungs.$id' } ).build( record ) );
-        }
-    }
+	static function formatText( text : String ) : String {
+ 		return text.split( '\n' ).map( l -> return '<p>$l</p>' ).join('');
+	}
 
-    function doAll() {
-        Sys.print( new HTML( 'records' ).build( { records: list } ) );
-    }
+	public var list(default,null) : Array<Record>;
 
-    inline function doList() doAll();
+	public function new() {
+		list = loadData();
+	}
 
-    function doFeed( d : Dispatch ) {
-    	d.dispatch( new drylungs.web.Feed( list ) );
-    }
+	function doDefault( ?id : String ) {
+		switch id {
+		case null,'':
+			Sys.print( new Site( 'records', { title: 'DLR.records', page: 'records' } ).build( { records: list } ) );
+		default:
+			if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
+				var i = Std.parseInt( id );
+				if( i < 1 || i > list.length )
+					throw DENotFound( 'record not found' );
+				else
+					om.Web.redirect( list[list.length-i].id );
+			} else {
+				var record : Record = get( id );
+				if( record == null )
+					throw DENotFound( id );
+				var site = new Site( 'record', {
+					title: record.id,
+					page: record.id
+				} );
+				//TODO
+				site.context.twitter.title = record.id;
+				site.context.twitter.description = record.name;
+				//Sys.print( site.build( record ) );
+				Sys.print( site.build( { record: record } ) );
+			}
+		}
+	}
 
-    inline function doXml( d : Dispatch ) doFeed(d);
+	//function doNext( ?id : String ) {
 
-    public function getRecordById( id : String ) : Record {
+	/*
+	function doAll() {
+		Sys.print( new Site( 'records' ).build( { records: list } ) );
+	}
+
+	function doYear( year : Int ) {
+		var records = new Array<Record>();
+		for( r in list ) {
+			if( Date.fromString( r.date ).getFullYear() == year ) {
+				records.push( r );
+			}
+		}
+		Sys.print( new Site( 'records' ).build( { records: records } ) );
+	}
+	*/
+
+	/*
+	function doArtists( ?name : String ) {
+		if( name == null ) {
+			var map = new Map<String,Dynamic>();
+			for( r in list ) {
+				for( a in r.artists ) {
+					if( map.exists( a ) ) {
+						map.get( a ).push( r.id );
+					} else {
+						map.set( a, [r.id] );
+					}
+				}
+			}
+			var artists = new Array<{name:String,records:Array<String>}>();
+			for( k in map.keys() ) {
+				artists.push( { name: k, records: map.get(k) } );
+			}
+			Sys.print( new Site( 'artists' ).build( { artists: artists } ) );
+		} else {
+
+		}
+	}
+	*/
+
+	/*
+	function doDiscogs( d : Dispatch ) {
+		d.dispatch( new drylungs.web.Discogs() );
+	}
+	*/
+
+	function get( id : String ) : Record {
         for( r in list ) if( r.id == id ) return r;
         return null;
     }

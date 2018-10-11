@@ -1,29 +1,9 @@
-
-inc.hxml
-
--php bin
+-php bin/
 -main drylungs.Web
 -cp src
 -lib om.core
--lib om.crypto
--lib om.http
 -lib om.web
+-lib om.gittools
 -dce full
+-resource res/text/ascii.txt@ascii
 -debug
-
--r res/html/index.html@index
--r res/text/ascii.txt@ascii
--r res/web/atom.xml@atom
-
--cmd lessc res/style/app-desktop.less bin/app-desktop.css --no-color
--cmd lessc res/style/app-mobile.less bin/app-mobile.css --no-color
--cmd cp -ru res/html bin/
--cmd cp -ru res/dev bin/
--cmd cp -ru res/font bin/
--cmd cp -ru res/icon bin/
--cmd cp -ru res/image bin/
--cmd cp -u res/icon/favicon.ico bin/
--cmd cp -u res/web/manifest.json bin/
--cmd cp -u res/web/humans.txt bin/
--cmd cp -u res/web/robots.txt bin/
--cmd cp -u res/web/htaccess bin/.htaccess

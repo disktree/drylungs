@@ -1,55 +1,76 @@
 package drylungs.web;
 
+import om.http.StatusCode;
+
 class Root {
 
-    @:allow(drylungs.Web) function new() {}
+	public function new() {}
 
 	function doDefault( d : Dispatch ) {
-        switch d.url {
-        case '','index','start': doRecords( d );
-        default:
-            var id = d.parts[0];
-            if( !HTML.siteExists( id ) )
-                throw DENotFound( d.url );
-            else
-                new HTML( id ).print();
-        }
-    }
+		var id = d.parts[0];
+		var title = 'DLR.$id';
+		print( new Site( id, { title: title, page: id } ).build() );
+	}
 
 	function doRecords( d : Dispatch ) {
 		d.dispatch( new drylungs.web.Records() );
 	}
 
-    inline function doReleases( d : Dispatch ) doRecords(d);
+	function doArtists( d : Dispatch ) {
+		d.dispatch( new drylungs.web.Artists() );
+	}
 
-    function doXml( d : Dispatch ) d.dispatch( new drylungs.web.Feed() );
-	inline function doFeed( d : Dispatch ) doXml(d);
-	inline function doAtom( d : Dispatch ) doXml(d);
-	inline function doSyndicate( d : Dispatch ) doXml(d);
-	inline function doSyndication( d : Dispatch ) doXml(d);
+	function doFeed( ?file : String ) {
+		//TODO
+		var type = 'atom';
+		var updated = FileSystem.stat( Records.DATAFILE ).mtime; //TODO
+		var path = 'web/$type.xml';
+		if( !FileSystem.exists( path ) ) {
+			om.Web.setReturnCode( NOT_FOUND );
+			print('404');
+		} else {
+			var xml = new Template( File.getContent( path ) ).execute( {
+				updated: updated,
+				records: Records.loadData()
+			} );
+			om.Web.setHeader( 'Content-Type', 'application/xml' );
+			//om.Web.setHeader( 'Content-Type', 'application/$type+xml' );
+			print( xml );
+		}
+	}
+
+	function doVersion() {
+		#if release
+		print('<pre>COMMIT: '+drylungs.macro.Build.getGitCommit()+'</pre>');
+		print('<pre>TAG: '+drylungs.macro.Build.getGitTag()+'</pre>');
+		#else
+		print( 'VERSION INFO IS ONLY AVAILABLE IN RELEASE MODE' );
+		#end
+	}
+
+	function doContext() {
+		#if debug
+		print( [Web.config,Template.globals].map( e->{
+			return'<pre>'+haxe.format.JsonPrinter.print( e, '  ' )+'</pre>';
+		}).join('') );
+		#end
+	}
 
 	function doAscii() {
-		Sys.print( '<pre>${Resource.get("ascii")}</pre>' );
+		print( '<pre>'+Resource.get( 'ascii' )+'</pre>' );
 	}
 
-	function doVersion__() {
-		Sys.print( Drylungs.BUILD.version );
+	function doSitemap( d : Dispatch ) {
+		om.Web.setHeader( 'Content-Type', 'application/xml' );
+		print( File.getContent( 'web/sitemap.xml' ) );
+		//TODO
+		/*
+		var sitemap = new om.web.Sitemap( 'http://drylungs.at', [
+			{ loc: '', lastmod: '2018-05-23' },
+			{ loc: 'records' },
+		]);
+		print( sitemap.toString() );
+		*/
 	}
-
-    function doBuild__() {
-        Sys.print( Drylungs.BUILD );
-    }
-
-    function doRadio( d : Dispatch ) {
-        d.dispatch( new drylungs.web.Radio() );
-    }
-
-    function doLogin( d : Dispatch ) {
-        d.dispatch( new drylungs.web.Admin() );
-    }
-
-    function doAdmin( d : Dispatch ) {
-        d.dispatch( new drylungs.web.Admin() );
-    }
 
 }

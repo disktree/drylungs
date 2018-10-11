@@ -1,100 +1,109 @@
 package drylungs;
 
-import Drylungs;
-import drylungs.Style;
-import drylungs.web.HTML;
+#if php
+
+import haxe.CallStack;
 import om.http.StatusCode;
 
-typedef Site = Dynamic;
+typedef Device = {
+	var desktop: Bool;
+	var mobile: Bool;
+	var type: String;
+}
 
 class Web {
 
-    public static var isMobile(default,null) : Bool;
-    public static var site(default,null) : Site;
+	public static var config(default,null) : Dynamic;
 
-    public static function sendResponse( str : String, ?code : Int ) {
-        if( code != null ) php.Web.setReturnCode( code );
-        Sys.print( str );
-    }
+	static function error( code : StatusCode = INTERNAL_SERVER_ERROR, ?info : String, stack = false ) {
+		om.Web.setReturnCode( code );
+		//print( '<style>html{background:red;color:red;}pre{padding:10px;border:1px solid red;background:black;}</style>' );
+		if( info != null ) print( '<pre>$info</pre>' );
+		if( stack ) print( '<pre>'+haxe.CallStack.toString( haxe.CallStack.exceptionStack() ) +'</pre>' );
+		Sys.exit(1);
+	}
 
-    static function run() {
+	static function main() {
 
-        site = Json.parse( File.getContent( Drylungs.DATA+'/site.json' ) );
+		var date = Date.now();
+		var isMobile = om.System.isMobile();
+		var host = om.Web.getHostName();
+		var uri = om.Web.getURI();
+		var path = uri.removeTrailingSlashes();
+		var params = om.Web.getParams();
+		var baseURI = '';
+		//var baseURI = 'http://$host';
+		//var device = { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' };
 
-        var uri = php.Web.getURI();
-        var params = php.Web.getParams();
-        var isMobile = om.System.isMobile();
-        var ip = php.Web.getClientIP();
+		try {
+			config = Json.parse( File.getContent( 'dat/config.json' ) );
+			if( config.basepath != null ) {
+				var basepath : String = config.basepath;
+				if( !basepath.startsWith( '/' ) ) basepath = '/'+basepath;
+				if( !basepath.endsWith( '/' ) ) basepath = basepath+'/';
+				path = path.substr( basepath.length );
+				baseURI += basepath;
+			}
+			if( config.remap != null ) {
+				for( remap in cast(config.remap,Array<Dynamic>) ) {
+					for( src in cast(remap.src,Array<Dynamic>) ) {
+						if( src == path ) {
+							path = remap.dst;
+						}
+					}
+				}
+			}
+		} catch(e:Dynamic) {
+			error( Std.string(e) );
+		}
 
-        Template.globals = {
+		//var theme = params.exists( 'theme' ) ? params.get( 'theme' ) : 'default';
+		var theme = config.theme;
+		if( theme == null ) theme = 'default';
 
-            BUILD: Drylungs.BUILD,
+		/*
+		switch path {
+        case null,'','/','index','home','start':
+			path = config.start;
+			//om.Web.redirect( path );
+		default:
+		}
+		*/
 
-            desktop: !isMobile,
-            mobile: isMobile,
-            device : isMobile ? 'mobile' : 'desktop',
-            language: site.language,
-            //platform: 'php',
+		Template.globals = {
+			baseURI : baseURI,
+			date: { year: date.getFullYear(), month: date.getMonth(), day: date.getDay() },
+			device: { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' },
+			//icons: drylungs.Build.getIconSizes('ico'),
+			icons: [16,24,32,48,72,96,144,192,512],
+			theme: theme,
+			theme_color: '#101111',
+			debug: #if debug true #else false #end
+		};
 
-            site: site,
-            theme: site.color.theme,
-            //color: site.color.theme,
-        };
-        for( f in Reflect.fields( site ) )
-            Reflect.setField( Template.globals, f, Reflect.field( site, f ) );
-
-        /*
-        var testfile = 'data/test';
-        try {
-            var f =  if( FileSystem.exists( testfile )) File.append( testfile ) else File.write( testfile );
-            f.writeString( now+' - '+ip+ ' - '+php.Web.getClientHeaders()+'\n' );
-            f.close();
-        } catch(e:Dynamic) {
-            trace(e);
-            return;
-        }
-        */
-
-        var dispatcher = new Dispatch( uri, params );
-        dispatcher.onMeta = function(meta,value) {
-            switch meta {
+		var root = new drylungs.web.Root();
+		var router = new Dispatch( path, params );
+		/*
+		router.onMeta = function(m,v){
+			trace(m,v);
+			switch m {
             case 'admin':
                 //TODO
                 //throw StatusCode.UNAUTHORIZED;
             }
-        }
-        try {
-            dispatcher.dispatch( new drylungs.web.Root() );
-        } catch( e : DispatchError ) {
-            switch e {
-            case DENotFound(part):
-                var code = StatusCode.NOT_FOUND;
-                var message = 'Not Found';
-                sendResponse( new HTML( 'error', { title: 'DLR - $message' } ).build( { code: code, message: message } ), code );
-                return;
-            case DEInvalidValue:
-            case DEMissing:
-            case DEMissingParam(p):
-            case DETooManyValues:
-            }
-            trace("TODO "+e );
-        }
-    }
-
-    static function main() {
-        try {
-            run();
-        } catch(code:Int) {
-            php.Web.setReturnCode( code );
-            Sys.print( code );
-        } catch(e:Dynamic) {
-            php.Web.setReturnCode( StatusCode.INTERNAL_SERVER_ERROR );
-            if( Drylungs.BUILD.debug ) {
-                Sys.print( e );
-            } else {
-                Sys.print( 'ERROR' );
-            }
-        }
-    }
+		}
+		*/
+		try router.dispatch( root ) catch( e : DispatchError ) {
+			switch e {
+			case DENotFound(s):
+				om.Web.setReturnCode( NOT_FOUND );
+				print( File.getContent( 'htm/404.html' ) );
+			default:
+				error( Std.string(e) );
+			}
+		}
+	}
 
 }
+
+#end

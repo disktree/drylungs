@@ -1,0 +1,35 @@
+
+@font-filepath: "../fnt";
+
+@font-face {
+    font-family: @font-regular;
+	font-weight: normal;
+	font-style: normal;
+	//font-display: swap;
+    src:
+        //local('Liberation Mono'),
+        url('@{font-filepath}/liberation_mono-regular.woff2') format('woff2'),
+        url('@{font-filepath}/liberation_mono-regular.ttf') format('truetype');
+}
+//TODO
+@font-face {
+    font-family: @font-title;
+	//font-weight: normal;
+	//font-style: normal;
+	//font-display: swap;
+    src:
+        //local('Helvetica Neue 55'),
+        url('@{font-filepath}/helvetica-65.woff2') format('woff2'),
+        url('@{font-filepath}/helvetica-65.woff') format('woff'),
+        url('@{font-filepath}/helvetica-65.ttf') format('truetype');
+}
+@font-face {
+	font-family: @font-icon;
+	font-weight: normal;
+	font-style: normal;
+	//font-display: block;
+	src:
+		url('@{font-filepath}/fa.woff') format('woff'),
+		url('@{font-filepath}/fa.ttf') format('truetype'),
+		url('@{font-filepath}/fa.svg') format('svg');
+}

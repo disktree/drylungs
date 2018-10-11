@@ -1,0 +1,36 @@
+<div class="title">::record.name::</div>
+<div class="artists" title="Artists">::foreach record.artists::<span>::__current__::</span>::end::</div>
+<div class="details">
+	<div class="id" title="Id">::record.id::</div>
+	<div class="format" title="Format">::record.format::"</div>
+	<div class="year" title="Year">::record.year::</div>
+</div>
+::if record.notes::<div class="notes">::record.notes::</div>::end::
+::if record.tracks::<div class="tracks">
+	::foreach record.tracks::
+	<div class="track">
+		<span class="position">::position::</span>
+		<span class="name">::name::</span>
+		::if duration::<span class="duration">(::duration::)</span>::end::
+	</div>
+	::end::
+</div>::end::
+<div class="cover">
+	<picture class="front">
+		<source srcset="img/cover/1000/::record.id::.jpg" media="(min-width:1000px) and (min-height:1000px)"/>
+		<source srcset="img/cover/800/::record.id::.jpg" media="(min-width:800px) and (min-height:800px)"/>
+		<source srcset="img/cover/600/::record.id::.jpg" media="(min-width:600px) and (min-height:600px)"/>
+		<img src="img/cover/400/::record.id::.jpg" alt="::record.id:: cover front"/>
+	</picture>
+	<picture class="back">
+		<source srcset="img/cover/1000/::record.id::_back.jpg" media="(min-width:1000px) and (min-height:1000px)"/>
+		<source srcset="img/cover/800/::record.id::_back.jpg" media="(min-width:800px) and (min-height:800px)"/>
+		<source srcset="img/cover/600/::record.id::_back.jpg" media="(min-width:600px) and (min-height:600px)"/>
+		<img src="img/cover/400/::record.id::_back.jpg" alt="::record.id:: cover back"/>
+	</picture>
+</div>
+::if record.description::<div class="description">::record.description::</div>::end::
+<div class="nav">
+	<a href="records/::record.prev::">PREV</a>
+	<a href="records/::record.next::">NEXT</a>
+</div>

@@ -1,0 +1,9 @@
+::foreach records::
+<a class="record" href="records/::id::">
+	<div class="details">
+		<div class="id">::id::</div>
+		<div class="artists">::foreach artists::<span>::__current__::</span>::end::</div>
+	</div>
+	<img class="cover" src="img/cover/400/::id::.jpg" alt="::id::"></img>
+</a>
+::end::

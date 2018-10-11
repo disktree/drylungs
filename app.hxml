@@ -1,7 +1,6 @@
-inc.hxml
--js bin/app.js
+-js bin/scr/app.js
 -main drylungs.App
--lib om.core
 -cp src
+-lib om.core
 -dce full
 -debug

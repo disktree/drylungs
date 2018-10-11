@@ -1,0 +1,91 @@
+
+body > main.records {
+
+	/*
+	//display: block;
+	display: grid;
+	//grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+	grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+	//grid-template-rows: repeat(auto-fit,auto);
+	grid-gap: 8px;
+	//margin: 16px;
+	//grid-gap: 1vh 1vw;
+	//margin: 1vh 1vw;
+	*/
+
+	.no-user-select;
+
+	display: grid;
+	grid-template-columns: repeat(1,1fr);
+	//grid-template-rows: repeat(12,1fr);
+	grid-gap: 16px;
+	//margin: 0 24px;
+
+	@grid-cell-width: 400px;
+	@media screen and (max-width: calc(@grid-cell-width*9)) { grid-template-columns: repeat(9,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*8)) { grid-template-columns: repeat(8,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*7)) { grid-template-columns: repeat(7,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*6)) { grid-template-columns: repeat(6,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*5)) { grid-template-columns: repeat(5,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*4)) { grid-template-columns: repeat(4,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*3)) { grid-template-columns: repeat(3,1fr); }
+	@media screen and (max-width: calc(@grid-cell-width*2)) { grid-template-columns: repeat(2,1fr); }
+	@media screen and (max-width: @grid-cell-width) { grid-template-columns: repeat(1,1fr); }
+
+	> a {
+		position: relative;
+		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
+		//transform: scale(0.99);
+		transition: transform 0s;
+		> .details {
+			//display: table;
+			padding: 1px 3px 0px 3px;
+			position: absolute;
+			z-index: 100;
+			//background: var(--color-bg);
+			opacity: 0.8;
+			.id {
+				background: var(--color-bg);
+				display: none;
+			}
+			.artists {
+				display: flex;
+				flex-wrap: wrap;
+				display: none;
+				background: var(--color-bg);
+				> * {
+					&:not(:last-child)::after {
+						content: "+";
+						margin: 0 0.75ch;
+					}
+				}
+			}
+		}
+		> img {
+			z-index: 10;
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			transition: filter 0.017s;
+			//filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
+		}
+		&:hover {
+			//transition: transform 0.1s;
+			//transform: scale(1);
+			> .details {
+				opacity: 1;
+			}
+			> img {
+				transition: filter 0.1s;
+				filter: none;
+			}
+		}
+	}
+
+	@media screen and (min-width:600px) {
+		> a {
+			> img {
+			}
+		}
+	}
+}

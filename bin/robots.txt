@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /image/
+Disallow: /data/
+Disallow: /dev/
+Disallow: /font/
+Disallow: /html/
+Disallow: /lib/
+Disallow: /res/
+Disallow: /site/

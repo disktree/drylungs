@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /dev/
-Disallow: /font/
-Disallow: /lib/
-Disallow: /res/
-Disallow: /site/
