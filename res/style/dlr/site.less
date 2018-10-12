@@ -1,111 +1,16 @@
 
-:root {
-
-	--color-bg: #101111;
-
-	--color-fh: #919794;
-	--color-fm: #5e6461;
-	--color-fl: #2d2f2e;
-	--color-fi: #fff;
-
-	--color-bh: #292b2b;
-	--color-bm: #101111;
-	--color-bl: #000000;
-	--color-bi: #000;
-}
-
-html {
-	font-family: @font-regular;
-}
-
 body {
 
-	.typo-body2;
-
-	background: var(--color-bg);
-	color: var(--color-fm);
-	tap-highlight-color: var(--color-fm);
-	-webkit-tap-highlight-color: var(--color-fm);
-}
-
-.selection(
-	@color: var(--color-fi),
-	@background: var(--color-bi)
-);
-
-.h1 { .typo-h1() }
-.h2 { .typo-h2() }
-.h3 { .typo-h3() }
-.h4 { .typo-h4() }
-.h5 { .typo-h5() }
-.h6 { .typo-h6() }
-
-h1 { .h1() }
-h2 { .h2() }
-h3 { .h3() }
-h4 { .h4() }
-h5 { .h5() }
-h6 { .h6() }
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: @font-title;
-	margin: 0;
-}
-
-p {
-	margin: 0 0 1rem;
-}
-
-a {
-	outline: none;
-	color: var(--color-fm);
-	&[href] {
-		transition: color .05s;
-		&:hover {
-			color: var(--color-fh);
-		}
-	}
-}
-
-ol, ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-button {
-	border: none;
-    outline: none;
-	background: transparent;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-.seperator( @width:1rem; @height:4px; @top:0.5rem; @bottom:1rem ) {
-	&:before {
-		display: block;
-		content: "";
-		background: var(--color-fm);
-		width: @width;
-		height: @height;
-		margin-top: @top;
-		margin-bottom: @bottom;
-	}
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-body {
-
+	overflow-y: scroll;
 	display: grid;
 
 	> header, > nav, > aside.social, > footer {
 		white-space: nowrap;
-		background: var(--color-bg);
 		.no-user-select;
 	}
 	> header, > nav {
 		text-transform: uppercase !important;
+		background: var(--color-bg);
 	}
 	> header {
 		grid-area: header;
@@ -117,6 +22,8 @@ body {
 	> main {
 		grid-area: main;
 		article {
+			max-width: 1000px;
+			.seperator;
 			a {
 				//text-decoration: underline;
 				//border-bottom: 1px dotted var(--color-fm);
@@ -233,7 +140,7 @@ body {
 			}
 		}
 		> main {
-			margin: 1rem 1rem;
+			margin: 0 1rem;
 		}
 		> aside.social, footer {
 			margin: 0 1rem;
@@ -256,24 +163,21 @@ body {
 	////////////////////////////////////////////////////////////////////////////
 
 	@media screen and (min-width:720px) {
-		//@header-height: 64px;
-		grid-template-rows: 56px 1fr auto;
-		grid-template-columns: auto auto auto 1fr;
+		@margin: 48px;
+		@header-height: 64px;
+		grid-template-rows: @header-height 1fr auto;
+		grid-template-columns: auto auto 1fr auto;
 		grid-template-areas:
 			"header nav nav nav"
 			"main main main main"
-			"footer footer social social";
-		//grid-column-gap: 8px;
-		//grid-row-gap: 1rem;
+			"social social social footer";
+		grid-row-gap: 1rem;
 		> header, > nav {
-			font-family: @font-title;
-			//.typo-body1;
-			//text-decoration: uppercase !important;
+			align-self: end;
+			.h6;
 		}
 		> header {
-			align-self: center;
-			margin: 0 0 0 16px;
-			//font-weight: 700;
+			margin-left: @margin/2;
 			> button {
 				display: none;
 			}
@@ -287,40 +191,34 @@ body {
 			}
 		}
 		> nav {
-			align-self: center;
+			justify-self: start;
 			display: flex;
 			a {
 				//&::not(class="active") {
+				//padding: 5px 0px 0px 0px;
 				&.active {
 					color: var(--color-fh);
-					//color: var(--color-bg);
-					//background: var(--color-bl);
-					//background: var(--color-bl);
-					//border-bottom: 4px solid var(--color-fm);
-					//text-decoration: underline;
+					//background: var(--color-fh);
+					//border-bottom: 2px solid var(--color-fm);
+					//text-decoration: line-through;
 				}
 				&:before {
 					content:"/";
 				}
 			}
 			a:not(.active) {
-				//color: var(--color-fl);
 			}
 		}
 		> main {
-			//background: red;
-			margin: 0 32px;
-			article {
-				max-width: 1000px;
-				.seperator(  );
-			}
+			margin: 0 @margin;
 		}
 		> aside.social, > footer {
-			align-self: center;
-			padding: 16px 0px 8px 12px;
-			font-size: 0.7rem;
+			align-self: start;
+			.typo-overline;
 		}
 		> aside.social {
+			justify-self: end;
+			padding: 0 0 4px 4px;
 			* {
 				padding: 0 0.375rem;
 				&:hover {
@@ -329,17 +227,22 @@ body {
 			}
 		}
 		> footer {
+			padding: 0 12px 4px 4px;
 		}
 	}
 
-	@media screen and (min-width:1920px) {
-		grid-template-rows: 80px 1fr auto;
+	/*
+	@media screen and (min-width:1280px) {
+		@margin: 72px;
+		@header-height: 64px;
+		grid-template-rows: @header-height 1fr auto;
 		grid-row-gap: 1rem;
 		> header {
-			margin-left: 24px;
+			margin: 0 @margin;
 		}
 		> main {
-			margin: 0 48px;
+			//margin: 0 48px;
 		}
 	}
+	*/
 }

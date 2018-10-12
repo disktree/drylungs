@@ -10,7 +10,7 @@ body > main.record {
 	}
 	> .artists {
 		grid-area: artists;
-		//font-weight: 700;
+		.seperator;
 		* {
 			&:not(:last-child)::after {
 				content: "+";
@@ -18,13 +18,15 @@ body > main.record {
 			}
 		}
 	}
+	> .title {
+	}
 	> .details {
 		grid-area: details;
 		display: flex;
-		//flex-wrap: wrap;
 		> * {
 			&:not(:last-child)::after {
-				content: "/";
+				content: "-";
+				margin: 0 1ch;
 			}
 		}
 		> .format {
@@ -40,19 +42,13 @@ body > main.record {
 	}
 	> .cover {
 		grid-area: cover;
-		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
-		//filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
 		.no-user-select;
 		picture {
-			/*
-			&:not(:last-child) {
-				margin-bottom: 8px;
-			}
-			*/
 			img {
 				display: block;
-				max-width: 100%;
-				//max-height: 80vh;
+				width: 100%;
+				filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
+				//filter: brightness(12%) contrast(91%) grayscale(90%) sepia(2%);
 			}
 		}
 	}
@@ -75,13 +71,15 @@ body > main.record {
 	}
 	> .nav {
 		grid-area: nav;
+		.typo-caption;
 		.no-user-select;
 	}
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media screen and (max-width:600px) {
+	@media screen and (max-width:720px) {
 		grid-template-columns: 1fr;
+		grid-template-rows: repeat(7,auto) 4rem;
 		grid-template-areas:
 			"artists"
 			"title"
@@ -91,18 +89,17 @@ body > main.record {
 			"description"
 			"cover"
 			"nav";
-		grid-row-gap: 1.0em;
+		grid-row-gap: 1em;
 		> * {
 			//border-bottom: 1px solid var(--color-fm);
 		}
 		> .details, > .notes, > .description, > .tracks {
-			padding-top: 1em;
 			padding-left: 0.75rem;
 			border-left: 1px solid var(--color-fm);
 		}
 		> .artists {
 			.h6;
-			.seperator( @top:0px );
+			.seperator();
 		}
 		> .title {
 			.h3;
@@ -117,18 +114,32 @@ body > main.record {
 			picture img {
 				width: 100%;
 			}
-			picture.front img {
-				padding-bottom: 0.5rem;
+			@media (orientation:portrait)  {
+				picture.front img {
+					padding-bottom: 0.25rem;
+				}
+				picture.back img {
+					padding-top: 0.25rem;
+				}
+			}
+			@media (orientation:landscape)  {
+				display: flex;
+				picture.front img {
+					padding-right: 0.25rem;
+				}
+				picture.back img {
+					padding-left: 0.25rem;
+				}
 			}
 		}
 		> .nav {
-			justify-self: end;
+			//justify-self: end;
 		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media screen and (min-width:600px) {
+	@media screen and (min-width:720px) {
 		//grid-template-rows: auto auto auto auto auto 1fr;
 		grid-template-rows: repeat(7,auto) 1fr;
 		grid-template-columns: auto 1fr;
@@ -141,7 +152,7 @@ body > main.record {
 			"description description"
 			"cover cover"
 			"nav nav";
-		grid-row-gap: 1.25em;
+		grid-row-gap: 1.5em;
 		> * {
 			//.seperator( @height: 2px );
 		}
@@ -150,7 +161,7 @@ body > main.record {
 		}
 		> .artists {
 			.h6;
-			.seperator( @top:0px );
+	//		.seperator( @top:0px );
 		}
 		> .details, > .notes, > .description, > .tracks {
 			border-left: 1px solid var(--color-fm);
@@ -160,6 +171,9 @@ body > main.record {
 		> .details {
 			display: flex;
 			justify-self: start;
+			.id {
+				//font-weight: 700;
+			}
 		}
 		> .notes {
 			justify-self: start;
@@ -171,23 +185,28 @@ body > main.record {
 			justify-self: start;
 		}
 		> .cover {
-			//display: none;
-			display: flex;
-			//justify-content: space-between;
 			picture img {
 				width: 100%;
-				padding-top: 0.5rem;
 			}
-			picture.front img {
-				padding-right: 0.5rem;
+			@media (max-width:1000px)  {
+				picture.front img {
+					padding-bottom: 0.5rem;
+				}
+				picture.back img {
+					padding-top: 0.5rem;
+				}
 			}
-			picture.back img {
-				padding-left: 0.5rem;
+			@media (min-width:1000px)  {
+				display: flex;
+				picture.front img {
+					padding-right: 0.5rem;
+				}
+				picture.back img {
+					padding-left: 0.5rem;
+				}
 			}
 		}
 		> .nav {
-			justify-self: end;
-			font-size: 0.7rem;
 		}
 	}
 
@@ -200,10 +219,24 @@ body > main.record {
 		}
 	}
 	@media screen and (min-width:2560px) {
-		//grid-template-columns: auto auto 1fr;
-		//grid-template-rows: repeat(5,auto) 1fr;
+		/*
+		grid-template-rows: repeat(7,auto) 1fr;
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+			"artists artists"
+			"title title"
+			"details details"
+			"tracks tracks"
+			"notes notes"
+			"description description"
+			"cover cover"
+			"nav nav";
+		*/
+		> .title {
+			//font-size: 8rem;
+		}
 		> .artists {
-			.h4;
+			//.h4;
 		}
 		> .cover {
 			//display: block;
@@ -212,205 +245,4 @@ body > main.record {
 			//align-self: start;
 		}
 	}
-
-
-	/*
-	@media screen and (max-width:600px) {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			"artists"
-			"title"
-			"details"
-			"notes"
-			"cover"
-			"tracks"
-			"description"
-			"nav";
-		> * {
-			padding: 8px 0 8px 0;
-			border-top: 1px dotted var(--color-fm);
-		}
-		> .title {
-			//border-top: @seperator;
-			//border-bottom: @seperator;
-			padding: 16px 0 4px 0;
-			.h3;
-		}
-		> .details {
-		}
-		> .cover {
-
-		}
-		> .cover {
-			picture img {
-				margin-bottom: 0.5rem;
-			}
-		}
-		> .nav {
-			display: none;
-		}
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-
-	@media screen and (min-width:600px) {
-		grid-template-rows: auto auto auto auto auto 1fr;
-		grid-template-columns: minmax(300px,1fr) auto 1fr;
-		grid-template-areas:
-			"cover artists details"
-			"cover title title"
-			"cover notes notes"
-			"cover tracks tracks"
-			"cover description description"
-			"cover nav nav";
-		grid-column-gap: 16px;
-		grid-row-gap: 8px;
-		margin: 0 24px;
-		> * {
-		}
-		>.cover {
-			picture:first-child img {
-				margin-bottom: 0.5rem;
-			}
-		}
-		>.artists {
-			white-space: nowrap;
-			justify-self: start;
-			padding-top: 0.5rem;
-			border-top: @seperator;
-		}
-		>.title {
-			.sep;
-			//justify-self: start;
-			//margin-top: 0.25rem;
-			padding: 0.375em 0 0.2em 0;
-			border-top: @seperator;
-			.h2;
-		}
-		>.details {
-			border-top: @seperator;
-			padding: 0.5rem 0;
-			justify-self: start;
-			//	border-bottom: @seperator;
-			>.format::before {
-				//content: "Format:";
-			}
-			>.year::before {
-				//content: "Year:";
-			}
-		}
-		> .cover {
-			picture {
-				img {
-					filter: brightness(40%) contrast(90%) grayscale(90%);
-					transition: filter 0.06s;
-					&:hover {
-						filter: none;
-					}
-				}
-			}
-		}
-		>.notes {
-			padding: 0.5rem 0;
-			border-top: @seperator;
-		}
-		>.tracks {
-			padding: 0.5rem 0;
-			border-top: @seperator;
-		}
-		>.description {
-			padding: 0.5rem 0;
-			border-top: @seperator;
-		}
-		>.nav {
-			align-self: start;
-			justify-self: start;
-			padding: 0.5rem 0 0 0;
-			border-top: @seperator;
-		}
-	}
-	*/
-
-	/*
-	@media screen and (min-width:60em) {
-		grid-template-rows: auto auto auto auto auto 1fr auto;
-		grid-template-columns: minmax(400px,1fr) auto 1fr;
-		grid-template-areas:
-			"title title title"
-			"cover artists details"
-			"cover notes notes"
-			"cover tracks tracks"
-			"cover description description"
-			"cover nav nav";
-		grid-column-gap: 16px;
-		//grid-row-gap: 24px;
-		> * {
-			//padding: 8px 0 8px 0;
-			//border-top: 1px dotted var(--color-fm);
-		}
-		> .title {
-			.typo-h1;
-			//padding: 32px 0 16px 0;
-			&::after {
-				//content: ".";
-			}
-		}
-		> .details {
-			//align-self: start;
-		}
-		> .artists {
-			//background: red;
-		}
-		> .nav {
-			justify-self: start;
-		}
-	}
-	*/
-
-	/*
-	@media screen and (min-width:1920px) {
-		//margin: 0 24px;
-		grid-template-rows: auto auto auto auto 1fr auto;
-		grid-template-columns: minmax(600px,1fr)1fr 1fr;
-		grid-template-areas:
-			"cover title title title"
-			"cover details details details"
-			"cover notes notes notes"
-			"cover tracks tracks tracks"
-			"cover description description description"
-			"cover nav nav nav";
-		//grid-column-gap: 24px;
-		> .title {
-			.typo-h1;
-			//background: red;
-		}
-		> .cover {}
-		> .nav {
-			justify-self: end;
-		}
-	}
-	*/
-
-	/*
-	@media screen and (min-width:2560px) {
-		grid-template-rows: auto auto auto auto auto 1fr;
-		grid-template-columns: minmax(1fr,1fr)1fr 1fr;
-		grid-template-areas:
-			"cover title title title"
-			"cover details details details"
-			"cover notes notes notes"
-			"cover tracks tracks tracks"
-			"cover description description description"
-			"cover nav nav nav";
-		grid-column-gap: 24px;
-		margin: 0 24px;
-		> .title {
-			.typo-h1;
-		}
-		> .cover {
-			//display: flex;
-			//background: red;
-		}
-	}
-	*/
 }

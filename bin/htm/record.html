@@ -3,7 +3,7 @@
 <div class="details">
 	<div class="id" title="Id">::record.id::</div>
 	<div class="format" title="Format">::record.format::"</div>
-	<div class="year" title="Year">::record.year::</div>
+	<div class="year" title="Released">::record.year::</div>
 </div>
 ::if record.notes::<div class="notes">::record.notes::</div>::end::
 ::if record.tracks::<div class="tracks">
@@ -16,17 +16,17 @@
 	::end::
 </div>::end::
 <div class="cover">
-	<picture class="front">
-		<source srcset="img/cover/1000/::record.id::.jpg" media="(min-width:1000px) and (min-height:1000px)"/>
-		<source srcset="img/cover/800/::record.id::.jpg" media="(min-width:800px) and (min-height:800px)"/>
-		<source srcset="img/cover/600/::record.id::.jpg" media="(min-width:600px) and (min-height:600px)"/>
-		<img src="img/cover/400/::record.id::.jpg" alt="::record.id:: cover front"/>
+	<picture class="front" title="Cover Frontside">
+		<source srcset="img/cover/1000/::record.id::.jpg" media="(min-width:1000px)"/>
+		<source srcset="img/cover/800/::record.id::.jpg" media="(min-width:800px)"/>
+		<source srcset="img/cover/600/::record.id::.jpg" media="(min-width:600px)"/>
+		<img class="front" src="img/cover/400/::record.id::.jpg" alt="::record.id:: cover front"/>
 	</picture>
-	<picture class="back">
-		<source srcset="img/cover/1000/::record.id::_back.jpg" media="(min-width:1000px) and (min-height:1000px)"/>
-		<source srcset="img/cover/800/::record.id::_back.jpg" media="(min-width:800px) and (min-height:800px)"/>
-		<source srcset="img/cover/600/::record.id::_back.jpg" media="(min-width:600px) and (min-height:600px)"/>
-		<img src="img/cover/400/::record.id::_back.jpg" alt="::record.id:: cover back"/>
+	<picture class="back" title="Cover Backside">
+		<source srcset="img/cover/1000/::record.id::_back.jpg" media="(min-width:1000px)"/>
+		<source srcset="img/cover/800/::record.id::_back.jpg" media="(min-width:800px)"/>
+		<source srcset="img/cover/600/::record.id::_back.jpg" media="(min-width:600px)"/>
+		<img class="back" src="img/cover/400/::record.id::_back.jpg" alt="::record.id:: cover back"/>
 	</picture>
 </div>
 ::if record.description::<div class="description">::record.description::</div>::end::
