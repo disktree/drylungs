@@ -9,7 +9,8 @@ class Root {
 	function doDefault( d : Dispatch ) {
 		var id = d.parts[0];
 		var title = 'DLR.$id';
-		print( new Site( id, { title: title, page: id } ).build() );
+		var site = new Site( id, { title: title, page: id } );
+		print( site.build() );
 	}
 
 	function doRecords( d : Dispatch ) {

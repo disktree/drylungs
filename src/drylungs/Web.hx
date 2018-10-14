@@ -71,6 +71,7 @@ class Web {
 		*/
 
 		Template.globals = {
+			host: host,
 			baseURI : baseURI,
 			date: { year: date.getFullYear(), month: date.getMonth(), day: date.getDay() },
 			device: { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' },

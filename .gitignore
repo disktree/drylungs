@@ -7,7 +7,8 @@ bin/*.php
 bin/lib
 bin/res
 bin/snd
+dat/
 exp/
 res/icon/*.png
 .log/
-NOTES
+NOTES.md

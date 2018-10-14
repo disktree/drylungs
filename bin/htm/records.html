@@ -4,6 +4,11 @@
 		<div class="id">::id::</div>
 		<div class="artists">::foreach artists::<span>::__current__::</span>::end::</div>
 	</div>
-	<img class="cover" src="img/cover/400/::id::.jpg" alt="::id::"></img>
-</a>
-::end::
+	<picture>
+		<source srcset="img/cover/800/::id::.webp" media="(min-width:800px)" type="image/webp"/>
+		<source srcset="img/cover/600/::id::.webp" media="(min-width:600px)" type="image/webp"/>
+		<source srcset="img/cover/800/::id::.jpg" media="(min-width:800px)"/>
+		<source srcset="img/cover/600/::id::.jpg" media="(min-width:600px)"/>
+		<img class="front" srcset="img/cover/400/::id::.webp, img/cover/400/::id::.jpg" alt="::id:: cover front"/>
+	</picture>
+</a>::end::

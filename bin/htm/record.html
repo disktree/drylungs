@@ -12,17 +12,30 @@
 		<span class="position">::position::</span>
 		<span class="name">::name::</span>
 		::if duration::<span class="duration">(::duration::)</span>::end::
+		<!--
+		::if file::
+		<audio src="snd/::record.id::/::file::"></audio>
+		<i class="ic-play"></i>
+		<i class="ic-stop"></i>
+		::end::
+	-->
 	</div>
 	::end::
 </div>::end::
 <div class="cover">
-	<picture class="front" title="Cover Frontside">
+	<picture class="front" title="Front">
+		<source srcset="img/cover/1000/::record.id::.webp" media="(min-width:1000px)" type="image/webp"/>
+		<source srcset="img/cover/800/::record.id::.webp" media="(min-width:800px)" type="image/webp"/>
+		<source srcset="img/cover/600/::record.id::.webp" media="(min-width:600px)" type="image/webp"/>
 		<source srcset="img/cover/1000/::record.id::.jpg" media="(min-width:1000px)"/>
 		<source srcset="img/cover/800/::record.id::.jpg" media="(min-width:800px)"/>
 		<source srcset="img/cover/600/::record.id::.jpg" media="(min-width:600px)"/>
 		<img class="front" src="img/cover/400/::record.id::.jpg" alt="::record.id:: cover front"/>
 	</picture>
-	<picture class="back" title="Cover Backside">
+	<picture class="back" title="Back">
+		<source srcset="img/cover/1000/::record.id::_back.webp" media="(min-width:1000px)" type="image/webp"/>
+		<source srcset="img/cover/800/::record.id::_back.webp" media="(min-width:800px)" type="image/webp"/>
+		<source srcset="img/cover/600/::record.id::_back.webp" media="(min-width:600px)" type="image/webp"/>
 		<source srcset="img/cover/1000/::record.id::_back.jpg" media="(min-width:1000px)"/>
 		<source srcset="img/cover/800/::record.id::_back.jpg" media="(min-width:800px)"/>
 		<source srcset="img/cover/600/::record.id::_back.jpg" media="(min-width:600px)"/>

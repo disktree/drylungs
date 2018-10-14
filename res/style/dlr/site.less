@@ -1,8 +1,10 @@
 
 body {
 
-	overflow-y: scroll;
 	display: grid;
+
+	//overflow-y: scroll;
+	//.fade_in(0.3s);
 
 	> header, > nav, > aside.social, > footer {
 		white-space: nowrap;
@@ -23,7 +25,7 @@ body {
 		grid-area: main;
 		article {
 			max-width: 1000px;
-			.seperator;
+			.seperator(@top:2rem);
 			a {
 				//text-decoration: underline;
 				//border-bottom: 1px dotted var(--color-fm);
@@ -57,7 +59,7 @@ body {
 	}
 	> aside.social {
 		grid-area: social;
-		display: flex;
+		//display: flex;
 	}
 	> footer {
 		grid-area: footer;
@@ -65,7 +67,9 @@ body {
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media screen and (max-width:720px) {
+	//@media @phone {
+	//@media (orientation:portrait) and (max-height:720px), (orientation:landscape) and (max-width:720px) {
+	@media (max-width:720px) {
 
 		@header-height: 48px;
 		grid-template-rows: @header-height auto 1fr auto auto;
@@ -92,8 +96,8 @@ body {
 				font-weight: 700;
 				width: 48px;
 				height: @header-height;
-				position: relative;
-				left: 2px;
+				//position: relative;
+				//left: 2px;
 				color: var(--color-fm);
 				line-height: 1;
 				&.show {
@@ -121,12 +125,14 @@ body {
 			top: @header-height;
 			left: 0;
 			width: 100%;
-			padding: 12px 8px 12px 12px;
+			padding: 16px 8px 12px 16px;
 			transform: translateY(-100%);
-			transition: transform 0.2s;
+			transition: transform 0.15s;
+			transition-timing-function: ease-in-out; //cubic-bezier(0.18, 0.89, 0.29, 1.14);
 			background: var(--color-bg);
 			z-index: 10;
 			&.show {
+				//transition: transform 0.1s;
 				transform: translateY(0);
 				box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 			}
@@ -148,12 +154,15 @@ body {
 			border-top: 1px solid var(--color-fm);
 		}
 		> aside.social {
+			display: none;
+			/*
 			display: flex;
 			justify-content: space-between;
 			* {
 				margin: 0 0.5rem;
 				font-size: 1.5rem;
 			}
+			*/
 		}
 		> footer {
 			font-size: 0.75rem !important;
@@ -162,15 +171,28 @@ body {
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media screen and (min-width:720px) {
+	@media (min-width:720px) {
+
+		overflow-y: scroll;
+
 		@margin: 48px;
 		@header-height: 64px;
+
 		grid-template-rows: @header-height 1fr auto;
 		grid-template-columns: auto auto 1fr auto;
 		grid-template-areas:
 			"header nav nav nav"
 			"main main main main"
 			"social social social footer";
+		/*
+		grid-template-rows: @header-height 1fr 1fr auto;
+		grid-template-columns: auto 1fr 24px;
+		grid-template-areas:
+		"header nav nav"
+		"main main footer"
+		"main main footer"
+		"main main social";
+		*/
 		grid-row-gap: 1rem;
 		> header, > nav {
 			align-self: end;
@@ -213,11 +235,13 @@ body {
 			margin: 0 @margin;
 		}
 		> aside.social, > footer {
-			align-self: start;
+			//align-self: start;
 			.typo-overline;
 		}
 		> aside.social {
 			justify-self: end;
+			//align-self: end;
+			//writing-mode: vertical-rl;
 			padding: 0 0 4px 4px;
 			* {
 				padding: 0 0.375rem;
@@ -227,7 +251,11 @@ body {
 			}
 		}
 		> footer {
+			//align-self: end;
 			padding: 0 12px 4px 4px;
+			//text-orientation: upright;
+			//direction: rtl;
+			//writing-mode: vertical-rl;
 		}
 	}
 

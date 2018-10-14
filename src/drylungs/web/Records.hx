@@ -72,7 +72,10 @@ class Records {
 	function doDefault( ?id : String ) {
 		switch id {
 		case null,'':
-			Sys.print( new Site( 'records', { title: 'DLR.records', page: 'records' } ).build( { records: list } ) );
+			print( new Site( 'records', {
+				title: 'DLR.records',
+				page: 'DRYLUNGS™'
+			} ).build( { records: list } ) );
 		default:
 			if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
 				var i = Std.parseInt( id );
@@ -88,11 +91,13 @@ class Records {
 					title: record.id,
 					page: record.id
 				} );
-				//TODO
-				site.context.twitter.title = record.id;
+				site.context.keywords = site.context.keywords.concat([record.id]);
+				site.context.twitter.card = 'summary_large_image';
+				site.context.twitter.title = 'DRYLUNGS/'+record.id;
 				site.context.twitter.description = record.name;
-				//Sys.print( site.build( record ) );
-				Sys.print( site.build( { record: record } ) );
+				site.context.twitter.image = 'cover/1000/'+record.id+'.jpg';
+				site.context.twitter.image_alt = record.id;
+				print( site.build( { record: record } ) );
 			}
 		}
 	}

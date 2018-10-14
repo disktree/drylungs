@@ -1,0 +1,90 @@
+
+:root {
+
+	--color-bg: #101111;
+
+	--color-fh: #919794;
+	--color-fm: #5e6461;
+	--color-fl: #2d2f2e;
+	--color-fi: #fff;
+
+	--color-bh: #292b2b;
+	--color-bm: #101111;
+	--color-bl: #000000;
+	--color-bi: #000;
+}
+
+html {
+	font-family: @font-regular;
+}
+
+body {
+	.typo-body2;
+	background: var(--color-bg);
+	color: var(--color-fm);
+	-webkit-tap-highlight-color: var(--color-fm);
+
+	/*
+	@media @phone {
+	//@media (hover: hover) {
+		background: red;
+	}
+	*/
+	/*
+	//.on-max-width( 400px, {
+	.on-phone( {
+		background: red;
+	});
+	*/
+}
+
+.selection(
+	@color: var(--color-fi),
+	@background: var(--color-bi)
+);
+
+.h1 { .typo-h1() }
+.h2 { .typo-h2() }
+.h3 { .typo-h3() }
+.h4 { .typo-h4() }
+.h5 { .typo-h5() }
+.h6 { .typo-h6() }
+
+h1 { .h1() }
+h2 { .h2() }
+h3 { .h3() }
+h4 { .h4() }
+h5 { .h5() }
+h6 { .h6() }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @font-title;
+	margin: 0;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+a {
+	outline: none;
+	color: var(--color-fm);
+	&[href] {
+		transition: color .1s;
+		&:hover {
+			color: var(--color-fh);
+		}
+	}
+}
+
+ol, ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	border: none;
+    outline: none;
+	background: transparent;
+}

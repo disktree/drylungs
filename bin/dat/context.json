@@ -11,11 +11,11 @@
     "admin": "christoph@drylungs.at",
 	"google_site_verification": "btMQPqnHIshsheX-njuIUKtyLqv81aeN0yEeo2c65eU",
 	"twitter": {
-		"card": "summary",
+		"card": "summary_large_image",
 		"site": "DryLungsRecords",
 		"creator": "DryLungsRecords",
-		"title": "DryLungsRecords",
-		"description": "DryLungsRecords",
+		"title": "Drylungs",
+		"description": "Records & Mailorder",
 		"image": "drylungs-card.png"
 	},
     "social": {
