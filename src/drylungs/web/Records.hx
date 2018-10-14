@@ -41,11 +41,10 @@ class Records {
 			rec.i = (i+1);
 			rec.prev = list[ (i==0) ? list.length-1 : i-1].id;
 			rec.next = list[ (i==list.length-1) ? 0 : i+1].id;
-			//if( rec.description == null || rec.description.length == 0 ) rec.description =
-			//rec.description = rec.description.split( '\n' ).map( l -> return '<p>$l</p>' ).join('');
 			//rec.description = formatText( rec.description );
 			//rec.description = rec.description.split('\n').join('<br>');
-			//rec.notes = rec.notes.split('\n').join('<br>');
+			rec.name = rec.name.split('\n').join('<br>');
+			rec.notes = rec.notes.split('\n').join('<br>');
 			//rec.notes = formatText( rec.notes );
 			rec.year = Date.fromString( rec.date ).getFullYear();
 			/*

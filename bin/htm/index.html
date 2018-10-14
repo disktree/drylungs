@@ -28,6 +28,9 @@
 
 		<link rel="stylesheet" media="screen" href="css/reset.css">
 		<link rel="stylesheet" media="screen" href="css/app.css">
+		::if theme::
+		<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">
+		::end::
 
 		<link rel="shortcut icon" href="favicon.ico">
 		::foreach icons::<link rel="icon" href="ico/icon-::__current__::.png" sizes="::__current__::x::__current__::">::end::
@@ -42,15 +45,14 @@
     <body class="site-layout" data-id="::site.id::">
 		<header>
 			<button></button>
-			<a class="title" href="">::site.name::</a>
+			<div class="title">::site.name::</div>
 			::if site.page::
 			<div class="page">::site.page::</div>
 			::end::
 		</header>
-		<nav>
-			<a ::if (site.id=="records")::class="active"::else::href="records"::end:: tabindex="1">records</a>
-			<a ::if (site.id=="about")::class="active"::else::href="about"::end:: tabindex="2">about</a>
-			<a ::if (site.id=="mailorder")::class="active"::else::href="mailorder"::end:: tabindex="3">mailorder</a>
+		<nav class="hidden">
+			::foreach pages::::if nav::<a ::if (id!=site.id):: href="::id::"::else:: class="active"::end::>::id::</a>::end::
+			::end::
 		</nav>
 		<main class="::site.id::">::content::</main>
 		<aside class="social">

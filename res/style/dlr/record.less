@@ -48,6 +48,24 @@ body > main.record {
 				width: 100%;
 				filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
 				.no-user-drag;
+				.no-user-select;
+			}
+		}
+		@media (orientation:portrait)  {
+			picture.front img {
+				padding-bottom: 0.75em;
+			}
+			picture.back img {
+				//padding-top: 0.5em;
+			}
+		}
+		@media (orientation:landscape)  {
+			display: flex;
+			picture.front img {
+				padding-right: 0.5rem;
+			}
+			picture.back img {
+				padding-left: 0.5rem;
 			}
 		}
 	}
@@ -95,11 +113,11 @@ body > main.record {
 			"nav";
 		grid-row-gap: 1em;
 		> * {
-			//border-bottom: 1px solid var(--color-fm);
+			//border-bottom: 1px solid var(--f-med);
 		}
 		> .details, > .notes, > .description, > .tracks {
 			padding-left: 0.75rem;
-			border-left: 1px solid var(--color-fm);
+			border-left: 1px solid var(--f-med);
 		}
 		> .artists {
 			.h6;
@@ -118,32 +136,14 @@ body > main.record {
 			picture img {
 				width: 100%;
 			}
-			@media (orientation:portrait)  {
-				picture.front img {
-					padding-bottom: 0.25rem;
-				}
-				picture.back img {
-					padding-top: 0.25rem;
-				}
-			}
-			@media (orientation:landscape)  {
-				display: flex;
-				picture.front img {
-					padding-right: 0.25rem;
-				}
-				picture.back img {
-					padding-left: 0.25rem;
-				}
-			}
 		}
 		> .nav {
-			//justify-self: end;
 		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media screen and (min-width:640px) {
+	@media screen and (min-width:641px) {
 		//grid-template-rows: auto auto auto auto auto 1fr;
 		grid-template-rows: repeat(7,auto) 1fr;
 		grid-template-columns: auto 1fr;
@@ -158,17 +158,15 @@ body > main.record {
 			"nav nav";
 		grid-row-gap: 1.5rem;
 		> * {
-			//.seperator( @height: 2px );
 		}
 		> .title {
 			.h2;
 		}
 		> .artists {
 			.h6;
-	//		.seperator( @top:0px );
 		}
 		> .details, > .notes, > .description, > .tracks {
-			border-left: 1px solid var(--color-fm);
+			border-left: 1px solid var(--f-med);
 			padding-left: 0.75rem;
 			max-width: 800px;
 		}
@@ -191,27 +189,9 @@ body > main.record {
 		}
 		> .cover {
 			picture img {
-				width: 100%;
 				@media (orientaion:landscape)  {
 					max-width: 80vmin;
 					max-height: 80vmin;
-				}
-			}
-			@media (max-width:1000px)  {
-				picture.front img {
-					padding-bottom: 1vh;
-				}
-				picture.back img {
-					padding-top: 1vh;
-				}
-			}
-			@media (min-width:1000px)  {
-				display: flex;
-				picture.front img {
-					padding-right: 1vw;
-				}
-				picture.back img {
-					padding-left: 1vw;
 				}
 			}
 		}
@@ -227,8 +207,9 @@ body > main.record {
 			.h5;
 		}
 	}
+
+	/*
 	@media screen and (min-width:2560px) {
-		/*
 		grid-template-rows: repeat(7,auto) 1fr;
 		grid-template-columns: auto 1fr;
 		grid-template-areas:
@@ -240,7 +221,6 @@ body > main.record {
 			"description description"
 			"cover cover"
 			"nav nav";
-		*/
 		> .title {
 			//font-size: 8rem;
 		}
@@ -254,4 +234,5 @@ body > main.record {
 			//align-self: start;
 		}
 	}
+	*/
 }

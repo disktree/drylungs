@@ -1,0 +1,12 @@
+
+.seperator( @width:1rem; @height:0.25rem; @top:1rem; @bottom:2rem ) {
+	&:before {
+		display: block;
+		content: "";
+		background: var(--f-med);
+		width: @width;
+		height: @height;
+		margin-top: @top;
+		margin-bottom: @bottom;
+	}
+}

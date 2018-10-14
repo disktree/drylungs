@@ -3,7 +3,6 @@ body {
 
 	display: grid;
 
-	//overflow-y: scroll;
 	//.fade_in(0.3s);
 
 	> header, > nav, > aside.social, > footer {
@@ -12,7 +11,7 @@ body {
 	}
 	> header, > nav {
 		text-transform: uppercase !important;
-		background: var(--color-bg);
+		background: var(--background);
 	}
 	> header {
 		grid-area: header;
@@ -28,11 +27,11 @@ body {
 			.seperator(@top:2rem);
 			a {
 				//text-decoration: underline;
-				//border-bottom: 1px dotted var(--color-fm);
+				//border-bottom: 1px dotted var(--f-med);
 				//transition: background .1s ease-in, color .1s ease-in;
 				//transition: color 5.5s ease-in;
 				&:hover {
-					//background: var(--color-bl);
+					//background: var(--b-low);
 				}
 				&[href^="http"]:after {
 					.icon;
@@ -59,10 +58,10 @@ body {
 	}
 	> aside.social {
 		grid-area: social;
-		//display: flex;
 	}
 	> footer {
 		grid-area: footer;
+		.typo-caption;
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -71,7 +70,7 @@ body {
 	//@media (orientation:portrait) and (max-height:720px), (orientation:landscape) and (max-width:720px) {
 	@media (max-width:720px) {
 
-		@header-height: 48px;
+		@header-height: 56px;
 		grid-template-rows: @header-height auto 1fr auto auto;
 		grid-template-columns: 1fr;
 		grid-template-areas:
@@ -82,13 +81,11 @@ body {
 			"footer"
 			;
 		> header {
-			position: fixed;
-			top: 0;
-			width: 100%;
 			align-self: center;
+			width: 100%;
 			z-index: 100;
 			.h6;
-			box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+		//	box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 			> button {
 				.icon;
 				.ic-menu;
@@ -96,11 +93,9 @@ body {
 				font-weight: 700;
 				width: 48px;
 				height: @header-height;
-				//position: relative;
-				//left: 2px;
-				color: var(--color-fm);
+				color: var(--f-med);
 				line-height: 1;
-				&.show {
+				&.active {
 					.ic-close;
 				}
 			}
@@ -119,42 +114,47 @@ body {
 					//content: "/";
 				}
 			}
+			/*
+			&.hidden {
+			}
+			*/
 		}
 		> nav {
-			position: fixed;
-			top: @header-height;
-			left: 0;
 			width: 100%;
-			padding: 16px 8px 12px 16px;
-			transform: translateY(-100%);
-			transition: transform 0.15s;
-			transition-timing-function: ease-in-out; //cubic-bezier(0.18, 0.89, 0.29, 1.14);
-			background: var(--color-bg);
+			transition: margin-top 0.2s;
+			//transition-timing-function: ease-out; //cubic-bezier(0.18, 0.89, 0.29, 1.14);
+			//background: var(--background);
+			//box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 			z-index: 10;
-			&.show {
-				//transition: transform 0.1s;
-				transform: translateY(0);
-				box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-			}
 			a {
 				display: table;
-				padding: 4px 8px 2px 8px;
+				padding: 0.5rem 1rem;
 				.h6;
 				&.active {
-					color: var(--color-fl) !important;
+					color: var(--f-low) !important;
 				}
+			}
+			&.hidden {
+				margin-top: -100%;
+				box-shadow: none;
 			}
 		}
 		> main {
 			margin: 0 1rem;
+			transition: opacity 0.25s;
+			&.blur {
+				opacity: 0.25;
+				//filter: brightness(12%) contrast(91%) grayscale(90%);
+			}
 		}
 		> aside.social, footer {
 			margin: 0 1rem;
 			padding: 1rem 0;
-			border-top: 1px solid var(--color-fm);
+			border-top: 1px solid var(--f-med);
 		}
 		> aside.social {
 			display: none;
+			//TODO
 			/*
 			display: flex;
 			justify-content: space-between;
@@ -165,13 +165,12 @@ body {
 			*/
 		}
 		> footer {
-			font-size: 0.75rem !important;
 		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////
 
-	@media (min-width:720px) {
+	@media (min-width:721px) {
 
 		overflow-y: scroll;
 
@@ -184,15 +183,6 @@ body {
 			"header nav nav nav"
 			"main main main main"
 			"social social social footer";
-		/*
-		grid-template-rows: @header-height 1fr 1fr auto;
-		grid-template-columns: auto 1fr 24px;
-		grid-template-areas:
-		"header nav nav"
-		"main main footer"
-		"main main footer"
-		"main main social";
-		*/
 		grid-row-gap: 1rem;
 		> header, > nav {
 			align-self: end;
@@ -217,11 +207,10 @@ body {
 			display: flex;
 			a {
 				//&::not(class="active") {
-				//padding: 5px 0px 0px 0px;
 				&.active {
-					color: var(--color-fh);
-					//background: var(--color-fh);
-					//border-bottom: 2px solid var(--color-fm);
+					color: var(--f-high);
+					//background: var(--f-high);
+					//border-bottom: 2px solid var(--f-med);
 					//text-decoration: line-through;
 				}
 				&:before {

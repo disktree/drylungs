@@ -53,22 +53,14 @@ class Web {
 					}
 				}
 			}
+
 		} catch(e:Dynamic) {
 			error( Std.string(e) );
 		}
 
-		//var theme = params.exists( 'theme' ) ? params.get( 'theme' ) : 'default';
-		var theme = config.theme;
-		if( theme == null ) theme = 'default';
-
-		/*
-		switch path {
-        case null,'','/','index','home','start':
-			path = config.start;
-			//om.Web.redirect( path );
-		default:
-		}
-		*/
+		var theme = params.exists( 'theme' ) ? params.get( 'theme' ) : config.theme;
+		//var theme = config.theme;
+		//if( theme == null ) theme = 'default';
 
 		Template.globals = {
 			host: host,
@@ -78,7 +70,9 @@ class Web {
 			//icons: drylungs.Build.getIconSizes('ico'),
 			icons: [16,24,32,48,72,96,144,192,512],
 			theme: theme,
-			theme_color: '#101111',
+			theme_color: config.color,
+			pages: config.pages,
+			//page: path,
 			debug: #if debug true #else false #end
 		};
 

@@ -17,7 +17,7 @@ body > main.records {
 
 	> a.record {
 		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-		@media (hover:hover) {
+		@media (pointer:fine) {
 			transform: scale(0.99);
 			//transition: transform 0.1s;
 		}
@@ -25,20 +25,20 @@ body > main.records {
 			display: flex;
 			position: absolute;
 			z-index: 1;
-			@media (hover:hover) {
+			@media (pointer:fine) {
 				transition: opacity 0.2s;
 				opacity: 0.7;
 			}
 			.id {
 				//.h4;
 				display: none;
-				background: var(--color-bg);
+				background: var(--background);
 				margin-right: 0.5em;
 			}
 			.artists {
 				.typo-caption;
 				padding: 0px 3px 0px 3px;
-				background: var(--color-bg);
+				background: var(--background);
 				> * {
 					&:not(:last-child)::after {
 						content: "+";
@@ -55,7 +55,11 @@ body > main.records {
 				//max-height: 60vh;
 				z-index: 2;
 				//@media screen and (min-width:700px) {
-				@media (hover:hover) {
+				//@media (hover:hover) {
+				//@media (any-hover: hover) {
+				//@media (any-pointer: fine) {
+				//@media not all and (hover: none) {
+				@media (pointer:fine) {
 					filter: brightness(12%) contrast(91%) grayscale(90%);
 					transition: filter 0.2s;
 				}
