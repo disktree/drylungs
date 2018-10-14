@@ -96,6 +96,10 @@ class Records {
 				site.context.twitter.description = record.name;
 				site.context.twitter.image = 'cover/1000/'+record.id+'.jpg';
 				site.context.twitter.image_alt = record.id;
+				site.context.music = {
+					musician: record.artists.join(','),
+					release_date: record.date
+				};
 				print( site.build( { record: record } ) );
 			}
 		}

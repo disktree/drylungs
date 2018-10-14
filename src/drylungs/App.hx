@@ -30,7 +30,8 @@ class App {
 
 	static function hideNav() {
 		//btn.classList.add( 'hidde' );
-		btn.classList.remove( 'active' );
+//		btn.classList.remove( 'active' );
+		btn.classList.remove( 'is-active' );
 		nav.classList.add( 'hidden' );
 		main_.classList.remove( 'blur' );
 	}
@@ -38,7 +39,8 @@ class App {
 	static function toggleNav() {
 		//btn.classList.toggle( 'show' );
 		//nav.classList.toggle( 'show' );
-		btn.classList.toggle( 'active' );
+//		btn.classList.toggle( 'active' );
+		btn.classList.toggle( 'is-active' );
 		nav.classList.toggle( 'hidden' );
 		main_.classList.toggle( 'blur' );
 	}
