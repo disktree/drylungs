@@ -1,39 +1,28 @@
 
 body > main.records {
-
 	display: grid;
-
 	grid-template-columns: repeat(auto-fill,minmax(300px,1fr) );
-
 	@media (max-height:400px) {
 		grid-template-columns: repeat(auto-fill,minmax(200px,1fr) );
 	}
-
 	align-content: start;
 	//align-content: space-around;
 	grid-gap: 1rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-
 	> a.record {
-		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-		@media (pointer:fine) {
-			transform: scale(0.99);
-			//transition: transform 0.1s;
-		}
+		position: relative;
 		.details {
 			display: flex;
 			position: absolute;
 			z-index: 1;
-			@media (pointer:fine) {
-				transition: opacity 0.2s;
-				opacity: 0.7;
-			}
 			.id {
-				//.h4;
 				display: none;
 				background: var(--background);
 				margin-right: 0.5em;
+				//text-orientation: upright;
+				//direction: rtl;
+				//writing-mode: vertical-rl;
 			}
 			.artists {
 				.typo-caption;
@@ -54,20 +43,12 @@ body > main.records {
 				//max-width: 60vh;
 				//max-height: 60vh;
 				z-index: 2;
-				//@media screen and (min-width:700px) {
-				//@media (hover:hover) {
-				//@media (any-hover: hover) {
-				//@media (any-pointer: fine) {
-				//@media not all and (hover: none) {
-				@media (pointer:fine) {
-					filter: brightness(12%) contrast(91%) grayscale(90%);
-					transition: filter 0.2s;
-				}
 			}
 		}
+		/*
 		&:hover {
-			transition: transform 0.2s;
-			transform: scale(1);
+			//transition: transform 0.2s;
+			//transform: scale(1);
 			.details {
 				opacity: 1;
 				>.id {
@@ -78,8 +59,9 @@ body > main.records {
 			}
 			img {
 				transition: none;
-				filter: none;
+		//		filter: none;
 			}
 		}
+		*/
 	}
 }

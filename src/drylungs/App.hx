@@ -16,30 +16,13 @@ class App {
 	static var social : Element;
 	static var footer : Element;
 
-	/*
-	static function showNav() {
-		//btn.classList.add( 'show' );
-		//nav.classList.add( 'show' );
-	}
-
 	static function hideNav() {
-		//btn.classList.remove( 'show' );
-		//nav.classList.remove( 'show' );
-	}
-	*/
-
-	static function hideNav() {
-		//btn.classList.add( 'hidde' );
-//		btn.classList.remove( 'active' );
 		btn.classList.remove( 'is-active' );
 		nav.classList.add( 'hidden' );
 		main_.classList.remove( 'blur' );
 	}
 
 	static function toggleNav() {
-		//btn.classList.toggle( 'show' );
-		//nav.classList.toggle( 'show' );
-//		btn.classList.toggle( 'active' );
 		btn.classList.toggle( 'is-active' );
 		nav.classList.toggle( 'hidden' );
 		main_.classList.toggle( 'blur' );
@@ -59,6 +42,10 @@ class App {
 			case 'interactive':
 			case 'complete':
 
+				var body = document.body;
+
+				//trace(om.System.supportsTouchInput());
+
 				var page = document.body.getAttribute('data-id');
 
 				/*
@@ -72,12 +59,10 @@ class App {
 				nav = document.body.querySelector( 'nav' );
 				main_ = document.body.querySelector( 'main' );
 
-				btn.onclick = function(){
+				//btn.onclick = function(){
+				header.onclick = function(){
 					toggleNav();
-					//btn.classList.toggle( 'show' );
-					//nav.classList.toggle( 'show' );
 				}
-
 				/*
 				nav.onclick = function(){
 					//toggleNav();

@@ -14,6 +14,7 @@ typedef Device = {
 class Web {
 
 	public static var config(default,null) : Dynamic;
+	public static var device(default,null) : Dynamic;
 
 	static function error( code : StatusCode = INTERNAL_SERVER_ERROR, ?info : String, stack = false ) {
 		om.Web.setReturnCode( code );
@@ -26,23 +27,26 @@ class Web {
 	static function main() {
 
 		var date = Date.now();
-		var isMobile = om.System.isMobile();
 		var host = om.Web.getHostName();
 		var uri = om.Web.getURI();
 		var path = uri.removeTrailingSlashes();
 		var params = om.Web.getParams();
 		var baseURI = '';
-		//var baseURI = 'http://$host';
-		//var device = { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' };
+
+		var isMobile = om.System.isMobile();
+		device = { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' };
 
 		try {
 			config = Json.parse( File.getContent( 'dat/config.json' ) );
-			if( config.basepath != null ) {
-				var basepath : String = config.basepath;
+			//TODO custom host/basepath configs
+			var basepath = if( host == 'localhost' || host.startsWith( '192.168' ) ) '/pro/drylungs/bin/';
+			else config.basepath;
+			if( basepath != null ) {
 				if( !basepath.startsWith( '/' ) ) basepath = '/'+basepath;
 				if( !basepath.endsWith( '/' ) ) basepath = basepath+'/';
 				path = path.substr( basepath.length );
 				baseURI += basepath;
+
 			}
 			if( config.remap != null ) {
 				for( remap in cast(config.remap,Array<Dynamic>) ) {
@@ -59,14 +63,12 @@ class Web {
 		}
 
 		var theme = params.exists( 'theme' ) ? params.get( 'theme' ) : config.theme;
-		//var theme = config.theme;
-		//if( theme == null ) theme = 'default';
 
 		Template.globals = {
 			host: host,
 			baseURI : baseURI,
 			date: { year: date.getFullYear(), month: date.getMonth(), day: date.getDay() },
-			device: { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' },
+			device: device,
 			//icons: drylungs.Build.getIconSizes('ico'),
 			icons: [16,24,32,48,72,96,144,192,512],
 			theme: theme,

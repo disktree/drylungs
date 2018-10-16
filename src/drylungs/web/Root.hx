@@ -8,7 +8,7 @@ class Root {
 
 	function doDefault( d : Dispatch ) {
 		var id = d.parts[0];
-		var title = 'DLR.$id';
+		var title = 'Drylungs – '+id.capitalize();
 		var site = new Site( id, { title: title, page: id } );
 		print( site.build() );
 	}

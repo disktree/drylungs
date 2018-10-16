@@ -43,7 +43,7 @@ class Records {
 			rec.next = list[ (i==list.length-1) ? 0 : i+1].id;
 			//rec.description = formatText( rec.description );
 			//rec.description = rec.description.split('\n').join('<br>');
-			rec.name = rec.name.split('\n').join('<br>');
+			//rec.name = rec.name.split('\n').join('<br>');
 			rec.notes = rec.notes.split('\n').join('<br>');
 			//rec.notes = formatText( rec.notes );
 			rec.year = Date.fromString( rec.date ).getFullYear();
@@ -72,7 +72,7 @@ class Records {
 		switch id {
 		case null,'':
 			print( new Site( 'records', {
-				title: 'DLR.records',
+				title: 'Drylungs Records',
 				page: 'DRYLUNGS™'
 			} ).build( { records: list } ) );
 		default:
