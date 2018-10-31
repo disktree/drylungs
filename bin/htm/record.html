@@ -2,23 +2,16 @@
 <div class="artists" title="Artists">::foreach record.artists::<span>::__current__::</span>::end::</div>
 <div class="details">
 	<div class="id" title="Id">::record.id::</div>
-	<div class="format" title="Format">::record.format::"</div>
+	<div class="format" title="Format">::record.format::</div>
 	<div class="year" title="Released">::record.year::</div>
 </div>
-::if record.notes::<div class="notes">::record.notes::</div>::end::
+::if record.notes::<div class="notes" title="Notes">::record.notes::</div>::end::
 ::if record.tracks::<div class="tracks">
 	::foreach record.tracks::
 	<div class="track">
-		<span class="position">::position::</span>
-		<span class="name">::name::</span>
-		::if duration::<span class="duration">(::duration::)</span>::end::
-		<!--
-		::if file::
-		<audio src="snd/::record.id::/::file::"></audio>
-		<i class="ic-play"></i>
-		<i class="ic-stop"></i>
-		::end::
-		-->
+		<span class="position" title="Position">::position::</span>
+		<span class="name" title="Title">::name::</span>
+		::if duration::<span class="duration">[::duration::]</span>::end::
 	</div>
 	::end::
 </div>::end::
@@ -44,8 +37,8 @@
 		<img class="back" src="img/cover/400/::record.id::_back.jpg" alt="::record.id:: cover back"/>
 	</picture>
 </div>
-::if record.description::<div class="description">::record.description::</div>::end::
+::if record.description::<div class="description" title="Description">::record.description::</div>::end::
 <div class="nav">
-	<a href="records/::record.prev::">PREV</a>
-	<a href="records/::record.next::">NEXT</a>
+	<a href="records/::record.prev::" class="prev" title="::record.prev::">PREV</a>
+	<a href="records/::record.next::" class="next" title="::record.next::">NEXT</a>
 </div>

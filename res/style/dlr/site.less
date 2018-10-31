@@ -1,8 +1,6 @@
 
 body {
 
-	//.fade_in(0.3s);
-
 	display: grid;
 
 	> header, > nav, > aside.social, > footer {
@@ -11,11 +9,11 @@ body {
 	}
 	> header, > nav {
 		text-transform: uppercase !important;
-		background: var(--background);
 	}
 	> header {
 		grid-area: header;
 		display: flex;
+		background: var(--background);
 	}
 	> nav {
 		grid-area: nav;
@@ -29,6 +27,7 @@ body {
 				//text-decoration: underline;
 				//border-bottom: 1px dotted var(--f-med);
 				//transition: background .1s ease-in, color .1s ease-in;
+				border-bottom: 1px dotted var(--b-high);
 				&:hover {
 					//background: var(--b-low);
 				}
@@ -67,7 +66,9 @@ body {
 
 	@media (max-width:720px) {
 
+		@margin: 16px;
 		@header-height: 56px;
+
 		grid-template-rows: @header-height auto 1fr auto auto;
 		grid-template-columns: 1fr;
 		grid-template-areas:
@@ -77,6 +78,7 @@ body {
 			"social"
 			"footer"
 			;
+		//grid-row-gap: @margin;
 		> header {
 			align-self: center;
 			width: 100%;
@@ -84,14 +86,15 @@ body {
 			.h6;
 			> button {
 				position: relative;
-				top: 1px;
+				//top: 1px;
 				margin: auto 0.75em auto 1rem;
 			}
 			> .title, > .page {
 				position: relative;
-				top: 3px;
+				top: 1px;
 				left: 2px;
 				.h6;
+				//font-size: 1.35rem;
 				line-height: @header-height;
 			}
 			>.title {
@@ -122,7 +125,7 @@ body {
 			}
 		}
 		> main {
-			margin: 0 1rem;
+			margin: 0 @margin;
 		//	transition: opacity 0.25s;
 			&.blur {
 		//		opacity: 0.25;
@@ -130,7 +133,7 @@ body {
 			}
 		}
 		> aside.social, footer {
-			margin: 0 1rem;
+			margin: 0 @margin;
 			padding: 1rem 0;
 			border-top: 1px solid var(--f-med);
 		}
@@ -181,11 +184,14 @@ body {
 		> nav {
 			justify-self: start;
 			display: flex;
+			* {
+				padding: 6px 0px 0px 0px;
+			}
 			a {
 				//&::not(class="active") {
 				&.active {
-					color: var(--f-high);
-					//background: var(--f-high);
+					color: var(--background) !important;
+					background: var(--f-med);
 					//border-bottom: 2px solid var(--f-med);
 					//text-decoration: line-through;
 				}
@@ -198,6 +204,7 @@ body {
 		}
 		> main {
 			margin: 0 @margin;
+			.fade_in(0.2s);
 		}
 		> aside.social, > footer {
 			.typo-overline;

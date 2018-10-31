@@ -14,6 +14,14 @@
 	--b-inv: #000;
 }
 
+.background { color: var(--background); }
+.f-high { color: var(--f-high); }
+.f-med { color: var(--f-med); }
+.f-low { color: var(--f-low); }
+.b-high { color: var(--b-high); }
+.b-med { color: var(--b-med); }
+.b-low { color: var(--b-low); }
+
 html {
 	font-family: @font-regular;
 }
@@ -56,11 +64,17 @@ p {
 a {
 	outline: none;
 	color: var(--f-med);
+	//border-bottom: 1px dotted var(--f-low);
+	//text-decoration-line: underline;
+	//text-decoration-style: wavy;
 	&[href] {
 		&:hover {
 			transition: color .1s;
 			color: var(--f-high);
 		}
+	}
+	&:focus {
+		color: var(--f-high);
 	}
 	/*
 	&:focus {

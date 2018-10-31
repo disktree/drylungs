@@ -4,23 +4,27 @@
 	"remap": [
 		{
 			"src": ["","home","index"],
-			"dst": "start"
+			"dst": "records"
 		}
 	],
 	"theme": "default",
+	"color": "#101111",
 	"pages": [
 		{
 			"id": "start",
 			"nav": false
 		},
 		{
-			"id": "records"
+			"id": "records",
+			"nav": true
 		},
 		{
-			"id": "about"
+			"id": "about",
+			"nav": true
 		},
 		{
-			"id": "mailorder"
+			"id": "mailorder",
+			"nav": true
 		}
 	]
 }

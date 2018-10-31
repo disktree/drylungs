@@ -1,12 +1,16 @@
 
 //TODO https://github.com/jonsuh/hamburgers
 
-@line-thick: 4px;
-
 .hamburger {
-	.hamburger( 24px; 16px; var(--f-med) );
+	.hamburger(
+		@width: 24px;
+		@height: 16px;
+		@line-thick: 4px;
+		@color: var(--f-med)
+	);
+	.hamburger--squeeze();
 	//height: 32px;
-	cursor: pointer;
-	padding: 0px 0px;
 	//margin: auto 10px;
+	padding: 0px 0px;
+	cursor: pointer;
 }

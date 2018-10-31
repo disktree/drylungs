@@ -1,21 +1,29 @@
 
 body > main.records {
+
 	display: grid;
 	grid-template-columns: repeat(auto-fill,minmax(300px,1fr) );
+
 	@media (max-height:400px) {
 		grid-template-columns: repeat(auto-fill,minmax(200px,1fr) );
 	}
+
 	align-content: start;
 	//align-content: space-around;
-	grid-gap: 1rem;
+	grid-column-gap: 1rem;
+	grid-row-gap: 1rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+
 	> a.record {
 		position: relative;
+		//user-select: none;
+		&:focus {
+		}
 		.details {
 			display: flex;
 			position: absolute;
-			z-index: 1;
+			z-index: 100;
 			.id {
 				display: none;
 				background: var(--background);
@@ -42,7 +50,7 @@ body > main.records {
 				width: 100%;
 				//max-width: 60vh;
 				//max-height: 60vh;
-				z-index: 2;
+				//z-index: 2;
 			}
 		}
 		/*

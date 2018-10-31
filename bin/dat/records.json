@@ -3,11 +3,10 @@
         "id": "DLR001",
         "name": "Live At Fluc Wanne, 2010/05/18",
         "artists": ["Merzbow","Balázs Pándi"],
-        "format": "12",
+        "format": "Vinyl 12\"",
         "date": "2010-01-01",
-		"notes": "AAAAAAAAAAAAAAAAAA",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "notes": "TODO",
+		"description": null,
+		"notes": null,
 		"color": "#111010",
         "tracks": [
             {
@@ -34,9 +33,9 @@
         "id": "MDMA001",
         "name": "Untitled",
         "artists": ["Bruital Orgasme"],
-        "format": "7",
+        "format": "Vinyl 7\"",
 		"date": "2011-03-01",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"description": null,
         "notes": "Limited to 200 pieces with a big center hole (black labels) housed in a clear PVC sleeve and artwork insert.",
 		"color": "#9F9A9C",
         "tracks": [
@@ -68,9 +67,9 @@
         "id": "DLR002",
         "name": "Untitled",
         "artists": ["Justice Yeldham"],
-        "format": "12",
+        "format": "Vinyl 12\"",
         "date": "2012-04-01",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"description": null,
         "notes": "Limited to 300 copies housed in a thick PVC sleeve.",
         "tracks": [
             {
@@ -100,9 +99,9 @@
         "id": "MDMA002",
         "name": "A Comprehensive Guide To Dismantling The Weapons Of Mass Destruction",
         "artists": ["Raven"],
-        "format": "7",
+        "format": "Vinyl 7\"",
         "date": "2012-12-01",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"description": null,
         "notes": "The cover is printed onto a folded A4 piece of paper and comes with an extra inlay sheet. Cat# taken from the label websites since nothing is written on the physical release.\nLimited to 200 plates with big center holes.",
         "tracks": [
             {
@@ -123,7 +122,7 @@
         "name": "Super Single",
         "artists": ["Otomo Yoshihide","Lasse Marhaug"],
         "date": "2013-12-01",
-        "format": "7",
+        "format": "Vinyl 7\"",
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "notes": "Recorded on the 6th February 2011 at Tokyo Superdeluxe.\nLimited to 300 plates with a big center hole (black labels) housed in an all black cover with gold pantone 876c printed letters.",
         "tracks": [
@@ -145,8 +144,8 @@
         "name": "To Know Death...\nYou Have To Fuck Life In The Gallbladder",
         "artists": ["Solypsis"],
         "date": "2016-02-13",
-        "format": "7",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "format": "Vinyl 7\"",
+		"description": null,
         "notes": "Limited to 200 red plates with a big center hole (black labels).",
         "tracks": [
             {
@@ -165,8 +164,8 @@
         "name": "Snell b/w Weather",
         "artists": ["Sissy Spacek"],
         "date": "2016-02-13",
-        "format": "7",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "format": "Vinyl 7\"",
+		"description": null,
         "notes": "Recorded December 31st 2014 in Hill Street, Los Angeles.\nLimited to 300 black plates with a big center hole (1c printed labels).",
         "tracks": [
             {
@@ -187,9 +186,9 @@
         "name": "Futanari Princess",
         "artists": ["Venta Protesix"],
         "date": "2016-02-13",
-        "format": "7",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "notes": "Limited to 300 handnumbered copies with a big center hole.\nInlays silkscreened by C-LUET, most with black ink, some randomly with red ink.",
+        "format": "Vinyl 7\"",
+		"description": null,
+		"notes": "Limited to 300 handnumbered copies with a big center hole.\nInlays silkscreened by C-LUET, most with black ink, some randomly with red ink.",
         "tracks": [
             {
                 "position": "A",
@@ -209,9 +208,9 @@
         "name": "Machine In The Ghost",
         "artists": ["KK Null"],
         "date": "2016-03-30",
-        "format": "7",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "notes": "All music composed & produced by Kazuyuki Kishimo @ prima natura studio 2015.\nLimited to 300 black plates with a big center hole (1c printed labels).",
+        "format": "Vinyl 7\"",
+		"description": null,
+		"notes": "All music composed & produced by Kazuyuki Kishimo at prima natura studio 2015.\nLimited to 300 black plates with a big center hole (1c printed labels).",
         "tracks": [
             {
                 "position": "A",

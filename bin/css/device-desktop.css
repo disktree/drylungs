@@ -1,0 +1,23 @@
+
+body > main.records > a.record {
+	overflow: hidden;
+}
+
+body > main.records > a.record picture img {
+	object-fit: cover;
+	transform: scale(1);
+	transition: all 5s;
+	transition-timing-function: ease-in-out;
+	/*
+	overflow: hidden;
+	transition: object-position 3.5s;
+	*/
+}
+body > main.records > a.record picture img:hover {
+	transform: scale(1.1);
+	transition: transform 20s;
+	/*
+	transition: transform 0.1s;
+	object-position: 20%;
+	*/
+}

@@ -80,12 +80,15 @@ class App {
 					//ani.start();
 				case 'record':
 					window.onkeydown = function(e){
-						/*
-						trace(e.keyCode);
+						//trace(e.keyCode);
 						switch e.keyCode {
-						case 87:
+						case 37: // left
+							var link = main_.querySelector('.nav a.prev').getAttribute('href');
+							window.location.href = link;
+						case 39: // right
+							var link = main_.querySelector('.nav a.next').getAttribute('href');
+							window.location.href = link;
 						}
-						*/
 					}
 				}
 

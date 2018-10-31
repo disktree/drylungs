@@ -96,6 +96,17 @@ body > main.record {
 		grid-area: nav;
 		.typo-caption;
 		.no-user-select;
+		a {
+			.icon;
+			&.prev::before {
+				padding-right: 0.5ch;
+				content: @ic-caret-left;
+			}
+			&.next::after {
+				padding-left: 0.5ch;
+				content: @ic-caret-right;
+			}
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -41,11 +41,11 @@ class Records {
 			rec.i = (i+1);
 			rec.prev = list[ (i==0) ? list.length-1 : i-1].id;
 			rec.next = list[ (i==list.length-1) ? 0 : i+1].id;
-			//rec.description = formatText( rec.description );
-			//rec.description = rec.description.split('\n').join('<br>');
 			//rec.name = rec.name.split('\n').join('<br>');
-			rec.notes = rec.notes.split('\n').join('<br>');
-			//rec.notes = formatText( rec.notes );
+			//rec.description = if( rec.description == null ) '–' else formatText( rec.description );
+			rec.description = formatText( rec.description );
+			rec.notes = formatText( rec.notes );
+			//rec.notes = rec.notes.split('\n').join('<br>');
 			rec.year = Date.fromString( rec.date ).getFullYear();
 			/*
             if( rec.date == null ) rec.date = '';
@@ -59,7 +59,10 @@ class Records {
 	}
 
 	static function formatText( text : String ) : String {
- 		return text.split( '\n' ).map( l -> return '<p>$l</p>' ).join('');
+		if( text == null || text.length == 0 )
+			return '–';
+		return text.split('\n').join('<br>');
+ 		//return text.split( '\n' ).map( l -> return '<p>$l</p>' ).join('');
 	}
 
 	public var list(default,null) : Array<Record>;
