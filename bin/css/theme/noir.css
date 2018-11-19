@@ -1,0 +1,15 @@
+
+:root {
+
+	--background: #222222;
+
+	--f-high: #fff;
+	--f-med: #ccc;
+	--f-low: #999;
+	--f-inv: #fff;
+
+	--b-high: #888;
+	--b-med: #666;
+	--b-low: #444;
+	--b-inv: #000;
+}
