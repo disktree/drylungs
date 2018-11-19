@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<generator uri="https://haxe.org/" version="4">haxe</generator>
+	<title type="html">Drylungs</title>
+	<subtitle>Records &amp; Mailorder</subtitle>
+	<id>http://drylungs.at/</id>
+	<link href="http://drylungs.at/feed/" rel="self" type="application/atom+xml"/>
+	<link href="http://drylungs.at/" rel="alternate" type="text/html"/>
+	<updated>2018-08-28T20:22:12+00:00</updated>
+	<author>
+		<name>Christoph</name>
+	</author>
+	::foreach records::
+	<entry>
+		<title type="html">::id::</title>
+		<id>http://drylungs.at/records/::id::</id>
+		<updated>::date::</updated>
+		<link href="http://drylungs.at/records/::id::" />
+		::if description::<summary>::description::</summary>::end::
+		<content type="html">
+
+		</content>
+		<author>
+			<name>Christoph</name>
+			<email>christoph@drylungs.at</email>
+		</author>
+	</entry>
+	::end::
+</feed>
