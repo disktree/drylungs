@@ -41,10 +41,19 @@ class Site {
 				Reflect.setField( ctx, f, Reflect.field( data, f ) );
 			}
 		}
-		return getTemplate( 'index' ).execute( {
+		var html = getTemplate( 'index' ).execute( {
 			site: context,
 			content: tpl.execute( ctx )
 		} );
+		/*
+		return
+			#if fuck
+			html;
+			#else
+			om.html.Minifier.minify( html );
+			#end
+		*/
+		return html;
 	}
 
 	public static function getTemplate( id : String ) : Template {

@@ -39,14 +39,21 @@ class Web {
 		try {
 			config = Json.parse( File.getContent( 'dat/config.json' ) );
 			//TODO custom host/basepath configs
-			var basepath = if( host == 'localhost' || host.startsWith( '192.168' ) ) '/pro/drylungs/bin/';
-			else config.basepath;
+			//var basepath = if( host == 'localhost' || host.startsWith( '192.168' ) ) '/pro/drylungs/bin/';
+			//else config.basepath;
+			var rootpath : String = config.rootpath;
+			if( rootpath != null ) {
+				//if( !rootpath.startsWith( '/' ) ) rootpath = '/'+rootpath;
+				//if( !rootpath.endsWith( '/' ) ) rootpath = rootpath+'/';
+				path = path.substr( rootpath.length );
+				//baseURI = baseURI
+			}
+			var basepath : String = config.basepath;
 			if( basepath != null ) {
 				if( !basepath.startsWith( '/' ) ) basepath = '/'+basepath;
 				if( !basepath.endsWith( '/' ) ) basepath = basepath+'/';
 				path = path.substr( basepath.length );
 				baseURI += basepath;
-
 			}
 			if( config.remap != null ) {
 				for( remap in cast(config.remap,Array<Dynamic>) ) {
@@ -57,7 +64,6 @@ class Web {
 					}
 				}
 			}
-
 		} catch(e:Dynamic) {
 			error( Std.string(e) );
 		}

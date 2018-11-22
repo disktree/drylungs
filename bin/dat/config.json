@@ -1,6 +1,7 @@
 {
-	"basepath": "",
-	"home": "start",
+	"rootpath": "dry",
+	"basepath": "test",
+	"home": "records",
 	"remap": [
 		{
 			"src": ["","home","index"],

@@ -7,13 +7,13 @@
 #AddType application/x-httpd-php71 .php
 
 ## No directory index
-Options All -Indexes
+#Options All -Indexes
 
 ## Mime Types
 AddType application/manifest+json manifest.json
 
 ##
-ErrorDocument 403 "Sorry the link you used is invalid.<br /><h2>Please visit our <a href='/'>Home Page</a></h2>"
+#ErrorDocument 403 "Sorry the link you used is invalid.<br /><h2>Please visit our <a href='/'>Home Page</a></h2>"
 
 ## URL rewrite
 RewriteEngine On

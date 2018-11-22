@@ -11,4 +11,5 @@ dat/*
 exp/*
 res/icon/*.png
 .log/
+HELP.md
 NOTES.md

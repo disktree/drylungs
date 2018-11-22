@@ -1,0 +1,133 @@
+
+<section data-name="colors">
+	<div data-name="background"></div>
+	<div data-name="f-high"></div>
+	<div data-name="f-med"></div>
+	<div data-name="f-low"></div>
+	<div data-name="f-inv"></div>
+	<div data-name="b-high"></div>
+	<div data-name="b-med"></div>
+	<div data-name="b-low"></div>
+	<div data-name="b-inv"></div>
+</section>
+
+<section data-name="icons">
+
+	<div><i class="ic-angle-double-left"></i><span>angle-double-left</span></div>
+	<div><i class="ic-angle-double-right"></i><span>angle-double-right</span></div>
+	<div><i class="ic-angle-left"></i><span>angle-left</span></div>
+	<div><i class="ic-angle-right"></i><span>angle-right</span></div>
+	<div><i class="ic-arrow-left"></i><span>arrow-left</span></div>
+	<div><i class="ic-arrow-right"></i><span>arrow-right</span></div>
+
+	<div><i class="ic-caret-left"></i><span>caret-left</span></div>
+	<div><i class="ic-caret-right"></i><span>caret-right</span></div>
+
+	<div><i class="ic-bandcamp"></i><span>bandcamp</span></div>
+	<div><i class="ic-bigcartel"></i><span>bigcartel</span></div>
+	<div><i class="ic-bars"></i><span>bars</span></div>
+
+	<div><i class="ic-copyright"></i><span>copyright</span></div>
+
+	<div><i class="ic-diamond"></i><span>diamond</span></div>
+	<div><i class="ic-discogs"></i><span>discogs</span></div>
+
+	<div><i class="ic-email"></i><span>email</span></div>
+	<div><i class="ic-ellipsis-v"></i><span>ellipsis-v</span></div>
+	<div><i class="ic-ellipsis-h"></i><span>ellipsis-h</span></div>
+
+	<div><i class="ic-feed"></i><span>feed</span></div>
+	<div><i class="ic-fiber-new"></i><span>fiber-new</span></div>
+	<div><i class="ic-file-audio"></i><span>file-audio</span></div>
+	<div><i class="ic-file-sound"></i><span>file-sound</span></div>
+
+	<div><i class="ic-instagram"></i><span>instagram</span></div>
+
+	<div><i class="ic-link"></i><span>link</span></div>
+	<div><i class="ic-long-arrow-left"></i><span>long-arrow-left</span></div>
+	<div><i class="ic-long-arrow-right"></i><span>long-arrow-right</span></div>
+
+	<div><i class="ic-menu"></i><span>menu</span></div>
+
+	<div><i class="ic-navicon"></i><span>navicon</span></div>
+
+	<div><i class="ic-twitter"></i><span>twitter</span></div>
+</section>
+
+<section data-name="typo">
+
+	<div class="h1">Headline 1</div>
+	<div class="h2">Headline 2</div>
+	<div class="h3">Headline 3</div>
+	<div class="h4">Headline 4</div>
+	<div class="h5">Headline 5</div>
+	<div class="h6">Headline 6</div>
+
+	<div class="subtitle1">Subtitle 1</div>
+	<div class="subtitle2">Subtitle 2</div>
+
+	<div class="body1">Body 1</div>
+	<div class="body2">Body 2</div>
+
+	<div class="caption">caption</div>
+	<div class="button">button</div>
+	<div class="overline">overline</div>
+
+	<h1>H1</h1>
+	<h2>H2</h2>
+	<h3>H3</h3>
+	<h4>H4</h4>
+	<h5>H5</h5>
+	<h6>H6</h6>
+
+</section>
+
+<section data-name="app-icons">
+	<img src="ico/icon-512.png">
+	<img src="ico/icon-192.png">
+	<img src="ico/icon-144.png">
+	<img src="ico/icon-96.png">
+	<img src="ico/icon-72.png">
+	<img src="ico/icon-48.png">
+	<img src="ico/icon-32.png">
+	<img src="ico/icon-24.png">
+	<img src="ico/icon-16.png">
+</section>
+
+<style media="screen">
+	section {
+		width: 100%;
+		overflow: hidden;
+	  	text-overflow: ellipsis;
+	  	white-space: nowrap;
+		padding: 40px 0;
+		border-top: 1px solid var(--f-med);
+	}
+	section[data-name="app-icons"] > img {
+		display: block;
+		background: black;
+		margin: 4px 0;
+		padding: 4px;
+	}
+	section[data-name="colors"] div {
+		color: white;
+		margin: 2px 0;
+		padding: 2px 4px;
+	}
+	section[data-name="colors"] div::after {
+		content: attr(data-name);
+	}
+	section[data-name="colors"] div[data-name="background"] { background: var(--background); }
+	section[data-name="colors"] div[data-name="f-high"] { background: var(--f-high); }
+	section[data-name="colors"] div[data-name="f-med"] { background: var(--f-med); }
+	section[data-name="colors"] div[data-name="f-low"] { background: var(--f-low); }
+	section[data-name="colors"] div[data-name="f-inv"] { background: var(--f-inv); }
+	section[data-name="colors"] div[data-name="b-high"] { background: var(--b-high); }
+	section[data-name="colors"] div[data-name="b-med"] { background: var(--b-med); }
+	section[data-name="colors"] div[data-name="b-low"] { background: var(--b-low); }
+	section[data-name="colors"] div[data-name="b-inv"] { background: var(--b-inv); }
+
+	section[data-name="icons"] > div > span {
+		margin-left: 10px;
+	}
+</style>

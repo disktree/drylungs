@@ -1,0 +1,178 @@
+
+<style media="screen">
+	@keyframes square-spin {
+	    25%  { transform: perspective(100px) rotateX(180deg) rotateY(0); }
+	    50%  { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
+	    75%  { transform: perspective(100px) rotateX(0) rotateY(180deg); }
+	    100% { transform: perspective(100px) rotateX(0) rotateY(0); }
+	}
+	.start {
+		cursor: pointer;
+		-webkit-user-select: none;
+	}
+	.preload {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		background: var(--f-med);
+		animation: square-spin 1s 0s cubic-bezier(.09,.57,.49,.9) infinite;
+		display: none;
+	}
+	canvas.spectrum {
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+
+		-webkit-user-select: none;
+		pointer-events: none;
+	}
+</style>
+
+<h1 class="start">PLAY</h1>
+<div class="preload"></div>
+<canvas class="spectrum"></canvas>
+
+<script>
+
+	var canvas, ctx;
+	var analyser, freqData, timeData;
+	var color = "#5e6461";
+	var started = false;
+
+	function update( time ) {
+
+		window.requestAnimationFrame( update );
+
+		analyser.getByteFrequencyData( freqData );
+		analyser.getByteTimeDomainData( timeData );
+
+			/*
+		        var w = window.innerWidth;
+				var h = window.innerHeight;
+				var sliceWidth = Math.floor(w * 1.0 / timeData.length);
+				ctx.clearRect( 0, 0, w, h );
+		        ctx.fillStyle = '#fff';
+		    	//for( i in 0...frequencyData.length ) {
+				for( var i=0; i <= timeData.length; i++ ) {
+					ctx.fillRect( i*sliceWidth, 0, sliceWidth, timeData[i] / (1) );
+				}
+				*/
+
+		/*
+		var vol = 0.0;
+		var i = 0;
+		while( ++i < freqData.length ) vol += freqData[i];
+		vol /= freqData.length;
+		console.log(vol);
+		*/
+
+		ctx.clearRect( 0, 0, canvas.width, canvas.height );
+
+		var v;
+		var hw = canvas.width/2;
+		var hh = canvas.height/2;
+		var x,y;
+
+		ctx.fillStyle = color;
+		for( var i=0; i <= analyser.frequencyBinCount; i++ ) {
+			v = timeData[i];
+			x = i * (canvas.width / analyser.frequencyBinCount);
+			y = hh - (canvas.height * (v / analyser.fftSize)) / 2;
+			ctx.fillRect( x, y, 1, 2 );
+		}
+
+		ctx.strokeStyle = color;
+		ctx.lineWidth = 1;
+		ctx.beginPath();
+		for( var i=0; i <= analyser.frequencyBinCount; i++ ) {
+			v = i / 180 * Math.PI;
+			x = Math.cos(v) * timeData[i];
+			y = Math.sin(v) * timeData[i];
+			ctx.lineTo( hw + x, hh + y );
+		}
+		ctx.stroke();
+	}
+
+	window.onload = function() {
+
+		var main = document.querySelector("body main");
+		var btn = main.querySelector(".start");
+
+		btn.onclick = function() {
+
+			btn.remove();
+
+			main.querySelector(".preload").style.display = 'block';
+
+			canvas = main.querySelector("canvas.spectrum");
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+
+			ctx = canvas.getContext("2d");
+
+			var audioElement = new Audio();
+			//audioElement.preload = "metadata";
+			audioElement.preload = "none";
+			audioElement.crossOrigin = "anonymous";
+			audioElement.controls = false;
+			//audioElement.autoplay = true;
+			//main.appendChild( audioElement );
+			audioElement.play();
+
+			var sourceElement = document.createElement('source');
+			sourceElement.type = 'application/ogg';
+			sourceElement.src = 'http://195.201.41.121:8000/panzerradio';
+			audioElement.appendChild( sourceElement );
+			/*
+			audioElement.oncanplaythrough = function(){
+				console.log("oncanplaythrough");
+			}
+			audioElement.onloadstart = function(){
+				console.log("onloadstart");
+			}
+			audioElement.onplay = function(){
+				console.log("onplay");
+			}
+			 */
+			audioElement.onplaying = function(){
+
+				if( started )
+					return;
+
+				started = true;
+
+				main.querySelector(".preload").remove();
+
+				var audio = new AudioContext();
+
+				analyser = audio.createAnalyser();
+				//analyser.fftSize = 2048;
+				analyser.fftSize = 2048;
+				//analyser.smoothingTimeConstant = 0.8;
+				//analyser.minDecibels = -140;
+				//analyser.maxDecibels = 0;
+				analyser.connect( audio.destination );
+
+				freqData = new Uint8Array( analyser.frequencyBinCount );
+				timeData = new Uint8Array( analyser.frequencyBinCount );
+
+				var source = audio.createMediaElementSource( audioElement );
+				source.connect( analyser );
+
+				window.requestAnimationFrame( update );
+			}
+
+			window.onresize = function() {
+				canvas.width = window.innerWidth;
+		        canvas.height = window.innerHeight;
+			}
+		}
+	}
+
+</script>
