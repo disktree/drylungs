@@ -1,10 +1,10 @@
 {
 	"rootpath": null,
 	"basepath": "",
-	"home": "records",
+	"home": "start",
 	"remap": [
 		{
-			"src": ["","home","index"],
+			"src": ["","/","home","index"],
 			"dst": "records"
 		}
 	],

@@ -37,7 +37,10 @@ class Web {
 		device = { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' };
 
 		try {
-			config = Json.parse( File.getContent( 'dat/config.json' ) );
+			var configSelect = File.getContent( 'dat/select_config' ).trim();
+			var configPath =  'dat/config-$configSelect.json';
+			if( !FileSystem.exists( configPath ) ) configPath = 'dat/config.json';
+			config = Json.parse( File.getContent( configPath ) );
 			//TODO custom host/basepath configs
 			//var basepath = if( host == 'localhost' || host.startsWith( '192.168' ) ) '/pro/drylungs/bin/';
 			//else config.basepath;

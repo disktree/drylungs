@@ -1,6 +1,6 @@
 {
-	"rootpath": null,
-	"basepath": "",
+	"rootpath": "dry",
+	"basepath": "test",
 	"home": "records",
 	"remap": [
 		{
