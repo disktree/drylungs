@@ -6,6 +6,7 @@ _*
 bin/*.php
 bin/lib
 bin/res
+bin/scr/app.js*
 bin/snd
 dat/*
 exp/*
