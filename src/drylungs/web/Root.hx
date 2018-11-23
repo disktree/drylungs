@@ -13,12 +13,16 @@ class Root {
 		print( site.build() );
 	}
 
-	function doRecords( d : Dispatch ) {
-		d.dispatch( new drylungs.web.Records() );
-	}
-
 	function doArtists( d : Dispatch ) {
 		d.dispatch( new drylungs.web.Artists() );
+	}
+
+	function doAscii() {
+		print( '<pre>'+Resource.get( 'ascii' )+'</pre>' );
+	}
+
+	function doDev( d : Dispatch ) {
+		d.dispatch( new drylungs.web.Dev() );
 	}
 
 	function doFeed( ?file : String ) {
@@ -39,22 +43,9 @@ class Root {
 			print( xml );
 		}
 	}
-
-	function doVersion() {
-		print('<pre>COMMIT: '+drylungs.macro.Build.getGitCommit()+'</pre>');
-		print('<pre>TAG: '+drylungs.macro.Build.getGitTag()+'</pre>');
-	}
-
-	function doContext() {
-		#if debug
-		print( [Web.config,Template.globals].map( e->{
-			return'<pre>'+haxe.format.JsonPrinter.print( e, '  ' )+'</pre>';
-		}).join('') );
-		#end
-	}
-
-	function doAscii() {
-		print( '<pre>'+Resource.get( 'ascii' )+'</pre>' );
+	
+	function doRecords( d : Dispatch ) {
+		d.dispatch( new drylungs.web.Records() );
 	}
 
 	function doSitemap( d : Dispatch ) {
