@@ -41,12 +41,8 @@ class Root {
 	}
 
 	function doVersion() {
-		#if release
 		print('<pre>COMMIT: '+drylungs.macro.Build.getGitCommit()+'</pre>');
 		print('<pre>TAG: '+drylungs.macro.Build.getGitTag()+'</pre>');
-		#else
-		print( 'VERSION INFO IS ONLY AVAILABLE IN RELEASE MODE' );
-		#end
 	}
 
 	function doContext() {
