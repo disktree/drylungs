@@ -1,3 +1,6 @@
+::if (records.length==0)::
+<div>NO RECORD FOUND</div>
+::else::
 ::foreach records::
 <a class="record" href="records/::id::" title="::id::">
 	<div class="details" title="::name::">
@@ -12,3 +15,4 @@
 		<img class="front" src="img/cover/400/::id::.jpg" alt="::id:: cover"/>
 	</picture>
 </a>::end::
+::end::

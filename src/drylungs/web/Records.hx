@@ -1,5 +1,7 @@
 package drylungs.web;
 
+using Lambda;
+
 private typedef Link = {
 	name: String,
 	uri: String
@@ -41,8 +43,6 @@ class Records {
 			rec.i = (i+1);
 			rec.prev = list[ (i==0) ? list.length-1 : i-1].id;
 			rec.next = list[ (i==list.length-1) ? 0 : i+1].id;
-			//rec.name = rec.name.split('\n').join('<br>');
-			//rec.description = if( rec.description == null ) '–' else formatText( rec.description );
 			rec.description = formatText( rec.description );
 			rec.notes = formatText( rec.notes );
 			//rec.notes = rec.notes.split('\n').join('<br>');
@@ -69,6 +69,11 @@ class Records {
 
 	public function new() {
 		list = loadData();
+	}
+
+	function get( id : String ) : Record {
+		for( r in list ) if( r.id == id ) return r;
+		return null;
 	}
 
 	function doDefault( ?id : String ) {
@@ -108,23 +113,18 @@ class Records {
 		}
 	}
 
-	//function doNext( ?id : String ) {
-
-	/*
-	function doAll() {
-		Sys.print( new Site( 'records' ).build( { records: list } ) );
-	}
-
 	function doYear( year : Int ) {
-		var records = new Array<Record>();
-		for( r in list ) {
-			if( Date.fromString( r.date ).getFullYear() == year ) {
-				records.push( r );
-			}
-		}
-		Sys.print( new Site( 'records' ).build( { records: records } ) );
+		print( new Site( 'records' ).build( { records: list.filter( r -> {
+			return Date.fromString( r.date ).getFullYear() == year;
+		}) } ) );
 	}
-	*/
+
+	function doArtist( name : String ) {
+		name = name.toLowerCase();
+		print( new Site( 'records' ).build( { records: list.filter( r -> {
+			return r.artists.map( a -> return a.toLowerCase() ).has( name );
+		}) } ) );
+	}
 
 	/*
 	function doArtists( ?name : String ) {
@@ -155,10 +155,5 @@ class Records {
 		d.dispatch( new drylungs.web.Discogs() );
 	}
 	*/
-
-	function get( id : String ) : Record {
-        for( r in list ) if( r.id == id ) return r;
-        return null;
-    }
 
 }
