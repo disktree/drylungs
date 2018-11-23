@@ -101,7 +101,7 @@ class Records {
 				site.context.keywords = site.context.keywords.concat([record.id]);
 				site.context.twitter.card = 'summary_large_image';
 				site.context.twitter.title = 'DRYLUNGS/'+record.id;
-				site.context.twitter.description = record.name;
+				site.context.twitter.description = record.name+' by '+record.artists.join('/');
 				site.context.twitter.image = 'cover/1000/'+record.id+'.jpg';
 				site.context.twitter.image_alt = record.id;
 				site.context.music = {
