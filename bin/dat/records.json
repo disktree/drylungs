@@ -4,22 +4,20 @@
         "name": "Live At Fluc Wanne, 2010/05/18",
         "artists": ["Merzbow","Balázs Pándi"],
         "format": "Vinyl 12\"",
-        "date": "2010-01-01",
-		"description": null,
-		"notes": null,
+        "date": "2010-09-16",
+		"description": "180g vinyl (1c printed labels) housed in shrinkwrapped gatefold cover, limited to 500 hand-numbered copies.",
+		"notes": "I have been thinking about starting a label for many years prior but when I heard that Merzbow will play in hometown of Vienna again I just knew it was the time to act! Decided to go no holds barred budget wise, I rented a hq mixing console for the night & hired an audio engineer for proper recording (every piece of the drum kit was recorded on its own line for example) which was all dumped to a harddrive and given to Masami Akita right away for mastering later at home in Tokyo! Incredibly happy with the end result and the feedback/orders received right away the plan to continue this \"Noise Live in Vienna as HQ LP releases\" was only logically but little did I know the austrian post office was about to foil this plan by adjusting postage prices to up to three times than what they used to be which basically stopped all international orders over night...",
 		"color": "#111010",
         "tracks": [
             {
                 "position": "A1",
                 "name": "Untitled",
-                "duration": "23:02",
-				"file": "A_Untitled.mp3"
+                "duration": "23:02"
             },
             {
                 "position": "B1",
                 "name": "Untitled",
-                "duration": "24:06",
-				"file": "B_Untitled.mp3"
+                "duration": "24:06"
             }
         ],
 		"links": [
@@ -35,25 +33,29 @@
         "artists": ["Bruital Orgasme"],
         "format": "Vinyl 7\"",
 		"date": "2011-03-01",
-		"description": null,
-        "notes": "Limited to 200 pieces with a big center hole (black labels) housed in a clear PVC sleeve and artwork insert.",
+		"description": "Clear single-sided vinyl with big center holes (black labels) housed in a clear PVC sleeve and artwork insert, limited to 200 copies.",
+        "notes": "Not being able to continue with my original LP plans I decided to go for 7\" Singles instead. As luck would have it my friend Wolfgang from \"Hirntrust Grindmedia\" was looking for a label to co-release this plate with and since the belgian underground content was to my liking I had to jump on that opportunity!",
 		"color": "#9F9A9C",
         "tracks": [
             {
                 "position": "A1",
-                "name": "Mesir Macunu"
+                "name": "Mesir Macunu",
+                "duration": "2:30"
             },
             {
                 "position": "A2",
-                "name": "Intermede"
+                "name": "Intermede (Spoken Word Performance by Jessica King from \"The Haters\")",
+                "duration": "2:18"
             },
             {
                 "position": "A3",
-                "name": "Supraluminique"
+                "name": "Supraluminique",
+                "duration": "0:52"
             },
             {
                 "position": "A4",
-                "name": "Des Temoins Auditifs"
+                "name": "Des Temoins Auditifs",
+                "duration": "0:18"
             }
         ],
 		"links": [
@@ -69,8 +71,8 @@
         "artists": ["Justice Yeldham"],
         "format": "Vinyl 12\"",
         "date": "2012-04-01",
-		"description": null,
-        "notes": "Limited to 300 copies housed in a thick PVC sleeve.",
+		"description": "Picture Disc housed in a thick PVC sleeve, limited to 300 copies.",
+        "notes": "As a longtime admirer of Lucas Abela aka Justice Yeldham when I read that he is planning to do a Pic 12\" featuring Live recordings with the help of crowd funding my interest was sparked immediately! Add the fact that my pressing plant was having a special deal on Picture Disc Pressings during that time and that Lucas offered to help sell my copies too once his are out, it only made sense to arrange a half/half co-release with \"dualpLOVER\" from australia.",
         "tracks": [
             {
                 "position": "A1",
@@ -101,8 +103,8 @@
         "artists": ["Raven"],
         "format": "Vinyl 7\"",
         "date": "2012-12-01",
-		"description": null,
-        "notes": "The cover is printed onto a folded A4 piece of paper and comes with an extra inlay sheet. Cat# taken from the label websites since nothing is written on the physical release.\nLimited to 200 plates with big center holes.",
+		"description": "Black vinyl with big center holes (white labels) and the cover printed onto a folded A4 piece of paper, comes with an extra inlay sheet, limited to 200 copies.",
+        "notes": "Enjoyed a commission from this serbian artist and with the help of 3 other DIY labels (\"NHDIYSTREC\", \"Rauha Turva\" & \"Underground Pollution Records\") we managed to release this cost efficient plate from it! First and only time I used a folded A4 sheet as cover to safe money but should've just spent a bit more and go for a proper ones, gotta learn from past mistakes ;)",
         "tracks": [
             {
                 "position": "A",
@@ -123,8 +125,8 @@
         "artists": ["Otomo Yoshihide","Lasse Marhaug"],
         "date": "2013-12-01",
         "format": "Vinyl 7\"",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "notes": "Recorded on the 6th February 2011 at Tokyo Superdeluxe.\nLimited to 300 plates with a big center hole (black labels) housed in an all black cover with gold pantone 876c printed letters.",
+		"description": "Black vinyl with big center holes (black labels) housed in an all black cover with gold pantone 876c printed letters, limited to 300 copies.",
+        "notes": "When Lasse Marhaug wrote if I was interested in doing a Single with stuff he recorded together with Otomo Yoshihide on the 6th February 2011 at Tokyo Superdeluxe, I was straight up honoured. It only took a handful of emails til Marhaug came up with a complete concept for the release including that specially printed gold letter cover, was a true joy and minimal effort on my part to release these legendary artists!",
         "tracks": [
             {
                 "position": "A",
@@ -141,20 +143,22 @@
     },
     {
         "id": "MDMA004",
-        "name": "To Know Death...\nYou Have To Fuck Life In The Gallbladder",
+        "name": "To Know Death... You Have To Fuck Life In The Gallbladder",
         "artists": ["Solypsis"],
-        "date": "2016-02-13",
+        "date": "2014-11-01",
         "format": "Vinyl 7\"",
-		"description": null,
-        "notes": "Limited to 200 red plates with a big center hole (black labels).",
+		"description": "Red vinyl with big center holes (black labels), limited to 200 copies.",
+        "notes": "Been talking to James Miller about a possible release for a while but since his catalogue is so vast it was always a problem to pick something from it. Easiest solution proofed to be him just making brand new tracks that were basically tailormade to fit my label and rearranged over quite some time before everyone was fully satisfied with it. All the work really paid off tho as it turned out to be one of the most danceable noise plates in recent history!",
         "tracks": [
             {
                 "position": "A",
-                "name": "To Know Death..."
+                "name": "To Know Death...",
+                "duration": "6:06"
             },
             {
                 "position": "B",
-                "name": "...You Have To Fuck Life In The Gallbladder"
+                "name": "...You Have To Fuck Life In The Gallbladder",
+                "duration": "6:45"
             }
         ],
 		"color": "#B6B6B6"
@@ -163,10 +167,10 @@
         "id": "MDMA005",
         "name": "Snell b/w Weather",
         "artists": ["Sissy Spacek"],
-        "date": "2016-02-13",
+        "date": "2015-06-01",
         "format": "Vinyl 7\"",
-		"description": null,
-        "notes": "Recorded December 31st 2014 in Hill Street, Los Angeles.\nLimited to 300 black plates with a big center hole (1c printed labels).",
+		"description": "Black vinyl with big center holes (1c printed labels), limited to 300 copies.",
+        "notes": "When John Wiese, who always was and still is one of my favorite noise people in the USA today, asked if I was interested in releasing a Sissy Spacek recording from \"December 31st 2014 in Hill Street, Los Angeles\" it cant have been more than a week til everything was ready for production and my friend Wolfgang from \"Hirntrust Grindmedia\" said he was down to co-release this incredibly brutal noise & drums plate!",
         "tracks": [
             {
                 "position": "A",
@@ -185,10 +189,10 @@
         "id": "MDMA006",
         "name": "Futanari Princess",
         "artists": ["Venta Protesix"],
-        "date": "2016-02-13",
+        "date": "2015-11-01",
         "format": "Vinyl 7\"",
-		"description": null,
-		"notes": "Limited to 300 handnumbered copies with a big center hole.\nInlays silkscreened by C-LUET, most with black ink, some randomly with red ink.",
+		"description": "Pink vinyl with big center holes (white labels) and silkscreened insert (black or red ink on pink paper), limited to 300 copies.",
+		"notes": "Together with 3 other DIY labels (\"Cipher Productions\", \"Lonktaar\" & \"Underground Pollution Records\") I managed to put out one of the nastiest digital noise singles to ever be pressed onto vinyl! Japan obsessed weirdness from Italy with the \"pinku\" theme stretching across the whole release brilliantly!",
         "tracks": [
             {
                 "position": "A",
@@ -209,8 +213,8 @@
         "artists": ["KK Null"],
         "date": "2016-03-30",
         "format": "Vinyl 7\"",
-		"description": null,
-		"notes": "All music composed & produced by Kazuyuki Kishimo at prima natura studio 2015.\nLimited to 300 black plates with a big center hole (1c printed labels).",
+		"description": "Black vinyl with big center holes (1c printed labels), limited to 300 copies.",
+		"notes": "Had to look twice when there was a message from the legendary Kazuyuki Kishimo in my mail box asking if I wanna release something with him! If one of your alltime favorite artists contacts you on his own there really only is one right answer & to make this release as grande as it needed to be I had to get Wolfgang from \"Hirntrust Grindmedia\" on board too for our third co-release together! Can't begin to state how happy I am with every aspect of the end result :)",
         "tracks": [
             {
                 "position": "A",
