@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'FontRegular';
   font-display: block;
-  src: local('Liberation Mono'), url('../fnt/liberation_mono-regular.woff2') format('woff2'), url('../fnt/liberation_mono-regular.ttf') format('truetype');
+  src: local('Liberation Mono'), url('../fnt/helvetica_neue_65.woff2') format('woff2'), url('../fnt/helvetica_neue_65.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FontTitle';
@@ -894,7 +894,7 @@ body > main.record > .nav a.next::after {
   body > main.record {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(7, auto) 4rem;
-    grid-template-areas: "artists" "title" "details" "tracks" "notes" "description" "cover" "nav";
+    grid-template-areas: "artists" "title" "details" "description" "tracks" "notes" "cover" "nav";
     grid-row-gap: 1em;
   }
   body > main.record > .details,
@@ -943,7 +943,7 @@ body > main.record > .nav a.next::after {
   body > main.record {
     grid-template-rows: repeat(7, auto) 1fr;
     grid-template-columns: auto 1fr;
-    grid-template-areas: "artists artists" "title title" "details details" "tracks tracks" "notes notes" "description description" "cover cover" "nav nav";
+    grid-template-areas: "artists artists" "title title" "details details" "description description" "tracks tracks" "notes notes" "cover cover" "nav nav";
     grid-row-gap: 1.5rem;
   }
   body > main.record > .title {

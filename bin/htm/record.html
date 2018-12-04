@@ -6,6 +6,7 @@
 	<div class="year" title="Released">::record.year::</div>
 </div>
 ::if record.notes::<div class="notes" title="Notes">::record.notes::</div>::end::
+::if record.description::<div class="description" title="Description">::record.description::</div>::end::
 ::if record.tracks::<div class="tracks">
 	::foreach record.tracks::
 	<div class="track">
@@ -37,7 +38,6 @@
 		<img class="back" src="img/cover/400/::record.id::_back.jpg" alt="::record.id:: cover back"/>
 	</picture>
 </div>
-::if record.description::<div class="description" title="Description">::record.description::</div>::end::
 <div class="nav">
 	<a href="records/::record.prev::" class="prev" title="::record.prev::">PREV</a>
 	<a href="records/::record.next::" class="next" title="::record.next::">NEXT</a>
