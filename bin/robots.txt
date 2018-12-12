@@ -1,9 +1,12 @@
 User-agent: *
-Allow: /image/
-Disallow: /data/
+Disallow: /css/
+Disallow: /dat/
 Disallow: /dev/
-Disallow: /font/
-Disallow: /html/
+Disallow: /fnt/
+Disallow: /htm/
+Disallow: /ico/
+Disallow: /img/
 Disallow: /lib/
 Disallow: /res/
-Disallow: /site/
+Disallow: /scr/
+Disallow: /web/
