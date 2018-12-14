@@ -18,7 +18,7 @@
 		<link href="http://drylungs.at/records/::id::" />
 		::if description::<summary>::description::</summary>::end::
 		<content type="html">
-
+			<![CDATA[<record>::notes::</record>]]>
 		</content>
 		<author>
 			<name>Christoph</name>

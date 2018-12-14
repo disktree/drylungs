@@ -17,13 +17,15 @@ body > main.records {
 
 	> a.record {
 		position: relative;
-		//user-select: none;
-		&:focus {
-		}
+		user-select: none;
+		transition: transform 0.1s;
+		//filter: grayscale(30%);
+		//transform: scale(0.99);
 		.details {
 			display: flex;
 			position: absolute;
 			z-index: 100;
+			opacity: 0.98;
 			.id {
 				display: none;
 				background: var(--background);
@@ -51,6 +53,16 @@ body > main.records {
 				//max-width: 60vh;
 				//max-height: 60vh;
 				//z-index: 2;
+			}
+		}
+		&:focus {
+			border: 1px solid var(--f-med);
+		}
+		&:hover {
+			transform: scale(1.01);
+			//filter: none;
+			.details {
+				opacity: 1;
 			}
 		}
 		/*

@@ -17,9 +17,11 @@ class Root {
 		d.dispatch( new drylungs.web.Artists() );
 	}
 
+	/*
 	function doAscii() {
 		print( '<pre>'+Resource.get( 'ascii' )+'</pre>' );
 	}
+	*/
 
 	function doDev( d : Dispatch ) {
 		d.dispatch( new drylungs.web.Dev() );
@@ -43,7 +45,7 @@ class Root {
 			print( xml );
 		}
 	}
-	
+
 	function doRecords( d : Dispatch ) {
 		d.dispatch( new drylungs.web.Records() );
 	}

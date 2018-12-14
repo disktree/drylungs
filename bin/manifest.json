@@ -2,7 +2,7 @@
     "name": "DryLungsRecords",
     "short_name": "DryLungs",
 	"description": "Records & Mailorder",
-    "start_url": ".",
+    "start_url": "http://drylungs.at/",
     "display": "standalone",
     "theme_color": "#101111",
     "background_color": "#101111",
