@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'FontRegular';
   font-display: block;
-  src: local('Liberation Mono'), url('../fnt/helvetica_neue_65.woff2') format('woff2'), url('../fnt/helvetica_neue_65.ttf') format('truetype');
+  src: local('Liberation Mono'), url('../fnt/liberation_mono-regular.woff2') format('woff2'), url('../fnt/liberation_mono-regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FontTitle';
@@ -12,6 +12,25 @@
   font-family: 'FontIcon';
   font-display: block;
   src: url('../fnt/fa.woff2') format('woff2'), url('../fnt/fa.woff') format('woff'), url('../fnt/fa.ttf') format('truetype'), url('../fnt/fa.svg') format('svg');
+}
+/*
+@font-face {
+	font-family: 'P0T';
+	font-display: block;
+	src:
+		url('@{font-filepath}/fnt/P0T-NOoDLE_v1.0.woff2') format('woff2'),
+		url('@{font-filepath}/fnt/P0T-NOoDLE_v1.0.ttf') format('truetype');
+}
+*/
+@font-face {
+  font-family: 'MicroKnight';
+  font-display: block;
+  src: url('../fnt/MicroKnight_v1.0.woff2') format('woff2'), url('../fnt/MicroKnight_v1.0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MicroKnightPlus';
+  font-display: block;
+  src: url('../fnt/MicroKnightPlus_v1.0.woff2') format('woff2'), url('../fnt/MicroKnightPlus_v1.0.ttf') format('truetype');
 }
 :root {
   --background: #101111;
@@ -55,6 +74,8 @@ body {
   line-height: 1.25rem;
   letter-spacing: 0.01785714em;
   text-transform: inherit;
+  background: #101111;
+  color: #5e6461;
   background: var(--background);
   color: var(--f-med);
   -webkit-tap-highlight-color: var(--f-med);
@@ -173,6 +194,7 @@ p {
 }
 a {
   outline: none;
+  color: #5e6461;
   color: var(--f-med);
   /*
 	&:focus {
@@ -201,6 +223,29 @@ button {
   border: none;
   outline: none;
   background: transparent;
+}
+.ascii {
+  font-family: 'MicroKnight';
+  font-size: 1em;
+  line-height: 1;
+  white-space: pre;
+  display: table;
+  margin: 10vh auto 8vh auto;
+  cursor: default;
+}
+.ascii i {
+  font-style: normal;
+  /*
+		display: inline;
+		font-family: 'MicroKnightPlus';
+		&::selection {
+			background: #000;
+			color: #0000ff;
+		}
+		*/
+}
+.ascii i.plus {
+  font-family: 'MicroKnightPlus';
 }
 .hamburger {
   overflow: visible;
@@ -532,12 +577,6 @@ body > aside.social {
 }
 body > footer {
   grid-area: footer;
-  font-family: 'FontRegular';
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1.25rem;
-  letter-spacing: 0.03333333em;
-  text-transform: inherit;
 }
 @media (max-width: 720px) {
   body {
@@ -702,6 +741,8 @@ body > main.records {
 }
 body > main.records > a.record {
   position: relative;
+  user-select: none;
+  transition: transform 0.1s;
   /*
 		&:hover {
 			//transition: transform 0.2s;
@@ -725,6 +766,7 @@ body > main.records > a.record .details {
   display: flex;
   position: absolute;
   z-index: 100;
+  opacity: 0.98;
 }
 body > main.records > a.record .details .id {
   display: none;
@@ -748,6 +790,15 @@ body > main.records > a.record .details .artists > *:not(:last-child)::after {
 body > main.records > a.record > picture > img {
   display: block;
   width: 100%;
+}
+body > main.records > a.record:focus {
+  border: 1px solid var(--f-med);
+}
+body > main.records > a.record:hover {
+  transform: scale(1.01);
+}
+body > main.records > a.record:hover .details {
+  opacity: 1;
 }
 body > main.record {
   display: grid;

@@ -34,7 +34,7 @@ class App {
 
 	static function main() {
 
-		console.info( '%c⛧ DRYLUNGS ⛧', 'color:#101111' );
+		console.info( '%c⛧ DRYLUNGS ⛧', 'color:#ff0000;font-size:100px;' );
 
 		document.addEventListener( 'readystatechange', function(e){
 
@@ -76,7 +76,7 @@ class App {
 
 				switch page {
 				case 'start':
-					//var ani = new drylungs.app.StartAnimation();
+					var ani = new drylungs.app.StartAnimation();
 					//ani.start();
 				case 'record':
 					window.onkeydown = function(e){
