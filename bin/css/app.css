@@ -230,7 +230,7 @@ button {
   line-height: 1;
   white-space: pre;
   display: table;
-  margin: 10vh auto 8vh auto;
+  margin: 4vh auto 4vh 0;
   cursor: default;
 }
 .ascii i {

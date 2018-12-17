@@ -5,7 +5,6 @@ Disallow: /dev/
 Disallow: /fnt/
 Disallow: /htm/
 Disallow: /ico/
-Disallow: /img/
 Disallow: /lib/
 Disallow: /res/
 Disallow: /scr/

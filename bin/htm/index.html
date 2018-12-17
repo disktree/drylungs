@@ -24,8 +24,7 @@
 		::if (site.twitter.creator)::<meta name="twitter:creator" content="@::site.twitter.creator::"/>::end::
 		::if (site.twitter.title)::<meta name="twitter:title" content="::site.twitter.title::"/>::end::
 		::if (site.twitter.description)::<meta name="twitter:description" content="::site.twitter.description::"/>::end::
-		::if (site.twitter.image)::<meta name="twitter:image" content="http://::host::/img/::site.twitter.image::"/>::end::
-		::if (site.twitter.image_alt)::<meta name="twitter:image:alt" content="::site.twitter.image_alt::"/>::end::
+		::if (site.twitter.image)::<meta name="twitter:image" content="::site.uri::/img/::site.twitter.image::"/>::end::
 		::end::
 
 		::if (site.music)::
