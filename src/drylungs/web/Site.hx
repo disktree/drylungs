@@ -2,6 +2,9 @@ package drylungs.web;
 
 class Site {
 
+	public static final TPL_PATH = 'htm';
+	public static final TPL_EXTS = ['html','htm'];
+
 	public var id(default,null) : String;
 	public var context(default,null) : Dynamic;
 
@@ -45,22 +48,25 @@ class Site {
 			site: context,
 			content: tpl.execute( ctx )
 		} );
-		/*
-		return
-			#if fuck
-			html;
-			#else
-			om.html.Minifier.minify( html );
-			#end
-		*/
 		return html;
 	}
 
-	public static function getTemplate( id : String ) : Template {
-		var path = 'htm/$id.html';
-		//var path = 'htm/$id-${Web.device.type}.html';
-		//if( !FileSystem.exists( path ) ) path = 'htm/$id.html';
-		if( !FileSystem.exists( path ) )
+	public static function getTemplate( id : String, ?ext : String ) : Template {
+		var path : String = null;
+		if( ext != null ) {
+			path = '$TPL_PATH/$id.$ext';
+			if( !FileSystem.exists( path ) )
+				return null;
+		} else {
+			for( ext in TPL_EXTS ) {
+				var p = '$TPL_PATH/$id.$ext';
+				if( FileSystem.exists( p ) ) {
+					path = p;
+					break;
+				}
+			}
+		}
+		if( path == null )
 			return null;
 		return new Template( File.getContent( path ) );
 	}
