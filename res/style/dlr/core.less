@@ -108,29 +108,26 @@ button {
 
 
 .ascii {
+	display: table;
 	white-space: pre;
+	margin: 4vh auto 4vh 0;
     font-family: 'MicroKnight';
-    font-size: 1em;
 	line-height: 1;
-	white-space: pre;
-    display: table;
-    margin: 4vh auto 4vh 0;
 	cursor: default;
 	i {
-		//color: red;
-		font-style: normal;
-		/*
 		display: inline;
-		font-family: 'MicroKnightPlus';
+		font-style: normal;
 		&::selection {
-			background: #000;
-			color: #0000ff;
+			background: var(--f-inv) !important;
+			color: var(--b-inv) !important;
 		}
-		*/
+
 		&.plus {
-			//color: #0000ff;
 			font-family: 'MicroKnightPlus';
+			&::selection {
+				background: var(--b-inv) !important;
+				color: var(--f-inv) !important;
+			}
 		}
 	}
-
 }
