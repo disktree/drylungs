@@ -13,7 +13,6 @@
 		::if site.keywords::<meta name="keywords" content="::foreach site.keywords::::__current__::,::end::">::end::
 		::if site.publisher::<meta name="publisher" content="::site.publisher::">::end::
 		::if site.mobile::<meta name="mobile-web-app-capable" content="yes">::end::
-
 		<meta property="og:url" content="::site.uri::">
 		<meta property="og:site_name" content="Drylungs Records">
 		<meta property="og:title" content="Drylungs Records">
@@ -26,12 +25,10 @@
 		::if (site.twitter.description)::<meta name="twitter:description" content="::site.twitter.description::"/>::end::
 		::if (site.twitter.image)::<meta name="twitter:image" content="::site.uri::/img/::site.twitter.image::"/>::end::
 		::end::
-
 		::if (site.music)::
 		::if (site.music.musician)::<meta property="music:musician" content="::site.music.musician::">::end::
 		::if (site.music.release_date)::<meta property="music:release_date" content="::site.music.release_date::">::end::
 		::end::
-
 		::if baseURI::<base href="::baseURI::"/>::end::
 
 		<title>::site.title::</title>
@@ -39,16 +36,13 @@
 		<link rel="stylesheet" media="screen" href="css/reset.css">
 		<link rel="stylesheet" media="screen" href="css/app.css">
 		<link rel="stylesheet" media="screen" href="css/device-::device.type::.css">
-		::if theme::
-		<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">
-		::end::
-
+		::if theme::<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">::end::
 		<link rel="shortcut icon" href="favicon.ico">
-		::foreach icons::<link rel="icon" href="ico/icon-::__current__::.png" sizes="::__current__::x::__current__::">::end::
+		::foreach icons::<link rel="icon" href="ico/icon-::__current__::.png" sizes="::__current__::x::__current__::">
+		::end::
 		<link rel="alternate" href="feed" type="application/atom+xml" title="Dry Lungs Records"/>
 		<link rel="author" href="humans.txt" type="text/plain">
 		<link rel="manifest" href="manifest.json">
-
 		<script async src="scr/app.js"></script>
 
     </head>
@@ -60,9 +54,9 @@
 					<span class="hamburger-inner"></span>
 				</span>
 			</button>
-			<div class="title">::site.name::</div>
+			<a href="/" class="title">::site.name::</a>
 			::if site.page::
-			<div class="page">::site.page::</div>
+			<a class="page">::site.page::</div>
 			::end::
 		</header>
 		<nav class="hidden">
