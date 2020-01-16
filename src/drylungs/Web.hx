@@ -11,6 +11,7 @@ typedef Device = {
 	var type: String;
 }
 
+@:keep
 class Web {
 
 	public static var config(default,null) : Dynamic;
@@ -37,41 +38,46 @@ class Web {
 		device = { desktop: !isMobile, mobile: isMobile, type : isMobile ? 'mobile' : 'desktop' };
 
 		try {
-			var configSelect = File.getContent( 'dat/select_config' ).trim();
-			var configPath =  'dat/config-$configSelect.json';
-			if( !FileSystem.exists( configPath ) ) configPath = 'dat/config.json';
+			var configName = File.getContent( 'cfg/active' ).trim();
+			var configPath = 'cfg/$configName.json';
+			if( !FileSystem.exists( configPath ) ) configPath = 'cfg/default.json';
 			config = Json.parse( File.getContent( configPath ) );
 			//TODO custom host/basepath configs
 			//var basepath = if( host == 'localhost' || host.startsWith( '192.168' ) ) '/pro/drylungs/bin/';
 			//else config.basepath;
-			var rootpath : String = config.rootpath;
-			if( rootpath != null ) {
-				//if( !rootpath.startsWith( '/' ) ) rootpath = '/'+rootpath;
-				//if( !rootpath.endsWith( '/' ) ) rootpath = rootpath+'/';
-				path = path.substr( rootpath.length );
-				//baseURI = baseURI
-			}
-			var basepath : String = config.basepath;
-			if( basepath != null ) {
-				if( !basepath.startsWith( '/' ) ) basepath = '/'+basepath;
-				if( !basepath.endsWith( '/' ) ) basepath = basepath+'/';
-				path = path.substr( basepath.length );
-				baseURI += basepath;
-			}
-			if( config.remap != null ) {
-				for( remap in cast(config.remap,Array<Dynamic>) ) {
-					for( src in cast(remap.src,Array<Dynamic>) ) {
-						if( src == path ) {
-							path = remap.dst;
-						}
-					}
-				}
-			}
 		} catch(e:Dynamic) {
 			error( Std.string(e) );
 		}
 
+		var rootpath : String = config.rootpath;
+		if( rootpath != null ) {
+			//if( !rootpath.startsWith( '/' ) ) rootpath = '/'+rootpath;
+			//if( !rootpath.endsWith( '/' ) ) rootpath = rootpath+'/';
+			path = path.substr( rootpath.length );
+			//baseURI = baseURI
+		}
+		var basepath : String = config.basepath;
+		if( basepath != null ) {
+			if( !basepath.startsWith( '/' ) ) basepath = '/'+basepath;
+			if( !basepath.endsWith( '/' ) ) basepath = basepath+'/';
+			path = path.substr( basepath.length );
+			baseURI += basepath;
+		}
+		if( config.remap != null ) {
+			for( remap in cast(config.remap,Array<Dynamic>) ) {
+				for( src in cast(remap.src,Array<Dynamic>) ) {
+					if( src == path ) {
+						path = remap.dst;
+					}
+				}
+			}
+		}
+
 		var theme = params.exists( 'theme' ) ? params.get( 'theme' ) : config.theme;
+		if( theme == 'random' ) {
+			var files = FileSystem.readDirectory('css/theme');
+			theme = files[Std.int(files.length*Math.random())].withoutExtension();
+		}
 
 		Template.globals = {
 			host: host,

@@ -3,11 +3,16 @@ _*
 *.css.map
 *.js.map
 *.zip
+
 bin/*.php
 bin/lib
+bin/cfg
+!bin/cfg/active
+!bin/cfg/default.json
 bin/res
 bin/scr/app.js*
 bin/snd
+
 dat/*
 exp/*
 res/icon/*.png

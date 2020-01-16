@@ -2,7 +2,8 @@
 -main drylungs.Web
 -cp src
 -lib om.core
-#-lib om.html
+-lib om.http
+-lib om.tpl
 -lib om.web
 -lib om.gittools
 -dce full
