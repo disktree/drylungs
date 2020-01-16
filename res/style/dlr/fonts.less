@@ -1,8 +1,6 @@
 
-@font-filepath: "../fnt";
-
 @font-face {
-    font-family: @font-regular;
+    font-family: @font-family-regular;
 	font-display: block;
     src:
         local('Liberation Mono'),
@@ -10,7 +8,7 @@
         url('@{font-filepath}/liberation_mono-regular.ttf') format('truetype');
 }
 @font-face {
-    font-family: @font-title;
+    font-family: @font-family-title;
 	font-display: block;
     src:
         url('@{font-filepath}/helvetica_neue_65.woff2') format('woff2'),
@@ -18,7 +16,7 @@
         url('@{font-filepath}/helvetica_neue_65.ttf') format('truetype');
 }
 @font-face {
-	font-family: @font-icon;
+	font-family: @font-family-icon;
 	font-display: block;
 	src:
 		url('@{font-filepath}/fa.woff2') format('woff2'),

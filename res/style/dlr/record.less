@@ -3,7 +3,7 @@ body > main.record {
 	display: grid;
 	> .title {
 		grid-area: title;
-		font-family: @font-title;
+		font-family: @font-family-title;
 		&::after {
 			content: ".";
 		}
@@ -129,7 +129,7 @@ body > main.record {
 		}
 		> .details, > .notes, > .description, > .tracks {
 			padding-left: 0.75rem;
-			border-left: 1px solid var(--f-med);
+			border-left: 0.1rem solid var(--f-med);
 		}
 		> .artists {
 			.h6;
@@ -178,7 +178,7 @@ body > main.record {
 			.h6;
 		}
 		> .details, > .notes, > .description, > .tracks {
-			border-left: 1px solid var(--f-med);
+			border-left: 0.1rem solid var(--f-med);
 			padding-left: 0.75rem;
 			max-width: 800px;
 		}
