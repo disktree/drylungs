@@ -3,12 +3,15 @@ _*
 *.css.map
 *.js.map
 *.zip
+.vscode
 
 bin/*.php
 bin/lib
 bin/cfg
 !bin/cfg/active
 !bin/cfg/default.json
+bin/css/app.css*
+bin/msh
 bin/res
 bin/scr/app.js*
 bin/snd

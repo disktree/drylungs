@@ -11,12 +11,12 @@
         "tracks": [
             {
                 "position": "A1",
-                "name": "Untitled",
+                "name": "A_Untitled",
                 "duration": "23:02"
             },
             {
                 "position": "B1",
-                "name": "Untitled",
+                "name": "B_Untitled",
                 "duration": "24:06"
             }
         ],
@@ -94,7 +94,13 @@
                 "name": "March Of The Bodypumpers",
                 "duration": "4:54"
             }
-        ],
+		],
+		"links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Justice-Yeldham-Justice-Yeldham/release/3505367"
+			}
+		],
 		"color": "#B1513D"
     },
     {
