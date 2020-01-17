@@ -30,14 +30,18 @@ body > main.record {
 				margin: 0 1ch;
 			}
 		}
-		> .format {
+		> .format,
+		> .year,
+		> .links {
 			&::before {
 				padding-right: 1ch;
 			}
 		}
-		> .year {
-			&::before {
-				padding-right: 1ch;
+		> .links {
+			display: flex;
+			a {
+				font-size: 0.75rem;
+				padding-right: 0.5ch;
 			}
 		}
 	}
@@ -96,6 +100,7 @@ body > main.record {
 		grid-area: nav;
 		.typo-caption;
 		.no-user-select;
+		//text-align: right;
 		a {
 			.icon;
 			&.prev::before {

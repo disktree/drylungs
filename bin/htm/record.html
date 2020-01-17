@@ -4,6 +4,13 @@
 	<div class="id" title="Id">::record.id::</div>
 	<div class="format" title="Format">::record.format::</div>
 	<div class="year" title="Released">::record.year::</div>
+	::if record.links::
+	<ul class="links">
+		::foreach record.links::
+		<li><a class="ic-::name::" href="::uri::"></a></li>
+		::end::
+	</ul>
+	::end::
 </div>
 ::if record.notes::<div class="notes" title="Notes">::record.notes::</div>::end::
 ::if record.description::<div class="description" title="Description">::record.description::</div>::end::
@@ -13,6 +20,7 @@
 		<span class="position" title="Position">::position::</span>
 		<span class="name" title="Title">::name::</span>
 		::if duration::<span class="duration">[::duration::]</span>::end::
+		<!-- <audio src="audio/::record.id::/::name::.mp3" controls></audio> -->
 	</div>
 	::end::
 </div>::end::
