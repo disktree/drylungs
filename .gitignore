@@ -5,8 +5,6 @@ _*
 *.zip
 .vscode
 
-bin/*.php
-bin/css/app.css*
 bin/cfg
 !bin/cfg/active
 !bin/cfg/default.json
@@ -15,8 +13,8 @@ bin/lib
 bin/msh
 bin/res
 bin/snd
-
-exp/*
+bin/*.php
+exp/
 res/icon/*.png
 res/model
 !res/model/*.blend
