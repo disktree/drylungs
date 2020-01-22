@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<generator uri="https://haxe.org/" version="4">haxe</generator>
-	<title type="html">Drylungs</title>
+	<title type="html">Dry Lungs</title>
 	<subtitle>Records &amp; Mailorder</subtitle>
-	<id>http://drylungs.at/</id>
-	<link href="http://drylungs.at/feed/" rel="self" type="application/atom+xml"/>
-	<link href="http://drylungs.at/" rel="alternate" type="text/html"/>
-	<updated>2018-08-28T20:22:12+00:00</updated>
+	<id>::site.uri::/</id>
+	<link href="::site.uri::/feed/" rel="self" type="application/atom+xml"/>
+	<link href="::site.uri::" rel="alternate" type="text/html"/>
+	<updated>2019-09-16T20:22:12+00:00</updated>
 	<author>
-		<name>Christoph</name>
+		<name>Christoph F.</name>
 	</author>
 	::foreach records::
 	<entry>
 		<title type="html">::id::</title>
-		<id>http://drylungs.at/records/::id::</id>
+		<id>::site.uri::/records/::id::</id>
 		<updated>::date::</updated>
-		<link href="http://drylungs.at/records/::id::" />
+		<link href="::site.uri::/records/::id::" />
 		::if description::<summary>::description::</summary>::end::
 		<content type="html">
 			<![CDATA[<record>::notes::</record>]]>
 		</content>
 		<author>
-			<name>Christoph</name>
-			<email>christoph@drylungs.at</email>
+			<name>Christoph F.</name>
+			<email>::site.email::</email>
 		</author>
 	</entry>
 	::end::
 </feed>
+

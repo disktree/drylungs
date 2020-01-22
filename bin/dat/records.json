@@ -234,5 +234,27 @@
             }
         ],
 		"color": "#4A4748"
+	},
+	{
+        "id": "DLR003",
+        "name": "Bruit Nouveau",
+        "artists": ["Feuersalamander auf Marzipan"],
+        "date": "2019-09-16",
+        "format": "Lathe 5\"",
+		"description": "5\" Picture Disc Lathe Cut, limited to 33 copies. ",
+		"notes": "After quite a long pause I decided it was time for a new release on Dry Lungs and why not go for something I wanted to do for quite some time? A 5\" Picture Disc Lathe Cut! Everything here was made by me, from the noise to the design just the actual cutting was done in the UK!",
+        "tracks": [
+            {
+                "position": "A",
+                "name": "Bruit Nouveau Part 1",
+                "duration": "1:23"
+            },
+            {
+                "position": "B",
+                "name": "Bruit Nouveau Part 2",
+                "duration": "1:23"
+            }
+        ],
+		"color": "#4A4748"
     }
 ]
