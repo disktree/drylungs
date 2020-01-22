@@ -1,7 +1,0 @@
--js bin/scr/app.js
--main drylungs.App
--cp src
--lib om.core
--lib three.hx
--dce full
--debug

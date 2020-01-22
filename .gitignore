@@ -6,19 +6,20 @@ _*
 .vscode
 
 bin/*.php
-bin/lib
+bin/css/app.css*
 bin/cfg
 !bin/cfg/active
 !bin/cfg/default.json
 bin/css/app.css*
+bin/lib
 bin/msh
 bin/res
-bin/scr/app.js*
 bin/snd
 
-dat/*
 exp/*
 res/icon/*.png
+res/model
+!res/model/*.blend
 .log/
 HELP.md
 NOTES.md
