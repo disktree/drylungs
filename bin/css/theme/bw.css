@@ -3,13 +3,13 @@
 
 	--background: #000;
 
-	--f-high: #fff;
-	--f-med: #fff;
-	--f-low: #fff;
-	--f-inv: #000;
+	--f_high: #fff;
+	--f_med: #fff;
+	--f_low: #fff;
+	--f_inv: #000;
 
-	--b-high: #000;
-	--b-med: #000;
-	--b-low: #000;
-	--b-inv: #fff;
+	--b_high: #000;
+	--b_med: #000;
+	--b_low: #000;
+	--b_inv: #fff;
 }

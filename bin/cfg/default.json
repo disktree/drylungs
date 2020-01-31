@@ -4,12 +4,12 @@
 	"home": "records",
 	"remap": [
 		{
-			"src": ["","home","index"],
+			"src": ["","/","home","releases","666"],
 			"dst": "records"
 		}
 	],
-	"theme": "gay",
-	"color": "#101111",
+	"theme": "battlestation",
+	"color": "#000",
 	"pages": [
 		{
 			"id": "start",

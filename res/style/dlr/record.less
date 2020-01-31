@@ -1,255 +1,208 @@
 
-body > main.record {
+body > main > .record {
+
+	width: 100%;
+	height: 100%;
+
 	display: grid;
+	grid-template-columns: auto 1fr 1fr auto;
+	grid-template-rows: auto auto auto auto auto auto auto 1fr;
+	grid-template-areas:
+		"id id id id"
+		"artists details details details"
+		"title title title title"
+		"tracks tracks tracks tracks"
+		"notes notes notes notes"
+		"description description description description"
+		"cover cover cover cover"
+		"nav nav nav nav";
+	align-items: start;
+	> * {
+		//background: red;
+	}
+	> .id {
+		grid-area: id;
+		display: none;
+	}
 	> .title {
 		grid-area: title;
-		font-family: @font-family-title;
-		&::after {
-			content: ".";
-		}
+		margin: @D3 0;
+		.typo-h3;
+		&::after { content: "."; }
 	}
 	> .artists {
 		grid-area: artists;
-		.seperator;
-		* {
-			&:not(:last-child)::after {
-				content: "+";
-				margin: 0 0.75ch;
+		> li {
+			display: inline-block;
+			* {
+				display: inline-block;
+				.typo-body2;
+				font-weight: bold !important;
+			}
+			&:not(:first-child)::before {
+				display: inline-block;
+				margin: 0 0.5ch;
+				.typo-body2;
+				content: "&";
 			}
 		}
 	}
-	> .title {
-		cursor: default;
+	> section {
+		//padding: 0;
+		//margin: 0 0 @D2 0;
+		//background: var(--f_med);
+		//color: var(--background);
+		//padding: @D1;
+		//width: 100%;
 	}
 	> .details {
 		grid-area: details;
 		display: flex;
-		> * {
-			&:not(:last-child)::after {
-				content: "-";
-				margin: 0 1ch;
-			}
+		flex-wrap: wrap;
+		> *:not(:last-child)::after {
+			padding: 0 0.5ch;
 		}
-		> .format,
-		> .year,
-		> .links {
+		> .year {
 			&::before {
-				padding-right: 1ch;
+				content: "/";
+				padding: 0 0.5ch;
+			}
+		}
+		> .format {
+			&::before {
+				content: "/";
+				padding-left: 0.5ch;
+			}
+			> .type {
+				text-transform: capitalize;
+			}
+			> .size {
+				&::after {
+					content: "\"";
+				}
 			}
 		}
 		> .links {
-			display: flex;
-			a {
-				font-size: 0.75rem;
-				padding-right: 0.5ch;
+			//TODO: show links
+			display: none;
+		}
+	}
+	> .description {
+		grid-area: description;
+		margin-bottom: @D2;
+	}
+	> .notes {
+		grid-area: notes;
+		margin-bottom: @D2;
+	}
+	> .tracks {
+		grid-area: tracks;
+		margin-bottom: @D2;
+		> ol.tracks {
+			list-style: circle;
+			//margin-block-start: 1em;
+			//margin-block-end: 2em;
+			//margin-inline-start: 0px;
+			//margin-inline-end: 0px;
+			padding-inline-start: 1rem;
+			> li {
+				> .position {
+					&::after {
+						content: "–";
+						padding-left: 0.5ch;
+					}
+				}
+				> .name {}
+				> .duration {
+					color: var(--f_low);
+					&::before { content: "["; }
+					&::after { content: "]"; }
+				}
 			}
 		}
 	}
 	> .cover {
 		grid-area: cover;
-		picture {
-			img {
-				display: block;
-				width: 100%;
-			//	filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
-				.no-user-drag;
-				.no-user-select;
-			}
-		}
-		@media (orientation:portrait)  {
-			picture.front img {
-				padding-bottom: 0.75em;
-			}
-			picture.back img {
-				//padding-top: 0.5em;
-			}
-		}
-		@media (orientation:landscape)  {
-			display: flex;
-			picture.front img {
-				padding-right: 0.5rem;
-			}
-			picture.back img {
-				padding-left: 0.5rem;
-			}
+		margin-bottom: @D2;
+		display: flex;
+		flex-wrap: wrap;
+		cursor: pointer;
+		> img {
+			display: block;
+			width: 100%;
+			//max-width: 30vw;
+			//height: auto;
+			//border: 1px solid var(--f_med);
+			.no-user-select;
+			//max-width: 30vw;
+			max-width: 100vw;
+			//max-height: 80vmin;
 		}
 	}
-	> .notes {
-		grid-area: notes;
-	}
-	> .tracks {
-		grid-area: tracks;
-		.track {
-			.position {
-				&::after {
-					padding-left: 0.5rem;
-					content: "-";
-				}
-			}
-			audio {
-				//height: 1em;
-				//margin: 0;
-				//padding: 0;
-			}
-		}
-	}
-	> .description {
-		grid-area: description;
-	}
-	> .nav {
+	> nav {
 		grid-area: nav;
+		display: flex;
+		margin: @D2 0;
 		.typo-caption;
 		.no-user-select;
-		//text-align: right;
-		a {
+		> a {
 			.icon;
+			display: table;
 			&.prev::before {
 				padding-right: 0.5ch;
-				content: @ic-caret-left;
+				content: @ic-long-arrow-left;
 			}
 			&.next::after {
 				padding-left: 0.5ch;
-				content: @ic-caret-right;
+				content: @ic-long-arrow-right;
 			}
 		}
 	}
 
-	////////////////////////////////////////////////////////////////////////////
-
-	@media screen and (max-width:640px) {
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(7,auto) 4rem;
-		grid-template-areas:
-			"artists"
-			"title"
-			"details"
-			"description"
-			"tracks"
-			"notes"
-			"cover"
-			"nav";
-		grid-row-gap: 1em;
-		> * {
-			//border-bottom: 1px solid var(--f-med);
-		}
-		> .details, > .notes, > .description, > .tracks {
-			padding-left: 0.75rem;
-			border-left: 0.1rem solid var(--f-med);
-		}
-		> .artists {
-			.h6;
-			.seperator();
-		}
-		> .title {
-			.h3;
-		}
-		> .details {
-			display: flex;
-			.id {
-				display: none;
-			}
-		}
-		> .cover {
-			picture img {
-				width: 100%;
-			}
-		}
-		> .nav {
+	@media screen and (max-width:719px) {
+		> nav {
+			align-self: end;
+			justify-content: space-between;
 		}
 	}
 
-	////////////////////////////////////////////////////////////////////////////
-
-	@media screen and (min-width:641px) {
-		//grid-template-rows: auto auto auto auto auto 1fr;
-		grid-template-rows: repeat(7,auto) 1fr;
-		grid-template-columns: auto 1fr;
-		grid-template-areas:
-			"artists artists"
-			"title title"
-			"details details"
-			"description description"
-			"tracks tracks"
-			"notes notes"
-			"cover cover"
-			"nav nav";
-		grid-row-gap: 1.5rem;
-		> * {
-		}
-		> .title {
-			.h2;
-		}
-		> .artists {
-			.h6;
-		}
-		> .details, > .notes, > .description, > .tracks {
-			border-left: 0.1rem solid var(--f-med);
-			padding-left: 0.75rem;
-			max-width: 800px;
-		}
-		> .details {
-			display: flex;
-			justify-self: start;
-			//writing-mode: vertical-rl;
-			.id {
-				//font-weight: 700;
-			}
-		}
-		> .notes {
-			justify-self: start;
-		}
-		> .description {
-			justify-self: start;
-		}
-		> .tracks {
-			justify-self: start;
+	@media screen and (min-width:720px) {
+		>.title {
+			margin-top: @D3;
+			margin-bottom: @D2;
 		}
 		> .cover {
-			picture img {
-				@media (orientaion:landscape)  {
-					max-width: 80vmin;
-					max-height: 80vmin;
+			> img {
+				max-width: 400px;
+				&.back {
+					//margin-top: @D1;
 				}
 			}
 		}
-		> .nav {
+		> nav {
+			> a {
+				&.prev { margin-right: 0.5em; }
+				&.next { margin-left: 0.5em; }
+			}
+		}
+	}
+
+	@media screen and (min-width:1280px) {
+		grid-row-gap: @D1;
+		>.title {
+			margin-top: @D4;
+			margin-bottom: @D3;
+			.typo-h2;
 		}
 	}
 
 	@media screen and (min-width:1920px) {
-		> .title {
-			.h1;
-		}
-		> .artists {
-			.h5;
-		}
-	}
-
-	/*
-	@media screen and (min-width:2560px) {
-		grid-template-rows: repeat(7,auto) 1fr;
-		grid-template-columns: auto 1fr;
-		grid-template-areas:
-			"artists artists"
-			"title title"
-			"details details"
-			"tracks tracks"
-			"notes notes"
-			"description description"
-			"cover cover"
-			"nav nav";
-		> .title {
-			//font-size: 8rem;
-		}
-		> .artists {
-			//.h4;
-		}
-		> .cover {
-			//display: block;
+		//grid-row-gap: @D1;
+		>.title {
+			.typo-h1;
 		}
 		> .tracks {
-			//align-self: start;
+			.typo-h5;
 		}
 	}
-	*/
 }

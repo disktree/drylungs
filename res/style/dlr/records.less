@@ -1,113 +1,246 @@
+/*
+body > main > ol.records {
 
-body > main.records {
-
-	.record {
-		//background: blue;
-		//padding: 20px;
-		padding-left: 10px;
-		
-		border-left: 0.5ch solid var(--f-med);
+	margin: 0 auto;
 	
-		margin-bottom: 1vh;
+	//padding-top: @D2;
+	ol, ul, li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
+	> li.record {
+		//padding: 0 0 @D2 0;
+		background: var(--b_med);
+		a {
+			.id {
+				margin-left: -0.07em;
+				//margin-left: 0.075em;
+				margin-bottom: -0.20em;
+				&::before {
+					//content: "/";
+				}
+			}
+			.details {
 
-
-		h1 {
-			//display: inline;
-			///line-height: 0.5em;
+				display: none;
+				
+				color: var(--b_inv);
+				//display: flex;
+				//width: 100%;
+				> * {
+				}
+				> .artists {
+					//width: 100%;
+					//.nobreak();
+					font-weight: bold;
+					display: flex;
+					margin: 0;
+					padding: 0;
+					//float: left;
+					&::after {
+						//content: "–";
+						//padding: 0 1ch;
+					}
+					li {
+						&:not(:first-child)::before {
+							content: "+";
+							padding: 0 0.5ch;
+						}
+					}
+				}
+				.name {
+					//.nobreak();
+					//overflow: hidden;
+  					//text-overflow: ellipsis;
+				}
+				.format {
+					display: none;
+					.type {
+						text-transform: capitalize;
+					}
+					.size {
+						&::after { content: "\""; }
+					}
+				}
+			}
 		}
-
-		/*
-		&::before {
-			display: block;
-			content: "";
-			background: var(--f-med);
-			width: 1rem;
-			height: 0.25rem;
-		//	margin-top: 1.5rem;
-			//margin-top: 1rem;
-			//margin-bottom: 2rem;
-		}
-		*/
+	}
+	
+	@media screen and (min-width:640px) {
+		display: grid;
+		grid-template-rows: repeat(auto-fill,minmax(400px,1fr) );
+		grid-template-columns: repeat(auto-fill,minmax(400px,1fr) );
+		
+		//align-items: stretch;
+		//justify-items: center;
+		//justify-items: stretch;
+		grid-column-gap: @D2;
+		grid-row-gap: @D2;
 	}
 }
 
+*/
 
 /*
-body > main.records {
+@media screen and (min-width:640px) {
+	body > main > ol.records {
+		display: grid;
+		grid-template-columns: repeat(auto-fill,minmax(340px,1fr) );
+		grid-column-gap: @D2;
+		grid-row-gap: @D2;
+		//place-items: start;
+		//align-items: stretch;
 
-	//background: blue;
-	//border-left: 20px solid var(--f-med);
-
-	//writing-mode: vertical-lr;
-	//text-orientation: mixed;
-
-	> a.record {
-
-		//margin: 0px 0px 10px 0px;
-		//padding: 0px 0px 10px 0px;
-
-
-
-		width: 100%;
-		
-		//display: flex;
-
-		h1 {
-			//padding: 20px;
-			position: relative;
-			//top: 10px;
-			
-			background: red;
-			//display: inline-block;
-			z-index: 1;
-
-			//color: var(--background);
-			//background: var(--f-med);
-		}
-		
-		.details {
-			
-			//position: relative;
-			//top: 10px;
-			//left: 10px;
-			z-index: 1;
-			
-			//display: flex;
-			.artists {
-				display: inline-block;
-				color: var(--background);
-				background: var(--f-med);
-				//background: green;
-				//display: inline-block;
+		> li.record {
+			padding: @D4 @D3 @D3 @D4;
+			//background: var(--b_med);
+			//box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+			min-height: 100%;
+			transition: background 0.1s;
+			&:hover {
+				background: var(--b_low);
+				//transform: scale(1.01);
+				a > .id {
+					//color: var(--b_inv);
+				}
 			}
-			.name {
-				color: var(--background);
-				background: var(--f-med);
+			a {
+				> .id {
+					//margin-left: -0.07em;
+					margin-bottom: -0.12em;
+				}
+				/* > img {
+					width: 40px;
+					//background: var(--f_med);
+				} * /
+				> .details {
+					//position: absolute;
+					margin-left: 0.3em;
+					> .artists {
+						display: flex;
+						font-weight: bold;
+						li {
+							&:not(:first-child)::before {
+								content: "+";
+								padding: 0 0.5ch;
+							}
+						}
+					}
+					> .name {
+						.nobreak();
+					}
+					.format {
+						display: none;
+					}
+				}
+				picture {
+					//display: none;
+					img {
+						//top: 0;
+						//width: 100%;
+						clip-path: inset(10px,10px,10px,10px);
+					}
+				}
 			}
 		}
-
-		.cover {
-			position: absolute;
-			z-index: 0;
-			//filter: grayscale(100%);
-
-			/*
-			filter:
-			brightness(110%)
-			contrast(240%)
-			grayscale(100%)
-			hue-rotate(0deg)
-			invert(32%)
-			saturate(0%)
-			sepia(11%);
-			* /
-			//filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
-			//box-shadow: 0px -10px 25px 0px rgba(0,0,0,0.75);
-		}
-
-
 		
 	}
 }
 */
+
+body > main > ol.records {
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	//align-content: start;
+	grid-column-gap: @D2;
+	grid-row-gap: @D2;
+	padding: @D1 @D2;
+	//margin-top: 1rem;
+	//margin-bottom: 1rem;
+
+	> li.record {
+		a {
+
+			//margin: @D1;
+			//max-width: 50%;
+			position: relative; 
+			//max-width: 100%;
+			display: block;
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+			transition: transform 0.1s, box-shadow 0.1s;
+			user-select: none;
+			
+			&:hover {
+				transform: scale(1.02);
+				box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+				//border: 1px solid var(--f_med);
+				> .details {
+					transition: background 0.1s;
+					background: rgba( var(--b_low), 0.9 );
+				}
+				> picture img {
+					// clip-path: inset(0 0 0 0);
+					//clip-path: circle(1000px at 35px 35px);
+				}
+			}
+	
+			> .details {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				padding: @D1 @D1;
+				//display: flex;
+				background: var(--b_low);
+				//color: var(--f_low);
+				> .id {
+					display: inline-block;
+					//float: left;
+					.typo-body2;
+					font-weight: bold;
+					//display: none;
+				}
+				> .name {
+					.nobreak;
+					&::before {
+						//content: "–";
+						//padding: 0 1ch;
+					}
+				}
+				> .artists {
+					display: flex;
+							//font-weight: bold;
+							li {
+								&:not(:first-child)::before {
+									content: "&";
+									padding: 0 0.5ch;
+								}
+							}
+				}
+				> .format {
+					display: none;
+				}
+			}
+			> picture {
+				img {
+					display: block;
+					width: 100%;
+					//transition: clip-path 1.4s;
+					//clip-path: inset(50% @D2 50% @D2);
+					//clip-path: circle( @D2 at 50 50);
+					//max-width: 400px;
+				}
+				> .overlay {
+					position: absolute;
+					//width: 100%;
+					//height: 100%;
+					background:red;
+				}
+			}
+		}
+	}
+}

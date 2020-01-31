@@ -1,18 +1,18 @@
-::if (records.length==0)::
-<div>NO RECORD FOUND</div>
-::else::
-::foreach records::
-<a class="record" href="records/::id::" title="::id::">
-	<div class="details" title="::name::">
-		<div class="id">::id::</div>
-		<div class="artists">::foreach artists::<span>::__current__::</span>::end::</div>
-	</div>
-	<picture>
-		<source srcset="img/cover/600/::id::.webp" media="(min-width:1000px)" type="image/webp"/>
-		<source srcset="img/cover/600/::id::.jpg" media="(min-width:1000px)" type="image/jpeg"/>
-		<source srcset="img/cover/400/::id::.webp" media="(min-width:600px)" type="image/webp"/>
-		<source srcset="img/cover/400/::id::.jpg" media="(min-width:600px)" type="image/jpeg"/>
-		<img class="front" src="img/cover/400/::id::.jpg" alt="::id:: cover"/>
-	</picture>
-</a>::end::
-::end::
+			<ol class="records">::foreach records::
+				<li class="record">
+					<a href="records/::id::">
+						<div class="details">
+							<h2 class="id">::id::</h2>
+							<div class="name">::name::</div>
+							<ul class="artists">::foreach artists::<li>::__current__::</li>::end::</ul>
+							<div class="format">
+								<span class="type">::format.type::</span>
+								<span class="size">::format.size::</span>
+							</div>
+						</div>
+						<picture>
+							<source srcset="img/cover/400/::id::.webp" media="(min-width:1000px)" type="image/webp"/>
+							<img class="front" src="img/cover/400/::id::.webp" alt="::id:: cover"/>
+						</picture>
+					</a>
+				</li>::end::

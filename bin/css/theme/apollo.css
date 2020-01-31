@@ -1,15 +1,13 @@
-
 :root {
+  --background: #29272b;
 
-	--background: #29272b;
+  --f_high: #ffffff;
+  --f_med: #e47464;
+  --f_low: #66606b;
+  --f_inv: #000000;
 
-	--f-high: #ffffff;
-	--f-med: #e47464;
-	--f-low: #66606b;
-	--f-inv: #000000;
-
-	--b-high: #eeeeee;
-	--b-med: #5f5353;
-	--b-low: #47424a;
-	--b-inv: #e47464;
+  --b_high: #000000;
+  --b_med: #201e21;
+  --b_low: #322e33;
+  --b_inv: #e47464;
 }

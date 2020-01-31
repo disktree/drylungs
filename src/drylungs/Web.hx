@@ -11,11 +11,22 @@ typedef Device = {
 	var type: String;
 }
 
-@:keep
+//TODO
+typedef Config = Dynamic;
+
+//TODO
+typedef Context = Dynamic;
+
+//TODO
+//typedef Request = Dynamic;
+
+//@:keep
 class Web {
 
-	public static var config(default,null) : Dynamic;
-	public static var device(default,null) : Dynamic;
+	public static var config(default,null) : Config;
+	public static var device(default,null) : Device;
+	//public static var context(default,null) : Context;
+	//public static var request(default,null) : Request;
 
 	static function error( code : StatusCode = INTERNAL_SERVER_ERROR, ?info : String, stack = false ) {
 		om.Web.setReturnCode( code );
@@ -28,6 +39,8 @@ class Web {
 	static function main() {
 
 		var date = Date.now();
+		//trace(Sys.getCwd());
+		//return;
 		var host = om.Web.getHostName();
 		var uri = om.Web.getURI();
 		var path = uri.removeTrailingSlashes();
@@ -78,6 +91,8 @@ class Web {
 			var files = FileSystem.readDirectory('css/theme');
 			theme = files[Std.int(files.length*Math.random())].withoutExtension();
 		}
+
+		//context = Json.parse( File.getContent( 'dat/context.json' ) );
 
 		Template.globals = {
 			host: host,

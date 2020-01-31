@@ -8,8 +8,12 @@ class Root {
 
 	function doDefault( d : Dispatch ) {
 		var id = d.parts[0];
-		var title = 'Drylungs – '+id.capitalize();
-		var site = new Site( id, { title: title, page: id } );
+		//var title = 'Drylungs – '+id.capitalize();
+		var title = 'DRYLUNGS.'+id.toUpperCase();
+		var site = new Site( id, {
+			title: title,
+			page: (id=="root") ? null : id
+		} );
 		print( site.build() );
 	}
 
@@ -36,8 +40,10 @@ class Root {
 			om.Web.setReturnCode( NOT_FOUND );
 			print('404');
 		} else {
+			var context = Json.parse( File.getContent( 'dat/context.json' ) );
 			var xml = new Template( File.getContent( path ) ).execute( {
 				updated: updated,
+				site: context,
 				records: Records.loadData()
 			} );
 			om.Web.setHeader( 'Content-Type', 'application/xml' );
@@ -50,17 +56,36 @@ class Root {
 		d.dispatch( new drylungs.web.Records() );
 	}
 
+	function doSearch( d : Dispatch ) {
+		trace(d);
+		d.dispatch( new drylungs.web.Search() );
+	}
+
 	function doSitemap( d : Dispatch ) {
 		om.Web.setHeader( 'Content-Type', 'application/xml' );
-		print( File.getContent( 'web/sitemap.xml' ) );
-		//TODO
-		/*
-		var sitemap = new om.web.Sitemap( 'http://drylungs.at', [
-			{ loc: '', lastmod: '2018-05-23' },
-			{ loc: 'records' },
-		]);
-		print( sitemap.toString() );
-		*/
+		var file = 'web/sitemap.xml';
+		if( FileSystem.exists( file ) ) {
+			print( File.getContent( 'web/sitemap.xml' ) );
+		} else {
+			//TODO
+			/*
+			var sitemap = new om.web.Sitemap( 'http://drylungs.at', [
+				{ loc: '', lastmod: '2018-05-23' },
+				{ loc: 'records' },
+			]);
+			print( sitemap.toString() );
+			*/
+		}
 	}
+
+	/*
+	function doSites( d : Dispatch ) {
+		var sites = FileSystem.readDirectory('htm')
+			.filter( s -> return s.extension() == 'html' && !s.startsWith('_') )
+			.map( s -> return s.withoutExtension() );
+		sites.sort( (a,b) -> return (a>b)?1:(a<b)?-1:0 );
+		print( new Site( 'sites' ).build( { sites : sites } ) );
+	}
+	*/
 
 }

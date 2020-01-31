@@ -19,3 +19,13 @@ using om.Path;
 import om.Template;
 import om.web.Dispatch;
 #end
+
+#if js
+import om.Browser.console;
+import om.Browser.document;
+import om.Browser.navigator;
+import om.Browser.window;
+import js.html.AnchorElement;
+import js.html.DivElement;
+import js.html.Element;
+#end

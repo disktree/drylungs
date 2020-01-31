@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+a {
+	color: #000;
+}
+a[href^="http"]::after {
+	content: " ("attr(href)")";
+}
+body {
+	margin: 4vh 4vw;
+}
+header {
+	font-size: 100px;
+	text-transform: uppercase;
+}

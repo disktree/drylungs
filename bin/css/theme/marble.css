@@ -3,13 +3,13 @@
 
 	--background: #FBFBF2;
 
-	--f-high: #3a3738;
-	--f-med: #847577;
-	--f-low: #bdb8b8;
-	--f-inv: #A6A2A2;
+	--f_high: #3a3738;
+	--f_med: #847577;
+	--f_low: #bdb8b8;
+	--f_inv: #A6A2A2;
 
-	--b-high: #676164;
-	--b-med: #A6A2A2;
-	--b-low: #CFD2CD;
-	--b-inv: #676164;
+	--b_high: #676164;
+	--b_med: #A6A2A2;
+	--b_low: #CFD2CD;
+	--b_inv: #676164;
 }

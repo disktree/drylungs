@@ -1,6 +1,13 @@
 package drylungs.web;
 
+#if sys
+
 using Lambda;
+
+private typedef Format = {
+	type: String,
+	size: Int
+}
 
 private typedef Link = {
 	name: String,
@@ -19,7 +26,7 @@ private typedef Record = {
     artists: Array<String>,
     date: String,
     year: Int,
-    format: String,
+    format: Format,
     description: String,
     notes: String,
 	tracks: Array<Track>,
@@ -80,8 +87,9 @@ class Records {
 		switch id {
 		case null,'':
 			print( new Site( 'records', {
-				title: 'Drylungs Records',
-				page: 'DRYLUNGS™'
+				//title: 'Drylungs Records',
+				//page: 'DRYLUNGS™'
+				page: 'records'
 			} ).build( { records: list } ) );
 		default:
 			if( ~/^(0|[1-9][0-9]*)$/.match( id ) ) {
@@ -157,3 +165,5 @@ class Records {
 	*/
 
 }
+
+#end

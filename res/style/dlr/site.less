@@ -1,245 +1,260 @@
 
+@header-height: 72px;
+
+html {
+	font-size: 14px;
+}
+
 body {
 
+	width: 100vw;
+	max-width: 100vw;
+	//min-width: 100vh;
+	height: 100vh;
 	display: grid;
-
-	> header, > nav, > aside.social, > footer {
-		white-space: nowrap;
+	overflow-x: hidden !important;
+	//overflow-y: scroll;
+	
+	> header, > nav, > .social, > footer {
 		.no-user-select;
 	}
 	> header, > nav {
 		text-transform: uppercase !important;
 	}
 	> header {
+		z-index: 1000;
 		grid-area: header;
 		display: flex;
-		background: var(--background);
+		align-items: center;
+		height: @header-height;
+		line-height: @header-height;
+		> .menu {
+			width: 60px; //@header-height;
+			height: @header-height;
+			text-align: center;
+			cursor: pointer;
+			&:hover {
+				color: var(--f_high) !important;
+			}
+		}
+		> .title, > .page {
+			display: table;
+			.h5;
+		}
+		> .title {
+			&::after { content: "™"; }
+			//&::after { content: "\\"; }
+		}
+		> .page {
+			&::before { content: "/"; }
+		}
 	}
 	> nav {
+		z-index: 100;
 		grid-area: nav;
-	}
-	> main {
-		grid-area: main;
-		article {
-			max-width: 1000px;
-			.seperator(@top:2rem);
-			a {
-				//text-decoration: underline;
-				//border-bottom: 1px dotted var(--f-med);
-				//transition: background .1s ease-in, color .1s ease-in;
-				border-bottom: 1px dotted var(--b-high);
-				&:hover {
-					//background: var(--b-low);
-				}
-				&[href^="http"]:after {
-					.icon;
-					content: @ic-external-link;
-					padding-left: 0.375em;
-					font-size: 0.7em;
-					//vertical-align: middle;
-				}
+		display: flex;
+		.h5;
+		> a {
+			//&:not(:first-child)::before {
+			&::before { content: "/";}
+			&.active {
+				color: var(--background)!important;
+				background: var(--f_med)!important;
 			}
-			ul, ol {
-				margin-bottom: 16px;
-				padding-left: 1em;
-				&.arrow {
-					li {
-						.ic-angle-right;
-						&:before {
-							.icon;
-							padding-right: 0.5em;
-						}
-					}
-				}
+			&:not(.active):hover {
 			}
 		}
 	}
-	> aside.social {
+	> main {
+		z-index: 10;
+		grid-area: main;
+		//margin: 0 @D2;
+		padding: 0 0 @D4 0;
+	}
+	> .social, > footer {
+		z-index: 100;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+	}
+	> .social {
 		grid-area: social;
+		display: flex;
 	}
 	> footer {
 		grid-area: footer;
-		.typo-caption;
+		display: flex;
 	}
 
-	////////////////////////////////////////////////////////////////////////////
-
-	@media (max-width:720px) {
-
-		@margin: 16px;
-		@header-height: 56px;
-
+	/////////////////////////////////////////////////////////////////
+	
+	@media screen and (max-width:639px) {
 		grid-template-rows: @header-height auto 1fr auto auto;
-		grid-template-columns: 1fr;
+		grid-template-columns: 100%;
 		grid-template-areas:
 			"header"
 			"nav"
 			"main"
-			"social"
 			"footer"
-			;
-		//grid-row-gap: @margin;
+			"social";
 		> header {
-			align-self: center;
-			width: 100%;
-			z-index: 100;
-			.h6;
-			> button {
-				position: relative;
-				//top: 1px;
-				margin: auto 0.75em auto 1rem;
-			}
 			> .title, > .page {
-				position: relative;
-				top: 1px;
-				left: 2px;
-				.h6;
-				//font-size: 1.35rem;
-				line-height: @header-height;
-			}
-			>.title {
-				display: none;
-			}
-			>.page {
-				&::before {
-					//content: "/";
-				}
-			}
+			}	
 		}
 		> nav {
-			z-index: 10;
-			width: 100%;
+			//justify-items: stretch;
+			flex-direction: column;
+			//flex-wrap: wrap;
+			//padding: @D0 0 @D1 @D2;
 			transition: margin-top 0.2s;
-			//transition-timing-function: ease-out; //cubic-bezier(0.18, 0.89, 0.29, 1.14);
-			a {
+			//transition-delay: 0.5s;
+			margin-top: -100%;
+			margin-bottom: @D1;
+			transform: translateX(-100%);
+			.h3;
+			&.show {
+				transition: transform 0.2s;
+				margin-top: 0;
+				transform: translateX(0);
+			}
+			> a {
+				//-webkit-tap-highlight-color: red !important;
 				display: table;
-				padding: 0.5rem 1rem;
-				.h6;
+				//width: 100%;
+				padding: @D1 @D2 @D1 @D2;
+				&:not(:last-child) {
+					//margin: 0 0 @D1 0;
+				}
 				&.active {
-					color: var(--f-low) !important;
+					display: none;
 				}
 			}
-			&.hidden {
-				margin-top: -100%;
-				box-shadow: none;
-			}
 		}
-		> main {
-			margin: 0 @margin;
-		//	transition: opacity 0.25s;
+		main {
+			margin: 0 @D2;
+			padding: @D0 0 @D2 0;
 			&.blur {
-		//		opacity: 0.25;
-				//filter: brightness(12%) contrast(91%) grayscale(90%);
+				//opacity: 0.5;
+				pointer-events: none;
 			}
 		}
-		> aside.social, footer {
-			margin: 0 @margin;
-			padding: 1rem 0;
-			border-top: 1px solid var(--f-med);
+		> .social, > footer {
+			border-top: 1px solid var(--f_med);
+			margin: 0 @D2;
 		}
-		> aside.social {
-			display: none;
-			//TODO
-			/*
-			display: flex;
-			justify-content: space-between;
-			*/
+		> .social {
+			justify-content: space-around;
+			align-items: center;
+			font-size: 1.75em;
+			height: @D12;
+		}
+		> footer {
+			justify-content: center;
+			align-items: center;
+			height: @D6;
 		}
 	}
 
-	////////////////////////////////////////////////////////////////////////////
-
-	@media (min-width:721px) {
-
-		overflow-y: scroll;
-
-		@margin: 48px;
-		@header-height: 64px;
-
+	/////////////////////////////////////////////////////////////////
+	
+	@media screen and (min-width:640px) {
+		@header-height: 72px;
 		grid-template-rows: @header-height 1fr auto;
 		grid-template-columns: auto auto 1fr auto;
 		grid-template-areas:
 			"header nav nav nav"
 			"main main main main"
 			"social social social footer";
-		grid-row-gap: 1rem;
-		> header, > nav {
-			align-self: end;
-			.h6;
-		}
 		> header {
-			margin-left: @margin/2;
-			> button {
-				display: none;
-			}
-			> .title {
-				&::after {
-					content: "™";
-				}
-			}
-			> .page {
-				display: none;
-			}
+			margin-left: @D4;
+			> .menu, > .page { display: none; }
+		}
+		> header > .title, > nav a {
+			//padding: @D1 0 @D025  0;
+			padding: 0.375em 0 0.125em  0;
 		}
 		> nav {
-			justify-self: start;
-			display: flex;
-			* {
-				padding: 6px 0px 0px 0px;
-			}
-			a {
-				//&::not(class="active") {
-				&.active {
-					color: var(--background) !important;
-					background: var(--f-med);
-					//border-bottom: 2px solid var(--f-med);
-					//text-decoration: line-through;
-				}
-				&:before {
-					content:"/";
-				}
-			}
-			a:not(.active) {
-			}
+			align-items: center;
 		}
 		> main {
-			margin: 0 @margin;
-			//.fade_in(0.2s);
+			margin: 0 @D4;
+			padding: 0 0 @D4 0;
 		}
-		> aside.social, > footer {
-			.typo-overline;
-		}
-		> aside.social {
+		> .social {
 			justify-self: end;
-			//writing-mode: vertical-rl;
-			margin-right: 0.5em;
-			* {
-				padding: 0 0.25em;
-				&:hover {
-					transform: scale(1.1);
-				}
+			a {
+				margin-right: 0.5rem;
+				&:not(:first-child) { margin-left: 0.5rem; }
+				//a:not(:last-child) { padding-right: 0.25rem; }
 			}
 		}
 		> footer {
-			//align-self: end;
-			//writing-mode: vertical-rl;
-			//writing-mode: vertical-rl;
-			padding: 0 12px 4px 4px;
+			margin: 0 @D2 @D1 @D1;
+			text-align: right;
 		}
 	}
 
-	/*
-	@media screen and (min-width:1280px) {
-		@margin: 72px;
-		@header-height: 64px;
-		grid-template-rows: @header-height 1fr auto;
-		grid-row-gap: 1rem;
+	@media screen and (min-width:768px) {
 		> header {
-			margin: 0 @margin;
+			margin-left: @D4;
 		}
-		> main {
-			//margin: 0 48px;
+		main {
+			margin: 0 @D4;
 		}
 	}
-	*/
+
+	@media screen and (min-width:1280px) {
+		@header-height: @D12;
+		grid-template-rows: @header-height 1fr auto;
+		padding-top: @D4;
+		> header, > nav {
+		}
+		> header {
+			margin-left: @D8;
+			height: @header-height;
+			//line-height: @header-height;
+		}
+		> header > .title,
+		> nav a {
+			//.h4;
+		}
+		> main {
+			margin: @D2 @D8 0 @D8;
+		}
+		> .social, > footer {
+			position: fixed;
+			right: 0;
+			bottom: @D2;
+			writing-mode: vertical-rl;
+		}
+		> .social {
+			transition: font-size 0.6s;
+			font-size: 1.25em;
+			right: @D3;
+			a {
+				margin-top: @D05;
+				transition:  transform 0.2s;
+				&:hover {
+					transform-origin: center;
+					transform: scale(1.2);
+				}
+			}
+			a:not(:last-child) { margin-bottom: @D1; }
+		}
+		> footer {
+			margin: 0;
+			right: @D1;
+		}
+	}
+
+	@media screen and (min-width:1920px) {
+		> header {
+			margin-left: @D12;
+		}
+		> main {
+			margin: @D4 @D12;
+		}
+		> .social {
+			font-size: 1.5em;
+		}
+	}
 }

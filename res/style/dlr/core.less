@@ -1,25 +1,23 @@
 
 html {
 	font-family: @font-family-regular;
+	scroll-behavior: smooth;
 }
 
 body {
 
-	.typo-body2;
-
-	background: #101111;
-	color: #5e6461;
-
+	background: #0000;
 	background: var(--background);
-	color: var(--f-med);
+	color: #fff;
+	color: var(--f_med);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);//var(--b_high);
 
-	tap-highlight-color: var(--f-med);
-	-webkit-tap-highlight-color: var(--f-med);
+	.typo-body2;
 }
 
 .selection(
-	@color: var(--f-inv),
-	@background: var(--b-inv)
+	@color: var(--f_inv),
+	@background: var(--b_inv)
 );
 
 .h1 { .typo-h1() }
@@ -48,33 +46,43 @@ p {
 a {
 	outline: none;
 	color: #5e6461;
-	color: var(--f-med);
-	//border-bottom: 1px dotted var(--f-low);
+	color: var(--f_med);
+	//border-bottom: 1px dotted var(--f_low);
 	//text-decoration-line: underline;
 	//text-decoration-style: wavy;
 	&[href] {
 		&:hover {
 			transition: color .1s;
-			color: var(--f-high);
+			color: var(--f_high);
 		}
 	}
 	&:focus {
-		color: var(--f-high);
+		color: var(--f_high);
+	}
+	&:active {
+		//color: red !important;
 	}
 	/*
 	&:focus {
 		//border-radius: 4px;
 		//transition: border 1s;
-		//border: 1px solid var(--f-med);
-		//background: var(--f-med);
+		//border: 1px solid var(--f_med);
+		//background: var(--f_med);
 		//color: var(--background);
 	}
 	*/
 }
 
 ol, ul {
+	/*
+	margin-block-start: 1em;
+	margin-block-end: 2em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 2rem;
+	*/
 	list-style: none;
-	margin: 0;
+	margin: 0; // 0 1rem;
 	padding: 0;
 }
 
@@ -84,7 +92,54 @@ button {
 	background: transparent;
 }
 
+/*
 [class^="ic-"],	
 [class*=" ic-"] {	
 	.icon;	
 }
+*/
+
+.link( @icon: @ic-diamond ) {
+	.icon;
+	content: @icon;
+	padding-left: 0.375em;
+	font-size: 0.75em;
+}
+
+ article {
+	min-width: 200px;
+	max-width: 720px;
+	ol, ul {
+		list-style: circle;
+		margin-block-start: 1em;
+		margin-block-end: 2em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		padding-inline-start: 2rem;
+	}
+	a {
+		//text-decoration: underline;
+		//border-bottom: 1px dotted var(--f_med);
+		//transition: background .1s ease-in, color .1s ease-in;
+		border-bottom: 1px dotted var(--b_high);
+		&:hover {
+			//background: var(--b_low);
+		}
+		&[href^="mailto"]:after { .link( @ic-envelope ) }
+		&[href^="http"]:after { .link( @ic-external-link ) }
+	}
+	/*
+	ul, ol {
+		//padding-bottom: @D4;
+		&.arrow {
+			li {
+				.ic-angle-right;
+				&:before {
+					.icon;
+					padding-right: 1ch;
+				}
+			}
+		}
+	} 
+	*/
+ }

@@ -1,9 +1,8 @@
 
-
 .ascii {
 	display: table;
 	white-space: pre;
-	margin: 4vh auto 4vh 0;
+//	margin: 4vh auto 4vh 0;
 	font-family: 'MicroKnight';
 	line-height: 1;
 	cursor: default;
@@ -11,15 +10,15 @@
 		display: inline;
 		font-style: normal;
 		&::selection {
-			background: var(--f-inv) !important;
-			color: var(--b-inv) !important;
+			background: var(--f_inv) !important;
+			color: var(--b_inv) !important;
 		}
-
+		
 		&.plus {
 			font-family: 'MicroKnightPlus';
 			&::selection {
-				background: var(--b-inv) !important;
-				color: var(--f-inv) !important;
+				background: var(--b_inv) !important;
+				color: var(--f_inv) !important;
 			}
 		}
 	}
