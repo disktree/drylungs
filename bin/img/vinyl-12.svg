@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30cm" height="30cm" viewBox="0 0 30 30">
+	<g fill-rule="evenodd">
+		<path id="vinyl" fill="black" d="
+			M 15, 15
+			m -15, 0
+			a 15,15 0 1,0 30,0
+			a 15,15 0 1,0 -30,0
+			M 15, 15
+			m -0.35, 0
+			a 0.35,0.35 0 1,0 0.7,0
+			a 0.35,0.35 0 1,0 -0.7,0"/>
+		<path id="label" fill="white" d="
+			M 15, 15
+			m -5, 0
+			a 5,5 0 1,0 10,0
+			a 5,5 0 1,0 -10,0
+			M 15, 15
+			m -0.35, 0
+			a 0.35,0.35 0 1,0 0.7,0
+			a 0.35,0.35 0 1,0 -0.7,0"/>
+	</g>
+</svg>
