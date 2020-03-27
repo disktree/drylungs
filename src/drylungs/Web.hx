@@ -100,7 +100,7 @@ class Web {
 			date: { year: date.getFullYear(), month: date.getMonth(), day: date.getDay() },
 			device: device,
 			//icons: drylungs.Build.getIconSizes('ico'),
-			icons: [16,24,32,48,72,96,144,192,512],
+			icons: [48,96,192,512],
 			theme: theme,
 			theme_color: config.color,
 			pages: config.pages,

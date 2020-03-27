@@ -8,3 +8,4 @@
 -lib om.gittools
 -dce full
 -debug
+-D php-prefix=drylungs
