@@ -1,0 +1,26 @@
+{
+  "name": "drylungs",
+  "version": "0.2.0",
+  "description": "AUSTRiAN DiY RECORD LABEL",
+  "private": true,
+  "scripts": {
+    "clean": "rm -f static/css/*.css* && rm -rf public",
+    "test-css": "lessc --lint style/index.less --include-path=/home/tong/dev/lib/enron/src",
+    "test": "npm run test-css",
+    "build-hugo": "hugo --minify",
+    "build-css": "lessc style/index.less static/css/style.css --include-path=/home/tong/dev/lib/enron/src --source-map --clean-css='--s1 --advanced'",
+    "build": "npm run build-css && npm run build-hugo",
+    "serve": "hugo server -D"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/disktree/drylungs"
+  },
+  "author": "tong@disktree.net",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^3.12.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}
