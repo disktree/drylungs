@@ -73,8 +73,7 @@
 @ic-discogs: "\e901";
 @ic-bigcartel: "\e900";
 
-[class^="ic-"]::before,
-[class*=" ic-"]::before {
+.font-icon() {
 	font-family   : '@{icomoon-font-family}' !important;
 	speak         : never;
 	font-style    : normal;
@@ -85,8 +84,13 @@
 	//line-height   : 1;
 	-webkit-font-smoothing : antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 }
 
+[class^="ic-"]::before,
+[class*=" ic-"]::before {
+	.font-icon();
+}
 
 .ic-color_lenspalette {
   &:before {
