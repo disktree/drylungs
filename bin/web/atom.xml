@@ -6,7 +6,7 @@
 	<id>::site.uri::/</id>
 	<link href="::site.uri::/feed/" rel="self" type="application/atom+xml"/>
 	<link href="::site.uri::" rel="alternate" type="text/html"/>
-	<updated>2019-09-16T20:22:12+00:00</updated>
+	<updated>2020-02-02T20:22:12+00:00</updated>
 	<author>
 		<name>Christoph F.</name>
 	</author>

@@ -2,39 +2,45 @@
 @font-face {
     font-family: @font-family-regular;
 	font-display: block;
+	font-style: normal;
+	font-weight: 400;
     src:
-        local('Liberation Mono'),
-        url('@{font-filepath}/liberation_mono-regular.woff2') format('woff2'),
-        url('@{font-filepath}/liberation_mono-regular.ttf') format('truetype');
+		local('Liberation Mono'),
+		url('@{font-filepath}/liberation_mono-regular.woff2') format('woff2'),
+		url('@{font-filepath}/liberation_mono-regular.ttf') format('truetype');
 }
 @font-face {
-    font-family: @font-family-title;
+	font-family: @font-family-title;
 	font-display: block;
-    src:
-        url('@{font-filepath}/helvetica_neue_65.woff2') format('woff2'),
-        url('@{font-filepath}/helvetica_neue_65.woff') format('woff'),
-        url('@{font-filepath}/helvetica_neue_65.ttf') format('truetype');
+	font-style: normal;
+	src:
+		local("Helvetica Neue LT Std"),
+		url('@{font-filepath}/helvetica_neue_65.woff2') format('woff2'),
+		url('@{font-filepath}/helvetica_neue_65.woff') format('woff'),
+		url('@{font-filepath}/helvetica_neue_65.ttf') format('truetype');
 }
 @font-face {
 	font-family: @font-family-icon;
 	font-display: block;
 	src:
-		url('@{font-filepath}/fa.woff') format('woff'),
-		url('@{font-filepath}/fa.ttf') format('truetype'),
-		url('@{font-filepath}/fa.svg') format('svg');
+		url('@{font-filepath}/icons.woff') format('woff'),
+		url('@{font-filepath}/icons.ttf') format('truetype'),
+		url('@{font-filepath}/icons.svg') format('svg');
 }
 
 @font-face {
-	font-family: 'MicroKnight';
+	font-family: @font-family-ascii;
 	font-display: block;
 	src:
+		local('MicroKnight'),
 		url('@{font-filepath}/MicroKnight_v1.0.woff2') format('woff2'),
 		url('@{font-filepath}/MicroKnight_v1.0.ttf') format('truetype');
 }
 @font-face {
-	font-family: 'MicroKnightPlus';
+	font-family: @font-family-ascii-plus;
 	font-display: block;
 	src:
-		url('@{font-filepath}/MicroKnightPlus_v1.0.woff2') format('woff2'),
-		url('@{font-filepath}/MicroKnightPlus_v1.0.ttf') format('truetype');
+		local('P0T-NOoDLE'),
+		url('@{font-filepath}/P0T-NOoDLE_v1.0.woff2') format('woff2'),
+		url('@{font-filepath}/P0T-NOoDLE_v1.0.ttf') format('truetype');
 }

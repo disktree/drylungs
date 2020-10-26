@@ -19,6 +19,7 @@
 		<meta property="og:url" content="::site.uri::">
 		<meta property="og:site_name" content="Drylungs Records">
 		<meta property="og:title" content="Drylungs Records">
+		<meta property="og:image" content="::site.uri::/img/drylungs-card.png"/>
 		::if site.description::<meta property="og:description" content="::site.description::">::end::
 		::if (site.twitter)::
 		::if (site.twitter.card)::<meta name="twitter:card" content="::site.twitter.card::"/>::end::
@@ -37,21 +38,21 @@
 		<title>::site.title::</title>
 
 		<style>
-			body { opacity:0; transition:opacity 0.1s; }
-			body.ready { opacity:1; }
+			/* body { opacity:0; }
+			body.ready { opacity:1; } */
 		</style>
-
-		<link rel="stylesheet" media="print" href="css/print.css">
-		<link rel="stylesheet" media="screen" href="css/reset.css">
-		<link rel="stylesheet" media="screen" href="css/app.css" name="app">
-		<link rel="stylesheet" media="screen" href="css/device-::device.type::.css">
-		::if theme::<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">::end::
 
 		<style name="theme">
-			/* :root { --background: #000;--f_high: #fff;--f_med: #fff;--f_low: #fff;--f_inv: #000;--b_high: #000;--b_med: #000;--b_low: #000;--b_inv: #fff; } */
+			:root { --background: #000;--f_high: #fff;--f_med: #fff;--f_low: #fff;--f_inv: #000;--b_high: #000;--b_med: #000;--b_low: #000;--b_inv: #fff; } */
 		</style>
+
+		<!-- <link rel="stylesheet" media="print" href="css/print.css"> -->
+		<!-- <link rel="stylesheet" media="screen" href="css/reset.css"> -->
+		<link rel="stylesheet" media="screen" href="css/app.css" name="app">
+		<link rel="stylesheet" media="screen" href="css/device-::device.type::.css">
+		<!-- ::if theme::<link rel="stylesheet" media="screen" href="css/theme/::theme::.css">::end:: -->
 		
-		<link rel="shortcut icon" href="favicon.ico">
+		<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 		<link rel="apple-touch-icon" href="ico/icon-192.png">
 		::foreach icons::<link rel="icon" href="ico/icon-::__current__::.png" sizes="::__current__::x::__current__::">
 		::end::
@@ -95,6 +96,8 @@
 				<span>::date.year:: Drylungs Records, Vienna AT</span>
 			</div>
 		</footer>
+
+		<!-- <div id="debug"></div> -->
 
 	</body>
 

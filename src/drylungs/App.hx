@@ -1,18 +1,30 @@
 package drylungs;
 
 import js.html.File;
-import js.html.Storage;
 import om.Browser;
 import om.Theme;
 
 class App {
+
+	static var storage = Browser.localStorage;
 
 	static var headerElement : Element;
 	static var menuElement : Element;
 	static var navElement : Element;
 	static var mainElement : Element;
 
-	static var storage = Browser.localStorage;
+	@:expose("theme")
+	static var theme : om.Theme.Data = {
+		background : "#101111",
+		f_high : "#919794",
+		f_med : "#5e6461",
+		f_low : "#2d2f2e",
+		f_inv : "#fff",
+		b_high : "#292b2b",
+		b_med : "#101010",
+		b_low : "#010101",
+		b_inv : "#101111"
+	}
 
 	@:expose("loadThemeSVG")
 	public static function loadTheme( svg : String, store = false ) {
@@ -22,6 +34,7 @@ class App {
 	}
 
 	static function applyTheme( theme : om.Theme.Data ) {
+		App.theme = theme;
 		Theme.apply( theme );
 		document.head.querySelector( 'meta[name="theme-color"]' ).setAttribute("content",theme.background);
 	}
@@ -36,6 +49,15 @@ class App {
 
 		console.info( '%c⛧ DRY LUNGS RECORDS ⛧', 'background:#000;color:#fff;padding:4px;' );
 
+		var _cache = storage.getItem( 'drylungs_theme' );
+		if( _cache != null ) {
+			var theme = Json.parse( _cache );
+			applyTheme( theme );
+		} else {
+			applyTheme( App.theme );
+			//TODO set meta[name="theme-color"] from value in theme css
+		}
+			
 		window.addEventListener( 'load', e -> {
 			
 			var body = document.body;
@@ -54,69 +76,32 @@ class App {
 			var pageElement = headerElement.querySelector('.page');
 			pageElement.onclick = e -> toggleNav();
 
-			//theme.install();
-			
-			var _cache = storage.getItem( 'drylungs_theme' );
-			if( _cache != null ) {
-				var theme = Json.parse( _cache );
-				applyTheme( theme );
-			} else {
-				//TODO set meta[name="theme-color"] from value in theme css
-			}
-
-			/*
 			var dropElement = document.body;
-			dropElement.addEventListener( 'dragstart', e -> {
-				e.stopPropagation();
-				e.preventDefault();
-			});
 			dropElement.addEventListener( 'dragover', e -> {
 				e.stopPropagation();
 				e.preventDefault();
-				trace(e);
 				e.dataTransfer.dropEffect = 'copy';
 				dropElement.classList.add( 'file-dragover' );
-			}, false );
-			dropElement.addEventListener( 'dragenter', e -> {
-				e.stopPropagation();
-				e.preventDefault();
-				dropElement.classList.add( 'file-dragover' );
-			});
-			dropElement.addEventListener( 'dragstart', e -> {
-				e.stopPropagation();
-				e.preventDefault();
-			});
-			dropElement.addEventListener( 'dragleave', e -> {
-				e.stopPropagation();
-				e.preventDefault();
-				dropElement.classList.remove( 'file-dragover' );
-			}, false );
-			dropElement.addEventListener( 'dragend', e -> {
-				e.stopPropagation();
-				e.preventDefault();
-				dropElement.classList.remove( 'file-dragover' );
 			}, false );
 			dropElement.addEventListener( 'drop', e -> {
 				e.stopPropagation();
 				e.preventDefault();
 				dropElement.classList.remove( 'file-dragover' );
 				var file : File = e.dataTransfer.files[0];
-				trace(file);
 				switch file.type {
 				case "image/svg+xml":
 					dropElement.classList.add( 'file-drop' );
 					var reader = new js.html.FileReader();
 					reader.onload = e -> {
 						dropElement.classList.remove( 'file-drop' );
-						theme.set( om.Theme.parseSVG( e.target.result) );
-						storage.setItem( 'theme', Json.stringify( theme.data ) );
+						trace(e.target.result );
+						loadTheme( e.target.result, true );
 					};
 					reader.readAsText( file, 'UTF-8' );
 				default:
 					Browser.alert( 'SVG files only' );
 				}
 			}, false );
-			*/
 		
 			/* document.body.onclick = e -> Browser.openFile( files -> {
 				trace(files);
@@ -134,7 +119,6 @@ class App {
 				navElement.classList.remove( 'show' );
 				mainElement.classList.remove( 'blur' );
 			}, false ); */
-
 			
 			var links : Array<AnchorElement> = cast document.getElementsByTagName( 'a' );
 			for( e in links ) {
@@ -150,7 +134,10 @@ class App {
 							window.location.href = e.href;
 						};
 						*/
-						document.body.style.opacity = '0';
+						//document.body.style.opacity = '0';
+						document.body.style.pointerEvents = 'none';
+						//document.body.style.background = 'red';
+						//document.body.classList.add("loading");
 						window.location.href = e.href;
 						return false;
 					default:
@@ -161,5 +148,11 @@ class App {
 			
 			body.classList.add( 'ready' );
 		});
+
+		if( navigator.serviceWorker != null ) {
+			navigator.serviceWorker.register('sw.js').then(function(reg) {
+				console.log( 'service worker registration succeeded. scope: ' + reg.scope );
+			});
+		}
 	}
 }

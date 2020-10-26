@@ -15,12 +15,14 @@
             {
                 "position": "A1",
                 "name": "A_Untitled",
-                "duration": "23:02"
+                "duration": "23:02",
+                "file": "DLR001/A_Untitled.mp3"
             },
             {
                 "position": "B1",
                 "name": "B_Untitled",
-                "duration": "24:06"
+                "duration": "24:06",
+                "file": "DLR001/A_Untitled.mp3"
             }
         ],
 		"links": [
@@ -135,6 +137,12 @@
                 "duration": "5:00"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Raven-A-Comprehensive-Guide-To-Dismantling-The-Weapons-Of-Mass-Destruction/release/4119150"
+			}
+		],
 		"color": "#482816"
     },
     {
@@ -160,6 +168,16 @@
                 "duration": "4:23"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Otomo-Yoshihide-Lasse-Marhaug-Super-Single/release/5184330"
+			},
+			{
+				"name": "bigcartel",
+				"uri": "https://drylungs.bigcartel.com/product/otomo-yoshihide-lasse-marhaug-super-single-7"
+			}
+		],
 		"color": "#443D37"
     },
     {
@@ -185,6 +203,16 @@
                 "duration": "6:45"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Solypsis-To-Know-Death-You-Have-To-Fuck-Life-In-The-Gallbladder/release/6118882"
+			},
+			{
+				"name": "bigcartel",
+				"uri": "https://drylungs.bigcartel.com/product/solypsis-to-know-death-you-have-to-fuck-life-in-the-gallbladder-7"
+			}
+		],
 		"color": "#B6B6B6"
     },
     {
@@ -210,6 +238,16 @@
                 "duration": "3:58"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Sissy-Spacek-Snell-bw-Weather/release/7160821"
+			},
+			{
+				"name": "bigcartel",
+				"uri": "https://drylungs.bigcartel.com/product/sissy-spacek-snell-b-w-weather-7"
+			}
+		],
 		"color": "#7D7C7C"
     },
     {
@@ -235,6 +273,12 @@
                 "duration": "5:05"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/Venta-Protesix-Futanari-Princess/release/7569283"
+			}
+		],
 		"color": "#C1658B"
     },
     {
@@ -260,6 +304,16 @@
                 "duration": "4:20"
             }
         ],
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/KK-Null-Machine-In-The-Ghost/release/8321551"
+			},
+			{
+				"name": "bigcartel",
+				"uri": "https://drylungs.bigcartel.com/product/kk-null-machine-in-the-ghost-7"
+			}
+		],
 		"color": "#4A4748"
 	},
 	{
@@ -285,6 +339,12 @@
                 "duration": "1:23"
             }
         ],
-		"color": "#4A4748"
+        "color": "#4A4748",
+        "links": [
+			{
+				"name": "discogs",
+				"uri": "https://www.discogs.com/sell/item/997614901"
+			}
+		]
     }
 ]

@@ -1,45 +1,57 @@
 <div class="record">
-	<h1 class="id" title="Id">::record.id::</h1>
-	<h2 class="title">::record.name::</h2>
-	<ul class="artists" title="Artists">::foreach record.artists::<li><h3>::__current__::</h3></li>::end::</ul>
-	<section class="details">
-		<div class="year" title="Released">::record.year::</div>
-		<div class="format" title="Format">
-			<span class="type">::record.format.type::</span>
-			<span class="size">::record.format.size::</span>
-		</div>
-		<ul class="links">
-			::if record.links::
-			::foreach record.links::<li><a class="ic-::name::" href="::uri::"></a></li>::end::
-			::end::
-		</ul>
-	</section>
-	<section class="description" title="Description">::if record.description::::record.description::::end::</section>
-	<section class="notes" title="Notes">::if record.notes::<article>::record.notes::</article>::end::</section>
-	<section class="tracks">
-		::if record.tracks::<ol class="tracks">::foreach record.tracks::
-			<li class="track">
-				<span class="position" title="Position">::position::</span>
-				<span class="name" title="Title">::name::</span>
-				<span class="duration">::if duration::::duration::::end::</span>
-				<!-- ::if duration::<span class="duration">[::duration::]</span>::end:: -->
-				<!-- <audio src="audio/::record.id::/::name::.mp3" controls></audio> -->
-			</li>
-			::end::
-	</ol>::end::
-	</section>
-	<section class="cover">
-		<img class="front" src="img/cover/600/::record.id::.jpg"/>
-		<img class="back" src="img/cover/600/::record.id::_back.jpg"/>
-		<!-- <picture class="front">
-			<img class="front" src="img/cover/400/::record.id::.jpg"/>
+  <h1 class="id" title="Id">::record.id::</h1>
+  <h2 class="title">::record.name::</h2>
+  <ul class="artists" title="Artists">
+    ::foreach record.artists::
+    <li><h3>::__current__::</h3></li>
+    ::end::
+  </ul>
+  <section class="details">
+    <div class="year" title="Released">::record.year::</div>
+    <div class="format" title="Format">
+      <span class="type">::record.format.type::</span>
+      <span class="size">::record.format.size::</span>
+    </div>
+    <ul class="links">
+      ::if record.links::::foreach record.links::<li>
+        <a class="ic-::name::" href="::uri::" title="::name::"></a>
+      </li>::end::::end::
+    </ul>
+  </section>
+  <section class="description" title="Description">
+    ::if record.description::::record.description::::end::
+  </section>
+  <section class="notes" title="Notes">
+    ::if record.notes::
+    <article>::record.notes::</article>
+    ::end::
+  </section>
+  <section class="tracks">
+    ::if record.tracks::
+    <ol class="tracks">
+      ::foreach record.tracks::
+      <li class="track">
+        <span class="position" title="Position">::position::</span>
+        <span class="name" title="Title">::name::</span>
+		<span class="duration">::if duration::::duration::::end::</span>
+		<!-- <dlr-player file="::file::"></dlr-player> -->
+      </li>
+      ::end::
+    </ol>
+    ::end::
+  </section>
+  <section class="cover">
+    <img class="front" src="img/cover/600/::record.id::.jpg" />
+    <img class="back" src="img/cover/600/::record.id::_back.jpg" />
+    <!-- <picture class="front">
+      <img class="front" src="img/cover/400/::record.id::.jpg"/>
 			<div class="overlay"></div>
 		</picture>
 		<picture class="back">
-			<img class="back" src="img/cover/400/::record.id::_back.jpg"/>
-		</picture> -->
-	</section>
-	<!-- 
+      <img class="back" src="img/cover/400/::record.id::_back.jpg"/>
+    </picture> -->
+  </section>
+  <!-- 
 		<div class="cover">
 			<picture class="front" title="Front">
 				<source srcset="img/cover/1000/::record.id::.webp" media="(min-width:1000px)" type="image/webp"/>
@@ -63,44 +75,54 @@
 			</picture>
 		</div>
 	-->
-	<nav>
-		<a href="records/::record.prev::" class="prev" title="::record.prev::">PREV</a>
-		<a href="records/::record.next::" class="next" title="::record.next::">NEXT</a>
-	</nav>
+  <nav>
+    <a href="records/::record.prev::" class="prev" title="::record.prev::"><i class="ic-long-arrow-left"></i>PREV</a>
+    <a href="records/::record.next::" class="next" title="::record.next::">NEXT<i class="ic-long-arrow-right"></i></a>
+  </nav>
 </div>
+
+<script src="scr/component/svg-vinyl.js"></script>
+
 <script>
-window.addEventListener( 'load', e => {
+  window.addEventListener("load", e => {
+    /*
+    const mainElement = document.body.querySelector("main");
+    const recordElement = mainElement.querySelector(".record");
+    const cover = recordElement.querySelector(".cover");
+    const front = cover.querySelector(".front");
+    const back = cover.querySelector(".back");
 
-	const mainElement = document.body.querySelector('main');
-	const recordElement = mainElement.querySelector('.record');
-	const cover = recordElement.querySelector('.cover');
-	const front = cover.querySelector('.front');
-	const back = cover.querySelector('.back');
-	
-	let frontSideShown = true;
-	back.style.display = 'none';
-	cover.onclick = e => {
-		if( frontSideShown ) {
-			front.style.display = 'none';
-			back.style.display = 'block';
-		} else {
-			front.style.display = 'block';
-			back.style.display = 'none';
-		}
-		frontSideShown = !frontSideShown;
-	}
+    let frontSideShown = true;
+    back.style.display = "none";
+    cover.onclick = e => {
+      if (frontSideShown) {
+        front.style.display = "none";
+        back.style.display = "block";
+      } else {
+        front.style.display = "block";
+        back.style.display = "none";
+      }
+      frontSideShown = !frontSideShown;
+    };
+    */
 
-	window.addEventListener( "keydown", e => {
-		switch (e.keyCode) {
-			case 37: // left
-				var link = mainElement.querySelector('nav a.prev').getAttribute('href');
-				window.location.href = link;
-				break;
-			case 39: // right
-				var link = mainElement.querySelector('nav a.next').getAttribute('href');
-				window.location.href = link;
-				break;
-		}
-	});
-});
+    window.addEventListener("keydown", e => {
+      switch (e.keyCode) {
+        case 37: // left
+          var link = mainElement
+            .querySelector("nav a.prev")
+            .getAttribute("href");
+          window.location.href = link;
+          break;
+        case 39: // right
+          var link = mainElement
+            .querySelector("nav a.next")
+            .getAttribute("href");
+          window.location.href = link;
+          break;
+      }
+    });
+  });
 </script>
+
+<!-- <script src="scr/component/dlr-player.js"></script> -->

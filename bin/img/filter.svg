@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+              xmlns:svg="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              viewBox="0 0 26.458333 26.458334"
+              height="100"
+              width="100">
+             <defs
+                           id="defs2">
+                          <filter
+                                        id="filter-swirl"
+                                        style="color-interpolation-filters:sRGB;"
+                                        x="-0.2"
+                                        width="10.4"
+                                        y="-0.2"
+                                        height="10.4">
+                                       <feGaussianBlur
+                                                     id="feGaussianBlur893"
+                                                     result="result10"
+                                                     stdDeviation="3" >
+                                        
+                                        <!-- <animate id="gray-filter-anim-in"  attributeName="values" attributeType="XML" begin="indefinite" dur="2" end="indefinite" from="0 0 0 0.5 0  0 0 0 0.5 0  0 0 0 0.5 0  0 0 0 1 0" to="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" fill="freeze" /> -->
+                                        </feGaussianBlur>
+                                       <feBlend
+                                                     id="feBlend895"
+                                                     result="fbSourceGraphic"
+                                                     in="result10"
+                                                     mode="normal"
+                                                     in2="result10" />
+                                       <feGaussianBlur
+                                                     id="feGaussianBlur897"
+                                                     in="fbSourceGraphic"
+                                                     result="result8"
+                                                     stdDeviation="3" />
+                                       <feTurbulence
+                                                     id="feTurbulence899"
+                                                     baseFrequency="0.2"
+                                                     numOctaves="1"
+                                                     type="fractalNoise"
+                                                     result="result7"
+                                                     seed="0" />
+                                       <feComposite
+                                                     id="feComposite901"
+                                                     in="result8"
+                                                     operator="in"
+                                                     result="result6"
+                                                     in2="result8" />
+                                       <feDisplacementMap
+                                                     id="feDisplacementMap903"
+                                                     result="result4"
+                                                     scale="500"
+                                                     yChannelSelector="G"
+                                                     xChannelSelector="R"
+                                                     in="result7"
+                                                     in2="result6" />
+                                       <feComposite
+                                                     id="feComposite905"
+                                                     k3="1"
+                                                     k1="1"
+                                                     in="result8"
+                                                     operator="arithmetic"
+                                                     result="result2"
+                                                     in2="result4" />
+                                       <feComposite
+                                                     id="feComposite907"
+                                                     operator="in"
+                                                     in="fbSourceGraphic"
+                                                     result="fbSourceGraphic"
+                                                     in2="result2" />
+                                       <feDisplacementMap
+                                                     id="feDisplacementMap909"
+                                                     xChannelSelector="R"
+                                                     scale="50"
+                                                     yChannelSelector="G"
+                                                     in2="result4" />
+                          </filter>
+             </defs>
+           
+</svg>

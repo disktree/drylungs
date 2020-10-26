@@ -1,11 +1,14 @@
 
 @header-height: 72px;
 
-html {
-	font-size: 14px;
-}
-
 body {
+
+ 	/*
+ 	&.loading {
+	 .background-zigzag( 40px, var(--b_low), var(--b_med) );
+	}
+	*/
+	//transition: color 1s, background 1s !important;
 
 	width: 100vw;
 	max-width: 100vw;
@@ -68,8 +71,8 @@ body {
 	> main {
 		z-index: 10;
 		grid-area: main;
-		//margin: 0 @D2;
-		padding: 0 0 @D4 0;
+		//margin: 0 @s-2;
+		padding: 0 0 @s-4 0;
 	}
 	> .social, > footer {
 		z-index: 100;
@@ -104,11 +107,11 @@ body {
 			//justify-items: stretch;
 			flex-direction: column;
 			//flex-wrap: wrap;
-			//padding: @D0 0 @D1 @D2;
+			//padding: @s-0 0 @s-1 @s-2;
 			transition: margin-top 0.2s;
 			//transition-delay: 0.5s;
 			margin-top: -100%;
-			margin-bottom: @D1;
+			margin-bottom: @s-1;
 			transform: translateX(-100%);
 			.h3;
 			&.show {
@@ -120,9 +123,9 @@ body {
 				//-webkit-tap-highlight-color: red !important;
 				display: table;
 				//width: 100%;
-				padding: @D1 @D2 @D1 @D2;
+				padding: @s-1 @s-2 @s-1 @s-2;
 				&:not(:last-child) {
-					//margin: 0 0 @D1 0;
+					//margin: 0 0 @s-1 0;
 				}
 				&.active {
 					display: none;
@@ -130,8 +133,8 @@ body {
 			}
 		}
 		main {
-			margin: 0 @D2;
-			padding: @D0 0 @D2 0;
+			margin: 0 @s-2;
+			padding: @s-0 0 @s-2 0;
 			&.blur {
 				//opacity: 0.5;
 				pointer-events: none;
@@ -139,18 +142,18 @@ body {
 		}
 		> .social, > footer {
 			border-top: 1px solid var(--f_med);
-			margin: 0 @D2;
+			margin: 0 @s-2;
 		}
 		> .social {
 			justify-content: space-around;
 			align-items: center;
 			font-size: 1.75em;
-			height: @D12;
+			height: @s-12;
 		}
 		> footer {
 			justify-content: center;
 			align-items: center;
-			height: @D6;
+			height: @s-6;
 		}
 	}
 
@@ -165,19 +168,19 @@ body {
 			"main main main main"
 			"social social social footer";
 		> header {
-			margin-left: @D4;
+			margin-left: @s-4;
 			> .menu, > .page { display: none; }
 		}
 		> header > .title, > nav a {
-			//padding: @D1 0 @D025  0;
+			//padding: @s-1 0 @s-025  0;
 			padding: 0.375em 0 0.125em  0;
 		}
 		> nav {
 			align-items: center;
 		}
 		> main {
-			margin: 0 @D4;
-			padding: 0 0 @D4 0;
+			margin: 0 @s-4;
+			padding: 0 0 @s-4 0;
 		}
 		> .social {
 			justify-self: end;
@@ -188,28 +191,28 @@ body {
 			}
 		}
 		> footer {
-			margin: 0 @D2 @D1 @D1;
+			margin: 0 @s-2 @s-1 @s-1;
 			text-align: right;
 		}
 	}
 
 	@media screen and (min-width:768px) {
 		> header {
-			margin-left: @D4;
+			margin-left: @s-4;
 		}
 		main {
-			margin: 0 @D4;
+			margin: 0 @s-4;
 		}
 	}
 
 	@media screen and (min-width:1280px) {
-		@header-height: @D12;
+		@header-height: @s-12;
 		grid-template-rows: @header-height 1fr auto;
-		padding-top: @D4;
+		padding-top: @s-4;
 		> header, > nav {
 		}
 		> header {
-			margin-left: @D8;
+			margin-left: @s-8;
 			height: @header-height;
 			//line-height: @header-height;
 		}
@@ -218,40 +221,40 @@ body {
 			//.h4;
 		}
 		> main {
-			margin: @D2 @D8 0 @D8;
+			margin: @s-2 @s-8 0 @s-8;
 		}
 		> .social, > footer {
 			position: fixed;
 			right: 0;
-			bottom: @D2;
+			bottom: @s-2;
 			writing-mode: vertical-rl;
 		}
 		> .social {
 			transition: font-size 0.6s;
 			font-size: 1.25em;
-			right: @D3;
+			right: @s-3;
 			a {
-				margin-top: @D05;
+				margin-top: @s-05;
 				transition:  transform 0.2s;
 				&:hover {
 					transform-origin: center;
 					transform: scale(1.2);
 				}
 			}
-			a:not(:last-child) { margin-bottom: @D1; }
+			a:not(:last-child) { margin-bottom: @s-1; }
 		}
 		> footer {
 			margin: 0;
-			right: @D1;
+			right: @s-1;
 		}
 	}
 
 	@media screen and (min-width:1920px) {
 		> header {
-			margin-left: @D12;
+			margin-left: @s-12;
 		}
 		> main {
-			margin: @D4 @D12;
+			margin: @s-4 @s-12;
 		}
 		> .social {
 			font-size: 1.5em;
