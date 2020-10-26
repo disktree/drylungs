@@ -1,0 +1,145 @@
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	border: none;
+	list-style-type: none;
+}
+
+html, body, iframe {
+	height: 100%;
+}
+
+html {
+	font-family: @font-family-regular;
+	font-size : var(--font-size);
+	//line-height: @line-height;
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	/* @media screen and (min-width: @vp-medium) {
+		//font-size  : 13px;
+        //hyphens: none;
+    } */
+}
+
+body {
+	
+	display: flex;
+	flex-direction: column;
+	//height: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	//overflow-y: scroll;
+	//-webkit-overflow-scrolling: touch;
+	//overflow-wrap: break-word;
+	//word-break: break-word;
+	
+	background : var(--b_med);
+	color      : var(--f_med);
+	-webkit-tap-highlight-color: var(--f_high);
+	
+	letter-spacing: normal;
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	background: var(--b_inv);
+	color     : var(--f_inv);
+}
+
+a {
+	background: transparent;
+	color: inherit;
+	text-decoration: none;
+	//border-bottom: 1px solid;
+	&:active {
+		color: var(--f_med);
+	}
+	&:hover {
+		color: var(--f_high);
+		//background: var(--b_high);
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @font-family-title;
+	text-transform: uppercase;
+	//hyphens: none;
+	//word-break: break-word;
+	//white-space: nowrap;
+	/* white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis; */
+	//background: var(--b_low);
+	//border-top: 1px solid white;
+	//margin-bottom: 14px;
+}
+
+h1 {
+//	font-size: var(--h1-size);
+	//letter-spacing: -6px;
+    //line-height: 1em;
+	// line-height: 0.8em;
+	//line-height: 0.9em;
+	//padding-top: 1.5rem;
+	//padding-top: 1rem;
+}
+h2 {
+	//font-size: var(--h2-size);
+	//letter-spacing: -4px;
+	//line-height: 0.9em;
+	//letter-spacing: -3px;
+	//position: relative;
+	//padding-top: 0.25rem;
+}
+h3 {
+	//font-size: var(--h3-size);
+	//line-height: 0.9em;
+	//letter-spacing: -1px;
+	//padding-top: 0.2rem;
+	//padding-top: 2px;
+}
+h4 {
+	//font-size: var(--h4-size);
+	//line-height: 1em;
+	//padding-top: 0.1rem;
+	//padding-top: 2px;
+}
+
+hr {
+	// overflow: visible;
+	height: 0;
+	border: none;
+    border-bottom: 1px dashed var(--f_med);
+    background: none;
+}
+
+img {
+	border-style: none;
+	
+}
+
+article {
+	p, ul, ol {
+		margin-bottom: @line-height;
+	}
+	ul, ol {
+	}
+	img {
+		width: 100%;
+		max-width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}

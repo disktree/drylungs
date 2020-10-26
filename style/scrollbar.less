@@ -1,0 +1,39 @@
+
+@scrollbar-min-thick: 4px;
+@scrollbar-max-thick: 8px;
+
+/* --- scrollbar --- */
+::-webkit-scrollbar {
+	border: none;
+    &:vertical {
+        width: 0.8vw;
+        min-width: @scrollbar-min-thick;
+        max-width: @scrollbar-max-thick;
+	}
+	&:horizontal {
+		//display: none;
+		height: 0.8vw;
+        min-height: @scrollbar-min-thick;
+        max-height: @scrollbar-max-thick;
+	}
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+    display: none !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--f_low);
+    &:hover {
+        background-color: var(--f_high);
+    }
+
+    &:active {
+        background: var(--b_inv);
+    }
+}

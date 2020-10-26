@@ -1,0 +1,45 @@
+/* --- fonts --- */
+
+@font-face {
+  font-family : @font-family-regular;
+  font-style  : normal;
+  font-display: block;
+  src         :
+    local('Liberation Mono'),
+    url('@{font-path}/liberation_mono-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family : @font-family-title;
+  font-style  : normal;
+  font-display: block;
+  src         : url('@{font-path}/Inter-UI-Bold.woff2') format('woff2'),
+    url('@{font-path}/Inter-UI-Bold.woff') format('woff');
+} 
+/* 
+@font-face {
+  font-family : @font-family-title;
+  font-style  : normal;
+  font-display: block;
+  src         : url('@{font-path}/helvetica_neue_65.woff2') format('woff2'),
+    url('@{font-path}/helvetica_neue_65.woff') format('woff'),
+    url('@{font-path}/helvetica_neue_65.ttf') format('truetype');
+} 
+ */
+@font-face {
+	font-family: @font-family-ascii;
+	font-display: block;
+	src:
+		local('MicroKnight'),
+		url('@{font-path}/MicroKnight_v1.0.woff2') format('woff2'),
+		url('@{font-path}/MicroKnight_v1.0.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: @font-family-ascii-plus;
+	font-display: block;
+	src:
+		local('P0T-NOoDLE'),
+		url('@{font-path}/P0T-NOoDLE_v1.0.woff2') format('woff2'),
+		url('@{font-path}/P0T-NOoDLE_v1.0.ttf') format('truetype');
+}

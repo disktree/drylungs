@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400">
+    <style>
+        line{stroke-width:5;stroke:#fff;stroke-dasharray:1,1}
+		path {
+			fill: white; // var(--f_med);
+		}
+    </style>
+    <path d="M 100 0 H 200 V 200 H 300 V 300 H 200 V 400 H 100 V 300 H 0 V 200 H 100 V 0"/>
+</svg>

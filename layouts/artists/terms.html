@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<ol>
+    {{ range $term, $taxonomy := .Site.Taxonomies.artists }}
+    <li>
+        {{ $link := .Page.Permalink }}
+        <h3>
+            <a href="{{ $link }}">
+                <span><i class="ic-hashtag"></i>{{- .Page.Title -}}</span>/<span class="title-thin">{{ .Count }}</span>
+            </a>
+        </h3>
+    </li>
+    {{ end }}
+</ol>
+
+{{ end }}

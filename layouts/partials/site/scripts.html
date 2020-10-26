@@ -1,0 +1,6 @@
+
+{{ range $val := $.Site.Params.customJS }}
+    {{ if gt (len $val) 0 }}
+        <script src="{{ $.Site.BaseURL }}{{ $val }}"></script>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,46 @@
+{{ define "main" }}
+    {{ $record := .Params }}
+
+    <article>
+
+        <h1>{{ $record.name}}</h1>
+        <h4>{{$record.id}}</h4>
+        
+        <time>{{ .Date.Format "2006/01/02" }}</time>
+        <div>{{ $record.format.type }} {{ $record.format.size }}</div>
+        
+        <ul>
+            {{ range $artist := .Params.artists }}
+            <li>
+                <div>{{ $artist }}</div>
+            </li>
+            {{ end }}
+        </ul>
+        
+        <ul>
+            {{ range $track := .Params.tracks }}
+            <li>
+                <div>{{ index $track "name" }}</div>
+                <div>{{ index $track "duration" }}</div>
+            </li>
+            {{ end }}
+        </ul>
+        
+        <ul>
+            {{ range $link := .Params.links }}
+            <li>
+                <div>{{ index $link "type" }}</div>
+                <div>{{ index $link "uri" }}</div>
+            </li>
+            {{ end }}
+        </ul>
+        
+        <article>
+            <p>{{- .Params.description -}}</p>
+            <p>{{- .Content -}}</p>
+        </article>
+        
+        <img src="{{.Title}}.jpg" alt="">
+        
+    </article>
+{{ end }}

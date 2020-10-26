@@ -1,0 +1,8 @@
+{{ $currentPage := . }}
+<ul>
+    {{ range .Site.Menus.nav }}
+    <li>
+        <a class="item" href="{{ .URL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+</ul>

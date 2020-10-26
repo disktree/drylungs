@@ -1,0 +1,26 @@
+{{ $root := .Site.BaseURL }}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{{ hugo.Generator }}
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="publisher" content="{{.Site.Params.publisher}}">
+
+<style media="screen">
+    :root {
+        --background: #101111;
+        --f_high: #919794;--f_med: #5e6461;--f_low: #2d2f2e;--f_inv: #ffffff;
+        --b_high: #292b2b;--b_med: #101010;--b_low: #010101;--b_inv: #101111;
+    }
+    </style>
+
+<link rel="stylesheet" href="{{ $root }}/css/style.css"/>
+
+<link rel='icon' type='image/x-icon' href='{{ $root }}/favicon.ico'>
+<link rel="icon" href="{{ $root }}/icon/icon-48.png" type="image/png" sizes="48x48"/>
+<link rel='apple-touch-icon' href='{{ $root }}/icon/icon-48.png' />
+
+<link rel="alternate" href="feed" type="application/atom+xml" title="Dry Lungs Records"/>
+<link rel="author" href="{{ $root }}/humans.txt" type="text/plain">
+<link rel="manifest" href="{{ $root }}/manifest.json">
+        

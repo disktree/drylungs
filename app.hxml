@@ -1,9 +1,0 @@
--js bin/scr/app.js
--main drylungs.App
--cp src
--lib om.core
--lib om.theme
--dce full
--debug
-#-D js-es=6
-#-cmd lessc res/style/index.less bin/css/app.css --include-path=$DEV_PATH/lib/enron/src --no-color --source-map

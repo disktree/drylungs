@@ -1,0 +1,32 @@
+
+@vp-small: 30em;
+@vp-medium: 60em;
+@vp-big: 90em;
+
+@line-height: 1.4em;
+
+@font-path: 'font';
+@font-family-regular: "FontRegular";
+@font-family-title: "FontTitle";
+@font-family-ascii: 'MicroKnight';
+@font-family-ascii-plus: 'P0T-NOoDLE';
+
+:root {
+	--font-size: .875rem;
+	//--font-size: 12px;
+	--h1-size: 4rem;
+	--h2-size: 2.75rem;
+	--h3-size: 2rem;
+	--h4-size: 1.5rem;
+	@media screen and (min-width: @vp-medium) {
+		--font-size: 1rem;
+		--h1-size: 5rem;
+		--h2-size: 4rem;
+		--h3-size: 3rem;
+	}
+	@media screen and (min-width: @vp-big) {
+		--h1-size: 6rem;
+		--h2-size: 5em;
+		--h3-size: 4rem;
+	}
+}

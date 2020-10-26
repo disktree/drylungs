@@ -1,0 +1,17 @@
+{{ define "main" }}
+<!-- {{ if .Title }}<h1>{{- .Title -}}</h1>{{ end }} -->
+<!-- {{ if .Content }}<section class="content">{{- .Content -}}</section>{{ end }} -->
+{{ $paginator := .Paginate .Pages }}
+<ul>
+	{{ range $paginator.Pages }}
+		{{ $record := .Params }}
+		<li>
+			<h2>
+				<a href="{{ .Permalink }}">{{- .Title -}}</a>
+			</h2>
+			<h3>{{ $record.name}}</h3>
+			<div>{{ .Date.Format "2006/01/02" }}</div>
+		</li>
+	{{ end }}
+</ul>
+{{ end }}

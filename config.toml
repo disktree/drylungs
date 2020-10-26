@@ -1,0 +1,44 @@
+baseURL = "https://drylungs.at"
+title = "Drylungs"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+theme_color = "#000000"
+keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna","666"]
+
+[params]
+	theme = "zenburn"
+    customCSS = []
+    customJS  = ["js/site.js"]
+    author = "christoph@drylungs.at"
+    publisher = "christoph@drylungs.at"
+    email = "christoph@drylungs.at"
+    google_site_verification = "btMQPqnHIshsheX-njuIUKtyLqv81aeN0yEeo2c65eU"
+[params.social]
+    bigcartel = { user = "drylungs", uri = "https://drylungs.bigcartel.com/" }
+    discogs = { user = "KureKureTakora", uri = "https://www.discogs.com/seller/KureKureTakora" }
+    instagram = { user = "drylungsrecords", uri = "https://www.instagram.com/drylungsrecords" }
+    twitter = { user = "DryLungsRecords", uri = "https://twitter.com/DryLungsRecords" }
+
+[taxonomies]
+    artist = "artists"
+    #size = "size"
+
+[permalinks]
+  #records = "/records/:title/"
+
+[menu]
+    [[menu.nav]]
+        identifier = "records"
+        name = "Records"
+        url = "/records"
+        weight = -100
+    [[menu.nav]]
+        identifier = "mailorder"
+        name = "Mailorder"
+        url = "/mailorder"
+        weight = 100
+    [[menu.nav]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+        weight = 200
