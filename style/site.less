@@ -1,81 +1,81 @@
 
-@header-height: 72px;
-
-.ascii {
-	font-family: @font-family-ascii;
-	display: table;
-	white-space: pre;
-	//line-height: 1.4em;
-	cursor: default;
-	i {
-		font-style: normal;
-		display: inline;
-		&::selection {
-			//background: var(--f_inv) !important;
-			//color: var(--b_inv) !important;
-		}
-		&.plus {
-			font-family: @font-family-ascii-plus;
-			/* &::selection {
-				background: var(--b_inv) !important;
-				color: var(--f_inv) !important;
-			} */
-		}
-	}
-}
-
+@header-height: 48px;
+/* 
+.ui() {
+	font-family: @font-family-title;
+	//font-size: 2em;
+	//letter-spacing: -0.075em; //TODO
+	text-transform: uppercase;
+	list-style-type: none;
+} */
 
 body {
 	
 	display: grid;
 	grid-template-columns: [site-start] auto 1fr auto [site-end];
-	grid-template-rows: auto auto [content-start] 1fr [content-end] auto auto;
-	
+	grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
+	//gap: 1rem;
+
 	> header, > nav, > aside, > footer {
 		text-transform: uppercase;
 	}
 	> header, > nav {
 		font-family: @font-family-title;
-		font-size: 1.5rem;
+		font-size: 2em;
+		letter-spacing: -0.075em; //TODO
 	}
 
 	> header {
 		grid-column: site-start / site-end;
 		grid-row: 1 / span 1;
 		display: flex;
+		align-items: center;
+		height: @header-height;
+		line-height: @header-height;
 		cursor: default;
 		>.menu {
-			//display: inline-block;
+			width: @header-height*1.2;
+			height: @header-height;
+			text-align: center;
+			cursor: pointer;
+			&:hover {
+				color: var(--f_high);
+			}
 		}
 		>.title {
-			font-size: 1.5rem;
 			&::after { content: "™"; }
 		}
 		>.page {
-			&::before { content: "/"; }
+			//&::before { content: "/"; }
 		}
 	}
 	> nav {
 		grid-column: site-start / site-end;
 		grid-row: 2 / span 1;
-		font-size: 1.5rem;
+		//line-height: @header-height;
 		text-transform: uppercase;
 		margin-top: -100%;
-		transform: translateX(-90%);
+		transform: translateX(-100%);
 		transition: transform 0.2s;
-		//pointer-events: none;
 		&.show {
 			margin-top: 0;
 			transform: translateX(0);
-			//pointer-events: initial;
 		}
 		ul {
+			//.ui;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
 			li {
 				a {
-					&::before { content: "/";}
+					&::before {
+						content: "/";
+					}
+					&.active {
+						pointer-events: none;
+						color: var(--background)!important;
+						background: var(--f_med)!important;
+					}
 				}
 			}
 		}
@@ -103,10 +103,6 @@ body {
 		grid-column: site-start / site-end;
 		grid-row: 5 / span 1;
 		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		max-width: 50vw;
-		height: 96px;
 		a {
 			font-size: 1.75em;
 		}
@@ -115,21 +111,45 @@ body {
 		grid-column: site-start / site-end;
 		grid-row: 4 / span 1;
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		font-size: 0.75rem;
-		text-transform: uppercase;
-		//border-top: 1px solid var(--f_med);
+		user-select: none;
 	}
 	
+	@media screen and (max-width: @vp-medium) {
+		> header {
+			> .page {
+				&::before { content: "/"; }
+			}
+		}
+		> nav {
+			> ul {
+				li {
+					margin-left: 1rem;
+					padding: 0.25em;
+				}
+			}
+		}
+		> aside {
+			justify-content: space-evenly;
+			padding: 2rem 0;
+			font-size: 1.5rem;
+		}
+		> footer {
+			//line-height: 1em;
+			justify-content: center;
+			padding: 1.5rem 0;
+			margin: 0 1rem;
+			border-top: 1px solid var(--f_med);
+			border-bottom: 1px solid var(--f_med);
+		}
+	}
+
 	@media screen and (min-width: @vp-medium) {
 		> header {
 			grid-column: site-start / span 1;
-			> .menu {
-				display: none;
-				//background: red;
-			}
-			> .page {
+			margin-left: 1rem;
+			>.menu, >.page {
 				display: none;
 			}
 		}
@@ -140,6 +160,9 @@ body {
 			transform: translateX(0);
 			ul {
 				flex-direction: row;
+				li {
+					line-height: @header-height;
+				}
 			}
 		}
 		> main {
@@ -149,15 +172,19 @@ body {
 			grid-column: 1 / span 3;
 			grid-row: 5 / span 1;
 			justify-content: flex-end;
-			height: inherit;
+			//padding: 0.5em 0;
+			font-size: 0.5rem;
 			a {
-				font-size: 1em;
+				&:not(:last-child) {
+					margin-right: 0.5em;
+				}
 			}
 		}
 		> footer {
 			grid-column: 4 / span 1;
 			grid-row: 5 / span 1;
 			justify-content: flex-end;
+			//padding: 0.5rem;
 		}
     }
 }

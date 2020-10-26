@@ -1,46 +1,47 @@
 {{ define "main" }}
+
     {{ $record := .Params }}
 
     <article>
 
-        <h1>{{ $record.name}}</h1>
-        <h4>{{$record.id}}</h4>
+        <h4>{{ $record.id }}</h4>
+        <h1>{{ $record.name }}</h1>
         
         <time>{{ .Date.Format "2006/01/02" }}</time>
-        <div>{{ $record.format.type }} {{ $record.format.size }}</div>
+        <div>{{ $record.format.type }} {{ $record.size }}</div>
         
-        <ul>
+        <ul class="artists">
             {{ range $artist := .Params.artists }}
             <li>
-                <div>{{ $artist }}</div>
+                <!-- <a href="/artists/{{$artist}}">{{ $artist }}</a> -->
+                {{ $artist }}
             </li>
             {{ end }}
         </ul>
         
-        <ul>
-            {{ range $track := .Params.tracks }}
-            <li>
-                <div>{{ index $track "name" }}</div>
-                <div>{{ index $track "duration" }}</div>
-            </li>
+        <ol class="tracks">
+            {{ range $track := $record.tracks }}
+            <li>{{ index $track "position" }} – {{ index $track "name" }} [{{ index $track "duration" }}]</li>
             {{ end }}
-        </ul>
+        </ol>
         
-        <ul>
+       <!--  <ul>
             {{ range $link := .Params.links }}
             <li>
                 <div>{{ index $link "type" }}</div>
                 <div>{{ index $link "uri" }}</div>
             </li>
             {{ end }}
-        </ul>
+        </ul> -->
         
         <article>
             <p>{{- .Params.description -}}</p>
             <p>{{- .Content -}}</p>
         </article>
-        
-        <img src="{{.Title}}.jpg" alt="">
+		
+		<div class="cover">
+			<img src="{{.Title}}.jpg" alt="">
+		</div>
         
     </article>
 {{ end }}

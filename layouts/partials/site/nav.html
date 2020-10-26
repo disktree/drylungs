@@ -2,7 +2,7 @@
 <ul>
     {{ range .Site.Menus.nav }}
     <li>
-        <a class="item" href="{{ .URL }}">{{ .Name }}</a>
+        <a class="item{{ if $currentPage.IsMenuCurrent "nav" . }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
     </li>
     {{ end }}
 </ul>

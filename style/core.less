@@ -19,7 +19,7 @@ html, body, iframe {
 html {
 	font-family: @font-family-regular;
 	font-size : var(--font-size);
-	//line-height: @line-height;
+	line-height: @line-height;
 	scroll-behavior: smooth;
 	-webkit-text-size-adjust: 100%;
 	/* @media screen and (min-width: @vp-medium) {
@@ -135,6 +135,11 @@ article {
 		margin-bottom: @line-height;
 	}
 	ul, ol {
+		//margin-left: @line-height;
+	}
+	li {
+		margin-left: @line-height;
+		list-style-type: disc;
 	}
 	img {
 		width: 100%;
