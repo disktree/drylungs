@@ -1,5 +1,8 @@
 ---
 title: "About"
+menu:
+  nav:
+    weight: 200
 ---
 Noisecore, Grindcore and Vinyl are 3 of the most beloved things in my life. So it only came natural to start a diy vinyl only noise/grind label to try and support the (local) scene!
 

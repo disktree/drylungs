@@ -1,5 +1,8 @@
 ---
 title: "Mailorder"
+menu:
+  nav:
+    weight: 100
 ---
 Check out my Discogs Sales List and contact me at christoph@drylungs.at if you are interested in something (or directly via discogs).
 

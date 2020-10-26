@@ -1,4 +1,4 @@
-baseURL = "https://drylungs.at"
+baseURL = "http://drylungs.disktree.net"
 title = "Drylungs"
 languageCode = "en-us"
 defaultContentLanguage = "en"
@@ -26,19 +26,19 @@ keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna
 [permalinks]
   #records = "/records/:title/"
 
-[menu]
-    [[menu.nav]]
-        identifier = "records"
-        name = "Records"
-        url = "/records"
-        weight = -100
-    [[menu.nav]]
-        identifier = "mailorder"
-        name = "Mailorder"
-        url = "/mailorder"
-        weight = 100
-    [[menu.nav]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-        weight = 200
+#[menu]
+    # [[menu.nav]]
+    #     identifier = "records"
+    #     name = "Records"
+    #     url = "/records"
+    #     weight = -100
+    # [[menu.nav]]
+    #     identifier = "mailorder"
+    #     name = "Mailorder"
+    #     url = "/mailorder"
+    #     weight = 100
+    # [[menu.nav]]
+    #     identifier = "about"
+    #     name = "About"
+    #     url = "/about"
+    #     weight = 200
