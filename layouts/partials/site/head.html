@@ -1,4 +1,8 @@
 {{ $root := .Site.BaseURL }}
+{{ $url := urls.Parse $root }}
+{{ $theme := .Site.Params.theme }}
+{{ if .Params.theme }}{{ $theme = .Params.theme }}{{ end }}
+{{ $theme_path := printf "theme/%s.html" $theme }}
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -6,13 +10,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="publisher" content="{{.Site.Params.publisher}}">
 
-<style media="screen">
-    :root {
-        --background: #101111;
-        --f_high: #919794;--f_med: #5e6461;--f_low: #2d2f2e;--f_inv: #ffffff;
-        --b_high: #292b2b;--b_med: #101010;--b_low: #010101;--b_inv: #101111;
-    }
-    </style>
+{{ partial $theme_path . }}
 
 <link rel="stylesheet" href="{{ $root }}/css/style.css"/>
 

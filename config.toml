@@ -6,7 +6,7 @@ theme_color = "#000000"
 keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna","666"]
 
 [params]
-	theme = "zenburn"
+	theme = "battlestation"
     customCSS = []
     customJS  = ["js/site.js"]
     author = "christoph@drylungs.at"
