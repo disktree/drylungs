@@ -1,11 +1,11 @@
 ---
-id: DLR001
+id: dlr001
 title: DLR001
 name: "Live At Fluc Wanne, 2010/05/18"
 date: 2010-09-16
 artists: ["Merzbow","Balázs Pándi"]
 format: {
-    type: vinyl,
+    type: Vinyl,
     size: 12
 }
 size: 12

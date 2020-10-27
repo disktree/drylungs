@@ -5,8 +5,8 @@ name: "Snell b/w Weather"
 date: 2015-06-01
 artists: ["Sissy Spacek"]
 format: {
-    type: vinyl,
-    size": 7
+    type: Vinyl,
+    size: 7
 }
 description: "Black vinyl with big center holes (1C label).\nLimited to 300 copies."
 tracks: [

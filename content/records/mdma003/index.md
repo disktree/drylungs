@@ -5,8 +5,8 @@ name: "Super Single"
 date: 2013-12-01
 artists: ["Otomo Yoshihide","Lasse Marhaug"]
 format: {
-    type: vinyl,
-    size": 7
+    type: Vinyl,
+    size: 7
 }
 description: "Black vinyl with big center holes (black labels) housed in an all black cover with gold pantone 876c printed letters, limited to 300 copies."
 tracks: [

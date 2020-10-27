@@ -5,9 +5,10 @@ name: "Futanari Princess"
 date: 2015-11-01
 artists: ["Venta Protesix"]
 format: {
-    type: vinyl,
-    size": 7
+    type: Vinyl,
+    size: 7
 }
+size: 7
 description: "Pink vinyl with big center holes (white labels).\nSilkscreened insert (black/red ink on pink paper).\nLimited to 300 copies."
 tracks: [
 {

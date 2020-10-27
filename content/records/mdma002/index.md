@@ -5,7 +5,7 @@ name: "A Comprehensive Guide To Dismantling The Weapons Of Mass Destruction"
 date: 2012-12-01
 artists: ["Raven"]
 format: {
-    type: vinyl,
+    type: Vinyl,
     size: 7
 }
 tracks: [

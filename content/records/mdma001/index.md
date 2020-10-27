@@ -5,7 +5,7 @@ name: Untitled
 date: 2011-03-01
 artists: [Bruital Orgasme]
 format: {
-    type: vinyl,
+    type: Vinyl,
     size: 7
 }
 size: 7

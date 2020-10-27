@@ -5,9 +5,10 @@ name: "To Know Death...You Have To Fuck Life In The Gallbladder"
 date: 2014-11-01
 artists: ["Solypsis"]
 format: {
-    type: vinyl,
-    size": 7
+    type: Vinyl,
+    size: 7
 }
+size: 7
 description: "Red vinyl with big center holes (black labels).\nLimited to 200 copies."
 tracks: [
     {

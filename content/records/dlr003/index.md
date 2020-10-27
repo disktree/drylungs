@@ -5,8 +5,8 @@ name: "Bruit Nouveau"
 date: 2019-09-16
 artists: ["Feuersalamander auf Marzipan"]
 format: {
-    type: lathe,
-    size": 5
+    type: Lathe,
+    size: 5
 }
 size: 5
 description: "5\" Picture Disc Lathe Cut.\nLimited to 33 copies."

@@ -5,7 +5,7 @@ name: Untitled
 date: 2012-04-01
 artists: ["Justice Yeldham"]
 format: {
-    type: vinyl,
+    type: Vinyl,
     size: 7
 }
 size: 7

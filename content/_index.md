@@ -1,8 +1,4 @@
 ---
 title: "Drylungs"
 ---
-Hello!
-# Hello!
-## Hello!
-### Hello!
-#### Hello!
+<!-- ![](img/vinyl-7.svg) -->

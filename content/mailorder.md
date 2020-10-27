@@ -4,10 +4,10 @@ menu:
   nav:
     weight: 100
 ---
-Check out my Discogs Sales List and contact me at christoph@drylungs.at if you are interested in something (or directly via discogs).
+Check out my [Discogs Sales List](https://www.discogs.com/seller/KureKureTakora) and contact me at [christoph@drylungs.at](mailto:christoph@drylungs.at) if you are interested in something (or directly via discogs).
 
 Contact me beforehand about exact shipping quotes and general questions.
-Check official rates at post.at (Personal/Buisness).
+Check official rates at [post.at](https://post.at/) ([Personal](https://www.post.at/en/personal_send_parcels_international.php)/[Buisness](https://www.post.at/en/business_send_letter_mail_international_rates.php)).
 
 For shipping a 7" type parcel (max L353×B250×H30mm, up to 2kg, normal speed, no insurance or tracking code):
 
