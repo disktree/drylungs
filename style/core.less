@@ -40,7 +40,7 @@ body {
 	//overflow-wrap: break-word;
 	//word-break: break-word;
 	
-	background : var(--b_med);
+	background : var(--background);
 	color      : var(--f_med);
 	-webkit-tap-highlight-color: var(--f_med);
 	
@@ -142,7 +142,8 @@ article {
 			font-size: 0.75em;
 		} */
 		&:hover {
-			border-bottom: 1px dotted var(--f_high);
+			background: var(--b_low);
+			border-bottom: 1px solid var(--f_high);
 		}
 	}
 	p, ul, ol {

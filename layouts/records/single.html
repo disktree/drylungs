@@ -15,31 +15,40 @@
 				</ul>
 				<time class="date">{{ .Date.Format "2006" }}</time>
 				<div class="format">
-					<span class="type">{{ $record.format.type }}</span>
-					<span class="size">{{ $record.format.size }}</span>
-					<span class="rpm">{{ $record.format.rpm }}</span>
+					{{ if $record.format.type }}<span class="type">{{ $record.format.type }}</span>{{ end }}
+					{{ if $record.format.size }}<span class="size">{{ $record.format.size }}</span>{{ end }}
+					{{ if $record.format.rpm }}<span class="rpm">{{ $record.format.rpm }}</span>{{ end }}
 				</div>
 				<ul class="links">
 					{{ range $link := $record.links }}
-					<li><a href="{{$link.uri}}"><i class="ic-{{$link.name}}"></i></a></li>
+					<li><a href="{{$link.uri}}" title="{{$link.type}}"><i class="ic-{{$link.name}}"></i></a></li>
 					{{ end }}
 				</ul>
 			</div>
 		</header>
+		{{ if $record.format.tracks }}
 		<ol class="tracks">
             {{ range $track := $record.tracks }}
             <li>
-				<span class="position">{{ index $track "position" }}</span>
-				<span class="name">{{ index $track "name" }}</span>
-				<span class="duration">{{ index $track "duration" }}</span>
+				<span class="position">{{- index $track "position" -}}</span>
+				<span class="name">{{- index $track "name" -}}</span>
+				<span class="duration">{{- index $track "duration" -}}</span>
 			</li>
             {{ end }}
-        </ol>
-		<div class="description">{{- .Params.description -}}</div>
-        <div class="content">{{- .Content -}}</div>
+		</ol>
+		{{ end }}
+		{{ if $record.format.description }}<div class="description">{{- $record.description -}}</div>{{ end }}
+		{{ if .Content }}<div class="description">{{- .Content -}}</div>{{ end }}
 		<div class="cover">
-			<img src="{{.Title}}.jpg" alt="{{.Title}}-front">
-			<img src="{{.Title}}_back.jpg" alt="{{.Title}}-back">
+			<!-- {{ .Resources.ByType "image" }} -->
+			<picture>
+				<source srcset="{{.Title}}.webp" type="image/webp"/>
+				<img class="front" src="{{.Title}}.jpg" alt="cover-front"/>
+			</picture>
+			
+			<!-- <img src="{{.Title}}.jpg" alt="cover-front">
+			<img src="{{.Title}}_back.jpg" alt="cover-back"> -->
 		</div>
-    </article>
+	</article>
+	{{ partial "pagination.html" . }}
 {{ end }}

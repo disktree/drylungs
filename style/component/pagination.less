@@ -1,0 +1,21 @@
+nav.pagination {
+	display: flex;
+	justify-content: space-between;
+	font-size: 3em;
+	user-select: none;
+	a {
+		padding: 1rem 0;
+		text-decoration: none;
+	}
+	>.prev {
+	}
+	>.next {
+	}
+	@media screen and (min-width: @vp-medium) {
+		justify-content: flex-start;
+		font-size: 1em;
+		a {
+			margin-left: 0.5rem;
+		}
+	}
+}

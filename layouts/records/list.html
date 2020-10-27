@@ -9,16 +9,19 @@
 			<a href="{{ .Permalink }}">
 				<!-- {{ .Resources.ByType "image" }} -->
 				<img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg">
-				<div class="details">
-					<h2>{{- .Title -}}</h2>
-					<h2>{{ $record.name }}</h2>
-					<ul class="artists">
-						{{ range $artist := .Params.artists }}
-						<li>
-							<h2>{{ $artist }}</h2>
-						</li>
-						{{ end }}
-					</ul>
+				<div class="inner">
+					<div class="details">
+						<h2 class="name">{{ $record.name }}</h2>
+						<div class="id">{{ $record.id }}</div>
+						<ul class="artists">
+							{{ range $artist := $record.artists }}
+							<li>
+								<!-- <a href="/artists/{{$artist}}">{{ $artist }}</a> -->
+								{{ $artist }}
+							</li>
+							{{ end }}
+						</ul>
+					</div>
 				</div>
 			</a>
 		</li>

@@ -1,5 +1,5 @@
 {{ define "main" }}
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17.8cm" height="17.8cm" viewBox="0 0 17.8 17.8">
+	<svg xmlns="http://www.w3.org/2000/svg" width="17.8cm" height="17.8cm" viewBox="0 0 17.8 17.8">
 		<g fill-rule="evenodd">
 			<path id="vinyl" fill="black" d="
 				M 8.9, 8.9
@@ -21,5 +21,5 @@
 				a 0.35,0.35 0 1,0 -0.7,0"/>
 		</g>
 	</svg>
-    <div>{{ .Content }}</div>
+    <div>{{- .Content -}}</div>
 {{ end }}

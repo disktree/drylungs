@@ -5,7 +5,8 @@ body {
 	
 	display: grid;
 	grid-template-columns: [site-start] auto [content-start] 1fr [content-end] auto [site-end];
-	grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
+	//grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
+	grid-template-rows: auto auto [content-start] 1fr [content-end] auto auto;
 	//gap: 1rem;
 
 	> header, > nav, > aside, > footer {
@@ -76,7 +77,8 @@ body {
 		grid-column: site-start / site-end;
 		grid-row: content-start / content-end;
 		width: 100%;
-		padding: 1rem 1rem;
+		padding: 2rem 1rem 4rem 1rem;
+		//margin: 1rem 1rem;
 		// background: yellow;
 		&.blur {
 			transition: opacity 0.3s;
@@ -123,10 +125,15 @@ body {
 				}
 			}
 		}
+		> main {
+			
+		}
 		> aside {
 			justify-content: space-evenly;
-			padding: 2rem 0;
-			font-size: 1.5rem;
+			font-size: 1rem;
+			a {
+				padding: 1.5em 1em;
+			}
 		}
 		> footer {
 			justify-content: center;
@@ -140,7 +147,9 @@ body {
 	@media screen and (min-width: @vp-medium) {
 		> header {
 			grid-column: site-start / span 1;
-			margin-left: 1rem;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+			margin-left: 4rem;
 			>.menu, >.page {
 				display: none;
 			}
@@ -148,7 +157,8 @@ body {
 		> nav {
 			grid-column: 2 / span 3;
 			grid-row: 1 / span 1;
-			margin-top: 0;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
 			transform: translateX(0);
 			ul {
 				flex-direction: row;
@@ -159,11 +169,14 @@ body {
 		}
 		> main {
 			//grid-row: 2 / content-end;
+			padding: 2rem 8rem 8rem 8rem;
 		}
 		> aside {
-			grid-column: 1 / span 3;
-			grid-row: 4 / span 1;
+			grid-column: 1 / span 2;
+			grid-row: 5 / span 1;
 			justify-content: flex-end;
+			margin-right: 0.5rem;
+			margin-bottom: 0.5rem;
 			font-size: 0.5rem;
 			a {
 				&:not(:last-child) {
@@ -172,13 +185,23 @@ body {
 			}
 		}
 		> footer {
-			grid-column: 1 / span 3;
+			grid-column: 3 / span 1;
+			//font-family: "Frucade";
+			//font-size:7;
 			grid-row: 5 / span 1;
 			justify-content: flex-end;
+			margin-right: 1rem;
+			margin-bottom: 0.5rem;
 			/* grid-column: 4 / span 1;
 			grid-row: 5 / span 1;
 			justify-content: flex-end;
 			margin-left: 0.5em; */
 		}
-    }
+	}
+	
+	@media screen and (min-width: @vp-large) {
+		> footer {
+			background: teal;
+		}
+	}
 }

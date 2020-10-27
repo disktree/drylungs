@@ -1,0 +1,8 @@
+<nav class="pagination">
+	{{with .PrevInSection}}
+	<a class="prev" href="{{.Permalink}}" title="{{.Title}}"><i class="ic-long-arrow-left"></i></a>
+	{{end}}
+	{{with .NextInSection}}
+	<a class="next" href="{{.Permalink}}" title="{{.Title}}"><i class="ic-long-arrow-right"></i></a>
+	{{end}}
+</nav>
