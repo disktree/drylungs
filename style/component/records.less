@@ -1,0 +1,27 @@
+
+ol.records {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+	grid-column-gap: 1rem;
+	grid-row-gap: 1rem;
+	li.record {
+		position: relative;
+		width: 100%;
+		img.cover {
+			width: 100%;
+			filter: contrast(20%) grayscale(90%) brightness(40%);
+			&:hover {
+				filter: none;
+			}
+		}
+		.details {
+			position: absolute;
+			top: 0;
+			right: 0;
+			//bottom: 0;
+			left: 0;
+			z-index: 1000;
+		}
+	}
+}

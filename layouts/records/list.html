@@ -1,17 +1,27 @@
 {{ define "main" }}
 <!-- {{ if .Title }}<h1>{{- .Title -}}</h1>{{ end }} -->
 <!-- {{ if .Content }}<section class="content">{{- .Content -}}</section>{{ end }} -->
-{{ $paginator := .Paginate .Pages }}
-<ul>
+<ol class="records">
+	{{ $paginator := .Paginate .Pages }}
 	{{ range $paginator.Pages }}
 		{{ $record := .Params }}
-		<li>
-			<h2>
-				<a href="{{ .Permalink }}">{{- .Title -}}</a>
-			</h2>
-			<h3>{{ $record.name}}</h3>
-			<div>{{ .Date.Format "2006/01/02" }}</div>
+		<li class="record">
+			<a href="{{ .Permalink }}">
+				<!-- {{ .Resources.ByType "image" }} -->
+				<img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg">
+				<div class="details">
+					<h2>{{- .Title -}}</h2>
+					<h2>{{ $record.name }}</h2>
+					<ul class="artists">
+						{{ range $artist := .Params.artists }}
+						<li>
+							<h2>{{ $artist }}</h2>
+						</li>
+						{{ end }}
+					</ul>
+				</div>
+			</a>
 		</li>
 	{{ end }}
-</ul>
+</ol>
 {{ end }}

@@ -42,7 +42,7 @@ body {
 	
 	background : var(--b_med);
 	color      : var(--f_med);
-	-webkit-tap-highlight-color: var(--f_high);
+	-webkit-tap-highlight-color: var(--f_med);
 	
 	letter-spacing: normal;
 	text-rendering: optimizeLegibility;
@@ -126,11 +126,25 @@ hr {
 }
 
 img {
+	display: block;
 	border-style: none;
 	
 }
 
 article {
+	a {
+		border-bottom: 1px dotted var(--f_med);
+		/* &[href^="http"]:after {
+			.font-icon();
+			content: @ic-external-link;
+			padding-left: 0.375em;
+			padding-right: 0.2em;
+			font-size: 0.75em;
+		} */
+		&:hover {
+			border-bottom: 1px dotted var(--f_high);
+		}
+	}
 	p, ul, ol {
 		margin-bottom: @line-height;
 	}

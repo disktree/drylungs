@@ -1,0 +1,90 @@
+
+article.record {
+	display: flex;
+	flex-direction: column;
+	>* {
+		margin-bottom: 1rem;
+	}
+	header  {
+		ul, ol, li {
+			margin: 0;
+		}
+		display: flex;
+		flex-wrap: wrap;
+		h1.name {
+			order: 10;
+			width: 100%;
+			margin-bottom: 1rem;
+			font-size: 4em;
+			line-height: 1em;
+		}
+		.details {
+			order: -1;
+			display: flex;
+			margin-bottom: 1rem;
+			>*:not(:last-child)::after {
+			   content: "/";
+		   } 
+		   .id {
+				display: none;
+				font-weight: bold;
+			}
+			.artists {
+				margin: 0;
+				li {
+					display: inline-block;
+					list-style: none;
+					margin: 0;
+					font-weight: bold;
+					&:not(:last-child)::after {
+						content: "&";
+					}
+				}
+			}
+			.year {
+			}
+			.format {
+				.size::after {
+					content: '"';
+				}
+				.rpm::after {
+					content: 'RPM';
+				}
+			}
+			ul.links {
+				li {
+					display: inline-block;
+				}
+			}
+		}
+	}
+	.description {
+		margin-bottom: 1rem;
+	}
+	ol.tracks {
+		li {
+			>.position::after {
+				margin-left: 1ch;
+				content: "–";
+			}
+			>.duration {
+				color: var(--f_low);
+				&::before { content: "["; }
+				&::after { content: "]"; }
+			}
+		}
+	}
+	.cover {
+		display: flex;
+		flex-wrap: wrap;
+		img {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: @vp-medium) {
+		.id {
+			display: inline-block;
+		}
+	}
+}
