@@ -2,19 +2,19 @@
 //TODO https://github.com/jonsuh/hamburgers
 
 .hamburger {
-	// width: 72px;
-	// height: 72px;
-	// text-align: center;
+	position: relative;
+	top: -2px;
 	.hamburger(
-		@width: 26px;
-		@height: 16px;
-		@line-thick: 2px;
-		@color: var(--f_med)
+		@width: 30px;
+		//@height: 1em;
+		@height: 22px;
+		@line-thick: 4px;
+		@color: var(--f_med);
 	);
-	.hamburger--squeeze();
-	//.hamburger--spin();
+	//.hamburger--squeeze();
+	.hamburger--vortex();
 
 	//height: 32px;
 	//margin: auto 10px;
-	padding: 0px 0px;
+	//padding: 0px 0px;
 }

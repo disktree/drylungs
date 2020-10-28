@@ -4,48 +4,53 @@
   font-family : @font-family-regular;
   font-style  : normal;
   font-display: block;
-  src         :
+  src:
     local('Liberation Mono'),
-    url('@{font-path}/liberation_mono-regular.woff2') format('woff2');
+    url('@{font-path}/liberation_mono-regular.woff2') format('woff2'),
+    url('@{font-path}/liberation_mono-regular.ttf') format('truetype');
 }
 
+/* @font-face {
+  font-family : @font-family-title;
+  font-style  : normal;
+  font-display: block;
+	src:
+		url('@{font-path}/Archivo-Bold.ttf') format('truetype');
+}  */ 
 @font-face {
   font-family : @font-family-title;
   font-style  : normal;
   font-display: block;
-  src         : url('@{font-path}/Inter-UI-Bold.woff2') format('woff2'),
-    url('@{font-path}/Inter-UI-Bold.woff') format('woff');
-} 
+	src:
+		local("Inter Bold"),
+		url('@{font-path}/Inter-Bold.woff2') format('woff2'),
+		url('@{font-path}/Inter-Bold.woff') format('woff'),
+		url('@{font-path}/Inter-Bold.ttf') format('truetype');
+}  
 /* 
 @font-face {
   font-family : @font-family-title;
   font-style  : normal;
   font-display: block;
-  src         : url('@{font-path}/helvetica_neue_65.woff2') format('woff2'),
-    url('@{font-path}/helvetica_neue_65.woff') format('woff'),
-    url('@{font-path}/helvetica_neue_65.ttf') format('truetype');
-} 
- */
+	src:
+		url('@{font-path}/helvetica_neue_95.woff2') format('woff2'),
+    url('@{font-path}/helvetica_neue_95.woff') format('woff'),
+    url('@{font-path}/helvetica_neue_95.ttf') format('truetype');
+} */ 
+
 @font-face {
 	font-family: @font-family-ascii;
 	font-display: block;
 	src:
 		local('MicroKnight'),
-		url('@{font-path}/MicroKnight_v1.0.woff2') format('woff2'),
-		url('@{font-path}/MicroKnight_v1.0.ttf') format('truetype');
+		url('@{font-path}/MicroKnight.woff2') format('woff2'),
+		url('@{font-path}/MicroKnight.ttf') format('truetype');
 }
-
 @font-face {
 	font-family: @font-family-ascii-plus;
 	font-display: block;
 	src:
 		local('P0T-NOoDLE'),
-		url('@{font-path}/P0T-NOoDLE_v1.0.woff2') format('woff2'),
-		url('@{font-path}/P0T-NOoDLE_v1.0.ttf') format('truetype');
+		url('@{font-path}/P0T-NOoDLE.woff2') format('woff2'),
+		url('@{font-path}/P0T-NOoDLE.ttf') format('truetype');
 }
-/* @font-face {
-	font-family: "Frucade";
-	font-display: block;
-	src:	url('@{font-path}/frucs.ttf') format('truetype');
-}
- */

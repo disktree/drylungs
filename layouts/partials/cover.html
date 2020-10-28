@@ -1,4 +1,7 @@
-<picture>
-	<source srcset="{{.Title}}.webp" type="image/webp"/>
-	<img class="front" src="{{.Title}}.jpg" alt="cover-front"/>
-</picture>
+<div class="cover">
+	{{ $file := printf "%s%s%s%s" "/records/" (lower .Params.title) "/" .Params.title }}
+	<picture>
+		<source srcset="{{ $file }}.webp" type="image/webp"/>
+		<img class="front" src="{{ $file }}.jpg" alt="cover-front"/>
+	</picture>
+</div>

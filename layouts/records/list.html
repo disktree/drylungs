@@ -4,11 +4,13 @@
 <ol class="records">
 	{{ $paginator := .Paginate .Pages }}
 	{{ range $paginator.Pages }}
-		{{ $record := .Params }}
+	{{ $record := .Params }}
+	
 		<li class="record">
 			<a href="{{ .Permalink }}">
-				<!-- {{ .Resources.ByType "image" }} -->
-				<img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg">
+				<!-- <img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg"> -->
+				<!-- <img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg"> -->
+				{{ partial "cover" . }}
 				<div class="inner">
 					<div class="details">
 						<h2 class="name">{{ $record.name }}</h2>

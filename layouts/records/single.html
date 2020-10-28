@@ -47,30 +47,11 @@
 		{{ if $record.format.description }}<div class="description">{{- $record.description -}}</div>{{ end }}
 		{{ if .Content }}<div class="description">{{- .Content -}}</div>{{ end }}
 
-		{{ partial "vinyl" .}}
-
-		<style>
-				#vinyl {
-					fill: #010101;
-				}
-				#label {
-					fill: var(--f_med);
-				}
-				#label:hover {
-					fill: var(--f_high);
-					/* stroke: var(--f_high); */
-					cursor: crosshair;
-				}
-		</style>
-
-		<!-- <div class="cover">
-			<picture>
-				<source srcset="{{.Title}}.webp" type="image/webp"/>
-				<img class="front" src="{{.Title}}.jpg" alt="cover-front"/>
-			</picture>
-		</div> -->
+		<!-- {{ partial "vinyl" .}} -->
+		{{ partial "cover" .}}
 
 	</article>
 
 	{{ partial "pagination.html" . }}
+	
 {{ end }}

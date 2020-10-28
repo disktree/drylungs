@@ -1,13 +1,16 @@
 
-@header-height: 48px;
+@header-height: 4rem;
 
 body {
 	
 	display: grid;
 	grid-template-columns: [site-start] auto [content-start] 1fr [content-end] auto [site-end];
 	//grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
-	grid-template-rows: auto auto [content-start] 1fr [content-end] auto auto;
+	grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
 	//gap: 1rem;
+
+	//transition: color 10s, background 10s;
+	visibility: hidden;
 
 	> header, > nav, > aside, > footer {
 		text-transform: uppercase;
@@ -20,6 +23,7 @@ body {
 	}
 
 	> header {
+		//background: yellow;
 		grid-column: site-start / site-end;
 		grid-row: 1 / span 1;
 		display: flex;
@@ -28,8 +32,11 @@ body {
 		line-height: @header-height;
 		cursor: default;
 		>.menu {
-			width: @header-height*1.2;
+			margin: 0 0.5rem 0 1rem;
+			//background: red;
+			//width: @header-height;
 			height: @header-height;
+			//height: 50%;
 			text-align: center;
 			cursor: pointer;
 			&:hover {
@@ -44,6 +51,7 @@ body {
 		}
 	}
 	> nav {
+		//background: blue;
 		grid-column: site-start / site-end;
 		grid-row: 2 / span 1;
 		//line-height: @header-height;
@@ -62,6 +70,7 @@ body {
 			justify-content: flex-start;
 			li {
 				a {
+					transition: color 0.1s;
 					&::before {
 						content: "/";
 					}
@@ -78,7 +87,7 @@ body {
 		grid-column: site-start / site-end;
 		grid-row: content-start / content-end;
 		width: 100%;
-		padding: 2rem 1rem 4rem 1rem;
+		padding: 1rem 1rem 4rem 1rem;
 		//margin: 1rem 1rem;
 		// background: yellow;
 		&.blur {
@@ -170,7 +179,7 @@ body {
 		}
 		> main {
 			//grid-row: 2 / content-end;
-			padding: 2rem 8rem 8rem 8rem;
+			padding: 4rem 8rem 8rem 8rem;
 		}
 		> aside {
 			grid-column: 1 / span 2;

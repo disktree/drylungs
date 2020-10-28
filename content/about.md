@@ -4,7 +4,7 @@ menu:
   nav:
     weight: 200
 ---
-Noisecore, Grindcore and Vinyl are 3 of the most beloved things in my life. So it only came natural to start a diy vinyl only noise/grind label to try and support the (local) scene!
+**Noisecore**, **Grindcore** and **Vinyl** are 3 of the most beloved things in my life. So it only came natural to start a diy vinyl only noise/grind label to try and support the (local) scene!
 
 Started out with the idea to do only "live in vienna" lps on 180g wax with highest possible quality! After releasing [Merzbow & Balazs Pandi LP](/records/dlr001) the austrian post office changed prices so that shipping any 12" is 14€ inside .eu and up to 20€ (shipping alone!) for the rest of the world. Thats why i had to switch into releasing 7" only now... which is at least a good thing since one can afford way more ep releases and can help underground artists to be heard!
 
@@ -18,4 +18,4 @@ Trade offers are also always welcome but usually the postage costs make trading 
 
 Open for submissions of underground noise, co-releases with other labels only tho, please dont expect me to release a 7" with you on my own unless i contacted you!
 
-{{< ascii >}}
+{{< dlr-ascii >}}

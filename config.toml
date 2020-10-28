@@ -6,9 +6,9 @@ theme_color = "#000000"
 keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna","666"]
 
 [params]
-	theme = "hydra"
+	theme = "wb"
     customCSS = []
-    customJS  = ["js/site.js"]
+    customJS  = []
     author = "christoph@drylungs.at"
     publisher = "christoph@drylungs.at"
     email = "christoph@drylungs.at"

@@ -30,7 +30,7 @@ html {
 
 body {
 	
-	visibility: hidden;
+	//visibility: hidden;
 	
 	display: flex;
 	flex-direction: column;
@@ -129,11 +129,15 @@ hr {
 
 img {
 	display: block;
-	border-style: none;
-	
+	border-style: none;	
 }
 
-article {
+strong {
+	font-weight: bold;
+}
+
+main > article {
+	font-size: 0.9rem;
 	a {
 		border-bottom: 1px dotted var(--f_med);
 		/* &[href^="http"]:after {

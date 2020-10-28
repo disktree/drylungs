@@ -30,4 +30,4 @@ Please ask if you only want to order shirts, tapes, dvds or cds since those pric
 
 If you only order tapes, cds or shirts please ask for exact shipping beforehand. Feel free to use this form to complain about their prices/service.
 
-Abholung in Wien gerne möglich!
+**Abholung in Wien gerne möglich!**
