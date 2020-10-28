@@ -1,0 +1,87 @@
+{{ $record := .Params }}
+
+{{ if eq $record.format.size 5 }}
+<!-- TODO -->
+<svg class="vinyl" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.7cm" height="12.7cm" viewBox="0 0 12.7 12.7">
+	<g fill-rule="evenodd">
+		<path id="vinyl" fill="black" d="
+			M 6.35, 6.35
+			m -6.35, 0
+			a 6.35,6.35 0 1,0 12.7,0
+			a 6.35,6.35 0 1,0 -12.7,0
+			M 6.25, 6.25
+			m -0.35, 0
+			a 0.35,0.35 0 1,0 0.7,0
+			a 0.35,0.35 0 1,0 -0.7,0"/>
+	</g>
+</svg>
+{{ end }}
+
+{{ if eq $record.format.size 7 }}
+<svg class="vinyl" width="17.8cm" height="17.8cm" viewBox="0 0 100 100">
+	<defs>
+		<mask id="mask-hole" x="0" y="0" width="100" height="100">
+			<circle cx="50" cy="50" r="50" fill="white"/>
+			<circle cx="50" cy="50" r="1.966292125" fill="black"/>
+		</mask>
+	</defs>
+	<path id="vinyl" fill="black" mask="url(#mask-hole)"  filter="url(#filter)" d="
+		M 50, 50
+		m -50, 0
+		a 50,50 0 1,0 100,0
+		a 50,50 0 1,0 -100,0"/>
+	<path id="label" class="label" fill="white" mask="url(#mask-hole)"  d="
+		M 50, 50
+		m -22.5, 0
+		a 22.5,22.5 0 1,0 45,0
+		a 22.5,22.5 0 1,0 -45,0"/>
+</svg>
+{{ end }}
+
+{{ if eq $record.format.size 12 }}
+<svg class="vinyl" width="30cm" height="30cm" viewBox="0 0 100 100">
+	<defs>
+		<mask id="mask-hole" x="0" y="0" width="100" height="100">
+			<circle cx="50" cy="50" r="50" fill="white"/>
+			<circle cx="50" cy="50" r="1.166655" fill="black"/>
+		</mask>
+	</defs>
+		<path id="vinyl" fill="black" mask="url(#mask-hole)"  d="
+			M 50, 50
+			m -50, 0
+			a 50,50 0 1,0 100,0
+			a 50,50 0 1,0 -100,0"/>
+		<path id="label" fill="red" mask="url(#mask-hole)"  d="
+			M 50, 50
+			m -16.66666, 0
+			a 16.66666,16.66666 0 1,0 33.333,0
+			a 16.66666,16.66666 0 1,0 -33.333,0"/>
+
+			<!-- <rect x="0" width="10" height="1" fill="var(--f_med)"  /> -->
+			<!-- <text id="text" x="3" y="4" fill="white" font-size="smaller">A1 [02:32] </text> -->
+</svg>
+{{ end }}
+
+<style>
+
+#vinyl {
+	fill: #010101;
+}
+#label {
+	fill: var(--f_med);
+}
+#label:hover {
+	fill: var(--f_high);
+	/* stroke: var(--f_high); */
+	cursor: crosshair;
+}
+/* 
+
+#text {
+	font-size: 1px;
+	fill: var(--f_med);
+	background: var(--f_med);
+	color: green;
+	
+} */
+</style>

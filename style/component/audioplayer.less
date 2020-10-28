@@ -1,0 +1,23 @@
+.audioplayer {
+	display: flex;
+	[class^="ic-"] {
+		padding: 0 0.5rem;
+		cursor: pointer;
+		&:hover {
+			color: var(--f_high);
+		}
+	}
+	.ic-stop {
+		display: none
+	}
+	.ic-play {
+	}
+	&.playing {
+		.ic-stop {
+			display: inline-block
+		}
+		.ic-play {
+			display: none
+		}
+	}
+}

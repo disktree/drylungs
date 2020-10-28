@@ -1,0 +1,7 @@
+{{ $mp3s := .Resources.Match "*.mp3" }}
+<div class="audioplayer" class="paused">
+	<audio src="{{ index $mp3s 0 }}"></audio>
+	<i class="ic-stop"></i>
+<i class="ic-play"></i>
+</div>
+<script src="{{.Site.BaseURL}}/js/audioplayer.js"></script>

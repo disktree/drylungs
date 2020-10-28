@@ -1,19 +1,22 @@
 {{ define "main" }}
     {{ $record := .Params }}
+    {{ $year := .Date.Format "2006" }}
     <article class="record">
 		<header>
 			<h1 class="name">{{ $record.name }}</h1>
 			<div class="details">
-				<div class="id">{{ $record.id }}</div>
+				<div class="id">{{ $record.title }}</div>
 				<ul class="artists">
-					{{ range $artist := .Params.artists }}
+					{{ range $artist := $record.artists }}
 					<li>
-						<!-- <a href="/artists/{{$artist}}">{{ $artist }}</a> -->
-						{{ $artist }}
+						{{ $page := $.Site.GetPage (printf "/%s/%s" "artists" ($artist | urlize))}}
+						<a href="{{ $page.Permalink }}">{{- $artist -}}</a>
 					</li>
 					{{ end }}
 				</ul>
-				<time class="date">{{ .Date.Format "2006" }}</time>
+				
+				<time class="date"><a href="/years/{{$year}}">{{ $year }}</a></time>
+
 				<div class="format">
 					{{ if $record.format.type }}<span class="type">{{ $record.format.type }}</span>{{ end }}
 					{{ if $record.format.size }}<span class="size">{{ $record.format.size }}</span>{{ end }}
@@ -26,7 +29,10 @@
 				</ul>
 			</div>
 		</header>
-		{{ if $record.format.tracks }}
+		
+		<!-- {{ partial "audioplayer" .}} -->
+
+		{{ if $record.tracks }}
 		<ol class="tracks">
             {{ range $track := $record.tracks }}
             <li>
@@ -37,18 +43,34 @@
             {{ end }}
 		</ol>
 		{{ end }}
+
 		{{ if $record.format.description }}<div class="description">{{- $record.description -}}</div>{{ end }}
 		{{ if .Content }}<div class="description">{{- .Content -}}</div>{{ end }}
-		<div class="cover">
-			<!-- {{ .Resources.ByType "image" }} -->
+
+		{{ partial "vinyl" .}}
+
+		<style>
+				#vinyl {
+					fill: #010101;
+				}
+				#label {
+					fill: var(--f_med);
+				}
+				#label:hover {
+					fill: var(--f_high);
+					/* stroke: var(--f_high); */
+					cursor: crosshair;
+				}
+		</style>
+
+		<!-- <div class="cover">
 			<picture>
 				<source srcset="{{.Title}}.webp" type="image/webp"/>
 				<img class="front" src="{{.Title}}.jpg" alt="cover-front"/>
 			</picture>
-			
-			<!-- <img src="{{.Title}}.jpg" alt="cover-front">
-			<img src="{{.Title}}_back.jpg" alt="cover-back"> -->
-		</div>
+		</div> -->
+
 	</article>
+
 	{{ partial "pagination.html" . }}
 {{ end }}
