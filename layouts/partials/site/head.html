@@ -6,9 +6,11 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-{{ hugo.Generator }}
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="publisher" content="{{.Site.Params.publisher}}">
+{{ hugo.Generator }}
+
+<title>{{block "title" .}}{{.Site.Title}}{{end}}{{with .Page.Title}}/{{.}}{{end}}</title>
 
 {{ partial $theme_path . }}
 

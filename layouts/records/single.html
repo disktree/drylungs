@@ -3,55 +3,47 @@
     {{ $year := .Date.Format "2006" }}
     <article class="record">
 		<header>
-			<h1 class="name">{{ $record.name }}</h1>
+			<h1 class="name">{{- $record.name -}}</h1>
 			<div class="details">
-				<div class="id">{{ $record.title }}</div>
+				<div class="id">{{- $record.title -}}</div>
 				<ul class="artists">
 					{{ range $artist := $record.artists }}
-					<li>
-						{{ $page := $.Site.GetPage (printf "/%s/%s" "artists" ($artist | urlize))}}
-						<a href="{{ $page.Permalink }}">{{- $artist -}}</a>
-					</li>
+					{{ $page := $.Site.GetPage (printf "/%s/%s" "artists" ($artist | urlize))}}
+					<li><a href="{{ $page.Permalink }}">{{- $artist -}}</a></li>
 					{{ end }}
 				</ul>
-				
-				<time class="date"><a href="/years/{{$year}}">{{ $year }}</a></time>
-
 				<div class="format">
-					{{ if $record.format.type }}<span class="type">{{ $record.format.type }}</span>{{ end }}
-					{{ if $record.format.size }}<span class="size">{{ $record.format.size }}</span>{{ end }}
-					{{ if $record.format.rpm }}<span class="rpm">{{ $record.format.rpm }}</span>{{ end }}
+					{{ if $record.format.type }}<span class="type">{{- $record.format.type -}}</span>{{ end }}
+					{{ if $record.format.size }}<span class="size">{{- $record.format.size -}}</span>{{ end }}
+					{{ if $record.format.rpm }}<span class="rpm">{{- $record.format.rpm -}}</span>{{ end }}
 				</div>
+				<time class="date"><a href="/years/{{$year}}">{{ $year }}</a></time>
 				<ul class="links">
 					{{ range $link := $record.links }}
-					<li><a href="{{$link.uri}}" title="{{$link.type}}"><i class="ic-{{$link.name}}"></i></a></li>
+					<li><a href="{{$link.uri}}" class="ic-{{$link.name}}" title="{{$link.type}}"></a></li>
 					{{ end }}
 				</ul>
 			</div>
 		</header>
-		
 		<!-- {{ partial "audioplayer" .}} -->
-
 		{{ if $record.tracks }}
 		<ol class="tracks">
-            {{ range $track := $record.tracks }}
+			{{ range $track := $record.tracks }}
+			{{ $position := index $track "position" }}
+			{{ $name := index $track "name" }}
+			{{ $duration := index $track "duration" }}
             <li>
-				<span class="position">{{- index $track "position" -}}</span>
-				<span class="name">{{- index $track "name" -}}</span>
-				<span class="duration">{{- index $track "duration" -}}</span>
+				{{ if $position }}<span class="position">{{- $position -}}</span>{{ end }}
+				{{ if $name }}<span class="name">{{- $name -}}</span>{{ end }}
+				{{ if $duration }}<span class="duration">{{- $duration -}}</span>{{ end }}
 			</li>
             {{ end }}
 		</ol>
 		{{ end }}
-
 		{{ if $record.format.description }}<div class="description">{{- $record.description -}}</div>{{ end }}
-		{{ if .Content }}<div class="description">{{- .Content -}}</div>{{ end }}
-
+		{{ if .Content }}<div class="content">{{- .Content -}}</div>{{ end }}
 		<!-- {{ partial "vinyl" .}} -->
 		{{ partial "cover" .}}
-
 	</article>
-
 	{{ partial "pagination.html" . }}
-	
 {{ end }}

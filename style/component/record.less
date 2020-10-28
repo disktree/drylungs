@@ -3,10 +3,11 @@ article.record {
 	display: flex;
 	flex-direction: column;
 	>* {
-		margin-bottom: 1rem;
+		//margin-bottom: 1rem;
 	}
 	> header  {
 		ul, ol, li {
+			display: inline-block;
 			margin: 0;
 			padding: 0;
 			list-style-type: none;
@@ -18,8 +19,8 @@ article.record {
 			width: 100%;
 			margin-bottom: 1rem;
 			font-size: 4em;
-			letter-spacing: -0.05em;
-			line-height: 1em;
+			letter-spacing: -0.06em;
+			line-height: 1.1em;
 		}
 		.details {
 			order: -1;
@@ -29,19 +30,18 @@ article.record {
 				border: none;
 			}
 			>*:not(:last-child)::after {
-			   content: "\\";
-			   padding: 0 0.5em;
-		   } 
-		   .id {
-				display: none;
+				content: "/";
+				padding: 0 .75ch;
+			}
+		    >.id {
+				//display: none;
 				font-weight: bold;
 			}
-			.artists {
-				margin: 0;
+			>.artists {
+				display: inline-flex;
 				li {
-					display: inline-block;
-					list-style: none;
-					margin: 0;
+					display: inline;
+					list-style-type: none;
 					font-weight: bold;
 					&:not(:last-child)::after {
 						content: "&";
@@ -51,16 +51,20 @@ article.record {
 			.year {
 			}
 			.format {
-				.size::after {
+				display: flex;
+				>*:not(:last-child) {
+					margin-right: 0.5ch;
+				}
+				>.size::after {
 					content: '"';
 				}
-				.rpm::after {
+				>.rpm::after {
 					content: 'RPM';
 				}
 			}
-			ul.links {
+			> ul.links {
 				li {
-					display: inline-block;
+					//display: inline-block;
 				}
 			}
 		}
@@ -73,6 +77,9 @@ article.record {
 			>.position::after {
 				margin-left: 1ch;
 				content: "–";
+			}
+			>.name {
+				font-weight: bold;
 			}
 			>.duration {
 				color: var(--f_low);
@@ -94,6 +101,9 @@ article.record {
 
 	@media screen and (min-width: @vp-medium) {
 		>header  {
+			h1.name {
+				font-size: 6em;
+			}
 			.details {
 				.id {
 					display: inline-block;
