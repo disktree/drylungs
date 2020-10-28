@@ -3,6 +3,8 @@ id: DLR002
 title: DLR002
 name: Untitled
 date: 2012-04-01
+year: 2012
+tags: ["aaa","bbb","ccc"]
 artists: ["Justice Yeldham"]
 format: {
     type: Vinyl,

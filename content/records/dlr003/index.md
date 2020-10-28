@@ -3,6 +3,7 @@ id: DLR003
 title: DLR003
 name: "Bruit Nouveau"
 date: 2019-09-16
+year: "2019"
 artists: ["Feuersalamander auf Marzipan"]
 format: {
     type: Lathe,

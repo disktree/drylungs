@@ -21,9 +21,11 @@ keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna
 
 [taxonomies]
     artist = "artists"
-    #size = "size"
+    #tag = "tags"
+   	#year = "years"
 
 [permalinks]
+	#years = "/records/year/:year"
   #records = "/records/:title/"
 
 #[menu]
