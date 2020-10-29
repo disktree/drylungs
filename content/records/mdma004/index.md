@@ -8,8 +8,7 @@ format: {
     type: Vinyl,
     size: 7
 }
-size: 7
-description: "Red vinyl with big center holes (black labels).\nLimited to 200 copies."
+description: "Red vinyl with big center holes (black labels). Limited to 200 copies."
 tracks: [
     {
         "position": "A",

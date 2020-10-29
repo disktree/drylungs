@@ -9,7 +9,7 @@ format: {
     size: 7,
     rpm: 45
 }
-description: "Black vinyl with big center holes (1C labels).\nLimited to 300 copies."
+description: "Black vinyl with big center holes (1C labels). Limited to 300 copies."
 tracks: [
   {
       "position": "A",
@@ -33,4 +33,5 @@ links: [
 	}
 ]
 ---
-Had to look twice when there was a message from the legendary Kazuyuki Kishimo in my mail box asking if I wanna release something with him! If one of your alltime favorite artists contacts you on his own there really only is one right answer & to make this release as grande as it needed to be I had to get Wolfgang from \"Hirntrust Grindmedia\" on board too for our third co-release together! Can't begin to state how happy I am with every aspect of the end result.
+Had to look twice when there was a message from the legendary Kazuyuki Kishimo in my mail box asking if I wanna release something with him! If one of your alltime favorite artists contacts you on his own there really only is one right answer & to make this release as grande as it needed to be I had to get Wolfgang from [Hirntrust Grindmedia](http://www.hirntrust.at/) on board too for our third co-release together!  
+Can't begin to state how happy I am with every aspect of the end result.

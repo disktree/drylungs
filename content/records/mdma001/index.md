@@ -4,11 +4,11 @@ title: MDMA001
 name: Untitled
 date: 2011-03-01
 artists: [Bruital Orgasme]
+description: "Clear single-sided vinyl with big center holes (black labels) housed in a clear PVC sleeve and artwork insert. Limited to 200 copies."
 format: {
     type: Vinyl,
     size: 7
 }
-size: 7
 tracks: [
    {
         "position": "A1",
@@ -38,4 +38,4 @@ links: [
     }
 ]
 ---
-Not being able to continue with my original LP plans I decided to go for 7\" Singles instead. As luck would have it my friend Wolfgang from \"Hirntrust Grindmedia\" was looking for a label to co-release this plate with and since the belgian underground content was to my liking I had to jump on that opportunity!
+Not being able to continue with my original LP plans I decided to go for 7" Singles instead. As luck would have it my friend Wolfgang from [Hirntrust Grindmedia](http://www.hirntrust.at/) was looking for a label to co-release this plate with and since the belgian underground content was to my liking I had to jump on that opportunity!

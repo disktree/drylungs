@@ -1,16 +1,16 @@
 .ascii {
 	font-family: @font-family-ascii;
 	display: table;
-	margin: 8rem auto;
+	margin: 6rem 0 4rem 0;
 	line-height: 1;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	overflow-x: hidden;
 	cursor: default;
 	i {
 		font-style: normal;
 		display: inline;
-		/* &::selection {
-			background: var(--f_inv) !important;
-			color: var(--b_inv) !important;
-		} */
 		&.plus {
 			font-family: @font-family-ascii-plus;
 			&::selection {

@@ -4,7 +4,6 @@ title: DLR001
 name: "Live At Fluc Wanne, 2010/05/18"
 date: 2010-09-16
 years: 2010
-tags: ["aaa","bbb"]
 artists: ["Merzbow","Balázs Pándi"]
 format: {
     type: Vinyl,
@@ -33,5 +32,6 @@ links: [
 ]
 ---
 I have been thinking about starting a label for many years prior but when I heard that Merzbow will play in hometown of Vienna again I just knew it was the time to act!Decided to go no holds barred budget wise, I rented a hq mixing console for the night & hired an audio engineer for proper recording (every piece of the drum kit was recorded on its own line for example) which was all dumped to a harddrive and given to Masami Akita right away for mastering later at home in Tokyo!
+
 Incredibly happy with the end result and the feedback/orders received right away the plan to continue this "Noise Live in Vienna as HQ LP releases" was only logically but little did I know the austrian post office was about to foil this plan by adjusting postage prices to up to three times than what they used to be which basically stopped all international orders over night ...
 	
