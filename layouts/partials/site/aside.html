@@ -1,6 +1,7 @@
-<a href="/twitter" class="ic-twitter" title="twitter" tabindex="-1"></a>
-<a href="{{.Site.Params.social.instagram.uri}}" rel="external" class="ic-instagram" title="instagram" tabindex="-1"></a>
-<a href="{{.Site.Params.social.bigcartel.uri}}" rel="external" class="ic-bigcartel" title="bigcartel" tabindex="-1"></a>
-<a href="{{.Site.Params.social.discogs.uri}}" rel="external" class="ic-discogs" title="discogs" tabindex="-1"></a>
-<a href="/index.xml" class="ic-feed fa-10x" target="_top" tabindex="-1" title="feed"></a>
-<a href="mailto:{{.Site.Params.email}}" class="ic-envelope" target="_blank" title="{{.Site.Params.email}}" tabindex="-1"></a>
+<a href="{{ .Site.BaseURL }}/theme" class="ic-color_lenspalette" title="twitter" tabindex="-1"></a>
+<a href="{{ .Site.BaseURL }}/twitter" class="ic-twitter" title="twitter" tabindex="-1"></a>
+<a href="{{ .Site.Params.social.instagram.uri }}" rel="external" class="ic-instagram" title="instagram" tabindex="-1"></a>
+<a href="{{ .Site.Params.social.bigcartel.uri }}" rel="external" class="ic-bigcartel" title="bigcartel" tabindex="-1"></a>
+<a href="{{ .Site.Params.social.discogs.uri }}" rel="external" class="ic-discogs" title="discogs" tabindex="-1"></a>
+<a href="{{ .Site.BaseURL }}/index.xml" class="ic-feed" target="_top" tabindex="-1" title="feed"></a>
+<a href="mailto:{{ .Site.Params.email }}" class="ic-envelope" target="_blank" title="{{ .Site.Params.email }}" tabindex="-1"></a>
