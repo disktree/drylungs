@@ -9,19 +9,7 @@ ol.records {
 		position: relative;
 		width: 100%;
 		//color: var(--f_low);
-		.cover {
-			// box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-			// width: 100%;
-			// //filter: contrast(20%) grayscale(90%) brightness(40%);
-			// filter: grayscale(90%) brightness(4%);
-			// transition: all 0.1s;
-			/* &:hover {
-				filter: none;
-			} */
-			img {
-				width: 100%;
-			}
-		}
+		//.cover {}
 		.inner {
 			position: absolute;
 			top: 0;
@@ -29,32 +17,40 @@ ol.records {
 			//bottom: 0;
 			left: 0;
 			.details {
-				
 				height: 50%;
-				//margin: 1px;
+				margin: 2px;
 				padding: 0.5rem;
-				display: flex;
 				font-size: 50%;
 				line-height: 1.22;
 				z-index: 1000;
-				background: var(--b_med);
+				background: var(--background);
+				color: var(--f_med);
 				//writing-mode: vertical-rl;
-				>.name {
+				ul.artists {
+					display: inline-flex;
+					li {
+						&:not(:last-child)::after {
+							content: "&";
+							padding: 0 0.5ch;
+						}
+					}
 				}
 			}
 		}
 		&:hover {
 			//color: var(--b_high);
-			img.cover {
-				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
-				transition: all 0.02s;
-				filter: none;
+			img {
+				//box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+				transition: all 0.2s;
+				// filter: none;
 				transform: scale(1.01);
 			}
 			.inner {
 				//transform: scale(1.07);
 				.details {
 					//box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
+					background: var(--f_med);
+					color: var(--background);
 				}
 			}
 		}
@@ -67,5 +63,4 @@ ol.records {
 	@media screen and (min-width: @vp-large) {
 		grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
 	}
-
 }

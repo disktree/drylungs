@@ -2,9 +2,9 @@
 article.record {
 	display: flex;
 	flex-direction: column;
-	>* {
+	/* >* {
 		//margin-bottom: 1rem;
-	}
+	} */
 	> header  {
 		ul, ol, li {
 			display: inline-block;
@@ -21,11 +21,13 @@ article.record {
 			font-size: 4em;
 			letter-spacing: -0.06em;
 			line-height: 1.1em;
+			cursor: default;
 		}
 		.details {
 			order: -1;
 			display: flex;
 			margin-bottom: 1rem;
+			cursor: default;
 			a {
 				border: none;
 			}
@@ -42,14 +44,14 @@ article.record {
 				li {
 					display: inline;
 					list-style-type: none;
-					font-weight: bold;
+					//font-weight: bold;
 					&:not(:last-child)::after {
 						content: "&";
+						padding: 0 .75ch;
 					}
 				}
 			}
-			.year {
-			}
+			//.year {}
 			.format {
 				display: flex;
 				>*:not(:last-child) {
@@ -62,14 +64,18 @@ article.record {
 					content: 'RPM';
 				}
 			}
+			/*
 			> ul.links {
 				li {
 					//display: inline-block;
 				}
 			}
+			*/
 		}
 	}
-	.description {
+	>.description,
+	>.content {
+		max-width: 800px;
 		margin-bottom: 1rem;
 	}
 	ol.tracks {

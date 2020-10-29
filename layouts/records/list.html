@@ -1,32 +1,24 @@
 {{ define "main" }}
-<!-- {{ if .Title }}<h1>{{- .Title -}}</h1>{{ end }} -->
-<!-- {{ if .Content }}<section class="content">{{- .Content -}}</section>{{ end }} -->
-<ol class="records">
-	{{ $paginator := .Paginate .Pages }}
-	{{ range $paginator.Pages }}
-	{{ $record := .Params }}
-	
-		<li class="record">
-			<a href="{{ .Permalink }}">
-				<!-- <img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg"> -->
-				<!-- <img class="cover" src="{{ lower $record.title}}/{{$record.title}}.jpg"> -->
-				{{ partial "cover" . }}
-				<div class="inner">
-					<div class="details">
-						<h2 class="name">{{ $record.name }}</h2>
-						<div class="id">{{ $record.id }}</div>
-						<ul class="artists">
-							{{ range $artist := $record.artists }}
-							<li>
-								<!-- <a href="/artists/{{$artist}}">{{ $artist }}</a> -->
-								{{ $artist }}
-							</li>
-							{{ end }}
-						</ul>
+	{{ if .Content }}<article class="content">{{- .Content -}}</article>{{ end }}
+	<ol class="records">
+		{{ $paginator := .Paginate .Pages }}
+		{{ range $paginator.Pages }}
+		{{ $record := .Params }}
+			<li class="record">
+				<a href="{{ .Permalink }}">
+					{{ partial "cover" . }}
+					<div class="inner">
+						<div class="details">
+							<h2 class="name">{{ $record.name }}</h2>
+							<ul class="artists">
+								{{ range $artist := $record.artists }}
+								<li>{{ $artist }}</li>
+								{{ end }}
+							</ul>
+						</div>
 					</div>
-				</div>
-			</a>
-		</li>
-	{{ end }}
-</ol>
+				</a>
+			</li>
+		{{ end }}
+	</ol>
 {{ end }}

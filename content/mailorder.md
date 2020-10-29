@@ -22,7 +22,7 @@ With a more than sad heart i present to you the insane prices for shipping a 12"
 * **Europe**: 11€ (without tracking or insurance - otherwise Zone 1)
 * **Zone 1**: 15€ (EU countries and Monaco)
 * **Zone 2**: 16€ (Europe and non-European Mediterranean countries)
-* **Zone 3**: 20€ (West Asia, Africa (NA) except mediterranean countries, Canada, * **Marshall Islands, Micronesia, USA)
+* **Zone 3**: 20€ (West Asia, Africa (NA) except mediterranean countries, Canada, Marshall Islands, Micronesia, USA)
 * **Zone 4**: 23€ (Africa (SA), other countries in North/South America, South/East Asia)
 * **Zone 5**: 26€ (Australia, New Zealand and Oceania)
 

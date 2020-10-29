@@ -29,6 +29,7 @@ links: [
   }
 ]
 ---
-After quite a long pause I decided it was time for a new release on Dry Lungs and why not go for something I wanted to do for quite some time?  **A 5" Picture Disc Lathe Cut!**
+After quite a long pause I decided it was time for a new release on Dry Lungs and why not go for something I wanted to do for quite some time?  
+**A 5" Picture Disc Lathe Cut!**
 
 Everything here was made by me, from the noise to the design just the actual cutting was done in the UK!

@@ -41,6 +41,8 @@ body {
 	//-webkit-overflow-scrolling: touch;
 	//overflow-wrap: break-word;
 	//word-break: break-word;
+
+	//.typo-body2; //TODO
 	
 	background : var(--background);
 	color      : var(--f_med);
@@ -146,7 +148,8 @@ p {
 }
 
 main > article {
-	font-size: 0.9rem;
+	//font-size: 0.9rem;
+	//max-width: 800px;
 	a {
 		border-bottom: 1px dotted var(--f_med);
 		/* &[href^="http"]:after {
@@ -185,5 +188,10 @@ main > article {
 		width: 100%;
 		max-width: 100%;
 		height: auto;
+	}
+	>.description,
+	>.content {
+		max-width: 800px;
+		margin-bottom: 1rem;
 	}
 }

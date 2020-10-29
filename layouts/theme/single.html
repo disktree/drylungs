@@ -1,5 +1,10 @@
 {{ define "main" }}
-	{{ if .Content }}{{- .Content -}}{{ end }}
+	{{ if .Content }}<article>{{- .Content -}}</article>{{ end }}
+	<style>
+		.theme {
+			cursor: pointer;
+		}
+	</style>
 	<script>
 		let _handleThemeSelect = svg => {
 			let theme = {
@@ -16,9 +21,7 @@
 			applyTheme(theme,true);
 		}
 	</script>
-	<ul>
-		{{ range .Resources.ByType "image" }}
-		<li onclick="javascript:_handleThemeSelect(children[0])">{{ .Content | safeHTML }}</li>
-		{{ end }}
-	</ul>
+	{{ range .Resources.ByType "image" }}
+	<span class="theme" onclick="javascript:_handleThemeSelect(children[0])" title="{{.Name}}">{{ .Content | safeHTML }}</span>
+	{{ end }}
 {{ end }}
