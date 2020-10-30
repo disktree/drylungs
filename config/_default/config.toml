@@ -3,12 +3,11 @@ title = "Drylungs"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 theme_color = "#000000"
-keywords = ["drylungs","records","label","noise","harsh","music","vinyl","vienna","666"]
-description = "Dry Lungs Records &amp; Mailorder"
 
 [params]
-	images = ["drylungs-cover.png"]
 	theme = "wb"
+	description = "Dry Lungs Records &amp; Mailorder"
+	images = ["drylungs-cover.png"]
     customCSS = []
     customJS  = []
     author = "christoph@drylungs.at"
@@ -23,9 +22,3 @@ description = "Dry Lungs Records &amp; Mailorder"
 
 [taxonomies]
     artist = "artists"
-    #tag = "tags"
-   	#year = "years"
-
-[permalinks]
-	#years = "/records/year/:year"
-  #records = "/records/:title/"

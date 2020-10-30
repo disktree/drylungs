@@ -2,9 +2,6 @@
 <html lang="{{$.Site.LanguageCode}}">
     <head>
 		{{- partial "site/head.html" . -}}
-		{{ if ne (getenv "HUGO_ENV") "production" | or (ne .Site.Params.env "production") }}
-		<script>console.log('{{block "template-path" .}}{{.}}{{ end }}');</script>
-		{{ end }}
 	</head>
 	<body>
         <header>{{ block "header" . }}{{- partial "site/header.html" . -}}{{ end }}</header>
