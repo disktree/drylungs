@@ -18,7 +18,6 @@
 					{{ if $record.format.size }}<span class="size">{{- $record.format.size -}}</span>{{ end }}
 					{{ if $record.format.rpm }}<span class="rpm">{{- $record.format.rpm -}}</span>{{ end }}
 				</div>
-				<!-- <a href="/years/{{$year}}">{{ $year }}</a> -->
 				<time class="date" datetime="{{.Date.Format "2006.01.02"}}">{{ $year }}</time>
 				<ul class="links">
 					{{ range $link := $record.links }}
@@ -45,7 +44,17 @@
 		{{ if $record.description }}<div class="description">{{$record.description | markdownify }}</div>{{ end }}
 		{{ if .Content }}<div class="content">{{- .Content -}}</div>{{ end }}
 		<!-- {{ partial "vinyl" .}} -->
-		{{ partial "cover" .}}
+		<div class="cover">
+			{{ $file := printf "%s%s%s%s" "/records/" (lower .Params.title) "/" .Params.title }}
+			<picture>
+				<source srcset="{{ $file }}.webp" type="image/webp"/>
+				<img class="front" src="{{ $file }}.jpg" alt="cover-front"/>
+			</picture>
+			<picture>
+				<source srcset="{{ $file }}_back.webp" type="image/webp"/>
+				<img class="front" src="{{ $file }}_back.jpg" alt="cover-back"/>
+			</picture>
+		</div>
 	</article>
 	{{ partial "pagination.html" . }}
 {{ end }}

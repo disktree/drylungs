@@ -6,7 +6,13 @@
 		{{ $record := .Params }}
 			<li class="record">
 				<a href="{{ .Permalink }}">
-					{{ partial "cover" . }}
+					<div class="cover">
+						{{ $file := printf "%s%s%s%s" "/records/" (lower .Params.title) "/" .Params.title }}
+						<picture>
+							<source srcset="{{ $file }}.webp" type="image/webp"/>
+							<img class="front" src="{{ $file }}.jpg" alt="cover-front"/>
+						</picture>
+					</div>
 					<div class="inner">
 						<div class="details">
 							<h2 class="name">{{ $record.name }}</h2>
