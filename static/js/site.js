@@ -1,5 +1,7 @@
 'use strict'
 
+console.info('%c⛧ DRYLUNGS RECORDS ⛧', 'background:#000;color:#fff;padding:4px;font-size:23px;');
+
 let menu, nav, main;
 
 function toggleNav() {
@@ -8,7 +10,7 @@ function toggleNav() {
     main.classList.toggle( 'blur' );
 }
 
-window.onload = e => {
+window.addEventListener('load', e => {
 
     const header = document.body.querySelector('header');
     nav = document.body.querySelector('nav');
@@ -22,6 +24,4 @@ window.onload = e => {
 	page.onclick = e => {
 		return toggleNav();
 	};
-}
-
-console.info('%c⛧ DRYLUNGS RECORDS ⛧', 'background:#000;color:#fff;padding:4px;font-size:23px;');
+});
