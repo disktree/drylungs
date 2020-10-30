@@ -9,6 +9,7 @@ format: {
     size: 7
 }
 description: "Black vinyl with big center holes (black labels) housed in an all black cover with gold pantone 876c printed letters. Limited to 300 copies."
+images: ["/records/mdma003/MDMA003.jpg"]
 tracks: [
     {
         "position": "A",

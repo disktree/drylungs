@@ -5,6 +5,7 @@ name: Untitled
 date: 2011-03-01
 artists: [Bruital Orgasme]
 description: "Clear single-sided vinyl with big center holes (black labels) housed in a clear PVC sleeve and artwork insert. Limited to 200 copies."
+images: ["/records/mdma001/MDMA001.jpg"]
 format: {
     type: Vinyl,
     size: 7

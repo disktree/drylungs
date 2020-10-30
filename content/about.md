@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "About Dry Lungs Records"
 menu:
   nav:
     weight: 200

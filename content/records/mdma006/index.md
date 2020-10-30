@@ -9,6 +9,7 @@ format: {
     size: 7
 }
 description: "Pink vinyl with big center holes (white labels). Silkscreened insert (black/red ink on pink paper). Limited to 300 copies."
+images: ["/records/mdma006/MDMA006.jpg"]
 tracks: [
 {
                 "position": "A",

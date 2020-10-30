@@ -5,6 +5,7 @@ name: "Bruit Nouveau"
 date: 2019-09-16
 year: "2019"
 artists: ["Feuersalamander auf Marzipan"]
+images: ["/records/dlr003/DLR003.jpg"]
 format: {
     type: Lathe,
     size: 5

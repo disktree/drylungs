@@ -9,6 +9,7 @@ format: {
     size: 7
 }
 description: "Red vinyl with big center holes (black labels). Limited to 200 copies."
+images: ["/records/mdma004/MDMA004.jpg"]
 tracks: [
     {
         "position": "A",

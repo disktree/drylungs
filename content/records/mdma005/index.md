@@ -9,6 +9,7 @@ format: {
     size: 7
 }
 description: "Black vinyl with big center holes (1C label). Limited to 300 copies."
+images: ["/records/mdma005/MDMA005.jpg"]
 tracks: [
 {
                 "position": "A",

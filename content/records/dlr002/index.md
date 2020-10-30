@@ -5,6 +5,7 @@ name: Untitled
 date: 2012-04-01
 artists: ["Justice Yeldham"]
 description": "Picture Disc housed in a thick PVC sleeve. Limited to 300 copies."
+images: ["/records/dlr002/DLR002.jpg"]
 format: {
     type: Vinyl,
     size: 7

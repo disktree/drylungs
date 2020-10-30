@@ -10,6 +10,7 @@ format: {
     rpm: 45
 }
 description: "Black vinyl with big center holes (1C labels). Limited to 300 copies."
+images: ["/records/mdma007/MDMA007.jpg"]
 tracks: [
   {
       "position": "A",

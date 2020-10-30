@@ -12,6 +12,10 @@
 
 <title>{{block "title" .}}{{.Site.Title}}{{end}}{{with .Page.Title}}/{{.}}{{end}}</title>
 
+<meta name="twitter:title" content="Dry Lungs Records"/>
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
+
 {{ partial $theme_path . }}
 
 <script defer src="{{ $.Site.BaseURL }}/js/site.js"></script>

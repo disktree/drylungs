@@ -5,6 +5,7 @@ name: "A Comprehensive Guide To Dismantling The Weapons Of Mass Destruction"
 date: 2012-12-01
 artists: ["Raven"]
 description: "Black vinyl with big center holes (white labels) and the cover printed onto a folded A4 piece of paper, comes with an extra inlay sheet. Limited to 200 copies."
+images: ["/records/mdma002/MDMA002.jpg"]
 format: {
     type: Vinyl,
     size: 7
