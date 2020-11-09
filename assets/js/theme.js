@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', event => {
 		e.preventDefault()
 		e.dataTransfer.dropEffect = 'copy'
 	});
-	
+
 	window.addEventListener('drop', e => {
 		e.preventDefault();
 		const file = e.dataTransfer.files[0];

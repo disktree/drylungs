@@ -13,15 +13,30 @@ function toggleNav() {
 window.addEventListener('load', e => {
 
     const header = document.body.querySelector('header');
+    var title = header.querySelector('.title');
     nav = document.body.querySelector('nav');
     main = document.body.querySelector('main');
     menu = header.querySelector('.menu');
 	var page = header.querySelector('.page');
-	
+
 	menu.onclick = e => {
-		return toggleNav();
+		toggleNav();
+	};
+	title.onclick = e => {
+		toggleNav();
 	};
 	page.onclick = e => {
-		return toggleNav();
+		toggleNav();
 	};
+	main.onclick = e => {
+		if( main.classList.contains('blur') ) {
+			toggleNav();
+		}
+	};
+
+	window.addEventListener( 'keydown', e => {
+		if( e.keyCode === 27 ) {
+			toggleNav();
+		}
+	}, false );
 });
