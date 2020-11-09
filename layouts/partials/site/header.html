@@ -3,5 +3,6 @@
 		<i class="hamburger-inner"></i>
 	</i>
 </div>
-<div class="title"><a href="{{.Site.BaseURL}}">{{.Site.Title}}</a></div>
+<!-- <div class="title"><a href="{{.Site.BaseURL}}">{{.Site.Title}}</a></div> -->
+<div class="title">{{ .Site.Title }}</div>
 <div class="page">{{if .IsHome}}{{else}}{{.Page.Title}}{{end}}</div>

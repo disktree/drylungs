@@ -12,7 +12,7 @@
 <meta name="title" content="{{ .Site.Title }}">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . "," }}{{ else }}{{ .Params.Keywords }}{{ end }}"/>
-<meta name="description" content='{{.Param "description"}}'>
+<meta name="description" content='{{ .Param "description" }}'>
 {{ hugo.Generator }}
 
 <title>{{block "title" .}}{{.Site.Title}}{{end}}{{with .Page.Title}}/{{.}}{{end}}</title>
@@ -23,16 +23,17 @@
 
 {{ partial $theme_path . }}
 
-<script defer src="{{ $.Site.BaseURL }}/js/site.js"></script>
-<script defer src="{{ $.Site.BaseURL }}/js/theme.js"></script>
+<link rel="stylesheet" href="{{ $root }}/style.css">
 
-<link rel="stylesheet" href="{{ $root }}/css/style.css"/>
-
-<link rel='icon' type='image/x-icon' href='{{ $root }}/favicon.ico'>
-<link rel="icon" href="{{ $root }}/icon/icon-48.png" type="image/png" sizes="48x48"/>
-<link rel='apple-touch-icon' href='{{ $root }}/icon/icon-48.png' />
+{{ partial "site/favicons" . }}
 
 <link rel="alternate" href="feed" type="application/atom+xml" title="Dry Lungs Records"/>
 <link rel="author" href="{{ $root }}/humans.txt" type="text/plain">
 <link rel="manifest" href="{{ $root }}/manifest.json">
-        
+
+<script src="{{ (resources.Get "js/site.js" | resources.Minify).RelPermalink }}"></script>
+<script src="{{ (resources.Get "js/theme.js" | resources.Minify).RelPermalink }}"></script>
+
+{{ if ne (getenv "HUGO_ENV") "production" | or (ne .Site.Params.env "production") }}
+<script>console.log('PageType: {{ .Page.Type }}');</script>
+{{ end }}

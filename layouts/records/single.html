@@ -43,7 +43,6 @@
 		{{ end }}
 		{{ if $record.description }}<div class="description">{{$record.description | markdownify }}</div>{{ end }}
 		{{ if .Content }}<div class="content">{{- .Content -}}</div>{{ end }}
-		<!-- {{ partial "vinyl" .}} -->
 		<div class="cover">
 			{{ $file := printf "%s%s%s%s" "/records/" (lower .Params.title) "/" .Params.title }}
 			<picture>
@@ -57,4 +56,23 @@
 		</div>
 	</article>
 	{{ partial "pagination.html" . }}
+
+	<script>
+		window.addEventListener( 'keydown', e => {
+			console.log(e.keyCode);
+			switch( e.keyCode ) {
+			{{with .PrevInSection}}
+				case 37:
+					window.location = '{{.Permalink}}';
+					break;
+			{{end}}
+			{{with .NextInSection}}
+				case 39:
+					window.location = '{{.Permalink}}';
+					break;
+			{{end}}
+			}
+		}, false );
+	</script>
+
 {{ end }}
