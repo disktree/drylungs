@@ -23,8 +23,8 @@ ol.records {
 				font-size: 50%;
 				line-height: 1.22;
 				z-index: 1000;
-				background: var(--background);
-				color: var(--f_med);
+				background: var(--b_med);
+				//color: var(--f_med);
 				//writing-mode: vertical-rl;
 				ul.artists {
 					display: inline-flex;
@@ -46,12 +46,14 @@ ol.records {
 				transform: scale(1.01);
 			}
 			.inner {
-				//transform: scale(1.07);
 				.details {
-					//box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
-					background: var(--f_med);
-					color: var(--background);
+					background: var(--b_high);
+					//color: red !important;//var(--f_high);
 				}
+			}
+		}
+		&:focus {
+			.inner {
 			}
 		}
 	}

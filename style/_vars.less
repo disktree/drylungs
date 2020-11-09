@@ -8,19 +8,21 @@
 @font-path: 'font';
 @font-family-regular: "FontRegular";
 @font-family-title: "FontTitle";
+@font-family-icon: "icon";
 @font-family-ascii: 'MicroKnight';
 @font-family-ascii-plus: 'P0T-NOoDLE';
 
 :root {
-	//--font-size: .75rem;
-	--font-size: .825rem;
-	//--font-size: 1em;
-	// --h1-size: 4rem;
-	// --h2-size: 2.75rem;
-	// --h3-size: 2rem;
-	// --h4-size: 1.5rem;
+
+	--line-height: @line-height;
+
+	--font-size: 12px; //.825rem;
+	--font-family-regular: @font-family-regular;
+	--font-family-title: @font-family-title;
+	--font-family-icon: @font-family-icon;
+
 	@media screen and (min-width: @vp-medium) {
-		//--font-size: 1rem;
+		//--font-size: 13px;
 		//--font-size: 13px;
 		// --h1-size: 5rem;
 		// --h2-size: 4rem;
