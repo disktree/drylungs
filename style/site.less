@@ -6,7 +6,6 @@ body {
 	display: grid;
 	grid-template-columns: [site-start] auto [content-start] 1fr [content-end] auto [site-end];
 	grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
-	//grid-template-rows: @header-height auto [content-start] 1fr [content-end] auto auto;
 	//gap: 1rem;
 
 	visibility: hidden;
@@ -20,9 +19,7 @@ body {
 		font-size: 2em;
 		letter-spacing: -0.075em; //TODO
 	}
-
 	> header {
-		//background: yellow;
 		grid-column: site-start / site-end;
 		grid-row: 1 / span 1;
 		display: flex;
@@ -32,10 +29,8 @@ body {
 		cursor: default;
 		>.menu {
 			margin: 0 0.5rem 0 1rem;
-			//background: red;
 			//width: @header-height;
-			height: @header-height;
-			//height: 50%;
+			height: 5.25rem; //@header-height; //TODO HACK
 			text-align: center;
 			cursor: pointer;
 			&:hover {
@@ -47,7 +42,6 @@ body {
 		}
 	}
 	> nav {
-		//background: blue;
 		grid-column: site-start / site-end;
 		grid-row: 2 / span 1;
 		//line-height: @header-height;
@@ -56,8 +50,10 @@ body {
 		transform: translateX(-100%);
 		transition: transform 0.1s;
 		&.show {
-			margin-top: 0;
-			transform: translateX(0);
+			@media screen and (max-width: @vp-medium) {
+				margin-top: 0;
+				transform: translateX(0);
+			}
 		}
 		ul {
 			display: flex;
@@ -123,6 +119,7 @@ body {
 				li {
 					//margin-left: 1rem;
 					padding: 0.5rem 3rem 1rem 3rem;
+					//line-height: 5.25rem;
 				}
 			}
 		}
