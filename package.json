@@ -8,9 +8,9 @@
     "test:css": "lessc --lint style/index.less",
     "test": "npm run test-css",
     "build:hugo": "hugo --minify",
-    "build:css": "lessc style/index.less static/style.css --include-path=/home/tong/dev/lib/enron/src --source-map --clean-css='--s1 --advanced'",
+    "build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
 	"build": "npm run build:css && npm run build:hugo",
-	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css -src style:/home/tong/dev/lib/enron/src --options '--source-map'",
+	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css --options '--source-map'",
 	"dev:hugo": "hugo server -D"
   },
   "repository": {
