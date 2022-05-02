@@ -8,7 +8,6 @@ ol.records {
 	li.record {
 		position: relative;
 		width: 100%;
-		//color: var(--f_low);
 		//.cover {}
 		.inner {
 			position: absolute;
@@ -43,7 +42,7 @@ ol.records {
 				//box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 				transition: all 0.2s;
 				// filter: none;
-				transform: scale(1.01);
+				//transform: scale(1.01);
 			}
 			.inner {
 				.details {
@@ -52,12 +51,7 @@ ol.records {
 				}
 			}
 		}
-		&:focus {
-			.inner {
-			}
-		}
-	}
-
+    }
 	@media screen and (min-width: @vp-medium) {
 		grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
 	}

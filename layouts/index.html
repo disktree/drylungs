@@ -27,10 +27,10 @@
 
 			let canvas = document.querySelector( 'canvas.intro' );
 
-			let style = window.getComputedStyle(document.querySelector(':root'));
-			let color1 = style.getPropertyValue('--background');
-			let color2 = style.getPropertyValue('--f_med');
-			let color3 = style.getPropertyValue('--f_high');
+			const style = window.getComputedStyle(document.querySelector(':root'));
+			const color1 = style.getPropertyValue('--background');
+			const color2 = style.getPropertyValue('--f_med');
+			const color3 = style.getPropertyValue('--f_high');
 
 			scene = new Scene();
 			scene.fog = new FogExp2( color1, 0.05 );
@@ -68,7 +68,7 @@
 				renderer.render( scene, camera );
 			}
 
-			var loader = new GLTFLoader();
+			const loader = new GLTFLoader();
 			loader.load( '/mesh/lung_smoke.glb', gltf => {
 				lungs = gltf.scene.children[0];
 				lungs.updateMatrixWorld( true );
@@ -85,7 +85,7 @@
 			canvas.onclick = e => {
 				window.location.href = '/records';
 			}
-		});
+		}, false);
 
 	</script>
 
