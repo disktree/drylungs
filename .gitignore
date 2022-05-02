@@ -1,6 +1,8 @@
-*.[0-9]/
-*.[0-9].*
+node_modules/
 public/
 resources/
-static/css/*.css*
+static/*.css*
+*.[0-9]/
+*.[0-9].*
 \#*
+.hugo_build.lock
