@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -f static/*.css* && rm -rf public",
     "test:css": "lessc --lint style/index.less",
-    "test": "npm run test-css",
+    "test": "npm run test:css",
     "build:hugo": "hugo --minify",
     "build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
 	"build": "npm run build:css && npm run build:hugo",
