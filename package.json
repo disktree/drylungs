@@ -1,17 +1,17 @@
 {
   "name": "drylungs",
-  "version": "0.2.0",
+  "version": "2.0.0",
   "description": "AUSTRiAN DiY RECORD LABEL",
   "private": true,
   "scripts": {
     "clean": "rm -f static/*.css* && rm -rf public",
-    "test-css": "lessc --lint style/index.less --include-path=/home/tong/dev/lib/enron/src",
+    "test:css": "lessc --lint style/index.less",
     "test": "npm run test-css",
-    "build-hugo": "hugo --minify",
-    "build-css": "lessc style/index.less static/style.css --include-path=/home/tong/dev/lib/enron/src --source-map --clean-css='--s1 --advanced'",
-		"build": "npm run build-css && npm run build-hugo",
-		"dev-less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css -src style:/home/tong/dev/lib/enron/src --options '--source-map'",
-		"dev-hugo": "hugo server -D"
+    "build:hugo": "hugo --minify",
+    "build:css": "lessc style/index.less static/style.css --include-path=/home/tong/dev/lib/enron/src --source-map --clean-css='--s1 --advanced'",
+	"build": "npm run build:css && npm run build:hugo",
+	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css -src style:/home/tong/dev/lib/enron/src --options '--source-map'",
+	"dev:hugo": "hugo server -D"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,8 @@
   "author": "tong@disktree.net",
   "license": "ISC",
   "devDependencies": {
-    "less": "^3.12.2",
-    "less-plugin-autoprefix": "^1.5.1",
+    "less": "^4.1.2",
+    "less-plugin-autoprefix": "^2.0.0",
     "less-plugin-clean-css": "^1.5.1"
   }
 }

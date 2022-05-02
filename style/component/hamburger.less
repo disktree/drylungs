@@ -1,5 +1,105 @@
+.hamburger( @width; @height; @line-thick; @color ) {
+	//display: inline-block;
+	//margin: 0;
+	//padding: 0px 0px;
+	overflow: visible;
+	width: @width;
+	height: @height;
+	//font: inherit;
+	text-transform: none;
+	border: 0;
+	//color: inherit;
+	//background-color: transparent;
+	//background: black;
+	//transition-property: opacity, filter;
+	//transition-duration: 0.15s;
+	//transition-timing-function: linear;
 
-//TODO https://github.com/jonsuh/hamburgers
+	> .hamburger-box {
+
+		display: inline-block;
+		width: @width;
+		height: @height/2; //24px;
+		position: relative;
+
+		> .hamburger-inner {
+
+			display: block;
+			//transform: translateY(-50%);
+			//top: 50%;
+			//margin-top: -2px;
+			//margin-top: 2px
+			//margin-top: @line-thick;
+			//margin-top: -(@line-thick/2);
+			//margin-top: 0px;//(@height);
+
+			&, &::before, &::after {
+			  width: @width;
+			  height: @line-thick;
+			  position: absolute;
+			  background: @color;
+			  //border-radius: 4px;
+			  //transition-property: transform;
+			  //transition-duration: 0.15s;
+			  //transition-timing-function: ease;
+		   }
+		   &::before, &::after {
+			   content: "";
+			   display: block;
+		   }
+		   &::before {
+			   //top: -10px;
+			   top: -(@height/2-(@line-thick/2));
+		   }
+		   &::after {
+			   //bottom: -10px;
+			   bottom: -(@height/2-(@line-thick/2));
+		   }
+		}
+	}
+	/*
+	&.is-active {
+		.hamburger-box .hamburger-inner {
+			&, &::before, &::after  {
+				//background: red;
+			}
+		}
+	}
+	*/
+}
+
+.hamburger--vortex() {
+	.hamburger-inner {
+		transition-duration: 0.2s;
+    	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+		&::before, &::after {
+			transition-duration: 0s;
+        	transition-delay: 0.1s;
+        	transition-timing-function: linear;
+		}
+		&::before {
+			transition-property: top, opacity;
+		}
+		&::after {
+			transition-property: bottom, transform;
+		}
+	}
+	&.is-active .hamburger-inner {
+		transform: rotate(765deg);
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+		&::before, &::after {
+			transition-delay: 0s;
+		}
+		&::before {
+			top: 0;
+        	opacity: 0;
+		}
+		&::after {
+			bottom: 0;
+        	transform: rotate(90deg);
+		}
+	}
+}
 
 .hamburger {
 	position: relative;
