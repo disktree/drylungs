@@ -25,5 +25,4 @@ _ _/  \     __/  /______/   |  __/   /   __/  \     __/   \|   __/_____   \_ _
                     . :                               : .
 ```
 
-[![test](https://github.com/disktree/drylungs/actions/workflows/test.yml/badge.svg)](https://github.com/disktree/drylungs/actions/workflows/test.yml)
-
+[![build](https://github.com/disktree/drylungs/actions/workflows/build.yml/badge.svg)](https://github.com/disktree/drylungs/actions/workflows/build.yml)
