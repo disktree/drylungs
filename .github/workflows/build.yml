@@ -20,5 +20,9 @@ jobs:
       - name: Build
         run: |
           npm run build
-
+      - name: Store
+        uses: actions/upload-artifact@v3
+        with:
+          name: drylungs
+          path: public
 
