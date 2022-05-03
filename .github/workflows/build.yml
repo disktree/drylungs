@@ -1,4 +1,4 @@
-name: test
+name: build
 
 on:
   push:
@@ -25,4 +25,3 @@ jobs:
         with:
           name: drylungs
           path: public
-
