@@ -1,20 +1,17 @@
 {{ define "main" }}
-	<article class="content">{{- .Content -}}</article>
 
 	<style>
-		canvas.intro {
-			position: absolute;
+        main > canvas {
+			position: fixed;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
 		}
 	</style>
 
-	<canvas class="intro"></canvas>
+    <canvas></canvas>
+    <article class="content">{{- .Content -}}</article>
 
 	<script type="module">
 
@@ -25,7 +22,7 @@
 
 		window.addEventListener('load', e => {
 
-			let canvas = document.querySelector( 'canvas.intro' );
+			let canvas = document.querySelector( 'canvas' );
 
 			const style = window.getComputedStyle(document.querySelector(':root'));
 			const color1 = style.getPropertyValue('--background');
@@ -83,6 +80,7 @@
 			}, false );
 
 			canvas.onclick = e => {
+                console.log(e);
 				window.location.href = '/records';
 			}
 		}, false);
