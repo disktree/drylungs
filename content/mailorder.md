@@ -18,7 +18,7 @@ For shipping a 7" type parcel (max L353×B250×H30mm, up to 2kg, normal speed, n
 * **World**: 11€
 
 If you want it priority, insured or with a tracking code add 1€ each.
-With a more than sad heart i present to you the insane prices for shipping a 12" parcel (up to 2kg/3LPs, or 4LPs without bubblerwap, incl. "free" tracking code:
+With a more than sad heart i present to you the insane prices for shipping a 12" parcel (up to 2kg/3LPs, or 4LPs without bubblewrap, incl. "free" tracking code:
 
 * **Austria**: 5€
 * **Europe**: 11€ (without tracking or insurance - otherwise Zone 1)
