@@ -4,6 +4,7 @@ description: "Mailorder"
 menu:
   nav:
     weight: 100
+rss_ignore: true
 ---
 Check out my [Discogs Sales List](https://www.discogs.com/seller/KureKureTakora) and contact me at [christoph@drylungs.at](mailto:christoph@drylungs.at) if you are interested in something (or directly via discogs).
 

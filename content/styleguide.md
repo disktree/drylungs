@@ -1,6 +1,7 @@
 ---
 title: Styleguide
 type: styleguide
+rss_ignore: true
 ---
 Styleguide
 ==========
