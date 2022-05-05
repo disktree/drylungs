@@ -5,7 +5,7 @@ defaultContentLanguage = "en"
 theme_color = "#000000"
 
 [params]
-	theme = "wb"
+	theme = "polivoks"
 	description = "Dry Lungs Records &amp; Mailorder"
 	images = ["drylungs-cover.png"]
     customCSS = []
