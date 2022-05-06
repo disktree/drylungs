@@ -20,8 +20,14 @@
 			}
 			applyTheme(theme,true);
 		}
+        let _selectDefaultTheme = e => {
+            _handleThemeSelect(document.getElementById('theme_polivoks.svg').children[0]);
+        }
 	</script>
 	{{ range .Resources.ByType "image" }}
-	<span class="theme" onclick="javascript:_handleThemeSelect(children[0])" title="{{.Name}}">{{ .Content | safeHTML }}</span>
+    <span class="theme" id="theme_{{ .Name  }}" onclick="javascript:_handleThemeSelect(children[0])" title="{{.Name}}">{{ .Content | safeHTML }}</span>
 	{{ end }}
+    <div>
+        <span style="cursor:pointer;" onclick="_selectDefaultTheme()">[DEFAULT]</span>
+    </div>
 {{ end }}
