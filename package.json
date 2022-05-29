@@ -7,7 +7,7 @@
     "clean": "rm -f static/*.css* && rm -rf public",
     "test:css": "lessc --lint style/index.less",
     "test": "npm run test:css",
-    "build:hugo": "hugo --minify",
+    "build:hugo": "hugo",
     "build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
 	"build": "npm run build:css && npm run build:hugo",
 	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css --options '--source-map'",
