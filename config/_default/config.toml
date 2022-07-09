@@ -20,5 +20,9 @@ theme_color = "#000000"
     instagram = { user = "drylungsrecords", uri = "https://www.instagram.com/drylungsrecords" }
     twitter = { user = "DryLungsRecords", uri = "https://twitter.com/DryLungsRecords" }
 
+[author]
+    email="tong@disktree.net"
+    web = "https://disktree.net"
+
 [taxonomies]
     artist = "artists"
