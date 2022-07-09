@@ -11,7 +11,8 @@
     "build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
 	"build": "npm run build:css && npm run build:hugo",
 	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css --options '--source-map'",
-	"dev:hugo": "hugo server -D"
+	"dev:hugo": "hugo server -D",
+	"start": "npm run dev:hugo"
   },
   "repository": {
     "type": "git",
