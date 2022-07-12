@@ -16,9 +16,9 @@
 
 <title>{{block "title" .}}{{.Site.Title}}{{end}}{{with .Page.Title}}/{{.}}{{end}}</title>
 
-<meta name="twitter:title" content="Dry Lungs Records"/>
-{{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+<meta name="twitter:title" content="Dry Lungs Records"/>
 
 {{ partial $theme_path . }}
 
