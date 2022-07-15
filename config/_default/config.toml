@@ -3,6 +3,7 @@ title = "Dry Lungs"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 theme_color = "#000000"
+disableHugoGeneratorInject = true
 
 [params]
 	theme = "polivoks"
