@@ -6,7 +6,7 @@ const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigat
 let menu, nav, main;
 
 function toggleNav() {
-    if (isMobileDevice) {
+	if (isMobileDevice) {
         menu.classList.toggle('is-active');
         nav.classList.toggle('show');
         main.classList.toggle('blur')
@@ -14,6 +14,7 @@ function toggleNav() {
         location.href = "/";
     }
 }
+
 
 window.addEventListener('load', _ => {
 
@@ -26,23 +27,28 @@ window.addEventListener('load', _ => {
     main = document.body.querySelector('main');
     menu = header.querySelector('.menu');
 
-    menu.onclick = _ => {
-        toggleNav();
-    };
-    title.onclick = _ => {
-        toggleNav();
-    };
-    page.onclick = _ => {
-        toggleNav();
-    };
-    main.onclick = _ => {
-        if (main.classList.contains('blur')) {
-            toggleNav();
-        }
-    };
-    window.addEventListener('keydown', e => {
-        if (e.code === 'Escape') {
-            toggleNav();
-        }
-    }, false);
+	if (isMobileDevice) {
+		menu.onclick = _ => {
+			toggleNav();
+		};
+		title.onclick = _ => {
+			//toggleNav();
+			//location.href = "/";
+		};
+		page.onclick = _ => {
+			toggleNav();
+		};
+		main.onclick = _ => {
+			if (main.classList.contains('blur')) {
+				toggleNav();
+			}
+		};
+		window.addEventListener('keydown', e => {
+			if(isMobileDevice) {
+				if (e.code === 'Escape') {
+					toggleNav();
+				}
+			}
+		}, false);
+	}
 }, false);
