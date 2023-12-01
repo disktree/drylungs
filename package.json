@@ -1,28 +1,29 @@
 {
-  "name": "drylungs",
-  "version": "2.0.0",
-  "description": "AUSTRiAN DiY RECORD LABEL",
-  "private": true,
-  "scripts": {
-    "clean": "rm -f static/*.css* && rm -rf public",
-    "test:css": "lessc --lint style/index.less",
-    "test": "npm run test:css",
-    "build:hugo": "hugo",
-    "build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
-	"build": "npm run build:css && npm run build:hugo",
-	"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css --options '--source-map'",
-	"dev:hugo": "hugo server -D",
-	"start": "npm run dev:hugo"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/disktree/drylungs"
-  },
-  "author": "tong@disktree.net",
-  "license": "ISC",
-  "devDependencies": {
-    "less": "^4.1.2",
-    "less-plugin-autoprefix": "^2.0.0",
-    "less-plugin-clean-css": "^1.5.1"
-  }
+	"name": "drylungs",
+	"version": "2.0.0",
+	"description": "AUSTRiAN DiY RECORD LABEL",
+	"private": true,
+	"scripts": {
+		"clean": "rm -f static/*.css* && rm -rf public",
+		"test:css": "lessc --lint style/index.less",
+		"test": "npm run test:css",
+		"build:hugo": "hugo",
+		"build:css": "lessc style/index.less static/style.css --source-map --clean-css='--s1 --advanced'",
+		"build": "npm run build:css && npm run build:hugo",
+		"dev:less": "hl $DEV/tool/lessc-live/lessc-live.hl -main style/index.less -css static/css/style.css --options '--source-map'",
+		"dev:hugo": "hugo server -D",
+		"start": "npm run dev:hugo"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/disktree/drylungs"
+	},
+	"author": "tong@disktree.net",
+	"license": "ISC",
+	"devDependencies": {
+		"hugo-bin": "^0.116.4",
+		"less": "^4.1.2",
+		"less-plugin-autoprefix": "^2.0.0",
+		"less-plugin-clean-css": "^1.5.1"
+	}
 }
