@@ -1,96 +1,97 @@
 {{ define "main" }}
 <style>
-    main>canvas {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
+	main>canvas {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
 </style>
 <canvas></canvas>
 <article class="content">{{- .Content -}}</article>
 <script type="module" async>
-    'use strict'
+	'use strict'
 
-    import {AmbientLight, DirectionalLight, FogExp2, PerspectiveCamera, Scene, WebGLRenderer} from '/js/three.module.js';
-    import {GLTFLoader} from '/js/GLTFLoader.js';
+	import {AmbientLight, DirectionalLight, FogExp2, PerspectiveCamera, Scene, WebGLRenderer} from '/js/three.module.js';
+	import {GLTFLoader} from '/js/GLTFLoader.js';
 
-    let camera, controls, scene, renderer, lungs;
+	let camera, controls, scene, renderer, lungs;
 
-    window.addEventListener('load', e => {
+	window.addEventListener('load', e => {
 
-        let canvas = document.querySelector('canvas');
+		let canvas = document.querySelector('canvas');
 
-        const style = window.getComputedStyle(document.querySelector(':root'));
-        const color1 = style.getPropertyValue('--background');
-        const color2 = style.getPropertyValue('--f_med');
-        const color3 = style.getPropertyValue('--f_high');
+		const style = window.getComputedStyle(document.querySelector(':root'));
+		const color1 = style.getPropertyValue('--background');
+		const color2 = style.getPropertyValue('--f_med');
+		const color3 = style.getPropertyValue('--f_high');
 
-        scene = new Scene();
-        scene.fog = new FogExp2(color1, 0.1);
+		scene = new Scene();
+		scene.fog = new FogExp2(color1, 0.1);
 
-        renderer = new WebGLRenderer({antialias: !isMobileDevice, canvas: canvas, alpha: true});
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer = new WebGLRenderer({antialias: !isMobileDevice, canvas: canvas, alpha: true});
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
 
-        camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 100);
-        camera.position.set(0, 15, 0);
-        camera.lookAt(scene.position);
+		camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 100);
+		camera.position.set(0, 15, 0);
+		camera.lookAt(scene.position);
 
-        const ambientLight = new AmbientLight(color1, 0.5);
-        scene.add(ambientLight);
+		const ambientLight = new AmbientLight(color1, 0.5);
+		scene.add(ambientLight);
 
-        const dirLight1 = new DirectionalLight(color2, 2);
-        dirLight1.position.set(1, 1, 1);
-        scene.add(dirLight1);
+		const dirLight1 = new DirectionalLight(color2, 2);
+		dirLight1.position.set(1, 1, 1);
+		scene.add(dirLight1);
 
-        const dirLight2 = new DirectionalLight(color3, 2);
-        dirLight2.position.set(- 1, - 1, - 1);
-        scene.add(dirLight2);
+		const dirLight2 = new DirectionalLight(color3, 2);
+		dirLight2.position.set(- 1, - 1, - 1);
+		scene.add(dirLight2);
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		}
 
-        function update() {
-            window.requestAnimationFrame(update);
-            lungs.rotation.x += 0.0005;
-            lungs.rotation.y -= 0.0007;
-            lungs.rotation.z += 0.0009;
-            renderer.render(scene, camera);
-        }
+		function update() {
+			window.requestAnimationFrame(update);
+			lungs.rotation.x += 0.0005;
+			lungs.rotation.y -= 0.0007;
+			lungs.rotation.z += 0.0009;
+			renderer.render(scene, camera);
+		}
 
-        const loader = new GLTFLoader();
-        loader.load('/mesh/lung_smoke.glb', gltf => {
-            lungs = gltf.scene.children[0];
-            lungs.updateMatrixWorld(true);
-            lungs.rotation.x += Math.random() * 1;
-            lungs.rotation.y += Math.random() * 1;
-            lungs.rotation.z += Math.random() * 1;
-            scene.add(lungs);
-            /*
-            var lungs2 = lungs.clone();
-            const scale2 = 0.06;
-            lungs2.scale.x = scale2;
-            lungs2.scale.y = scale2;
-            lungs2.scale.z = scale2;
-            lungs2.updateMatrixWorld( true );
-            scene.add( lungs2 ); 
-            */
-            window.requestAnimationFrame(update);
-        });
+		const loader = new GLTFLoader();
+		loader.load('/mesh/lung_smoke.glb', gltf => {
+			lungs = gltf.scene.children[0];
+			lungs.updateMatrixWorld(true);
+			lungs.rotation.x += Math.random() * 1;
+			lungs.rotation.y += Math.random() * 1;
+			lungs.rotation.z += Math.random() * 1;
+			scene.add(lungs);
+			/*
+			var lungs2 = lungs.clone();
+			const scale2 = 0.06;
+			lungs2.scale.x = scale2;
+			lungs2.scale.y = scale2;
+			lungs2.scale.z = scale2;
+			lungs2.updateMatrixWorld( true );
+			scene.add( lungs2 ); 
+			*/
+			window.requestAnimationFrame(update);
+		});
 
-        window.addEventListener('resize', onWindowResize, false);
-
-        window.addEventListener('keydown', e => {
-            window.location.href = '/records';
-        }, false);
-        canvas.addEventListener('click', e => {
-            window.location.href = '/records';
-        }, false);
-    }, false);
+		window.addEventListener('resize', onWindowResize, false);
+		/*
+		window.addEventListener('keydown', e => {
+			//window.location.href = '/records';
+		}, false);
+		*/
+		canvas.addEventListener('click', e => {
+			window.location.href = '/records';
+		}, false);
+	}, false);
 </script>
 {{ end }}
