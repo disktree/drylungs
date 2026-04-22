@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Setup npm
         run: npm install
       - name: Test
@@ -17,7 +17,7 @@ jobs:
         run: |
           npm run build
       - name: Store
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: drylungs
           path: public
